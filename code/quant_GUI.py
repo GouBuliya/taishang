@@ -532,6 +532,11 @@ class QuantAssistant(QWidget):
     def gemini_advice_action(self):
         self.log("正在准备向Gemini请求建议...")
         all_info = self.collect_all_info_as_json()
+        # 新增：将挂单类型（operation.type）自动转为小写
+        if 'operation' in all_info and isinstance(all_info['operation'], dict):
+            op = all_info['operation']
+            if 'type' in op and isinstance(op['type'], str):
+                op['type'] = op['type'].lower()
         import json
         self.log(f"收集到的信息: {json.dumps(all_info, indent=2, ensure_ascii=False)}")
         screenshot_path = all_info.get("clipboard_image_path") if all_info.get("clipboard_image_path") else None
