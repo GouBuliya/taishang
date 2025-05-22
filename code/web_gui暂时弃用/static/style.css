@@ -1,0 +1,160 @@
+/* Base styles - Body background and text color match the image's general theme */
+body {
+  background: #f7f8fa !important;
+  color: #23262F !important;
+  font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+/*
+  Main container: Styled as a large content block.
+  The image's main content area is a plain white background.
+  This .container style is for a prominent, card-like wrapper, adjusted for a softer look.
+*/
+.container {
+  background: #ffffff; /* White background */
+  border-radius: 16px; /* Moderately rounded corners */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07); /* Softer, more subtle shadow */
+  padding: 24px 32px; /* Generous padding */
+  margin-bottom: 20px; /* Space below container */
+}
+
+/* Card styles - Aligned with the image's card appearance */
+.card {
+  background: #ffffff !important; /* White card background */
+  border-radius: 12px !important; /* Rounded corners, consistent with image */
+  border: 1px solid #e0e0e0 !important; /* Light grey border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07) !important; /* Subtle shadow for depth */
+  transition: box-shadow 0.2s ease-in-out; /* Smooth transition for hover */
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important; /* Slightly more pronounced shadow on hover */
+}
+
+.card-header {
+  background: transparent !important; /* No background color for header */
+  color: #333740 !important; /* Dark grey text for header, matching general text */
+  font-weight: 600; /* Bold header text */
+  border-bottom: 1px solid #e9ecef !important; /* Lighter bottom border for header */
+  letter-spacing: 0.5px; /* Slight letter spacing for clarity */
+  padding: 0.85rem 1.25rem; /* Adjusted padding */
+}
+
+/* Form elements - Styled to match the clean input fields in the image */
+.form-control, .form-select {
+  background: #fff !important; /* White background for inputs */
+  color: #23262F !important; /* Dark text */
+  border: 1px solid #ced4da !important; /* Standard light grey border */
+  border-radius: 8px !important; /* Rounded corners for inputs */
+  box-shadow: none !important; /* No initial shadow */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #007bff !important; /* Blue border on focus (primary accent) */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important; /* Blue glow on focus */
+}
+
+.form-control::placeholder {
+  color: #B5B7BC !important; /* Placeholder text color from original */
+  opacity: 1;
+}
+
+.form-select option {
+  color: #23262F; /* Option text color */
+}
+
+/* Buttons - General styling and primary button (changed from green to blue) */
+.btn { /* Base button style */
+  border-radius: 8px !important; /* Rounded corners for buttons */
+  font-weight: 600; /* Bold text */
+  letter-spacing: 0.5px; /* Slight letter spacing */
+  padding: 0.6rem 1.2rem; /* Button padding */
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Very subtle shadow for a slight lift */
+}
+
+/* Primary button style (was .btn-success, now using primary blue) */
+.btn-success, .btn-primary { /* Apply to .btn-primary as well if you use that class */
+  background: #007bff !important; /* Solid blue background */
+  color: #fff !important; /* White text */
+  border: 1px solid #007bff !important; /* Blue border */
+}
+
+.btn-success:hover, .btn-primary:hover {
+  background: #0056b3 !important; /* Darker blue on hover */
+  border-color: #0056b3 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Slightly more shadow on hover */
+}
+
+/* Outline button style (was .btn-outline-success, now using primary blue) */
+.btn-outline-success, .btn-outline-primary {
+  background: transparent !important; /* Transparent background */
+  color: #007bff !important; /* Blue text */
+  border: 1px solid #007bff !important; /* Blue border */
+}
+
+.btn-outline-success:hover, .btn-outline-primary:hover {
+  background: #007bff !important; /* Blue background on hover */
+  color: #fff !important; /* White text on hover */
+  border-color: #007bff !important;
+}
+
+/* Preformatted text / Code blocks */
+pre, #json-output, #gemini-advice-output {
+  background: #f8f9fa !important; /* Light grey background, common for code */
+  color: #23262F !important; /* Dark text */
+  border-radius: 8px !important; /* Rounded corners */
+  border: 1px solid #e0e0e0 !important; /* Light grey border */
+  font-family: 'Consolas', 'Menlo', 'Monaco', 'Courier New', monospace; /* Monospace font */
+  padding: 1rem; /* Padding inside */
+  box-shadow: none !important; /* Flatter look, remove original heavy shadow */
+}
+
+/* Footer styling - To match the dark footer in the image */
+footer {
+  background-color: #23262F !important; /* Dark background, like the image's sidebar */
+  color: #adb5bd !important; /* Light grey text for footer */
+  padding: 25px 15px; /* Padding */
+  text-align: center; /* Center content */
+}
+
+footer a { /* Styling for links in the footer */
+  color: #ced4da;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* General styling for images, rounded elements, and borders from original CSS */
+/* The image shows avatars with full rounding and logos with partial rounding.
+   This rule gives a noticeable curve. For circular avatars, use a specific class like .rounded-circle or .avatar. */
+img, .img-fluid, .rounded, .border {
+  border-radius: 16px !important; /* Kept original strong rounding */
+  box-shadow: 1px 1px 10px rgba(224, 224, 224, 0.2); /* Subtle light shadow from original (e0e0e033) */
+}
+/* Note: If .border is used on non-image elements, 16px might be too much.
+   Consider specific classes for different rounding needs. */
+
+
+/*
+  Global font size override from original CSS.
+  This makes many elements appear larger. This is kept as it was a specific instruction in your original CSS.
+  The image also features clear, readable, and relatively large text.
+*/
+.card-header, .card-body, .form-label, .form-check-label, .btn, pre, #json-output, #gemini-advice-output {
+  font-size: 1.15rem !important;
+}
+
+/* Specific output styling - Kept if #gemini-advice-output needs to be green */
+/* If #gemini-advice-output should be standard preformatted text, it's covered by the 'pre' styles.
+   If it specifically needs to be green as in your original CSS: */
+/*
+#gemini-advice-output {
+  color: #00B15D !important;
+  background: #f3f6fa !important;
+}
+*/
