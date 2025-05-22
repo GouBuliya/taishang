@@ -9,12 +9,32 @@ from PyQt6.QtWidgets import (
     QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,
     QLineEdit, QTextEdit, QCheckBox, QHBoxLayout, QSizePolicy, QFrame,
 )
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QGuiApplication, QPixmap, QIcon
 
 
 from position_info_widget import PositionInfoWidget
 
+
+class ScriptRunnerThread(QThread):
+    result_signal = pyqtSignal(str, str, int)  # stdout, stderr, returncode
+    def __init__(self, main_path):
+        super().__init__()
+        self.main_path = main_path
+    def run(self):
+        import sys
+        import subprocess
+        try:
+            process = subprocess.Popen(
+                [sys.executable, self.main_path],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+                creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0,
+                encoding='utf-8'
+            )
+            stdout, stderr = process.communicate(timeout=60)
+            self.result_signal.emit(stdout or '', stderr or '', process.returncode)
+        except Exception as e:
+            self.result_signal.emit('', str(e), -1)
 
 class QuantAssistant(QWidget):
     def __init__(self):
@@ -286,68 +306,49 @@ class QuantAssistant(QWidget):
     def run_main_scripts(self):
         self.log("开始运行主脚本 (指标收集和宏观因子)...")
         self.last_script_stdout = None
-        current_stdout = None
-        total_fake_steps = 5
+        self._progress_timer = QTimer(self)
+        self._progress_timer.timeout.connect(self._on_progress_timer)
+        self._progress_value = 0
+        self._progress_max = 80  # 脚本执行期间最多推进到80%
+        self._progress_timer.start(180)  # 每180ms推进一次
+        self._show_fake_progress_bar(self._progress_value, 100, "(初始化...)")
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        main_path = os.path.join(BASE_DIR, "main.py")
+        if not os.path.exists(main_path):
+            self.log(f"错误: 脚本 'main.py' 未在路径 '{main_path}' 找到。")
+            self._progress_timer.stop()
+            self._show_fake_progress_bar(100, 100, "(脚本未找到 - 失败!)")
+            return
+        self.script_thread = ScriptRunnerThread(main_path)
+        self.script_thread.result_signal.connect(self._on_script_finished)
+        self.script_thread.start()
 
-        try:
-            self._show_fake_progress_bar(0, total_fake_steps, "(初始化...)")
-            time.sleep(0.15)
+    def _on_progress_timer(self):
+        if self._progress_value < self._progress_max:
+            self._progress_value += 2
+            if self._progress_value > self._progress_max:
+                self._progress_value = self._progress_max
+            self._show_fake_progress_bar(self._progress_value, 100, "(执行中...)")
+        else:
+            self._progress_timer.stop()
 
-            BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-            main_path = os.path.join(BASE_DIR, "main.py")
-
-            if not os.path.exists(main_path):
-                self.log(f"错误: 脚本 'main.py' 未在路径 '{main_path}' 找到。")
-                self._show_fake_progress_bar(total_fake_steps, total_fake_steps, "(脚本未找到 - 失败!)")
-                return
-
-            self._show_fake_progress_bar(1, total_fake_steps, "(准备启动脚本...)")
-            time.sleep(0.15)
-
-            process = subprocess.Popen(
-                [sys.executable, main_path],
-                stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
-                creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0,
-                encoding='utf-8'
-            )
-            
-            self._show_fake_progress_bar(2, total_fake_steps, "(脚本已启动，等待执行完成...)")
-            stdout, stderr = process.communicate(timeout=60)
-
-            self._show_fake_progress_bar(3, total_fake_steps, "(脚本执行完毕，处理结果...)")
-            time.sleep(0.15)
-
-            if stdout:
-                current_stdout = stdout.strip()
-                self.last_script_stdout = current_stdout
-            
-            self.show_script_output(current_stdout if current_stdout is not None else "")
-
-            if stderr:
-                self.log(f"脚本错误输出 (stderr):\n{stderr.strip()}")
-            
-            self._show_fake_progress_bar(4, total_fake_steps, "(检查执行状态...)")
-            time.sleep(0.15)
-
-            if process.returncode == 0:
-                self.log("脚本执行成功。")
-                self._show_fake_progress_bar(total_fake_steps, total_fake_steps, "(成功完成)")
-            else:
-                self.log(f"脚本执行失败，返回码: {process.returncode}")
-                self._show_fake_progress_bar(total_fake_steps, total_fake_steps, "(执行失败)")
-
-        except FileNotFoundError:
-            self.log(f"错误: 无法找到Python解释器或脚本。")
-            self._show_fake_progress_bar(total_fake_steps, total_fake_steps, "(文件未找到 - 失败!)")
-        except subprocess.TimeoutExpired:
-            self.log("脚本执行超时。")
-            if 'process' in locals() and process: process.kill()
-            self.show_script_output(None)
-            self._show_fake_progress_bar(total_fake_steps, total_fake_steps, "(超时 - 失败!)")
-        except Exception as e:
-            self.log(f"运行脚本时发生异常: {e}")
-            self.show_script_output(None)
-            self._show_fake_progress_bar(total_fake_steps, total_fake_steps, "(发生异常 - 失败!)")
+    def _on_script_finished(self, stdout, stderr, returncode):
+        self._progress_timer.stop()
+        self._progress_value = 80
+        self._show_fake_progress_bar(self._progress_value, 100, "(脚本执行完毕，处理结果...)")
+        if stdout:
+            self.last_script_stdout = stdout.strip()
+            self.show_script_output(self.last_script_stdout)
+        else:
+            self.show_script_output("")
+        if stderr:
+            self.log(f"脚本错误输出 (stderr):\n{stderr.strip()}")
+        self._progress_value = 100
+        self._show_fake_progress_bar(self._progress_value, 100, "(成功完成)" if returncode == 0 else "(执行失败)")
+        if returncode == 0:
+            self.log("脚本执行成功。")
+        else:
+            self.log(f"脚本执行失败，返回码: {returncode}")
 
     def copy_script_output_to_clipboard(self):
         output_to_copy = self.last_script_stdout

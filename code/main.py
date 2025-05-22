@@ -5,6 +5,7 @@ import os
 import json
 from datetime import datetime, timezone
 import re
+import sys
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -23,7 +24,7 @@ def run_script(name):
     path = os.path.join(BASE_DIR, name)
     try:
         result = subprocess.run(
-            ['python', path],
+            [sys.executable, path],
             capture_output=True,
             text=True
         )
