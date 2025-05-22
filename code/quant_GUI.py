@@ -127,7 +127,7 @@ class QuantAssistant(QWidget):
         from PyQt6.QtCore import QSettings
         self.settings = QSettings("GeminiQuant", "GeminiQuantApp")
         self.api_key_input = QLineEdit()
-        self.api_key_input.setPlaceholderText("输入Gemini API Key（自动保存）")
+        self.api_key_input.setPlaceholderText("输入Gemini API Key（已废用）")
         self.api_key_input.setEchoMode(QLineEdit.EchoMode.Password)
         saved_key = self.settings.value("gemini_api_key", "")
         self.api_key_input.setText(saved_key)
@@ -295,7 +295,9 @@ class QuantAssistant(QWidget):
 
     def log(self, message):
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.log_output.append(f"[{now}] {message}")
+        log_line = f"[{now}] {message}"
+        self.log_output.append(log_line)
+        print(log_line)
         QApplication.processEvents()
 
     def show_script_output(self, output):
