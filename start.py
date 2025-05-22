@@ -8,13 +8,24 @@ import os
 import sys
 import subprocess
 import argparse
+import platform
 
 # 每次运行前自动设置环境变量（仅当前进程和子进程有效）
 os.environ['GEMINI_API_KEY'] = "AIzaSyBcXoWRghWP1I83qVCDfOddZ7P-lpJg4zk"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-VENV_PYTHON = os.path.join(BASE_DIR, '.venv', 'bin', 'python3')
-GUI_PATH = os.path.join(BASE_DIR, 'code', 'quant_GUI.py')
+if platform.system() == "Windows":
+    VENV_PYTHON = os.path.join(BASE_DIR, '.venv', 'Scripts', 'python.exe')
+    GUI_PATH = os.path.join(BASE_DIR, 'code', 'quant_GUI.py')
+    ADD_DATA_SEP = ';'
+elif platform.system() == "Darwin":  # macOS
+    VENV_PYTHON = os.path.join(BASE_DIR, '.venv', 'bin', 'python3')
+    GUI_PATH = os.path.join(BASE_DIR, 'code', 'quant_GUI.py')
+    ADD_DATA_SEP = ':'
+else:
+    VENV_PYTHON = os.path.join(BASE_DIR, '.venv', 'bin', 'python3')
+    GUI_PATH = os.path.join(BASE_DIR, 'code', 'quant_GUI.py')
+    ADD_DATA_SEP = ':'
 
 parser = argparse.ArgumentParser(description='Gemini 金融智能体启动器')
 parser.add_argument('--test-gemini', type=str, help='直接调用 Gemini API，参数为JSON字符串')
