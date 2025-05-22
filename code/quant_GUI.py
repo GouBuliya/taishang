@@ -36,6 +36,27 @@ class ScriptRunnerThread(QThread):
         except Exception as e:
             self.result_signal.emit('', str(e), -1)
 
+class GeminiAPICallThread(QThread):
+    result_signal = pyqtSignal(str, str)  # reply, error
+    def __init__(self, packaged, screenshot_path, api_key, model_name=None):
+        super().__init__()
+        self.packaged = packaged
+        self.screenshot_path = screenshot_path
+        self.api_key = api_key
+        self.model_name = model_name
+    def run(self):
+        try:
+            import sys
+            import importlib
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            sys.path.insert(0, base_dir)
+            gemini_api_caller = importlib.import_module("gemini_api_caller")
+            call_gemini_api = gemini_api_caller.call_gemini_api
+            reply = call_gemini_api(self.packaged, screenshot_path=self.screenshot_path, api_key=self.api_key, model_name=self.model_name)
+            self.result_signal.emit(reply, "")
+        except Exception as e:
+            self.result_signal.emit("", str(e))
+
 class QuantAssistant(QWidget):
     def __init__(self):
         super().__init__()
@@ -50,6 +71,7 @@ class QuantAssistant(QWidget):
         self.last_script_stdout = None
 
         self.empty_pos_checkbox = QCheckBox("空仓（无持仓）")
+        self.empty_pos_checkbox.setChecked(True)
         self.empty_pos_checkbox.stateChanged.connect(self.toggle_position_inputs)
         
         self.position_info_widget = PositionInfoWidget()
@@ -72,9 +94,9 @@ class QuantAssistant(QWidget):
         self.run_button.clicked.connect(self.run_main_scripts)
         self.copy_output_button = QPushButton("2. 复制脚本输出到剪切板")
         self.copy_output_button.clicked.connect(self.copy_script_output_to_clipboard)
-        self.upload_button = QPushButton("3. 从剪切板获取截图")
+        self.upload_button = QPushButton("从剪切板获取截图")
         self.upload_button.clicked.connect(self.upload_screenshot_from_clipboard)
-        self.gemini_advice_button = QPushButton("4. 让Gemini给出操作建议")
+        self.gemini_advice_button = QPushButton("让Gemini给出操作建议")
         self.gemini_advice_button.clicked.connect(self.gemini_advice_action)
         
         self.log_output = QTextEdit()
@@ -102,10 +124,6 @@ class QuantAssistant(QWidget):
         btn_card = QFrame()
         btn_card.setObjectName("Card") 
         btn_card_layout = QVBoxLayout(btn_card)
-        btn_row1_layout = QHBoxLayout()
-        btn_row1_layout.addWidget(self.run_button)
-        btn_row1_layout.addWidget(self.copy_output_button)
-        btn_card_layout.addLayout(btn_row1_layout)
         btn_row2_layout = QHBoxLayout()
         btn_row2_layout.addWidget(self.upload_button)
         btn_row2_layout.addWidget(self.gemini_advice_button)
@@ -457,32 +475,100 @@ class QuantAssistant(QWidget):
             except Exception as e: self.log(f"关闭时清理临时截图失败: {e}")
         super().closeEvent(event)
 
+    def format_gemini_json_reply(self, reply_text):
+        import json
+        try:
+            data = json.loads(reply_text)
+        except Exception:
+            return reply_text  # 非JSON直接返回
+        lines = []
+        # 主要字段映射
+        mapping = {
+            'short_term_reason': '短线分析',
+            'mid_term_reason': '中线分析',
+            'long_term_reason': '长线分析',
+            'vp_analysis': '成交量分布',
+            'volume_analysis': '量能分析',
+            'price_action': '价格行为',
+            'summary': '总结',
+            'entry_condition': '入场条件',
+            'stop_loss': '止损',
+            'take_profit': '止盈目标',
+            'risk_management': '风控建议',
+            'position_action': '持仓调整',
+            'MARKET': '市场状态',
+            'symbol': '交易对',
+            'timeframe': '周期',
+        }
+        for k, label in mapping.items():
+            v = data.get(k, None)
+            if v is not None:
+                if isinstance(v, list):
+                    v = ', '.join(str(i) for i in v)
+                lines.append(f"{label}：{v}")
+        # operation子字段
+        op = data.get('operation', {})
+        if isinstance(op, dict):
+            op_map = {
+                'type': '操作类型',
+                'price': '挂单价格',
+                'stop_loss': '止损',
+                'take_profit': '止盈目标',
+                'size': '仓位大小',
+                'expected_winrate': '预计胜率',
+                'expected_return': '期望收益',
+                'confidence': 'AI置信度',
+                'signal_strength': '信号强度',
+                'comment': '补充说明',
+            }
+            for k, label in op_map.items():
+                v = op.get(k, None)
+                if v is not None:
+                    if isinstance(v, list):
+                        v = ', '.join(str(i) for i in v)
+                    lines.append(f"{label}：{v}")
+        return '\n'.join(lines) if lines else reply_text
+
     def gemini_advice_action(self):
         self.log("正在准备向Gemini请求建议...")
         all_info = self.collect_all_info_as_json()
         import json
         self.log(f"收集到的信息: {json.dumps(all_info, indent=2, ensure_ascii=False)}")
-        try:
-            import sys
-            import importlib
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            sys.path.insert(0, base_dir)
-            gemini_api_caller = importlib.import_module("gemini_api_caller")
-            call_gemini_api = gemini_api_caller.call_gemini_api
-            screenshot_path = all_info.get("clipboard_image_path") if all_info.get("clipboard_image_path") else None
-            if hasattr(self, 'package_position_and_main_output'):
-                packaged = self.package_position_and_main_output()
-            else:
-                packaged = all_info
-            api_key = self.get_api_key() if hasattr(self, 'get_api_key') else None
-            self.log(f"[DEBUG] 当前API Key: {api_key}")
-            self.log("正在调用Gemini API...")
-            reply = call_gemini_api(packaged, screenshot_path=screenshot_path, api_key=api_key)
-            self.gemini_reply_box.setPlainText(reply)
+        screenshot_path = all_info.get("clipboard_image_path") if all_info.get("clipboard_image_path") else None
+        if hasattr(self, 'package_position_and_main_output'):
+            packaged = self.package_position_and_main_output()
+        else:
+            packaged = all_info
+        api_key = self.get_api_key() if hasattr(self, 'get_api_key') else None
+        self.log(f"[DEBUG] 当前API Key: {api_key}")
+        self.log("正在调用Gemini API...")
+        self.gemini_reply_box.setPlainText("Gemini正在推理中，请稍候...")
+        self.gemini_thread = GeminiAPICallThread(packaged, screenshot_path, api_key)
+        self.gemini_thread.result_signal.connect(self.on_gemini_reply)
+        self.gemini_thread.start()
+
+    def on_gemini_reply(self, reply, error):
+        if error:
+            self.gemini_reply_box.setPlainText(f"Gemini 操作建议功能出错: {error}")
+            self.log(f"[Gemini] 操作建议功能出错: {error}")
+        else:
+            try:
+                import importlib.util
+                import os
+                import json
+                base_dir = os.path.dirname(os.path.abspath(__file__))
+                md_path = os.path.join(base_dir, "gemini_json_to_markdown.py")
+                spec = importlib.util.spec_from_file_location("gemini_json_to_markdown", md_path)
+                md_mod = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(md_mod)
+                # 保证 reply 一定是 str
+                if not isinstance(reply, str):
+                    reply = json.dumps(reply, ensure_ascii=False, indent=2)
+                markdown = md_mod.gemini_json_to_markdown(reply)
+                self.gemini_reply_box.setMarkdown(markdown)
+            except Exception as e:
+                self.gemini_reply_box.setPlainText(f"[格式化/渲染Markdown失败] 原始回复如下:\n{reply}\n错误: {e}")
             self.log("Gemini回复已显示。")
-        except Exception as e:
-            self.gemini_reply_box.setPlainText(f"Gemini 操作建议功能出错: {e}\n收集到的信息已打印到日志。")
-            self.log(f"[Gemini] 操作建议功能出错: {e}")
 
     def save_api_key(self, key):
         self.settings.setValue("gemini_api_key", key)
