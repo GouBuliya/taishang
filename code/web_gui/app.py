@@ -51,14 +51,15 @@ def gemini_advice():
         with open(data_path, 'r', encoding='utf-8') as f:
             packaged_data_from_file = json.load(f)
     except json.JSONDecodeError:
-        app.logger.error("解析 data.json 失败。");
+        app.logger.error("解析 data.json 失败。")
         return jsonify({'type': 'error', 'message': '解析采集的数据 (data.json) 失败。'}), 500
     except Exception as e:
         app.logger.error(f"读取 data.json 时出错: {e}")
         return jsonify({'type': 'error', 'message': f'读取采集数据时发生错误: {str(e)}'}), 500
     try:
         app.logger.info("开始 Gemini API 同步推理。")
-        result = gemini_api_caller.call_gemini_api(packaged_data_from_file)
+        screenshot_path = packaged_data_from_file.get("clipboard_image_path", "")
+        result = gemini_api_caller.call_gemini_api(packaged_data_from_file, screenshot_path=screenshot_path)
         return jsonify({'type': 'success', 'message': result})
     except Exception as e:
         app.logger.error(f"Gemini API 推理失败: {e}")
