@@ -52,3 +52,42 @@
 参数: {'temperature': 0.0, 'top_p': 0.95}
 [2025-05-24 12:56:43] INFO [gemini_api_caller] Gemini API 已返回结果
 [2025-05-24 12:56:43] INFO 127.0.0.1 - - [24/May/2025 12:56:43] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-24 13:06:23] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-24 13:06:23] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:06:23] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-24 13:06:23] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:06:23] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-24 13:06:23] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:06:26] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
+[2025-05-24 13:06:26] INFO [gemini_api_caller] 实际使用的 api_key: 已设置
+[2025-05-24 13:06:26] INFO [gemini_api_caller] system_instruction 长度: 15568
+[2025-05-24 13:06:26] WARNING [gemini_api_caller] 未加载图片，screenshot_path=None
+[2025-05-24 13:06:26] INFO [gemini_api_caller] contents 类型: [<class 'str'>]
+[2025-05-24 13:06:26] WARNING [gemini_api_caller] 模型 'models/gemini-2.5-flash-preview-05-20' (Flash 系列) 不支持惩罚参数，已跳过 frequency_penalty 和 presence_penalty。
+[2025-05-24 13:06:26] INFO [gemini_api_caller] 即将调用 Gemini API ...
+参数: {'temperature': 0.0, 'top_p': 0.95}
+[2025-05-24 13:08:26] INFO [gemini_api_caller] Gemini API 已返回结果
+[2025-05-24 13:08:26] INFO 127.0.0.1 - - [24/May/2025 13:08:26] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-24 13:11:59] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-24 13:11:59] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:11:59] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-24 13:11:59] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:11:59] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-24 13:11:59] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:12:02] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
+[2025-05-24 13:12:02] INFO [gemini_api_caller] 实际使用的 api_key: 已设置
+[2025-05-24 13:12:02] INFO [gemini_api_caller] system_instruction 长度: 15568
+[2025-05-24 13:12:02] WARNING [gemini_api_caller] 未加载图片，screenshot_path=None
+[2025-05-24 13:12:02] INFO [gemini_api_caller] contents 类型: [<class 'str'>]
+[2025-05-24 13:12:02] WARNING [gemini_api_caller] 模型 'models/gemini-2.5-flash-preview-05-20' (Flash 系列) 不支持惩罚参数，已跳过 frequency_penalty 和 presence_penalty。
+[2025-05-24 13:12:02] INFO [gemini_api_caller] 即将调用 Gemini API ...
+参数: {'temperature': 0.0, 'top_p': 0.95}
+[2025-05-24 13:22:02] ERROR [gemini_api_caller] Gemini API 调用异常: 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
+[2025-05-24 13:22:02] INFO 127.0.0.1 - - [24/May/2025 13:22:02] "[35m[1mPOST /api/gemini_advice HTTP/1.1[0m" 500 -
+[2025-05-24 13:26:43] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-24 13:30:06] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-24 13:30:06] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:30:06] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-24 13:30:06] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-24 13:30:06] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-24 13:30:06] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'

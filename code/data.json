@@ -1,16 +1,16 @@
 {
-  "clipboard_image_path": "/tmp/tradingview_screenshots/tradingview_clipboard_20250524_125338.png",
+  "clipboard_image_path": "/tmp/tradingview_screenshots/tradingview_clipboard_20250524_133005.png",
   "indicators": {
     "15m": null,
     "1h": null,
     "4h": null
   },
   "factors": {
-    "timestamp": "2025-05-24T04:53:39Z",
+    "timestamp": "2025-05-24T05:30:06Z",
     "factors": {
       "funding_rate": "0.01%",
       "fear_greed_index": 66,
-      "open_interest": 5610338.110000004
+      "open_interest": 5633579.970000005
     }
   },
   "data": {
@@ -20,22 +20,22 @@
       {
         "instType": "SWAP",
         "instId": "ETH-USDT-SWAP",
-        "last": "2559.53",
-        "lastSz": "21.81",
-        "askPx": "2559.54",
-        "askSz": "799.72",
-        "bidPx": "2559.53",
-        "bidSz": "1079.94",
-        "open24h": "2700.45",
-        "high24h": "2706",
+        "last": "2551.15",
+        "lastSz": "0.77",
+        "askPx": "2551.15",
+        "askSz": "1369.79",
+        "bidPx": "2551.14",
+        "bidSz": "1747.78",
+        "open24h": "2687.64",
+        "high24h": "2696.61",
         "low24h": "2496.5",
-        "volCcy24h": "5879496.965",
-        "vol24h": "58794969.65",
-        "ts": "1748062420712",
+        "volCcy24h": "5808309.754",
+        "vol24h": "58083097.54",
+        "ts": "1748064608907",
         "sodUtc0": "2525.62",
         "sodUtc8": "2567.18"
       }
     ]
   },
-  "timestamp": "2025-05-24T04:53:41+00:00Z"
+  "timestamp": "2025-05-24T05:30:09+00:00Z"
 }

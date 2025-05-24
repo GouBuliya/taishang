@@ -319,6 +319,19 @@ def call_gemini_api_stream(
     except Exception as e:
         raise RuntimeError(f"Gemini API 流式调用失败: {e}")
 
+def get_configured_model(model_name_str, system_instruction_text=None):
+    api_key = os.getenv('GEMINI_API_KEY')
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY 环境变量未找到或未设置。")
+    try:
+        genai.configure(api_key=api_key)
+    except Exception as e:
+        raise RuntimeError(f"配置 Gemini API 失败: {e}")
+    return genai.GenerativeModel(
+        model_name_str,
+        system_instruction=system_instruction_text
+    )
+
 # -------------------- 模块导出 --------------------
 __all__ = ["call_gemini_api", "call_gemini_api_stream", "is_effective_content"] # 定义模块对外暴露的名称
 

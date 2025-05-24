@@ -16,25 +16,76 @@
   <div class="container py-4">
     <h2>Gemini 金融智能体 Web</h2>
     <div class="mb-3">
-      <button id="ask-btn" class="btn btn-primary">获取 Gemini 建议</button>
+      <button id="getAdviceBtn" class="btn btn-primary">获取 Gemini 建议</button>
     </div>
-    <div id="output" class="mb-3"></div>
+    <div id="adviceOutput">
+      <p id="gemini_status_message" style="font-style: italic;"></p>
+      <div id="gemini_content_area"></div>
+    </div>
     <div id="log" class="text-warning small"></div>
   </div>
   <script>
-    document.getElementById('ask-btn').onclick = function() {
-      document.getElementById('log').textContent = '正在请求...';
-      fetch('/api/gemini_advice', {method: 'POST'})
-        .then(r => r.json())
-        .then(res => {
-          document.getElementById('output').innerHTML = marked.parse(res.msg || '');
-          MathJax.typesetPromise();
-          document.getElementById('log').textContent = '';
-        })
-        .catch(e => {
-          document.getElementById('log').textContent = '请求失败: ' + e;
-        });
-    };
+    document.getElementById('getAdviceBtn').addEventListener('click', async () => {
+      const statusP = document.getElementById('gemini_status_message');
+      const contentDiv = document.getElementById('gemini_content_area');
+      statusP.textContent = '正在请求建议...请稍候。';
+      statusP.style.color = 'inherit';
+      contentDiv.innerHTML = '';
+      try {
+        const response = await fetch('/api/gemini_advice', { method: 'POST' });
+        if (!response.ok || !response.body) {
+          let errorMsg = `错误: ${response.status} ${response.statusText}`;
+          try {
+            const errorJson = await response.json();
+            errorMsg = `错误: ${errorJson.message || '无法启动建议流。'}`;
+          } catch (e) {}
+          statusP.textContent = errorMsg;
+          statusP.style.color = 'red';
+          return;
+        }
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        let currentContent = '';
+        statusP.textContent = '连接成功，等待数据...';
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            if (statusP.textContent.includes('接收响应')) {
+              statusP.textContent = '状态: completed - 数据流已结束。';
+            }
+            break;
+          }
+          buffer += decoder.decode(value, { stream: true });
+          let eomIndex;
+          while ((eomIndex = buffer.indexOf('\n\n')) >= 0) {
+            const messageLine = buffer.substring(0, eomIndex);
+            buffer = buffer.substring(eomIndex + 2);
+            if (messageLine.startsWith('data:')) {
+              const jsonDataString = messageLine.substring(5).trim();
+              try {
+                const eventData = JSON.parse(jsonDataString);
+                if (eventData.type === 'status') {
+                  statusP.textContent = `状态: ${eventData.stage} - ${eventData.message}`;
+                } else if (eventData.type === 'content') {
+                  currentContent += eventData.text;
+                  contentDiv.innerText = currentContent;
+                } else if (eventData.type === 'error') {
+                  statusP.textContent = `错误: ${eventData.message}`;
+                  statusP.style.color = 'red';
+                  return;
+                }
+              } catch (e) {
+                console.error("解析流中的 JSON 时出错:", e, jsonDataString);
+              }
+            }
+          }
+        }
+      } catch (error) {
+        statusP.textContent = `连接错误或获取建议失败: ${error.message}`;
+        statusP.style.color = 'red';
+      }
+    });
   </script>
 </body>
 </html>
