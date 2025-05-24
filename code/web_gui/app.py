@@ -63,11 +63,14 @@ def gemini_advice():
         except Exception as e:
             app.logger.error(f"Gemini 流生成过程中发生错误: {e}")
             error_payload = {"type": "error", "message": f"流生成错误: {str(e)}"}
+            # SSE 协议要求每条消息以 data: 开头，结尾两个换行
             yield f"data: {json.dumps(error_payload)}\n\n"
+            # 终止生成器，防止后续继续 yield
+            return
     return Response(generate_gemini_stream(), mimetype='text/event-stream')
 
 if __name__ == '__main__':
     if not os.getenv('GEMINI_API_KEY'):
         print("警告：GEMINI_API_KEY 环境变量未设置。API 调用可能会失败。\n请在启动应用前设置该环境变量，例如：export GEMINI_API_KEY=\"YOUR_API_KEY\"")
     # 启动主服务
-    app.run(host='0.0.0.0', port=1080, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
