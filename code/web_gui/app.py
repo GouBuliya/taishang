@@ -5,6 +5,7 @@ import os
 import json
 import logging
 import sys
+# os.environ['GEMINI_API_KEY'] = "AIzaSyBcXoWRghWP1I83qVCDfOddZ7P-lpJg4zk"
 os.environ['GEMINI_API_KEY'] = "AIzaSyAP8WsfGTPJ2TOB8Hlnqcby6VZzlUXMQpg"
 
 app = Flask(__name__, static_folder='static')
@@ -50,24 +51,18 @@ def gemini_advice():
         with open(data_path, 'r', encoding='utf-8') as f:
             packaged_data_from_file = json.load(f)
     except json.JSONDecodeError:
-        app.logger.error("解析 data.json 失败。")
+        app.logger.error("解析 data.json 失败。");
         return jsonify({'type': 'error', 'message': '解析采集的数据 (data.json) 失败。'}), 500
     except Exception as e:
         app.logger.error(f"读取 data.json 时出错: {e}")
         return jsonify({'type': 'error', 'message': f'读取采集数据时发生错误: {str(e)}'}), 500
-    def generate_gemini_stream():
-        try:
-            app.logger.info("开始 Gemini API 数据流。")
-            for chunk in gemini_api_caller.call_gemini_api_stream(packaged_data_from_file):
-                yield chunk
-        except Exception as e:
-            app.logger.error(f"Gemini 流生成过程中发生错误: {e}")
-            error_payload = {"type": "error", "message": f"流生成错误: {str(e)}"}
-            # SSE 协议要求每条消息以 data: 开头，结尾两个换行
-            yield f"data: {json.dumps(error_payload)}\n\n"
-            # 终止生成器，防止后续继续 yield
-            return
-    return Response(generate_gemini_stream(), mimetype='text/event-stream')
+    try:
+        app.logger.info("开始 Gemini API 同步推理。")
+        result = gemini_api_caller.call_gemini_api(packaged_data_from_file)
+        return jsonify({'type': 'success', 'message': result})
+    except Exception as e:
+        app.logger.error(f"Gemini API 推理失败: {e}")
+        return jsonify({'type': 'error', 'message': f'Gemini API 推理失败: {str(e)}'}), 500
 
 if __name__ == '__main__':
     if not os.getenv('GEMINI_API_KEY'):
