@@ -12,6 +12,12 @@ app = Flask(__name__, static_folder='static')
 if not app.debug:
     logging.basicConfig(level=logging.INFO)
 
+# 设置全局 HTTP/HTTPS 代理（如有需要）
+proxy_url = os.getenv('HTTP_PROXY', 'http://127.0.0.1:1080')
+https_proxy_url = os.getenv('HTTPS_PROXY', proxy_url)
+os.environ['HTTP_PROXY'] = proxy_url
+os.environ['HTTPS_PROXY'] = https_proxy_url
+
 base_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.join(base_dir, '..')
 sys.path.insert(0, parent_dir)
