@@ -63,4 +63,5 @@ def gemini_advice():
 if __name__ == '__main__':
     if not os.getenv('GEMINI_API_KEY'):
         print("警告：GEMINI_API_KEY 环境变量未设置。API 调用可能会失败。\n请在启动应用前设置该环境变量，例如：export GEMINI_API_KEY=\"YOUR_API_KEY\"")
+    # 启动主服务
     app.run(host='0.0.0.0', port=1080, debug=True)
