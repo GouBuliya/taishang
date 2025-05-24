@@ -1,0 +1,41 @@
+{
+  "clipboard_image_path": "/tmp/tradingview_screenshots/tradingview_clipboard_20250524_125338.png",
+  "indicators": {
+    "15m": null,
+    "1h": null,
+    "4h": null
+  },
+  "factors": {
+    "timestamp": "2025-05-24T04:53:39Z",
+    "factors": {
+      "funding_rate": "0.01%",
+      "fear_greed_index": 66,
+      "open_interest": 5610338.110000004
+    }
+  },
+  "data": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2559.53",
+        "lastSz": "21.81",
+        "askPx": "2559.54",
+        "askSz": "799.72",
+        "bidPx": "2559.53",
+        "bidSz": "1079.94",
+        "open24h": "2700.45",
+        "high24h": "2706",
+        "low24h": "2496.5",
+        "volCcy24h": "5879496.965",
+        "vol24h": "58794969.65",
+        "ts": "1748062420712",
+        "sodUtc0": "2525.62",
+        "sodUtc8": "2567.18"
+      }
+    ]
+  },
+  "timestamp": "2025-05-24T04:53:41+00:00Z"
+}

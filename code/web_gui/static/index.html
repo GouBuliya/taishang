@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini 金融智能体 Web</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    #output { min-height: 300px; background: #222; color: #eee; padding: 1em; border-radius: 8px; }
+    #log { min-height: 2em; }
+  </style>
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-4">
+    <h2>Gemini 金融智能体 Web</h2>
+    <div class="mb-3">
+      <button id="ask-btn" class="btn btn-primary">获取 Gemini 建议</button>
+    </div>
+    <div id="output" class="mb-3"></div>
+    <div id="log" class="text-warning small"></div>
+  </div>
+  <script>
+    document.getElementById('ask-btn').onclick = function() {
+      document.getElementById('log').textContent = '正在请求...';
+      fetch('/api/gemini_advice', {method: 'POST'})
+        .then(r => r.json())
+        .then(res => {
+          document.getElementById('output').innerHTML = marked.parse(res.msg || '');
+          MathJax.typesetPromise();
+          document.getElementById('log').textContent = '';
+        })
+        .catch(e => {
+          document.getElementById('log').textContent = '请求失败: ' + e;
+        });
+    };
+  </script>
+</body>
+</html>

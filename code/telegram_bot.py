@@ -4,8 +4,16 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, fil
 import re
 import json
 from collections.abc import Mapping
+import time
+import threading
+import os
+import importlib
+import sys
 
 TELEGRAM_BOT_TOKEN = '8046148449:AAF8TnmmoUDxQqTBtaq_MUOftL422mCJsAY'
+REPLY_FILE = os.path.join(os.path.dirname(__file__), '../gemini_reply.txt')  # Gemini回复输出文件
+os.environ['GEMINI_API_KEY'] = "AIzaSyAP8WsfGTPJ2TOB8Hlnqcby6VZzlUXMQpg"
+REGISTERED_CHAT_IDS = set()
 
 # --- MarkdownV2 特殊字符转义 ---
 def escape_md_v2(text: str) -> str:
@@ -38,187 +46,83 @@ def translate_key(key: str) -> str:
     }
     return mapping.get(key, key)
 
-# --- 将字典转换为 Markdown 格式 ---
-def format_dict_to_md(data: Mapping, level: int = 0) -> str:
-    md_string = ""
-    indent = '  ' * level 
+async def handle_register(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.effective_chat.id
+    REGISTERED_CHAT_IDS.add(chat_id)
+    await update.message.reply_text(f"已注册，您可以使用 /ask_gemini 主动获取Gemini推理结果。chat_id={chat_id}")
 
-    if not isinstance(data, Mapping):
-        return f"{indent}• {escape_md_v2(str(data))}\n"
+async def send_gemini_reply_to_all(application: Application, text: str):
+    # 获取所有活跃对话（可扩展为持久化用户列表）
+    # 这里只做简单演示：推送到指定chat_id（可改为配置或动态注册）
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    if not chat_id:
+        print("[Bot] 未设置TELEGRAM_CHAT_ID，无法推送Gemini回复。")
+        return
+    try:
+        await application.bot.send_message(chat_id=int(chat_id), text=text[:4096])
+    except Exception as e:
+        print(f"[Bot] 推送Gemini回复失败: {e}")
 
-    for key, value in data.items():
-        translated = translate_key(str(key))
-        escaped_key = escape_md_v2(translated)
-
-        # 保留2位小数（直接截断，不四舍五入）
-        def truncate_float(val):
-            if isinstance(val, float):
-                s = str(val)
-                if '.' in s:
-                    int_part, dec_part = s.split('.', 1)
-                    return int_part + '.' + dec_part[:2]
-                else:
-                    return s
-            return val
-
-        # 资金费率特殊处理为百分号，保留6位小数（直接截断）
-        if key == 'funding_rate':
-            try:
-                val2 = float(value) * 100
-                s = str(val2)
-                if '.' in s:
-                    int_part, dec_part = s.split('.', 1)
-                    val2_str = int_part + '.' + dec_part[:6]
-                else:
-                    val2_str = s
-                escaped_value = escape_md_v2(val2_str) + '%'
-            except Exception:
-                escaped_value = escape_md_v2(str(value))
-            md_string += f"{indent}• *{escaped_key}*：{escaped_value}\n"
-            continue
-
-        # 超买超卖标注逻辑
-        overbought_oversold = ''
-        if key.upper() == 'RSI':
-            try:
-                v = float(value)
-                if v >= 70:
-                    overbought_oversold = '（超买⚠️）'
-                elif v <= 30:
-                    overbought_oversold = '（超卖⚠️）'
-            except Exception:
-                pass
-        if key.upper() == 'STOCH_K' or key.upper() == 'STOCH.D' or key.upper() == 'STOCHRSI_K' or key.upper() == 'STOCHRSI_D':
-            try:
-                v = float(value)
-                if v >= 80:
-                    overbought_oversold = '（超买⚠️）'
-                elif v <= 20:
-                    overbought_oversold = '（超卖⚠️）'
-            except Exception:
-                pass
-
-        if isinstance(value, Mapping):
-            md_string += f"{indent}• *{escaped_key}*：\n"
-            md_string += format_dict_to_md(value, level + 1)
-        elif isinstance(value, list):
-            md_string += f"{indent}• *{escaped_key}*：\n"
-            for i, item in enumerate(value):
-                if isinstance(item, Mapping):
-                    md_string += f"{indent}  • `项 {i+1}`：\n"
-                    md_string += format_dict_to_md(item, level + 2)
-                else:
-                    md_string += f"{indent}  • {escape_md_v2(str(truncate_float(item)))}\n"
-        else:
-            val2 = truncate_float(value)
-            escaped_value = escape_md_v2(str(val2))
-            md_string += f"{indent}• *{escaped_key}*：{escaped_value}{overbought_oversold}\n"
-    return md_string
+async def ask_gemini(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.effective_chat.id
+    if chat_id not in REGISTERED_CHAT_IDS:
+        REGISTERED_CHAT_IDS.add(chat_id)
+    await update.message.reply_text("正在采集数据并调用Gemini，请稍候...")
+    try:
+        # 1. 运行 main.py 采集数据
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        main_path = os.path.join(base_dir, "main.py")
+        result = subprocess.run(["python3", main_path], capture_output=True, text=True, timeout=120)
+        if result.returncode != 0:
+            await update.message.reply_text(f"数据采集失败: {result.stderr}")
+            return
+        # 2. 读取 data.json
+        data_path = os.path.join(base_dir, "data.json")
+        if not os.path.exists(data_path):
+            await update.message.reply_text("未找到 data.json，数据采集失败。")
+            return
+        with open(data_path, "r", encoding="utf-8") as f:
+            packaged = json.load(f)
+        screenshot_path = packaged.get("clipboard_image_path")
+        # 3. 调用 Gemini API
+        sys.path.insert(0, base_dir)
+        gemini_api_caller = importlib.import_module("gemini_api_caller")
+        call_gemini_api = gemini_api_caller.call_gemini_api
+        reply = call_gemini_api(packaged, screenshot_path=screenshot_path)
+        if not isinstance(reply, str):
+            reply = json.dumps(reply, ensure_ascii=False, indent=2)
+        # 4. 推送结果
+        # 分块推送，防止超长
+        max_len = 4000
+        for i in range(0, len(reply), max_len):
+            await update.message.reply_text(reply[i:i+max_len])
+    except Exception as e:
+        await update.message.reply_text(f"Gemini推理失败: {e}")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = update.message.text.strip()
+    # 仅用于注册chat_id
     chat_id = update.effective_chat.id
-
-    if text.lower() == '获取data':
-        await context.bot.send_message(chat_id=chat_id, text="正在采集数据，请稍候...")
-        try:
-            result = subprocess.run(
-                ['python', 'main.py'],
-                capture_output=True,
-                text=True,
-                cwd=r'd:\基于gemini多模态识别k线的金融智能体\gemini_quant_v1_1\code',
-                check=False,
-                encoding='utf-8'
-            )
-        except FileNotFoundError:
-            await update.message.reply_text("错误：无法找到 `main.py` 脚本或 Python 解释器。请检查路径配置。")
-            return
-        except Exception as e:
-            await update.message.reply_text(f"执行脚本时发生意外错误：{escape_md_v2(str(e))}", parse_mode='MarkdownV2')
-            return
-
-        reply_stdout = result.stdout.strip() if result.stdout else ''
-        reply_stderr = result.stderr.strip() if result.stderr else ''
-        
-        messages_to_send = []
-
-        if not reply_stdout and not reply_stderr:
-            messages_to_send.append("采集脚本无任何输出。")
-        elif not reply_stdout and reply_stderr:
-             messages_to_send.append("采集脚本无标准输出，但有错误信息：")
-
-        if reply_stdout:
-            try:
-                parsed_data = json.loads(reply_stdout)
-                if isinstance(parsed_data, Mapping):
-                    if 'indicators' in parsed_data and isinstance(parsed_data['indicators'], Mapping):
-                        indicator_data = parsed_data['indicators']
-                        for period, p_data in indicator_data.items():
-                            period_title = translate_key(period)
-                            # Removed the "------------------------------------" line
-                            md_block = f"📊 *{escape_md_v2(period_title)} 技术指标*\n\n" 
-                            md_block += format_dict_to_md(p_data)
-                            messages_to_send.append(md_block)
-                    
-                    if 'factors' in parsed_data and isinstance(parsed_data['factors'], Mapping):
-                        factor_data = parsed_data['factors']
-                        # Removed the "------------------------------------" line
-                        md_block = f"🌍 *宏观经济因子*\n\n"
-                        md_block += format_dict_to_md(factor_data)
-                        messages_to_send.append(md_block)
-                    
-                    other_data_to_format = {k: v for k, v in parsed_data.items() if k not in ['indicators', 'factors']}
-                    if other_data_to_format:
-                        # Removed the "------------------------------------" line
-                        md_block = f"📋 *其他数据*\n\n"
-                        md_block += format_dict_to_md(other_data_to_format)
-                        messages_to_send.append(md_block)
-                else:
-                    messages_to_send.append(f"原始输出 (非标准JSON结构):\n```text\n{escape_md_v2(reply_stdout)}\n```") # Use text for non-json
-
-            except json.JSONDecodeError:
-                messages_to_send.append(f"原始输出 (JSON解析失败):\n```text\n{escape_md_v2(reply_stdout)}\n```") # Use text for non-json
-        
-        if reply_stderr:
-            messages_to_send.append(f"⚠️ *脚本错误输出 (stderr)*:\n```\n{escape_md_v2(reply_stderr)}\n```")
-
-        if not messages_to_send:
-            await update.message.reply_text("未能处理采集到的数据或无有效数据展示。")
-            return
-
-        for i, block_content in enumerate(messages_to_send):
-            if not block_content.strip():
-                continue
-            try:
-                # Ensure there are no leading/trailing newlines that might affect parsing of the first/last line
-                block_to_send = block_content.strip()
-                if len(block_to_send) > 4000: # Telegram's limit is 4096
-                    await update.message.reply_text(f"警告：第 {i+1} 部分内容过长，将分段发送。", parse_mode='MarkdownV2')
-                    parts = [block_to_send[j:j+4000] for j in range(0, len(block_to_send), 4000)]
-                    for part_idx, part_content in enumerate(parts):
-                        await update.message.reply_text(part_content, parse_mode='MarkdownV2')
-                elif block_to_send: # Ensure block is not empty after stripping
-                    await update.message.reply_text(block_to_send, parse_mode='MarkdownV2')
-            except Exception as e:
-                error_msg = f"发送第 {i+1} 部分消息时出错: {escape_md_v2(str(e))}\n内容片段:\n```\n{escape_md_v2(block_content[:200])}...\n```"
-                await update.message.reply_text(error_msg, parse_mode='MarkdownV2')
-                print(f"Error sending message part {i+1}: {e}\nContent: {block_content[:500]}")
-
-    else:
-        await update.message.reply_text("你好！发送 `获取data` 指令，我可以帮你运行脚本并展示最新的宏观因子和技术指标数据。")
+    await update.message.reply_text(f"已注册，后续每次Gemini推理完成后会自动推送到本对话。chat_id={chat_id}")
+    # 保存chat_id到环境变量（可扩展为持久化存储）
+    os.environ['TELEGRAM_CHAT_ID'] = str(chat_id)
 
 async def post_init_actions(application: Application):
     bot_info = await application.bot.get_me()
     print(f"Telegram Bot (ID: {bot_info.id}, Username: @{bot_info.username}) 已成功连接并初始化。")
-    print("在 Telegram 中向机器人发送 '获取data' 即可获取 main.py 输出。")
+    print("请在Telegram中随便发一句话以注册chat_id，之后每次Gemini推理完成后会自动推送到本对话。")
 
+# --- Telegram Bot 主程序 ---
 if __name__ == '__main__':
     print("正在启动 Telegram Bot...")
     try:
         app_builder = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN)
         app_builder.post_init(post_init_actions)
         app = app_builder.build()
-        app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
+        app.add_handler(CommandHandler("start", handle_register))
+        app.add_handler(CommandHandler("register", handle_register))
+        app.add_handler(CommandHandler("ask_gemini", ask_gemini))
+        app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_register))
+        print("Bot已启动。请发送 /register 或 /ask_gemini 体验主动推理。")
         app.run_polling(allowed_updates=Update.ALL_TYPES)
         print("Telegram Bot 已停止。")
     except Exception as e:
