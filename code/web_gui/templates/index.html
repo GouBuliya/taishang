@@ -181,13 +181,24 @@
 <body>
     <div class="container">
         <h1 class="main-title">Gemini 金融智能体</h1>
-        <button id="collectAndGeminiBtn" class="btn btn-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill me-2" viewBox="0 0 16 16">
-                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-            </svg>
-            一键采集并推理
-        </button>
-        <p id="gemini_status_message">准备就绪，请点击按钮开始分析...</p>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <button id="collectAndGeminiBtn" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill me-2" viewBox="0 0 16 16">
+                        <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                    </svg>
+                    一键采集并推理
+                </button>
+                <p id="gemini_status_message" class="mt-2">准备就绪，请点击按钮开始分析...</p>
+            </div>
+            <div class="col-md-6">
+                <div id="screenshot-preview" class="d-none">
+                    <h5 class="text-light mb-2">最新截图预览：</h5>
+                    <img id="preview-image" class="img-fluid rounded" alt="Trading View 截图" style="max-height: 300px; width: auto;">
+                    <p id="screenshot-time" class="text-muted mt-1"></p>
+                </div>
+            </div>
+        </div>
         <div id="response-container">
             <div id="gemini_content_area"></div>
         </div>
@@ -196,6 +207,9 @@
     const statusP = document.getElementById('gemini_status_message');
     const contentDiv = document.getElementById('gemini_content_area');
     const btn = document.getElementById('collectAndGeminiBtn');
+    const screenshotPreview = document.getElementById('screenshot-preview');
+    const previewImage = document.getElementById('preview-image');
+    const screenshotTime = document.getElementById('screenshot-time');
     btn.addEventListener('click', async () => {
         statusP.textContent = '正在采集数据并推理，请稍候...';
         statusP.style.color = 'inherit';
@@ -207,6 +221,19 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({})
             });
+            
+            // 检查data.json中的screenshot_path并更新预览
+            const dataResponse = await fetch('/data.json');
+            if (dataResponse.ok) {
+                const data = await dataResponse.json();
+                if (data.clipboard_image_path) {
+                    const imgTime = new Date().toLocaleString('zh-CN');
+                    previewImage.src = `/screenshots/${data.clipboard_image_path.split('/').pop()}`;
+                    screenshotTime.textContent = `截图时间：${imgTime}`;
+                    screenshotPreview.classList.remove('d-none');
+                }
+            }
+            
             if (!response.ok || !response.body) {
                 let errorMsg = `错误: ${response.status} ${response.statusText}`;
                 try {

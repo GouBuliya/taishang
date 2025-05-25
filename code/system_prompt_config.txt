@@ -279,8 +279,7 @@ $$
 
 ---
 
-    $$
-    \boxed{
+    $$\boxed{
     \begin{aligned}
     &\underbrace{z}_{\text{对数几率}}
     \;=\; w_0 \;+\; \sum_{i=1}^{n} w_i X_i, \\[6pt]
@@ -291,8 +290,7 @@ $$
     \;=\; p \times \underbrace{\biggl(\frac{\mathrm{TP}-\mathrm{Entry}}{\mathrm{Entry}}\biggr)}_{R_{gain}}\;-
     (1-p)\times \underbrace{\biggl(\frac{\mathrm{Entry}-\mathrm{SL}}{\mathrm{Entry}}\biggr)}_{R_{loss}}.
     \end{aligned}
-    }
-    $$ 
+    }$$ 
 
 ---
 

@@ -475,3 +475,188 @@ TypeError: Models.generate_content_stream() got an unexpected keyword argument '
 [2025-05-25 16:47:31] INFO AFC is enabled with max remote calls: 10.
 [2025-05-25 16:47:31] INFO AFC remote call 1 is done.
 [2025-05-25 16:48:02] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 16:52:45] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:52:45] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:52:45] INFO  * Restarting with stat
+[2025-05-25 16:52:46] WARNING  * Debugger is active!
+[2025-05-25 16:52:46] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:52:50] INFO 127.0.0.1 - - [25/May/2025 16:52:50] "GET / HTTP/1.1" 200 -
+[2025-05-25 16:53:24] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:53:24] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:54:50] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:54:50] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:54:50] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:54:51] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:54:51] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:54:51] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:54:54] INFO 127.0.0.1 - - [25/May/2025 16:54:54] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:54:54] INFO 127.0.0.1 - - [25/May/2025 16:54:54] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 16:54:54] INFO 127.0.0.1 - - [25/May/2025 16:54:54] "GET /screenshots/tradingview_clipboard_20250525_165449.png HTTP/1.1" 200 -
+[2025-05-25 16:54:54] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:54:54] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 16:54:54] INFO AFC remote call 1 is done.
+[2025-05-25 16:55:42] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 16:58:35] INFO 127.0.0.1 - - [25/May/2025 16:58:35] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 16:58:35] INFO 127.0.0.1 - - [25/May/2025 16:58:35] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 16:58:35] INFO 127.0.0.1 - - [25/May/2025 16:58:35] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 16:58:35] INFO 127.0.0.1 - - [25/May/2025 16:58:35] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=oRoTweyK1PY4FziJnFJb HTTP/1.1" 200 -
+[2025-05-25 16:58:36] INFO 127.0.0.1 - - [25/May/2025 16:58:36] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:19] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:00:20] INFO  * Restarting with stat
+[2025-05-25 17:00:21] WARNING  * Debugger is active!
+[2025-05-25 17:00:21] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:00:37] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:00:37] INFO  * Restarting with stat
+[2025-05-25 17:00:38] WARNING  * Debugger is active!
+[2025-05-25 17:00:38] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:00:45] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:00:45] INFO  * Restarting with stat
+[2025-05-25 17:00:46] WARNING  * Debugger is active!
+[2025-05-25 17:00:46] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:00:48] INFO 127.0.0.1 - - [25/May/2025 17:00:48] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:00:48] INFO 127.0.0.1 - - [25/May/2025 17:00:48] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:48] INFO 127.0.0.1 - - [25/May/2025 17:00:48] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:48] INFO 127.0.0.1 - - [25/May/2025 17:00:48] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=ieCyAjyatAIuxRgx0enT HTTP/1.1" 200 -
+[2025-05-25 17:00:48] INFO 127.0.0.1 - - [25/May/2025 17:00:48] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:49] INFO 127.0.0.1 - - [25/May/2025 17:00:49] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:00:49] INFO 127.0.0.1 - - [25/May/2025 17:00:49] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:49] INFO 127.0.0.1 - - [25/May/2025 17:00:49] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:49] INFO 127.0.0.1 - - [25/May/2025 17:00:49] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=ieCyAjyatAIuxRgx0enT HTTP/1.1[0m" 304 -
+[2025-05-25 17:00:50] INFO 127.0.0.1 - - [25/May/2025 17:00:50] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:01:06] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:01:06] INFO  * Restarting with stat
+[2025-05-25 17:01:07] WARNING  * Debugger is active!
+[2025-05-25 17:01:07] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:01:10] INFO 127.0.0.1 - - [25/May/2025 17:01:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:01:10] INFO 127.0.0.1 - - [25/May/2025 17:01:10] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:01:10] INFO 127.0.0.1 - - [25/May/2025 17:01:10] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:01:10] INFO 127.0.0.1 - - [25/May/2025 17:01:10] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=6viRedzNcl94MoFK63qs HTTP/1.1" 200 -
+[2025-05-25 17:01:10] INFO 127.0.0.1 - - [25/May/2025 17:01:10] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:22] INFO 127.0.0.1 - - [25/May/2025 17:02:22] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:02:23] INFO 127.0.0.1 - - [25/May/2025 17:02:23] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:23] INFO 127.0.0.1 - - [25/May/2025 17:02:23] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:23] INFO 127.0.0.1 - - [25/May/2025 17:02:23] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=6viRedzNcl94MoFK63qs HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:23] INFO 127.0.0.1 - - [25/May/2025 17:02:23] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:26] INFO 127.0.0.1 - - [25/May/2025 17:02:26] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:02:26] INFO 127.0.0.1 - - [25/May/2025 17:02:26] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:26] INFO 127.0.0.1 - - [25/May/2025 17:02:26] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:26] INFO 127.0.0.1 - - [25/May/2025 17:02:26] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=6viRedzNcl94MoFK63qs HTTP/1.1[0m" 304 -
+[2025-05-25 17:02:26] INFO 127.0.0.1 - - [25/May/2025 17:02:26] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:07:58] INFO 127.0.0.1 - - [25/May/2025 17:07:58] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:07:58] INFO 127.0.0.1 - - [25/May/2025 17:07:58] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:07:58] INFO 127.0.0.1 - - [25/May/2025 17:07:58] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:07:58] INFO 127.0.0.1 - - [25/May/2025 17:07:58] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=6viRedzNcl94MoFK63qs HTTP/1.1[0m" 304 -
+[2025-05-25 17:07:59] INFO 127.0.0.1 - - [25/May/2025 17:07:59] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:00] INFO 127.0.0.1 - - [25/May/2025 17:08:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:08:00] INFO 127.0.0.1 - - [25/May/2025 17:08:00] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:00] INFO 127.0.0.1 - - [25/May/2025 17:08:00] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:00] INFO 127.0.0.1 - - [25/May/2025 17:08:00] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=6viRedzNcl94MoFK63qs HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:01] INFO 127.0.0.1 - - [25/May/2025 17:08:01] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:16] INFO 127.0.0.1 - - [25/May/2025 17:08:16] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:08:16] INFO 127.0.0.1 - - [25/May/2025 17:08:16] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:16] INFO 127.0.0.1 - - [25/May/2025 17:08:16] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:16] INFO 127.0.0.1 - - [25/May/2025 17:08:16] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=6viRedzNcl94MoFK63qs HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:16] INFO 127.0.0.1 - - [25/May/2025 17:08:16] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:25] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:08:25] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:08:25] INFO  * Restarting with stat
+[2025-05-25 17:08:26] WARNING  * Debugger is active!
+[2025-05-25 17:08:26] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:08:27] INFO 127.0.0.1 - - [25/May/2025 17:08:27] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:08:27] INFO 127.0.0.1 - - [25/May/2025 17:08:27] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:27] INFO 127.0.0.1 - - [25/May/2025 17:08:27] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:28] INFO 127.0.0.1 - - [25/May/2025 17:08:28] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=oEnpgceuC50eC44kAXum HTTP/1.1" 200 -
+[2025-05-25 17:08:28] INFO 127.0.0.1 - - [25/May/2025 17:08:28] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:29] INFO 127.0.0.1 - - [25/May/2025 17:08:29] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:08:29] INFO 127.0.0.1 - - [25/May/2025 17:08:29] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:29] INFO 127.0.0.1 - - [25/May/2025 17:08:29] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:29] INFO 127.0.0.1 - - [25/May/2025 17:08:29] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=oEnpgceuC50eC44kAXum HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:29] INFO 127.0.0.1 - - [25/May/2025 17:08:29] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:08:51] INFO 127.0.0.1 - - [25/May/2025 17:08:51] "GET / HTTP/1.1" 200 -
+[2025-05-25 17:11:53] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:11:53] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:11:53] INFO  * Restarting with stat
+[2025-05-25 17:11:54] WARNING  * Debugger is active!
+[2025-05-25 17:11:54] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:12:01] INFO 127.0.0.1 - - [25/May/2025 17:12:01] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 17:12:01] INFO 127.0.0.1 - - [25/May/2025 17:12:01] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 17:12:01] INFO 127.0.0.1 - - [25/May/2025 17:12:01] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 17:12:01] INFO 127.0.0.1 - - [25/May/2025 17:12:01] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=p0p3lAfVTOVOL3juGhj8 HTTP/1.1" 200 -
+[2025-05-25 17:12:02] INFO 127.0.0.1 - - [25/May/2025 17:12:02] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 17:12:13] INFO 127.0.0.1 - - [25/May/2025 17:12:13] "GET / HTTP/1.1" 200 -
+[2025-05-25 17:18:04] INFO 127.0.0.1 - - [25/May/2025 17:18:04] "GET / HTTP/1.1" 200 -
+[2025-05-25 17:22:49] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:22:49] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:22:49] INFO  * Restarting with stat
+[2025-05-25 17:22:50] WARNING  * Debugger is active!
+[2025-05-25 17:22:50] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:23:00] INFO 127.0.0.1 - - [25/May/2025 17:23:00] "GET / HTTP/1.1" 200 -
+[2025-05-25 17:24:35] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:24:35] INFO  * Restarting with stat
+[2025-05-25 17:24:36] WARNING  * Debugger is active!
+[2025-05-25 17:24:36] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:25:02] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:25:02] INFO  * Restarting with stat
+[2025-05-25 17:25:38] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:25:38] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:25:38] INFO  * Restarting with stat
+[2025-05-25 17:25:39] WARNING  * Debugger is active!
+[2025-05-25 17:25:39] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:27:34] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:27:34] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:27:34] INFO  * Restarting with stat
+[2025-05-25 17:27:35] WARNING  * Debugger is active!
+[2025-05-25 17:27:35] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:28:57] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 17:28:57] INFO  * Restarting with stat
+[2025-05-25 17:28:58] WARNING  * Debugger is active!
+[2025-05-25 17:28:58] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:29:24] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:29:24] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:29:24] INFO  * Restarting with stat
+[2025-05-25 17:29:25] WARNING  * Debugger is active!
+[2025-05-25 17:29:25] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:30:02] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 17:30:02] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 17:30:02] INFO  * Restarting with stat
+[2025-05-25 17:30:03] WARNING  * Debugger is active!
+[2025-05-25 17:30:03] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 17:30:07] INFO 开始 Gemini API 流式推理。
+[2025-05-25 17:30:07] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 17:31:34] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 17:31:34] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 17:31:34] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 17:31:35] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 17:31:35] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 17:31:36] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 17:31:39] INFO 127.0.0.1 - - [25/May/2025 17:31:39] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 17:31:39] INFO 127.0.0.1 - - [25/May/2025 17:31:39] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 17:31:39] INFO 127.0.0.1 - - [25/May/2025 17:31:39] "GET /screenshots/tradingview_clipboard_20250525_173133.png HTTP/1.1" 200 -
+[2025-05-25 17:31:39] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 17:31:39] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 17:31:39] INFO AFC remote call 1 is done.
+[2025-05-25 17:32:18] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"

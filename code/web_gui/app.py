@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, jsonify, request, render_template, Response
+from flask import Flask, jsonify, request, render_template, Response, send_from_directory
 import subprocess
 import os
 import json
@@ -7,6 +7,8 @@ import logging
 import sys
 import traceback
 from werkzeug.exceptions import UnsupportedMediaType # 导入特定的异常类型
+import threading
+from telegram_bot_singleton import start_telegram_bot
 
 # 确保可以导入 gemini_api_caller
 # 根据您的路径结构，可能需要调整 sys.path
@@ -117,9 +119,25 @@ def gemini_advice():
         logger.error(f"API 调用异常: {e}\n{traceback.format_exc()}")
         return jsonify({"error": f"服务器内部错误: {e}"}), 500
 
+# 添加静态文件路由，用于访问截图
+@app.route('/screenshots/<path:filename>')
+def serve_screenshot(filename):
+    return send_from_directory('/tmp/tradingview_screenshots', filename)
+
+# 添加路由用于获取 data.json
+@app.route('/data.json')
+def serve_data_json():
+    try:
+        with open(os.path.join(parent_dir, 'data.json'), 'r', encoding='utf-8') as f:
+            return jsonify(json.load(f))
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
     if not os.getenv('GEMINI_API_KEY'):
         print("警告：GEMINI_API_KEY 环境变量未设置。API 调用可能会失败。\n请在启动应用前设置该环境变量，例如：export GEMINI_API_KEY=\"YOUR_API_KEY\"")
-    
+    # 只在非debug模式下自动启动Bot，开发调试时不自动拉起
+    if not app.debug:
+        start_telegram_bot()
     # 启动主服务
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -84,18 +84,22 @@ async def ask_gemini(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(data_path, "r", encoding="utf-8") as f:
             packaged = json.load(f)
         screenshot_path = packaged.get("clipboard_image_path")
-        # 3. 调用 Gemini API
+        # 3. 调用 Gemini API (流式)
         sys.path.insert(0, base_dir)
         gemini_api_caller = importlib.import_module("gemini_api_caller")
-        call_gemini_api = gemini_api_caller.call_gemini_api
-        reply = call_gemini_api(packaged, screenshot_path=screenshot_path)
-        if not isinstance(reply, str):
-            reply = json.dumps(reply, ensure_ascii=False, indent=2)
-        # 4. 推送结果
-        # 分块推送，防止超长
+        call_gemini_api_stream = gemini_api_caller.call_gemini_api_stream
+        # 流式收集内容
+        buffer = ""
         max_len = 4000
-        for i in range(0, len(reply), max_len):
-            await update.message.reply_text(reply[i:i+max_len])
+        for chunk in call_gemini_api_stream(packaged, screenshot_path=screenshot_path):
+            if chunk:
+                buffer += chunk
+                # 分块推送，防止超长
+                while len(buffer) >= max_len:
+                    await update.message.reply_text(buffer[:max_len])
+                    buffer = buffer[max_len:]
+        if buffer:
+            await update.message.reply_text(buffer)
     except Exception as e:
         await update.message.reply_text(f"Gemini推理失败: {e}")
 
