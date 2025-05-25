@@ -8,7 +8,7 @@ from PIL import Image
 import google.generativeai as genai
 from google.generativeai import types as genai_types
 from datetime import datetime
-from code.system_prompt_config import SYSTEM_INSTRUCTION
+# from code.system_prompt_config import SYSTEM_INSTRUCTION
 
 def load_image(image_path):
     """加载图片为 Gemini API 可用格式"""

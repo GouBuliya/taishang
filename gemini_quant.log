@@ -1,93 +1,477 @@
-[2025-05-24 12:38:43] INFO [start] GUI进程已退出，返回码: 0
-[2025-05-24 12:40:14] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 12:40:14] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:40:14] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 12:40:14] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:40:14] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 12:40:14] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:40:17] WARNING GEMINI_API_KEY 环境变量未设置，后续API调用可能需要手动传入api_key参数。
-[2025-05-24 12:40:17] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
-[2025-05-24 12:40:17] INFO [gemini_api_caller] 实际使用的 api_key: 未设置
-[2025-05-24 12:40:17] INFO [gemini_api_caller] system_instruction 长度: 15506
-[2025-05-24 12:40:17] ERROR [gemini_api_caller] Gemini API Key 未配置。请设置 GEMINI_API_KEY 环境变量或在代码中提供。
-[2025-05-24 12:40:17] INFO 127.0.0.1 - - [24/May/2025 12:40:17] "[35m[1mPOST /api/gemini_advice HTTP/1.1[0m" 500 -
-[2025-05-24 12:40:26] INFO 127.0.0.1 - - [24/May/2025 12:40:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-[2025-05-24 12:48:59] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 12:48:59] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:48:59] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 12:48:59] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:48:59] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 12:48:59] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:49:02] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
-[2025-05-24 12:49:02] INFO [gemini_api_caller] 实际使用的 api_key: 未设置
-[2025-05-24 12:49:02] INFO [gemini_api_caller] system_instruction 长度: 15506
-[2025-05-24 12:49:02] ERROR [gemini_api_caller] Gemini API Key 未配置。请设置 GEMINI_API_KEY 环境变量或在代码中提供。
-[2025-05-24 12:49:02] INFO 127.0.0.1 - - [24/May/2025 12:49:02] "[35m[1mPOST /api/gemini_advice HTTP/1.1[0m" 500 -
-[2025-05-24 12:50:02] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 12:50:02] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:50:02] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 12:50:02] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:50:02] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 12:50:02] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:50:05] WARNING GEMINI_API_KEY 环境变量未设置，后续API调用可能需要手动传入api_key参数。
-[2025-05-24 12:50:05] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
-[2025-05-24 12:50:05] INFO [gemini_api_caller] 实际使用的 api_key: 未设置
-[2025-05-24 12:50:05] INFO [gemini_api_caller] system_instruction 长度: 15506
-[2025-05-24 12:50:05] ERROR [gemini_api_caller] Gemini API Key 未配置。请设置 GEMINI_API_KEY 环境变量或在代码中提供。
-[2025-05-24 12:50:05] INFO 127.0.0.1 - - [24/May/2025 12:50:05] "[35m[1mPOST /api/gemini_advice HTTP/1.1[0m" 500 -
-[2025-05-24 12:52:20] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
-[2025-05-24 12:53:38] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 12:53:38] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:53:38] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 12:53:38] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:53:38] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 12:53:38] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 12:53:41] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
-[2025-05-24 12:53:41] INFO [gemini_api_caller] 实际使用的 api_key: 已设置
-[2025-05-24 12:53:41] INFO [gemini_api_caller] system_instruction 长度: 15506
-[2025-05-24 12:53:41] WARNING [gemini_api_caller] 未加载图片，screenshot_path=None
-[2025-05-24 12:53:41] INFO [gemini_api_caller] contents 类型: [<class 'str'>]
-[2025-05-24 12:53:41] WARNING [gemini_api_caller] 模型 'models/gemini-2.5-flash-preview-05-20' (Flash 系列) 不支持惩罚参数，已跳过 frequency_penalty 和 presence_penalty。
-[2025-05-24 12:53:41] INFO [gemini_api_caller] 即将调用 Gemini API ...
-参数: {'temperature': 0.0, 'top_p': 0.95}
-[2025-05-24 12:56:43] INFO [gemini_api_caller] Gemini API 已返回结果
-[2025-05-24 12:56:43] INFO 127.0.0.1 - - [24/May/2025 12:56:43] "POST /api/gemini_advice HTTP/1.1" 200 -
-[2025-05-24 13:06:23] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 13:06:23] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:06:23] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 13:06:23] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:06:23] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 13:06:23] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:06:26] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
-[2025-05-24 13:06:26] INFO [gemini_api_caller] 实际使用的 api_key: 已设置
-[2025-05-24 13:06:26] INFO [gemini_api_caller] system_instruction 长度: 15568
-[2025-05-24 13:06:26] WARNING [gemini_api_caller] 未加载图片，screenshot_path=None
-[2025-05-24 13:06:26] INFO [gemini_api_caller] contents 类型: [<class 'str'>]
-[2025-05-24 13:06:26] WARNING [gemini_api_caller] 模型 'models/gemini-2.5-flash-preview-05-20' (Flash 系列) 不支持惩罚参数，已跳过 frequency_penalty 和 presence_penalty。
-[2025-05-24 13:06:26] INFO [gemini_api_caller] 即将调用 Gemini API ...
-参数: {'temperature': 0.0, 'top_p': 0.95}
-[2025-05-24 13:08:26] INFO [gemini_api_caller] Gemini API 已返回结果
-[2025-05-24 13:08:26] INFO 127.0.0.1 - - [24/May/2025 13:08:26] "POST /api/gemini_advice HTTP/1.1" 200 -
-[2025-05-24 13:11:59] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 13:11:59] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:11:59] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 13:11:59] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:11:59] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 13:11:59] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:12:02] INFO [gemini_api_caller] 实际使用的 model_name: models/gemini-2.5-flash-preview-05-20
-[2025-05-24 13:12:02] INFO [gemini_api_caller] 实际使用的 api_key: 已设置
-[2025-05-24 13:12:02] INFO [gemini_api_caller] system_instruction 长度: 15568
-[2025-05-24 13:12:02] WARNING [gemini_api_caller] 未加载图片，screenshot_path=None
-[2025-05-24 13:12:02] INFO [gemini_api_caller] contents 类型: [<class 'str'>]
-[2025-05-24 13:12:02] WARNING [gemini_api_caller] 模型 'models/gemini-2.5-flash-preview-05-20' (Flash 系列) 不支持惩罚参数，已跳过 frequency_penalty 和 presence_penalty。
-[2025-05-24 13:12:02] INFO [gemini_api_caller] 即将调用 Gemini API ...
-参数: {'temperature': 0.0, 'top_p': 0.95}
-[2025-05-24 13:22:02] ERROR [gemini_api_caller] Gemini API 调用异常: 500 An internal error has occurred. Please retry or report in https://developers.generativeai.google/guide/troubleshooting
-[2025-05-24 13:22:02] INFO 127.0.0.1 - - [24/May/2025 13:22:02] "[35m[1mPOST /api/gemini_advice HTTP/1.1[0m" 500 -
-[2025-05-24 13:26:43] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
-[2025-05-24 13:30:06] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
-[2025-05-24 13:30:06] ERROR 获取或处理 15m 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:30:06] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
-[2025-05-24 13:30:06] ERROR 获取或处理 1h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
-[2025-05-24 13:30:06] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
-[2025-05-24 13:30:06] ERROR 获取或处理 4h 周期数据失败: 'Market' object has no attribute 'get_candlesticks'
+[2025-05-25 12:24:18] INFO [start] GUI进程已退出，返回码: 0
+[2025-05-25 13:24:15] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 13:24:15] INFO AFC remote call 1 is done.
+[2025-05-25 13:24:23] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 14:20:21] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:20:22] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:20:22] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:20:22] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:20:22] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:20:23] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:22:44] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:22:44] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:22:44] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:22:45] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:22:45] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:22:45] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:23:50] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:23:51] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:23:51] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:23:51] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:23:51] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:23:52] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:29:43] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:29:43] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:29:43] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:29:44] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:29:44] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:29:44] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:33:31] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:33:31] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:33:31] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:33:32] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:33:32] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:33:32] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:40:42] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:40:42] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:40:42] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:40:43] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:40:43] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:40:43] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:44:46] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:44:46] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:44:46] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:44:47] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:44:47] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:44:48] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:46:49] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:46:50] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:46:50] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:46:50] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:46:50] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:46:50] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:50:13] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:50:14] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:50:14] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:50:14] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:50:14] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:50:15] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 14:50:56] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 14:50:56] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 14:50:56] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 14:50:56] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 14:50:56] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 14:50:57] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 15:11:55] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 15:11:55] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 15:11:55] INFO  * Restarting with stat
+[2025-05-25 15:11:55] WARNING  * Debugger is active!
+[2025-05-25 15:11:55] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:12:10] INFO 127.0.0.1 - - [25/May/2025 15:12:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 15:12:10] INFO 127.0.0.1 - - [25/May/2025 15:12:10] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[2025-05-25 15:12:10] INFO 127.0.0.1 - - [25/May/2025 15:12:10] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+[2025-05-25 15:12:11] INFO 127.0.0.1 - - [25/May/2025 15:12:11] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=fjtDqD1h0dIT7lGiCZnx HTTP/1.1" 200 -
+[2025-05-25 15:12:11] INFO 127.0.0.1 - - [25/May/2025 15:12:11] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+[2025-05-25 15:12:12] INFO 127.0.0.1 - - [25/May/2025 15:12:12] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2025-05-25 15:12:12] INFO 127.0.0.1 - - [25/May/2025 15:12:12] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2025-05-25 15:12:12] INFO 127.0.0.1 - - [25/May/2025 15:12:12] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2025-05-25 15:12:12] INFO 127.0.0.1 - - [25/May/2025 15:12:12] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=fjtDqD1h0dIT7lGiCZnx HTTP/1.1[0m" 304 -
+[2025-05-25 15:12:13] INFO 127.0.0.1 - - [25/May/2025 15:12:13] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2025-05-25 15:13:11] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 15:13:11] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 15:13:11] INFO  * Restarting with stat
+[2025-05-25 15:13:12] WARNING  * Debugger is active!
+[2025-05-25 15:13:12] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:13:15] INFO 127.0.0.1 - - [25/May/2025 15:13:15] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:15:30] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 15:15:31] INFO  * Restarting with stat
+[2025-05-25 15:15:31] WARNING  * Debugger is active!
+[2025-05-25 15:15:31] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:16:19] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 15:16:20] INFO  * Restarting with stat
+[2025-05-25 15:16:21] WARNING  * Debugger is active!
+[2025-05-25 15:16:21] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:16:23] INFO 127.0.0.1 - - [25/May/2025 15:16:23] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:16:45] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 15:16:45] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 15:16:45] INFO  * Restarting with stat
+[2025-05-25 15:16:46] WARNING  * Debugger is active!
+[2025-05-25 15:16:46] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:16:46] INFO 127.0.0.1 - - [25/May/2025 15:16:46] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:19:22] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 15:19:22] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 15:19:22] INFO  * Restarting with stat
+[2025-05-25 15:19:23] WARNING  * Debugger is active!
+[2025-05-25 15:19:23] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:19:26] INFO 127.0.0.1 - - [25/May/2025 15:19:26] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:20:00] INFO 开始 Gemini API 流式推理。
+[2025-05-25 15:20:00] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 15:21:29] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 15:21:30] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 15:21:30] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 15:21:30] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 15:21:30] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 15:21:31] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 15:21:35] INFO 127.0.0.1 - - [25/May/2025 15:21:35] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 15:21:35] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 15:21:35] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 15:21:35] INFO AFC remote call 1 is done.
+[2025-05-25 15:22:25] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 15:29:56] INFO 127.0.0.1 - - [25/May/2025 15:29:56] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:32:44] INFO 127.0.0.1 - - [25/May/2025 15:32:44] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:33:02] INFO 开始 Gemini API 流式推理。
+[2025-05-25 15:33:02] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 15:33:22] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 15:33:22] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 15:33:22] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 15:33:23] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 15:33:23] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 15:33:23] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 15:33:27] INFO 127.0.0.1 - - [25/May/2025 15:33:27] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 15:33:27] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 15:33:27] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 15:33:27] INFO AFC remote call 1 is done.
+[2025-05-25 15:34:21] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 15:39:26] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 15:39:26] INFO  * Restarting with stat
+[2025-05-25 15:39:27] WARNING  * Debugger is active!
+[2025-05-25 15:39:27] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:41:56] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 15:41:56] INFO  * Restarting with stat
+[2025-05-25 15:41:57] WARNING  * Debugger is active!
+[2025-05-25 15:41:57] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:43:29] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 15:43:30] INFO  * Restarting with stat
+[2025-05-25 15:43:31] WARNING  * Debugger is active!
+[2025-05-25 15:43:31] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:48:59] INFO 127.0.0.1 - - [25/May/2025 15:48:59] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:49:19] INFO 开始 Gemini API 流式推理。
+[2025-05-25 15:49:19] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 15:49:30] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 15:49:31] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 15:49:31] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 15:49:31] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 15:49:31] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 15:49:32] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 15:49:36] INFO 127.0.0.1 - - [25/May/2025 15:49:36] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 15:49:36] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 15:49:36] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 15:49:36] INFO AFC remote call 1 is done.
+[2025-05-25 15:50:31] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 15:51:35] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 15:51:35] INFO  * Restarting with stat
+[2025-05-25 15:51:36] WARNING  * Debugger is active!
+[2025-05-25 15:51:36] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:53:55] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 15:53:55] INFO  * Restarting with stat
+[2025-05-25 15:53:56] WARNING  * Debugger is active!
+[2025-05-25 15:53:56] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:55:14] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 15:55:14] INFO  * Restarting with stat
+[2025-05-25 15:55:15] WARNING  * Debugger is active!
+[2025-05-25 15:55:15] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:56:19] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 15:56:20] INFO  * Restarting with stat
+[2025-05-25 15:56:20] WARNING  * Debugger is active!
+[2025-05-25 15:56:20] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:56:26] INFO 127.0.0.1 - - [25/May/2025 15:56:26] "GET / HTTP/1.1" 200 -
+[2025-05-25 15:56:46] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 15:56:47] INFO  * Restarting with stat
+[2025-05-25 15:56:48] WARNING  * Debugger is active!
+[2025-05-25 15:56:48] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:56:50] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 15:56:50] INFO  * Restarting with stat
+[2025-05-25 15:58:30] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 15:58:30] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 15:58:30] INFO  * Restarting with stat
+[2025-05-25 15:58:31] WARNING  * Debugger is active!
+[2025-05-25 15:58:31] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 15:58:34] INFO 开始 Gemini API 流式推理。
+[2025-05-25 15:58:34] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 15:58:52] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 15:58:53] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 15:58:53] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 15:58:53] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 15:58:53] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 15:58:54] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 15:58:57] INFO 127.0.0.1 - - [25/May/2025 15:58:57] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 15:58:57] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 15:58:57] ERROR [gemini_api_caller] Gemini API调用异常: 1 validation error for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 148, in call_gemini_api_stream
+    config = genai_types.GenerateContentConfig(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+
+[2025-05-25 16:00:13] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:00:14] INFO  * Restarting with stat
+[2025-05-25 16:00:14] WARNING  * Debugger is active!
+[2025-05-25 16:00:14] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:00:43] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:00:43] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:00:43] INFO  * Restarting with stat
+[2025-05-25 16:00:44] WARNING  * Debugger is active!
+[2025-05-25 16:00:44] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:00:44] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:00:44] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:01:02] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:01:02] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:01:02] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:01:03] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:01:03] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:01:03] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:01:06] INFO 127.0.0.1 - - [25/May/2025 16:01:06] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:01:07] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:01:07] ERROR [gemini_api_caller] Gemini API调用异常: 1 validation error for GenerateContentConfig
+generation_config
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'temperature': 0.0, 'top...x_output_tokens': 24576}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 159, in call_gemini_api_stream
+    config = genai_types.GenerateContentConfig(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateContentConfig
+generation_config
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'temperature': 0.0, 'top...x_output_tokens': 24576}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[2025-05-25 16:01:18] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:01:19] INFO  * Restarting with stat
+[2025-05-25 16:01:20] WARNING  * Debugger is active!
+[2025-05-25 16:01:20] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:01:25] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:01:25] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:01:41] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:01:42] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:01:42] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:01:42] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:01:42] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:01:42] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:01:46] INFO 127.0.0.1 - - [25/May/2025 16:01:46] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:01:46] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:01:46] ERROR [gemini_api_caller] Gemini API调用异常: 1 validation error for GenerateContentConfig
+generation_config
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'temperature': 0.0, 'top...x_output_tokens': 24576}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 159, in call_gemini_api_stream
+    config = genai_types.GenerateContentConfig(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateContentConfig
+generation_config
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'temperature': 0.0, 'top...x_output_tokens': 24576}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[2025-05-25 16:02:23] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:02:24] INFO  * Restarting with stat
+[2025-05-25 16:02:25] WARNING  * Debugger is active!
+[2025-05-25 16:02:25] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:02:28] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:02:28] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:02:44] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:02:45] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:02:45] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:02:45] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:02:45] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:02:46] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:02:50] INFO 127.0.0.1 - - [25/May/2025 16:02:50] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:02:50] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:02:50] ERROR [gemini_api_caller] Gemini API调用异常: Models.generate_content_stream() got an unexpected keyword argument 'generation_config'
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 160, in call_gemini_api_stream
+    response = client.models.generate_content_stream(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Models.generate_content_stream() got an unexpected keyword argument 'generation_config'
+
+[2025-05-25 16:03:05] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:03:06] INFO  * Restarting with stat
+[2025-05-25 16:03:06] WARNING  * Debugger is active!
+[2025-05-25 16:03:06] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:03:21] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:03:21] INFO  * Restarting with stat
+[2025-05-25 16:03:22] WARNING  * Debugger is active!
+[2025-05-25 16:03:22] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:03:33] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:03:33] INFO  * Restarting with stat
+[2025-05-25 16:03:34] WARNING  * Debugger is active!
+[2025-05-25 16:03:34] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:03:34] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 16:03:34] INFO  * Restarting with stat
+[2025-05-25 16:03:52] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:03:52] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:03:52] INFO  * Restarting with stat
+[2025-05-25 16:03:53] WARNING  * Debugger is active!
+[2025-05-25 16:03:53] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:03:57] INFO 127.0.0.1 - - [25/May/2025 16:03:57] "GET / HTTP/1.1" 200 -
+[2025-05-25 16:04:07] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:04:07] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:04:20] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:04:20] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:04:20] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:04:20] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:04:20] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:04:21] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:04:24] INFO 127.0.0.1 - - [25/May/2025 16:04:24] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:04:24] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:04:24] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 16:04:24] INFO AFC remote call 1 is done.
+[2025-05-25 16:05:15] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 16:16:56] INFO 127.0.0.1 - - [25/May/2025 16:16:56] "GET / HTTP/1.1" 200 -
+[2025-05-25 16:22:55] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:22:55] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:22:55] INFO  * Restarting with stat
+[2025-05-25 16:22:56] WARNING  * Debugger is active!
+[2025-05-25 16:22:56] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:23:00] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:23:00] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:23:11] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:23:12] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:23:12] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:23:12] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:23:12] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:23:13] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:23:17] INFO 127.0.0.1 - - [25/May/2025 16:23:17] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:23:17] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:23:17] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 16:23:17] INFO AFC remote call 1 is done.
+[2025-05-25 16:24:11] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 16:27:18] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 16:27:18] INFO  * Restarting with stat
+[2025-05-25 16:27:19] WARNING  * Debugger is active!
+[2025-05-25 16:27:19] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:27:36] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 16:27:36] INFO  * Restarting with stat
+[2025-05-25 16:27:37] WARNING  * Debugger is active!
+[2025-05-25 16:27:37] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:28:00] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 16:28:00] INFO  * Restarting with stat
+[2025-05-25 16:28:01] WARNING  * Debugger is active!
+[2025-05-25 16:28:01] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:30:14] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/telegram_bot.py', reloading
+[2025-05-25 16:30:15] INFO  * Restarting with stat
+[2025-05-25 16:34:04] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:34:04] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:34:04] INFO  * Restarting with stat
+[2025-05-25 16:34:05] WARNING  * Debugger is active!
+[2025-05-25 16:34:05] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:34:08] INFO 127.0.0.1 - - [25/May/2025 16:34:08] "GET / HTTP/1.1" 200 -
+[2025-05-25 16:34:31] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:34:31] INFO 127.0.0.1 - - [25/May/2025 16:34:31] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:36:19] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 16:36:19] INFO  * Restarting with stat
+[2025-05-25 16:36:20] WARNING  * Debugger is active!
+[2025-05-25 16:36:20] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:36:23] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/telegram_bot.py', reloading
+[2025-05-25 16:36:24] INFO  * Restarting with stat
+[2025-05-25 16:36:25] WARNING  * Debugger is active!
+[2025-05-25 16:36:25] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:36:30] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 16:36:30] INFO  * Restarting with stat
+[2025-05-25 16:36:31] WARNING  * Debugger is active!
+[2025-05-25 16:36:31] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:36:36] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/telegram_bot.py', reloading
+[2025-05-25 16:36:37] INFO  * Restarting with stat
+[2025-05-25 16:36:37] WARNING  * Debugger is active!
+[2025-05-25 16:36:37] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:36:48] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:36:48] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:36:48] INFO  * Restarting with stat
+[2025-05-25 16:36:49] WARNING  * Debugger is active!
+[2025-05-25 16:36:49] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:36:50] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:36:50] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:36:53] INFO 127.0.0.1 - - [25/May/2025 16:36:53] "GET / HTTP/1.1" 200 -
+[2025-05-25 16:37:48] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:37:48] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:39:13] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:39:31] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:39:31] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:39:31] INFO  * Restarting with stat
+[2025-05-25 16:39:32] WARNING  * Debugger is active!
+[2025-05-25 16:39:32] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:39:34] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:39:34] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:41:01] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:41:01] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:41:01] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:41:01] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:41:01] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:41:01] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:41:05] INFO 127.0.0.1 - - [25/May/2025 16:41:05] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:41:05] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:41:05] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 16:41:05] INFO AFC remote call 1 is done.
+[2025-05-25 16:41:37] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 16:42:54] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/tradingview_auto_screenshot.py', reloading
+[2025-05-25 16:42:54] INFO  * Restarting with stat
+[2025-05-25 16:42:55] WARNING  * Debugger is active!
+[2025-05-25 16:42:55] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:47:12] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 16:47:12] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 16:47:12] INFO  * Restarting with stat
+[2025-05-25 16:47:13] WARNING  * Debugger is active!
+[2025-05-25 16:47:13] INFO  * Debugger PIN: 106-934-398
+[2025-05-25 16:47:16] INFO 开始 Gemini API 流式推理。
+[2025-05-25 16:47:16] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 16:47:27] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 16:47:28] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 16:47:28] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 16:47:28] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 16:47:28] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 16:47:28] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 16:47:31] INFO 127.0.0.1 - - [25/May/2025 16:47:31] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 16:47:31] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 16:47:31] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 16:47:31] INFO AFC remote call 1 is done.
+[2025-05-25 16:48:02] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"

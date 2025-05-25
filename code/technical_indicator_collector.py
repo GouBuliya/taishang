@@ -147,10 +147,10 @@ venv_python = "/usr/bin/python3"
 for label, okx_bar_string in period_map.items():
     logger.info(f"正在获取 {TARGET_SYMBOL_INST} 在 {label} ({okx_bar_string}) 周期的数据...")
     try:
-        # --- 核心修正：使用 get_candlesticks 获取交易价格K线 ---
+        # --- 核心修正：使用 get_history_candles 获取交易价格K线 ---
         # 这个接口通常有更长的历史数据
         # 注意：如果 limit=300 仍然不够，则需要在这里实现分页逻辑
-        result = marketDataAPI.get_candlesticks(
+        result = marketDataAPI.get_history_candles(
             instId=TARGET_SYMBOL_INST,
             bar=okx_bar_string,
             limit=KLINES_LIMIT,
