@@ -205,7 +205,6 @@ for label, okx_bar_string in period_map.items():
 
         # 组装输出JSON结构
         all_periods_data[label] = {
-            "timestamp": latest_kline.name.isoformat() + "Z",
             "indicators": {
                 "ticker": TARGET_SYMBOL_INST,
                 "name": TARGET_SYMBOL_JSON.split(':')[-1],

@@ -36,8 +36,8 @@ logging.basicConfig(
 logger = logging.getLogger("app")
 
 # 移除硬编码的 API Key，只依赖环境变量
-# os.environ['GEMINI_API_KEY'] = "AIzaSyBcXoWRghWP1I83qVCDfOddZ7P-lpJg4zk"
-os.environ['GEMINI_API_KEY'] = "AIzaSyAP8WsfGTPJ2TOB8Hlnqcby6VZzlUXMQpg"
+os.environ['GEMINI_API_KEY'] = "AIzaSyBcXoWRghWP1I83qVCDfOddZ7P-lpJg4zk"
+# os.environ['GEMINI_API_KEY'] = "AIzaSyAP8WsfGTPJ2TOB8Hlnqcby6VZzlUXMQpg"
 
 # 假设您的 main.py 是一个数据采集脚本，这里只是模拟运行
 def run_data_collection_script():
@@ -83,34 +83,45 @@ def gemini_advice():
             return jsonify({"error": f"自动运行 main.py 失败: {e}"}), 500
 
         # 2. 兼容前端传参和自动采集
-        packaged_json = None
-        screenshot_path = None
         if data and isinstance(data, dict):
             # 优先用前端传参，否则用 main.py 采集结果
             packaged_json = data.get('packaged_json') or data_json
-            screenshot_path = data.get('screenshot_path') or data_json.get('clipboard_image_path')
+            screenshot_path = data.get('screenshot_path') if 'screenshot_path' in data else data_json.get('clipboard_image_path')
         else:
             packaged_json = data_json
             screenshot_path = data_json.get('clipboard_image_path')
         if not packaged_json:
             return jsonify({"error": "Missing packaged_json"}), 400
 
+        # 调试：打印传递给AI的内容
+        logger.info(f"传递给AI的packaged_json keys: {list(packaged_json.keys()) if isinstance(packaged_json, dict) else type(packaged_json)}")
+        logger.info(f"传递给AI的screenshot_path: {screenshot_path}")
+
         def generate():
             # 发送一个初始状态消息
             yield f"data: {json.dumps({'type': 'status', 'stage': 'connecting', 'message': '正在连接 Gemini API...'})}\n\n"
+            error_occurred = False
+            tried_without_image = False
             try:
-                # 修正：前端已移除图片上传，直接将 screenshot_path 设置为 None
                 for chunk in gemini_api_caller.call_gemini_api_stream(packaged_json, screenshot_path):
+                    if chunk and '[Gemini API调用异常]' in chunk and '图片' in chunk:
+                        # 如果图片相关异常，降级为无图片重试一次
+                        if not tried_without_image:
+                            app.logger.warning("图片推理失败，自动降级为无图片模式重试。")
+                            tried_without_image = True
+                            for chunk2 in gemini_api_caller.call_gemini_api_stream(packaged_json, None):
+                                if chunk2:
+                                    yield f"data: {json.dumps({'type': 'content', 'text': chunk2}, ensure_ascii=False)}\n\n"
+                            break
                     if chunk:
-                        # 关键修改：将文本块封装为 {"type": "content", "text": chunk}
                         yield f"data: {json.dumps({'type': 'content', 'text': chunk}, ensure_ascii=False)}\n\n"
             except Exception as e:
+                error_occurred = True
                 app.logger.error(f"流式推理异常: {e}\n{traceback.format_exc()}")
-                # 在流中发送错误信息
                 yield f"data: {json.dumps({'type': 'error', 'message': f'[Gemini流式API调用异常] {str(e)}'})}\n\n"
             finally:
-                # 流结束时发送一个完成状态消息
-                yield f"data: {json.dumps({'type': 'status', 'stage': 'completed', 'message': '数据流已结束。'})}\n\n"
+                # 无论是否异常都要通知前端流结束，避免连接悬挂
+                yield f"data: {json.dumps({'type': 'status', 'stage': 'completed', 'message': '数据流已结束。', 'error': error_occurred})}\n\n"
 
         return Response(generate(), mimetype='text/event-stream')
 
@@ -133,11 +144,29 @@ def serve_data_json():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+def start_ssh_tunnel():
+    def tunnel():
+        try:
+            # 持续重连，若断开自动重连
+            while True:
+                print("[SSH隧道] 正在建立端口转发: ssh -R 5000:localhost:3000 root@114.55.238.254")
+                proc = subprocess.Popen([
+                    "ssh", "-o", "ServerAliveInterval=60", "-R", "5000:localhost:3000", "root@114.55.238.254"
+                ])
+                proc.wait()
+                print("[SSH隧道] 连接断开，5秒后重试...")
+                import time; time.sleep(5)
+        except Exception as e:
+            print(f"[SSH隧道] 启动失败: {e}")
+    t = threading.Thread(target=tunnel, daemon=True)
+    t.start()
+
 if __name__ == '__main__':
+    start_ssh_tunnel()
     if not os.getenv('GEMINI_API_KEY'):
         print("警告：GEMINI_API_KEY 环境变量未设置。API 调用可能会失败。\n请在启动应用前设置该环境变量，例如：export GEMINI_API_KEY=\"YOUR_API_KEY\"")
     # 只在非debug模式下自动启动Bot，开发调试时不自动拉起
     if not app.debug:
         start_telegram_bot()
     # 启动主服务
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=3000, debug=True)

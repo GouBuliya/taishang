@@ -16,36 +16,55 @@ def load_image(image_path):
 
 def build_prompt_from_json(info_json):
     """
-    将 GUI 整合的 json 信息转为 Gemini 所需的文本 prompt
+    适配新版data.json结构，自动提取关键信息生成Gemini所需prompt。
     """
-    # 主要字段示例：标的、周期、情绪、持仓、指标等
     text_lines = []
-    if 'symbol' in info_json:
-        text_lines.append(f"标的：{info_json['symbol']}")
-    if 'period' in info_json:
-        text_lines.append(f"周期：{info_json['period']}")
-    if 'market_sentiment' in info_json:
-        text_lines.append(f"市场情绪：{info_json['market_sentiment']}")
-    if 'funding_rate' in info_json:
-        text_lines.append(f"Funding Rate：{info_json['funding_rate']}")
-    if 'open_interest' in info_json:
-        text_lines.append(f"Open Interest：{info_json['open_interest']}")
-    if 'volmex_iv' in info_json:
-        text_lines.append(f"Volmex IV：{info_json['volmex_iv']}")
-    # 持仓信息
-    if info_json.get('is_empty'):
-        text_lines.append("当前持仓：无")
-    else:
-        pos_dir = info_json.get('direction', '')
-        pos_amt = info_json.get('position_amount', '')
-        open_price = info_json.get('open_price', '')
-        if pos_dir and open_price:
-            text_lines.append(f"当前持仓：{pos_dir}单 {pos_amt}，入场价 {open_price}")
-    # 其它补充
-    if 'macro_factors' in info_json:
-        text_lines.append(f"宏观因子：{info_json['macro_factors']}")
-    if 'script_output' in info_json:
-        text_lines.append(f"脚本输出：{info_json['script_output']}")
+    # 1. 提取主周期（优先15m，其次1h、4h）
+    main_tf = None
+    for tf in ["15m", "1h", "4h"]:
+        if "indicators" in info_json and tf in info_json["indicators"]:
+            main_tf = tf
+            break
+    # 2. 提取symbol、时间戳、主周期指标
+    symbol = None
+    timestamp = info_json.get("timestamp")
+    if main_tf:
+        tf_data = info_json["indicators"][main_tf]
+        ind = tf_data.get("indicators", {})
+        symbol = ind.get("name") or ind.get("ticker")
+        text_lines.append(f"主周期: {main_tf}")
+        text_lines.append(f"主周期时间: {tf_data.get('timestamp', 'N/A')}")
+        text_lines.append(f"主周期收盘价: {ind.get('close', 'N/A')}")
+        text_lines.append(f"主周期成交量: {ind.get('volume', 'N/A')}")
+        text_lines.append(f"RSI: {ind.get('RSI', 'N/A')}")
+        text_lines.append(f"MACD: {ind.get('MACD_macd', 'N/A')}, Signal: {ind.get('MACD_signal', 'N/A')}")
+        text_lines.append(f"ATR: {ind.get('ATR', 'N/A')}")
+        text_lines.append(f"ADX: {ind.get('ADX', 'N/A')}")
+        text_lines.append(f"布林带: 上轨 {ind.get('BB_upper', 'N/A')}, 下轨 {ind.get('BB_lower', 'N/A')}, 中轨 {ind.get('BB_middle', 'N/A')}")
+        text_lines.append(f"EMA5: {ind.get('EMA5', 'N/A')}, EMA21: {ind.get('EMA21', 'N/A')}, EMA55: {ind.get('EMA55', 'N/A')}, EMA144: {ind.get('EMA144', 'N/A')}, EMA200: {ind.get('EMA200', 'N/A')}")
+        text_lines.append(f"VWAP: {ind.get('VWAP', 'N/A')}")
+    if symbol:
+        text_lines.insert(0, f"标的: {symbol}")
+    if timestamp:
+        text_lines.append(f"数据更新时间: {timestamp}")
+    # 3. 宏观因子
+    if "factors" in info_json and "factors" in info_json["factors"]:
+        macro = info_json["factors"]["factors"]
+        text_lines.append(f"资金费率: {macro.get('funding_rate', 'N/A')}")
+        text_lines.append(f"恐慌贪婪指数: {macro.get('fear_greed_index', 'N/A')}")
+        text_lines.append(f"持仓量: {macro.get('open_interest', 'N/A')}")
+    # 4. 盘口/最新价
+    if "data" in info_json and "data" in info_json["data"] and len(info_json["data"]["data"]) > 0:
+        d = info_json["data"]["data"][0]
+        text_lines.append(f"最新价: {d.get('last', 'N/A')}，24h高: {d.get('high24h', 'N/A')}，24h低: {d.get('low24h', 'N/A')}")
+        text_lines.append(f"买一: {d.get('bidPx', 'N/A')}({d.get('bidSz', 'N/A')})，卖一: {d.get('askPx', 'N/A')}({d.get('askSz', 'N/A')})")
+    # 5. 图片路径（如有）
+    if "clipboard_image_path" in info_json:
+        text_lines.append(f"截图路径: {info_json['clipboard_image_path']}")
+    # 6. 其它补充
+    for k in ["macro_factors", "script_output"]:
+        if k in info_json:
+            text_lines.append(f"{k}: {info_json[k]}")
     return '\n'.join(text_lines)
 
 def call_gemini_advisor(image_path, info_json, api_key):

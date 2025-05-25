@@ -123,6 +123,12 @@ def call_gemini_api_stream(packaged_json, screenshot_path=None, api_key=None, mo
     :yield: str，每次推理返回的文本块
     """
     try:
+        # 0. 检查packaged_json内容
+        logger.info(f"{MODULE_TAG}收到packaged_json类型: {type(packaged_json)}, 内容预览: {str(packaged_json)[:500]}")
+        if not packaged_json or not isinstance(packaged_json, dict):
+            logger.error(f"{MODULE_TAG}packaged_json为空或类型错误: {type(packaged_json)}")
+            yield "[错误] packaged_json为空或类型错误，无法生成prompt。"
+            return
         # 1. 配置API Key
         _api_key = api_key or API_KEY
         if not _api_key:
@@ -131,15 +137,21 @@ def call_gemini_api_stream(packaged_json, screenshot_path=None, api_key=None, mo
 
         # 2. 构造单轮查询内容
         prompt_text = build_prompt_from_json(packaged_json)
+        logger.info(f"{MODULE_TAG}最终发送给AI的prompt_text: {prompt_text[:500]}")  # 只打印前500字防止刷屏
         parts = [genai_types.Part.from_text(text=prompt_text)]
         
         # 3. 添加图片（如果有）
         if screenshot_path and os.path.exists(screenshot_path):
             try:
                 img = Image.open(screenshot_path)
+                img.verify()  # 检查图片有效性
+                img = Image.open(screenshot_path).convert("RGB")  # 重新打开并转为RGB
                 parts.append(genai_types.Part.from_image(image=img))
+                logger.info(f"{MODULE_TAG}图片路径: {screenshot_path} 已成功加载并转为RGB")
             except Exception as e:
-                logger.warning(f"{MODULE_TAG}图片加载失败: {e}")
+                logger.warning(f"{MODULE_TAG}图片加载失败: {e}，图片路径: {screenshot_path}")
+        else:
+            logger.info(f"{MODULE_TAG}未传递图片或图片不存在，screenshot_path={screenshot_path}")
         
         # 4. 构造单轮请求
         content = genai_types.Content(role='user', parts=parts)
@@ -165,8 +177,9 @@ def call_gemini_api_stream(packaged_json, screenshot_path=None, api_key=None, mo
                 yield chunk.text
         
     except Exception as e:
-        logger.error(f"{MODULE_TAG}Gemini API调用异常: {e}\n{traceback.format_exc()}")
-        yield f"[Gemini API调用异常] {e}"
+        tb = traceback.format_exc()
+        logger.error(f"{MODULE_TAG}Gemini API调用异常: {e}\n{tb}")
+        yield f"[Gemini API调用异常] {e}\nTraceback:\n{tb}"
 
 def get_configured_model(model_name_str=None, system_instruction_text=None, api_key=None):
     """返回已配置好 API Key 和 system_instruction 的 GenerativeModel 实例"""

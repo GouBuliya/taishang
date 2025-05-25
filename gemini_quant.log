@@ -660,3 +660,949 @@ TypeError: Models.generate_content_stream() got an unexpected keyword argument '
 [2025-05-25 17:31:39] INFO AFC is enabled with max remote calls: 10.
 [2025-05-25 17:31:39] INFO AFC remote call 1 is done.
 [2025-05-25 17:32:18] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 22:17:09] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 22:17:09] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 22:17:09] INFO  * Restarting with stat
+[2025-05-25 22:17:10] WARNING  * Debugger is active!
+[2025-05-25 22:17:10] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:17:46] INFO 127.0.0.1 - - [25/May/2025 22:17:46] "GET / HTTP/1.1" 200 -
+[2025-05-25 22:18:03] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:18:03] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:19:30] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:19:31] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:19:31] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:19:31] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:19:31] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:19:31] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:19:35] INFO 127.0.0.1 - - [25/May/2025 22:19:35] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:19:35] INFO 127.0.0.1 - - [25/May/2025 22:19:35] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:19:35] INFO 127.0.0.1 - - [25/May/2025 22:19:35] "GET /screenshots/tradingview_clipboard_20250525_221929.png HTTP/1.1" 200 -
+[2025-05-25 22:19:36] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 22:19:36] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:19:36] INFO AFC remote call 1 is done.
+[2025-05-25 22:20:23] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 22:23:35] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+[2025-05-25 22:23:35] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 22:23:35] INFO  * Restarting with stat
+[2025-05-25 22:23:36] WARNING  * Debugger is active!
+[2025-05-25 22:23:36] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:23:44] INFO 127.0.0.1 - - [25/May/2025 22:23:44] "GET / HTTP/1.1" 200 -
+[2025-05-25 22:24:02] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:24:02] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:24:13] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:24:13] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:24:13] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:24:14] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:24:14] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:24:14] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:24:17] INFO 127.0.0.1 - - [25/May/2025 22:24:17] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:24:17] INFO 127.0.0.1 - - [25/May/2025 22:24:17] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:24:17] INFO 127.0.0.1 - - [25/May/2025 22:24:17] "GET /screenshots/tradingview_clipboard_20250525_222412.png HTTP/1.1" 200 -
+[2025-05-25 22:24:17] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 22:24:17] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:24:17] INFO AFC remote call 1 is done.
+[2025-05-25 22:25:07] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 22:25:57] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 22:25:57] INFO  * Restarting with stat
+[2025-05-25 22:25:58] WARNING  * Debugger is active!
+[2025-05-25 22:25:58] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:27:37] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 22:27:37] INFO  * Restarting with stat
+[2025-05-25 22:27:38] WARNING  * Debugger is active!
+[2025-05-25 22:27:38] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:27:55] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:27:55] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:28:08] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:28:08] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:28:08] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:28:08] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:28:08] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:28:09] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:28:12] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 22:28:12] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_222807.png
+[2025-05-25 22:28:12] INFO 127.0.0.1 - - [25/May/2025 22:28:12] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:28:12] INFO 127.0.0.1 - - [25/May/2025 22:28:12] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:28:12] INFO 127.0.0.1 - - [25/May/2025 22:28:12] "GET /screenshots/tradingview_clipboard_20250525_222807.png HTTP/1.1" 200 -
+[2025-05-25 22:28:12] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 
+[2025-05-25 22:28:12] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 22:28:12] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:28:12] INFO AFC remote call 1 is done.
+[2025-05-25 22:29:03] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 22:31:44] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_trade_advisor.py', reloading
+[2025-05-25 22:31:44] INFO  * Restarting with stat
+[2025-05-25 22:31:45] WARNING  * Debugger is active!
+[2025-05-25 22:31:45] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:33:18] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 22:33:18] INFO  * Restarting with stat
+[2025-05-25 22:33:19] WARNING  * Debugger is active!
+[2025-05-25 22:33:19] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:33:40] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:33:40] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:35:05] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:35:05] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:35:05] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:35:05] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:35:05] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:35:06] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:35:09] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 22:35:09] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_223504.png
+[2025-05-25 22:35:09] INFO 127.0.0.1 - - [25/May/2025 22:35:09] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:35:09] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_223504.png', 'indicators': {'15m': {'timestamp': '2025-05-24T13:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2551.79, 'volume': 192672.44, 'RSI': 49.294574781873735, 'MACD_macd': 2.0237959683768167, 'MACD_signal': 3.799233250279623, 'ATR': 9.914329443624844, 'ADX': 22.414175798278688, 'Stoch_K': 47.37991266375487, 'Stoch_D': 38.762736535661645, 'StochRSI_K': 49.17576262
+[2025-05-25 22:35:09] INFO 127.0.0.1 - - [25/May/2025 22:35:09] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:35:09] INFO 127.0.0.1 - - [25/May/2025 22:35:09] "GET /screenshots/tradingview_clipboard_20250525_223504.png HTTP/1.1" 200 -
+[2025-05-25 22:35:09] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T13:30:00+00:00Z
+主周期收盘价: 2551.79
+主周期成交量: 192672.44
+RSI: 49.294574781873735
+MACD: 2.0237959683768167, Signal: 3.799233250279623
+ATR: 9.914329443624844
+ADX: 22.414175798278688
+布林带: 上轨 2564.034738226166, 下轨 2545.2232617738337, 中轨 2554.629
+EMA5: 2550.7907630990812, EMA21: 2551.3999190736063, EMA55: 2540.4667140209262, EMA144: 2526.0158246642086, EMA200: 2522.7461834390742
+VWAP: 2511.0910256393568
+数据更新时间: 2025-05-25T14:35:09+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 6
+[2025-05-25 22:35:09] WARNING [gemini_api_caller] 图片加载失败: from_image
+[2025-05-25 22:35:09] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:35:09] INFO AFC remote call 1 is done.
+[2025-05-25 22:35:58] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 22:37:03] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 22:37:04] INFO  * Restarting with stat
+[2025-05-25 22:37:04] WARNING  * Debugger is active!
+[2025-05-25 22:37:04] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:38:03] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:38:03] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:39:30] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:39:30] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:39:30] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:39:31] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:39:31] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:39:31] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:39:34] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 22:39:34] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_223929.png
+[2025-05-25 22:39:34] INFO 127.0.0.1 - - [25/May/2025 22:39:34] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:39:34] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_223929.png', 'indicators': {'15m': {'timestamp': '2025-05-24T13:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2551.79, 'volume': 192672.44, 'RSI': 49.294574781873735, 'MACD_macd': 2.0237959683768167, 'MACD_signal': 3.799233250279623, 'ATR': 9.914329443624844, 'ADX': 22.414175798278688, 'Stoch_K': 47.37991266375487, 'Stoch_D': 38.762736535661645, 'StochRSI_K': 49.17576262
+[2025-05-25 22:39:34] INFO 127.0.0.1 - - [25/May/2025 22:39:34] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:39:34] INFO 127.0.0.1 - - [25/May/2025 22:39:34] "GET /screenshots/tradingview_clipboard_20250525_223929.png HTTP/1.1" 200 -
+[2025-05-25 22:39:34] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T13:30:00+00:00Z
+主周期收盘价: 2551.79
+主周期成交量: 192672.44
+RSI: 49.294574781873735
+MACD: 2.0237959683768167, Signal: 3.799233250279623
+ATR: 9.914329443624844
+ADX: 22.414175798278688
+布林带: 上轨 2564.034738226166, 下轨 2545.2232617738337, 中轨 2554.629
+EMA5: 2550.7907630990812, EMA21: 2551.3999190736063, EMA55: 2540.4667140209262, EMA144: 2526.0158246642086, EMA200: 2522.7461834390742
+VWAP: 2511.0910256393568
+数据更新时间: 2025-05-25T14:39:34+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5
+[2025-05-25 22:39:34] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_223929.png
+[2025-05-25 22:39:34] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:39:34] INFO AFC remote call 1 is done.
+[2025-05-25 22:40:24] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 22:40:24] INFO  * Restarting with stat
+[2025-05-25 22:40:25] WARNING  * Debugger is active!
+[2025-05-25 22:40:25] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:40:26] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_trade_advisor.py', reloading
+[2025-05-25 22:40:26] INFO  * Restarting with stat
+[2025-05-25 22:40:27] WARNING  * Debugger is active!
+[2025-05-25 22:40:27] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:40:34] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:40:34] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:40:45] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:40:46] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:40:46] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:40:46] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:40:46] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:40:46] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:40:49] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 22:40:49] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_224044.png
+[2025-05-25 22:40:49] INFO 127.0.0.1 - - [25/May/2025 22:40:49] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:40:49] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_224044.png', 'indicators': {'15m': {'timestamp': '2025-05-24T13:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2551.79, 'volume': 192672.44, 'RSI': 49.294574781873735, 'MACD_macd': 2.0237959683768167, 'MACD_signal': 3.799233250279623, 'ATR': 9.914329443624844, 'ADX': 22.414175798278688, 'Stoch_K': 47.37991266375487, 'Stoch_D': 38.762736535661645, 'StochRSI_K': 49.17576262
+[2025-05-25 22:40:49] INFO 127.0.0.1 - - [25/May/2025 22:40:49] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:40:49] INFO 127.0.0.1 - - [25/May/2025 22:40:49] "GET /screenshots/tradingview_clipboard_20250525_224044.png HTTP/1.1" 200 -
+[2025-05-25 22:40:49] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T13:30:00+00:00Z
+主周期收盘价: 2551.79
+主周期成交量: 192672.44
+RSI: 49.294574781873735
+MACD: 2.0237959683768167, Signal: 3.799233250279623
+ATR: 9.914329443624844
+ADX: 22.414175798278688
+布林带: 上轨 2564.034738226166, 下轨 2545.2232617738337, 中轨 2554.629
+EMA5: 2550.7907630990812, EMA21: 2551.3999190736063, EMA55: 2540.4667140209262, EMA144: 2526.0158246642086, EMA200: 2522.7461834390742
+VWAP: 2511.0910256393568
+数据更新时间: 2025-05-25T14:40:49+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5
+[2025-05-25 22:40:49] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_224044.png
+[2025-05-25 22:40:49] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:40:49] INFO AFC remote call 1 is done.
+[2025-05-25 22:41:16] INFO 127.0.0.1 - - [25/May/2025 22:41:16] "GET / HTTP/1.1" 200 -
+[2025-05-25 22:41:50] ERROR [gemini_api_caller] Gemini API调用异常: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 175, in call_gemini_api_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 671, in _request
+    response = self._httpx_client.send(httpx_request, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[2025-05-25 22:42:03] INFO 开始 Gemini API 流式推理。
+[2025-05-25 22:42:03] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 22:42:15] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 22:42:15] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 22:42:15] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 22:42:16] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 22:42:16] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 22:42:16] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 22:42:19] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 22:42:19] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_224214.png
+[2025-05-25 22:42:19] INFO 127.0.0.1 - - [25/May/2025 22:42:19] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 22:42:19] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_224214.png', 'indicators': {'15m': {'timestamp': '2025-05-24T13:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2551.79, 'volume': 192672.44, 'RSI': 49.294574781873735, 'MACD_macd': 2.0237959683768167, 'MACD_signal': 3.799233250279623, 'ATR': 9.914329443624844, 'ADX': 22.414175798278688, 'Stoch_K': 47.37991266375487, 'Stoch_D': 38.762736535661645, 'StochRSI_K': 49.17576262
+[2025-05-25 22:42:19] INFO 127.0.0.1 - - [25/May/2025 22:42:19] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 22:42:19] INFO 127.0.0.1 - - [25/May/2025 22:42:19] "GET /screenshots/tradingview_clipboard_20250525_224214.png HTTP/1.1" 200 -
+[2025-05-25 22:42:19] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T13:30:00+00:00Z
+主周期收盘价: 2551.79
+主周期成交量: 192672.44
+RSI: 49.294574781873735
+MACD: 2.0237959683768167, Signal: 3.799233250279623
+ATR: 9.914329443624844
+ADX: 22.414175798278688
+布林带: 上轨 2564.034738226166, 下轨 2545.2232617738337, 中轨 2554.629
+EMA5: 2550.7907630990812, EMA21: 2551.3999190736063, EMA55: 2540.4667140209262, EMA144: 2526.0158246642086, EMA200: 2522.7461834390742
+VWAP: 2511.0910256393568
+数据更新时间: 2025-05-25T14:42:19+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5
+[2025-05-25 22:42:19] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_224214.png
+[2025-05-25 22:42:19] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 22:42:19] INFO AFC remote call 1 is done.
+[2025-05-25 22:43:08] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 22:51:14] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 22:51:14] INFO  * Restarting with stat
+[2025-05-25 22:51:15] WARNING  * Debugger is active!
+[2025-05-25 22:51:15] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:51:53] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://192.168.1.4:3000
+[2025-05-25 22:51:53] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 22:51:53] INFO  * Restarting with stat
+[2025-05-25 22:51:54] WARNING  * Debugger is active!
+[2025-05-25 22:51:54] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 22:56:23] INFO 127.0.0.1 - - [25/May/2025 22:56:23] "GET / HTTP/1.1" 200 -
+[2025-05-25 22:56:37] INFO 127.0.0.1 - - [25/May/2025 22:56:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-25 22:57:55] INFO 127.0.0.1 - - [25/May/2025 22:57:55] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:00:15] INFO 127.0.0.1 - - [25/May/2025 23:00:15] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:11:34] INFO 127.0.0.1 - - [25/May/2025 23:11:34] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:08] INFO 127.0.0.1 - - [25/May/2025 23:14:08] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:11] INFO 127.0.0.1 - - [25/May/2025 23:14:11] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:14] INFO 127.0.0.1 - - [25/May/2025 23:14:14] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:16] INFO 127.0.0.1 - - [25/May/2025 23:14:16] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:45] INFO 127.0.0.1 - - [25/May/2025 23:14:45] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:47] INFO 127.0.0.1 - - [25/May/2025 23:14:47] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:14:47] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:14:47] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:15:25] INFO 127.0.0.1 - - [25/May/2025 23:15:25] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:16:13] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:16:14] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:16:14] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:16:14] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:16:14] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:16:15] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:16:19] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:16:19] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_231612.png
+[2025-05-25 23:16:19] INFO 127.0.0.1 - - [25/May/2025 23:16:19] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:16:19] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_231612.png', 'indicators': {'15m': {'timestamp': '2025-05-24T14:15:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2548.88, 'volume': 201785.76, 'RSI': 40.8243169464861, 'MACD_macd': 3.471612730160359, 'MACD_signal': 5.174232162452308, 'ATR': 9.019643202679875, 'ADX': 18.379558658560093, 'Stoch_K': 34.672489082969534, 'Stoch_D': 53.34788937409018, 'StochRSI_K': 7.097501565131
+[2025-05-25 23:16:19] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:15:00+00:00Z
+主周期收盘价: 2548.88
+主周期成交量: 201785.76
+RSI: 40.8243169464861
+MACD: 3.471612730160359, Signal: 5.174232162452308
+ATR: 9.019643202679875
+ADX: 18.379558658560093
+布林带: 上轨 2564.047669060868, 下轨 2545.6283309391324, 中轨 2554.838
+EMA5: 2552.997575459399, EMA21: 2551.926024735157, EMA55: 2538.892084845101, EMA144: 2520.535215500703, EMA200: 2515.389264093556
+VWAP: 2509.5564902696606
+数据更新时间: 2025-05-25T15:16:19+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5974017.7
+[2025-05-25 23:16:19] INFO 127.0.0.1 - - [25/May/2025 23:16:19] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:16:19] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_231612.png
+[2025-05-25 23:16:19] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:16:19] INFO AFC remote call 1 is done.
+[2025-05-25 23:16:19] INFO 127.0.0.1 - - [25/May/2025 23:16:19] "GET /screenshots/tradingview_clipboard_20250525_231612.png HTTP/1.1" 200 -
+[2025-05-25 23:17:19] ERROR [gemini_api_caller] Gemini API调用异常: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 175, in call_gemini_api_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 671, in _request
+    response = self._httpx_client.send(httpx_request, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[2025-05-25 23:20:49] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 23:20:49] INFO  * Restarting with stat
+[2025-05-25 23:20:50] WARNING  * Debugger is active!
+[2025-05-25 23:20:50] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 23:21:09] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 23:21:09] INFO  * Restarting with stat
+[2025-05-25 23:21:10] WARNING  * Debugger is active!
+[2025-05-25 23:21:10] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 23:21:16] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:21:16] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:22:41] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:22:41] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:22:41] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:22:42] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:22:42] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:22:42] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:22:45] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:22:45] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_232240.png
+[2025-05-25 23:22:45] INFO 127.0.0.1 - - [25/May/2025 23:22:45] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:22:45] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_232240.png', 'indicators': {'15m': {'timestamp': '2025-05-24T14:15:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2548.88, 'volume': 201785.76, 'RSI': 40.8243169464861, 'MACD_macd': 3.471612730160359, 'MACD_signal': 5.174232162452308, 'ATR': 9.019643202679875, 'ADX': 18.379558658560093, 'Stoch_K': 34.672489082969534, 'Stoch_D': 53.34788937409018, 'StochRSI_K': 7.097501565131
+[2025-05-25 23:22:45] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:15:00+00:00Z
+主周期收盘价: 2548.88
+主周期成交量: 201785.76
+RSI: 40.8243169464861
+MACD: 3.471612730160359, Signal: 5.174232162452308
+ATR: 9.019643202679875
+ADX: 18.379558658560093
+布林带: 上轨 2564.047669060868, 下轨 2545.6283309391324, 中轨 2554.838
+EMA5: 2552.997575459399, EMA21: 2551.926024735157, EMA55: 2538.892084845101, EMA144: 2520.535215500703, EMA200: 2515.389264093556
+VWAP: 2509.5564902696606
+数据更新时间: 2025-05-25T15:22:45+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5884412.3
+[2025-05-25 23:22:46] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_232240.png
+[2025-05-25 23:22:46] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:22:46] INFO AFC remote call 1 is done.
+[2025-05-25 23:22:46] INFO 127.0.0.1 - - [25/May/2025 23:22:46] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:22:46] INFO 127.0.0.1 - - [25/May/2025 23:22:46] "GET /screenshots/tradingview_clipboard_20250525_232240.png HTTP/1.1" 200 -
+[2025-05-25 23:23:46] ERROR [gemini_api_caller] Gemini API调用异常: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 175, in call_gemini_api_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 671, in _request
+    response = self._httpx_client.send(httpx_request, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[2025-05-25 23:24:24] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:24:24] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:24:29] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-25 23:24:29] INFO  * Restarting with stat
+[2025-05-25 23:24:30] WARNING  * Debugger is active!
+[2025-05-25 23:24:30] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 23:24:38] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:24:38] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:25:51] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:25:52] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:25:52] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:25:52] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:25:52] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:25:53] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:26:51] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:26:52] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:26:52] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:26:52] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:26:52] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:26:53] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:26:56] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:26:56] INFO 传递给AI的screenshot_path: [DEBUG] 关闭浏览器...
+[2025-05-25 23:26:56] INFO 127.0.0.1 - - [25/May/2025 23:26:56] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:26:56] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '[DEBUG] 关闭浏览器...', 'indicators': {'15m': {'timestamp': '2025-05-24T14:15:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2548.88, 'volume': 201785.76, 'RSI': 40.8243169464861, 'MACD_macd': 3.471612730160359, 'MACD_signal': 5.174232162452308, 'ATR': 9.019643202679875, 'ADX': 18.379558658560093, 'Stoch_K': 34.672489082969534, 'Stoch_D': 53.34788937409018, 'StochRSI_K': 7.097501565131521, 'StochRSI_D': 27.03129327944603, 'BB_upper': 2564
+[2025-05-25 23:26:56] INFO 127.0.0.1 - - [25/May/2025 23:26:56] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:26:56] INFO 127.0.0.1 - - [25/May/2025 23:26:56] "[33mGET /screenshots/[DEBUG]%20关闭浏览器... HTTP/1.1[0m" 404 -
+[2025-05-25 23:26:56] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:15:00+00:00Z
+主周期收盘价: 2548.88
+主周期成交量: 201785.76
+RSI: 40.8243169464861
+MACD: 3.471612730160359, Signal: 5.174232162452308
+ATR: 9.019643202679875
+ADX: 18.379558658560093
+布林带: 上轨 2564.047669060868, 下轨 2545.6283309391324, 中轨 2554.838
+EMA5: 2552.997575459399, EMA21: 2551.926024735157, EMA55: 2538.892084845101, EMA144: 2520.535215500703, EMA200: 2515.389264093556
+VWAP: 2509.5564902696606
+数据更新时间: 2025-05-25T15:26:56+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5856254.2
+[2025-05-25 23:26:56] INFO [gemini_api_caller] 未传递图片或图片不存在，screenshot_path=[DEBUG] 关闭浏览器...
+[2025-05-25 23:26:56] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:26:56] INFO AFC remote call 1 is done.
+[2025-05-25 23:27:57] ERROR [gemini_api_caller] Gemini API调用异常: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 175, in call_gemini_api_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 671, in _request
+    response = self._httpx_client.send(httpx_request, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[2025-05-25 23:30:32] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://192.168.1.4:3000
+[2025-05-25 23:30:32] INFO [33mPress CTRL+C to quit[0m
+[2025-05-25 23:30:32] INFO  * Restarting with stat
+[2025-05-25 23:30:33] WARNING  * Debugger is active!
+[2025-05-25 23:30:33] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 23:35:36] INFO 127.0.0.1 - - [25/May/2025 23:35:36] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:35:54] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 23:35:54] INFO  * Restarting with stat
+[2025-05-25 23:35:55] WARNING  * Debugger is active!
+[2025-05-25 23:35:55] INFO  * Debugger PIN: 103-153-554
+[2025-05-25 23:35:58] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:35:58] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:37:25] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:37:25] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:37:25] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:37:26] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:37:26] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:37:26] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:37:29] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:37:29] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_233724.png
+[2025-05-25 23:37:29] INFO 127.0.0.1 - - [25/May/2025 23:37:29] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:37:29] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_233724.png', 'indicators': {'15m': {'timestamp': '2025-05-24T14:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2553.26, 'volume': 171492.53, 'RSI': 48.083754272949, 'MACD_macd': 4.240564548665134, 'MACD_signal': 5.606534459503664, 'ATR': 9.024210724330787, 'ADX': 18.40037564074874, 'Stoch_K': 53.799126637555084, 'Stoch_D': 66.4348809452596, 'StochRSI_K': 31.67462936182458
+[2025-05-25 23:37:29] INFO 127.0.0.1 - - [25/May/2025 23:37:29] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:37:29] INFO 127.0.0.1 - - [25/May/2025 23:37:29] "GET /screenshots/tradingview_clipboard_20250525_233724.png HTTP/1.1" 200 -
+[2025-05-25 23:37:29] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:30:00+00:00Z
+主周期收盘价: 2553.26
+主周期成交量: 171492.53
+RSI: 48.083754272949
+MACD: 4.240564548665134, Signal: 5.606534459503664
+ATR: 9.024210724330787
+ADX: 18.40037564074874
+布林带: 上轨 2563.9223218980187, 下轨 2545.9396781019814, 中轨 2554.931
+EMA5: 2555.0563631890977, EMA21: 2552.2298920454045, EMA55: 2538.270610406534, EMA144: 2517.810183742656, EMA200: 2511.630480692257
+VWAP: 2508.4921347701425
+数据更新时间: 2025-05-25T15:37:29+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5892293.
+[2025-05-25 23:37:29] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_233724.png
+[2025-05-25 23:37:29] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:37:29] INFO AFC remote call 1 is done.
+[2025-05-25 23:37:59] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 23:38:54] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:38:54] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:39:07] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:39:07] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:39:07] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:39:08] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:39:08] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:39:08] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:39:12] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:39:12] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_233906.png
+[2025-05-25 23:39:12] INFO 127.0.0.1 - - [25/May/2025 23:39:12] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:39:12] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_233906.png', 'indicators': {'15m': {'timestamp': '2025-05-24T14:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2553.26, 'volume': 171492.53, 'RSI': 48.083754272949, 'MACD_macd': 4.240564548665134, 'MACD_signal': 5.606534459503664, 'ATR': 9.024210724330787, 'ADX': 18.40037564074874, 'Stoch_K': 53.799126637555084, 'Stoch_D': 66.4348809452596, 'StochRSI_K': 31.67462936182458
+[2025-05-25 23:39:12] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:30:00+00:00Z
+主周期收盘价: 2553.26
+主周期成交量: 171492.53
+RSI: 48.083754272949
+MACD: 4.240564548665134, Signal: 5.606534459503664
+ATR: 9.024210724330787
+ADX: 18.40037564074874
+布林带: 上轨 2563.9223218980187, 下轨 2545.9396781019814, 中轨 2554.931
+EMA5: 2555.0563631890977, EMA21: 2552.2298920454045, EMA55: 2538.270610406534, EMA144: 2517.810183742656, EMA200: 2511.630480692257
+VWAP: 2508.4921347701425
+数据更新时间: 2025-05-25T15:39:12+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5896773.
+[2025-05-25 23:39:12] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_233906.png
+[2025-05-25 23:39:12] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:39:12] INFO AFC remote call 1 is done.
+[2025-05-25 23:39:12] INFO 127.0.0.1 - - [25/May/2025 23:39:12] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:39:13] INFO 127.0.0.1 - - [25/May/2025 23:39:13] "GET /screenshots/tradingview_clipboard_20250525_233906.png HTTP/1.1" 200 -
+[2025-05-25 23:40:13] ERROR [gemini_api_caller] Gemini API调用异常: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 175, in call_gemini_api_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 671, in _request
+    response = self._httpx_client.send(httpx_request, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[2025-05-25 23:41:33] INFO 127.0.0.1 - - [25/May/2025 23:41:33] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:42:54] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:42:54] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:43:06] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:43:07] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:43:07] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:43:08] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:43:08] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:43:08] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:43:11] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:43:11] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_234305.png
+[2025-05-25 23:43:11] INFO 127.0.0.1 - - [25/May/2025 23:43:11] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:43:11] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_234305.png', 'indicators': {'15m': {'timestamp': '2025-05-24T14:30:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2553.26, 'volume': 171492.53, 'RSI': 48.083754272949, 'MACD_macd': 4.240564548665134, 'MACD_signal': 5.606534459503664, 'ATR': 9.024210724330787, 'ADX': 18.40037564074874, 'Stoch_K': 53.799126637555084, 'Stoch_D': 66.4348809452596, 'StochRSI_K': 31.67462936182458
+[2025-05-25 23:43:11] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:30:00+00:00Z
+主周期收盘价: 2553.26
+主周期成交量: 171492.53
+RSI: 48.083754272949
+MACD: 4.240564548665134, Signal: 5.606534459503664
+ATR: 9.024210724330787
+ADX: 18.40037564074874
+布林带: 上轨 2563.9223218980187, 下轨 2545.9396781019814, 中轨 2554.931
+EMA5: 2555.0563631890977, EMA21: 2552.2298920454045, EMA55: 2538.270610406534, EMA144: 2517.810183742656, EMA200: 2511.630480692257
+VWAP: 2508.4921347701425
+数据更新时间: 2025-05-25T15:43:11+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 5895497.
+[2025-05-25 23:43:11] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_234305.png
+[2025-05-25 23:43:11] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:43:11] INFO AFC remote call 1 is done.
+[2025-05-25 23:43:11] INFO 127.0.0.1 - - [25/May/2025 23:43:11] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:43:11] INFO 127.0.0.1 - - [25/May/2025 23:43:11] "GET /screenshots/tradingview_clipboard_20250525_234305.png HTTP/1.1" 200 -
+[2025-05-25 23:44:07] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-25 23:45:21] INFO 127.0.0.1 - - [25/May/2025 23:45:21] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:45:23] INFO 127.0.0.1 - - [25/May/2025 23:45:23] "GET / HTTP/1.1" 200 -
+[2025-05-25 23:45:25] INFO 开始 Gemini API 流式推理。
+[2025-05-25 23:45:25] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-25 23:45:36] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-25 23:45:37] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-25 23:45:37] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-25 23:45:37] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-25 23:45:37] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-25 23:45:37] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-25 23:45:40] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-25 23:45:40] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_234535.png
+[2025-05-25 23:45:40] INFO 127.0.0.1 - - [25/May/2025 23:45:40] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-25 23:45:40] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250525_234535.png', 'indicators': {'15m': {'timestamp': '2025-05-24T14:45:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2557.33, 'volume': 185522.71, 'RSI': 56.120406470874464, 'MACD_macd': 4.70166559564359, 'MACD_signal': 5.937186054102764, 'ATR': 8.723321610237285, 'ADX': 18.295393786231234, 'Stoch_K': 71.57205240174589, 'Stoch_D': 66.84495680188682, 'StochRSI_K': 42.32183532330
+[2025-05-25 23:45:40] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T14:45:00+00:00Z
+主周期收盘价: 2557.33
+主周期成交量: 185522.71
+RSI: 56.120406470874464
+MACD: 4.70166559564359, Signal: 5.937186054102764
+ATR: 8.723321610237285
+ADX: 18.295393786231234
+布林带: 上轨 2563.9581066781734, 下轨 2545.6658933218264, 中轨 2554.812
+EMA5: 2555.9545447836463, EMA21: 2552.1280801807034, EMA55: 2538.1256873359357, EMA144: 2521.111948903679, EMA200: 2516.7931294182604
+VWAP: 2507.9230110946105
+数据更新时间: 2025-05-25T15:45:40+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 591
+[2025-05-25 23:45:40] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250525_234535.png
+[2025-05-25 23:45:40] INFO AFC is enabled with max remote calls: 10.
+[2025-05-25 23:45:40] INFO AFC remote call 1 is done.
+[2025-05-25 23:45:40] INFO 127.0.0.1 - - [25/May/2025 23:45:40] "GET /data.json HTTP/1.1" 200 -
+[2025-05-25 23:45:40] INFO 127.0.0.1 - - [25/May/2025 23:45:40] "GET /screenshots/tradingview_clipboard_20250525_234535.png HTTP/1.1" 200 -
+[2025-05-25 23:46:56] ERROR [gemini_api_caller] Gemini API调用异常: Server disconnected without sending a response.
+Traceback (most recent call last):
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../gemini_api_caller.py", line 175, in call_gemini_api_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/google/genai/_api_client.py", line 671, in _request
+    response = self._httpx_client.send(httpx_request, stream=stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/li-xufeng/.local/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[2025-05-25 23:52:25] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/app.py', reloading
+[2025-05-25 23:52:25] INFO  * Restarting with stat
+[2025-05-25 23:52:26] WARNING  * Debugger is active!
+[2025-05-25 23:52:26] INFO  * Debugger PIN: 103-153-554
+[2025-05-26 00:01:00] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://192.168.1.4:3000
+[2025-05-26 00:01:00] INFO [33mPress CTRL+C to quit[0m
+[2025-05-26 00:01:00] INFO  * Restarting with stat
+[2025-05-26 00:01:01] WARNING  * Debugger is active!
+[2025-05-26 00:01:01] INFO  * Debugger PIN: 103-153-554
+[2025-05-26 00:10:04] INFO 127.0.0.1 - - [26/May/2025 00:10:04] "GET / HTTP/1.1" 200 -
+[2025-05-26 00:10:06] INFO 开始 Gemini API 流式推理。
+[2025-05-26 00:10:06] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/gemini_quant_v1/code/web_gui/../main.py
+[2025-05-26 00:10:06] INFO 127.0.0.1 - - [26/May/2025 00:10:06] "GET / HTTP/1.1" 200 -
+[2025-05-26 00:11:32] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-26 00:11:33] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-26 00:11:33] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-26 00:11:33] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-26 00:11:33] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-26 00:11:34] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-26 00:11:38] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-26 00:11:38] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250526_001131.png
+[2025-05-26 00:11:38] INFO 127.0.0.1 - - [26/May/2025 00:11:38] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-26 00:11:38] INFO [gemini_api_caller] 收到packaged_json类型: <class 'dict'>, 内容预览: {'clipboard_image_path': '/tmp/tradingview_screenshots/tradingview_clipboard_20250526_001131.png', 'indicators': {'15m': {'timestamp': '2025-05-24T15:00:00+00:00Z', 'indicators': {'ticker': 'ETH-USDT-SWAP', 'name': 'ETHUSDT.P', 'close': 2559.83, 'volume': 299311.64, 'RSI': 61.601483968460855, 'MACD_macd': 4.812683118584573, 'MACD_signal': 6.241006608757387, 'ATR': 8.953060960713067, 'ADX': 19.088869020054247, 'Stoch_K': 73.93346379647778, 'Stoch_D': 54.78147423352933, 'StochRSI_K': 55.6593365330
+[2025-05-26 00:11:38] INFO [gemini_api_caller] 最终发送给AI的prompt_text: 标的: ETHUSDT.P
+主周期: 15m
+主周期时间: 2025-05-24T15:00:00+00:00Z
+主周期收盘价: 2559.83
+主周期成交量: 299311.64
+RSI: 61.601483968460855
+MACD: 4.812683118584573, Signal: 6.241006608757387
+ATR: 8.953060960713067
+ADX: 19.088869020054247
+布林带: 上轨 2563.7081061232216, 下轨 2545.5458938767783, 中轨 2554.627
+EMA5: 2555.2668171754694, EMA21: 2551.60844775301, EMA55: 2537.605879808352, EMA144: 2522.3777691244372, EMA200: 2518.990454798393
+VWAP: 2507.624042937908
+数据更新时间: 2025-05-25T16:11:38+00:00Z
+资金费率: 0.01%
+恐慌贪婪指数: 74
+持仓量: 590925
+[2025-05-26 00:11:38] INFO 127.0.0.1 - - [26/May/2025 00:11:38] "GET /data.json HTTP/1.1" 200 -
+[2025-05-26 00:11:38] WARNING [gemini_api_caller] 图片加载失败: from_image，图片路径: /tmp/tradingview_screenshots/tradingview_clipboard_20250526_001131.png
+[2025-05-26 00:11:38] INFO AFC is enabled with max remote calls: 10.
+[2025-05-26 00:11:38] INFO AFC remote call 1 is done.
+[2025-05-26 00:11:38] INFO 127.0.0.1 - - [26/May/2025 00:11:38] "GET /screenshots/tradingview_clipboard_20250526_001131.png HTTP/1.1" 200 -
+[2025-05-26 00:12:25] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[2025-05-26 00:22:10] INFO  * Detected change in '/home/li-xufeng/codespace/gemini_quant_v1/code/technical_indicator_collector.py', reloading
+[2025-05-26 00:22:11] INFO  * Restarting with stat
+[2025-05-26 00:22:12] WARNING  * Debugger is active!
+[2025-05-26 00:22:12] INFO  * Debugger PIN: 103-153-554
