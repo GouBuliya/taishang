@@ -10,6 +10,7 @@ import pyperclip
 import argparse
 import undetected_chromedriver as uc
 import sys # 导入sys模块
+import shutil
 
 # 配置
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'  # 你的超级图表链接，可自定义
@@ -56,7 +57,6 @@ def create_driver(headless=True, user_data_dir=None):
     chrome_options.add_argument(f'--user-data-dir={final_user_data_dir}')
     print(f'[DEBUG] 用户数据目录设置为: {final_user_data_dir}')
 
-
     prefs = {
         # 将下载目录也设在脚本同级目录下的 'downloads' 文件夹中
         "download.default_directory": os.path.join(SCRIPT_DIR, 'downloads'),
@@ -72,13 +72,25 @@ def create_driver(headless=True, user_data_dir=None):
         print(f'[DEBUG] 已设置代理: {proxy}')
     print('[DEBUG] Chrome options:', chrome_options.arguments)
     try:
-        # 传入headless参数，这里将是False
         driver = uc.Chrome(options=chrome_options, headless=headless)
     except Exception as e:
         print(f"[ERROR] 启动Chrome失败: {e}")
         import traceback
         traceback.print_exc()
-        raise
+        # 尝试用chrome_profile_copy覆盖chrome_profile
+        try:
+            src = os.path.join(SCRIPT_DIR, 'chrome_profile_copy')
+            dst = final_user_data_dir
+            print(f"[DEBUG] 尝试用{src}覆盖{dst}")
+            if os.path.exists(dst):
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
+            print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
+            driver = uc.Chrome(options=chrome_options, headless=headless)
+        except Exception as e2:
+            print(f"[ERROR] 第二次启动Chrome仍然失败: {e2}")
+            traceback.print_exc()
+            raise
     print(f"[DEBUG] 启动浏览器 (有头模式)") # 明确指出为有头模式
     time.sleep(2)
     print(f"[DEBUG] 跳转到目标页面: {TRADINGVIEW_URL}")
@@ -139,7 +151,6 @@ def take_screenshot(driver):
                 src_path = os.path.join(downloads_dir, latest_file)
                 now = datetime.now().strftime('%Y%m%d_%H%M%S')
                 dst_path = os.path.join(SAVE_DIR, f'tradingview_clipboard_{now}.png')
-                import shutil
                 shutil.copy2(src_path, dst_path)
                 print(f'[DEBUG] K线图片已保存: {dst_path}')
                 return dst_path
