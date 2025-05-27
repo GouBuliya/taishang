@@ -1,6 +1,0 @@
-2025/05/27-23:07:59.920 336a1 Reusing MANIFEST /home/li-xufeng/codespace/Qwen_quant_v1/code/chrome_profile/Default/shared_proto_db/MANIFEST-000001
-2025/05/27-23:07:59.920 336a1 Recovering log #9
-2025/05/27-23:07:59.920 336a1 Reusing old log /home/li-xufeng/codespace/Qwen_quant_v1/code/chrome_profile/Default/shared_proto_db/000009.log 
-2025/05/27-23:08:17.386 336a2 Level-0 table #13: started
-2025/05/27-23:08:17.388 336a2 Level-0 table #13: 882571 bytes OK
-2025/05/27-23:08:17.389 336a2 Delete type=0 #9

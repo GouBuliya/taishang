@@ -1,17 +1,6 @@
-2025/05/27-23:08:32.087 3397f Reusing MANIFEST /home/li-xufeng/codespace/Qwen_quant_v1/code/chrome_profile/Default/shared_proto_db/MANIFEST-000001
-2025/05/27-23:08:32.088 3397f Recovering log #12
-2025/05/27-23:08:32.088 3397f Level-0 table #15: started
-2025/05/27-23:08:32.092 3397f Level-0 table #15: 865718 bytes OK
-2025/05/27-23:08:32.095 3397f Delete type=0 #12
-2025/05/27-23:08:54.144 33980 Level-0 table #18: started
-2025/05/27-23:08:54.145 33980 Level-0 table #18: 870128 bytes OK
-2025/05/27-23:08:54.147 33980 Delete type=0 #16
-2025/05/27-23:08:54.147 3397e Compacting 4@0 + 1@1 files
-2025/05/27-23:08:54.149 3397e Generated table #19@0: 18 keys, 437614 bytes
-2025/05/27-23:08:54.149 3397e Compacted 4@0 + 1@1 files => 437614 bytes
-2025/05/27-23:08:54.150 3397e compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/05/27-23:08:54.150 3397e Delete type=2 #13
-2025/05/27-23:08:54.150 3397e Delete type=2 #7
-2025/05/27-23:08:54.150 3397e Delete type=2 #18
-2025/05/27-23:08:54.150 3397e Delete type=2 #15
-2025/05/27-23:08:54.150 3397e Delete type=2 #10
+2025/05/28-02:50:28.366 43995 Reusing MANIFEST /root/codespace/Qwen_quant_v1/code/chrome_profile/Default/shared_proto_db/MANIFEST-000001
+2025/05/28-02:50:28.367 43995 Recovering log #52
+2025/05/28-02:50:28.370 43995 Reusing old log /root/codespace/Qwen_quant_v1/code/chrome_profile/Default/shared_proto_db/000052.log 
+2025/05/28-02:51:17.336 4394e Level-0 table #57: started
+2025/05/28-02:51:17.407 4394e Level-0 table #57: 861569 bytes OK
+2025/05/28-02:51:17.459 4394e Delete type=0 #52

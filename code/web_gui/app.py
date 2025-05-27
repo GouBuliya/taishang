@@ -141,9 +141,9 @@ def qwen_advice():
         return jsonify({"error": f"服务器内部错误: {e}"}), 500
 
 # 添加静态文件路由，用于访问截图
-@app.route('/screenshots/<path:filename>')
+@app.route('/cache_screenshots/<path:filename>')
 def serve_screenshot(filename):
-    return send_from_directory('/tmp/tradingview_screenshots', filename)
+    return send_from_directory(os.path.join(parent_dir, 'cache_screenshots'), filename)
 
 # 添加路由用于获取 data.json
 @app.route('/data.json')
@@ -187,4 +187,5 @@ if __name__ == '__main__':
     # if not app.debug:
     #     start_telegram_bot()
     # 启动主服务
-    app.run(host='0.0.0.0', port=3000, debug=True)
+    
+    app.run(host='0.0.0.0', port=5000, debug=True)

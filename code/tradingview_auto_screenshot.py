@@ -11,14 +11,15 @@ import argparse
 import undetected_chromedriver as uc
 import sys # 导入sys模块
 import shutil
+import subprocess
 
 # 配置
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'  # 你的超级图表链接，可自定义
-SAVE_DIR = '/tmp/tradingview_screenshots'  # 修改为你想保存的目录
+SAVE_DIR = 'code/cache_screenshots'  # 修改为你想保存的目录
 INTERVAL_MINUTES = 15
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cache_screenshots')
 CACHE_MAX = 15
-
+VIRTUAL_ENV_PYTHON_PATH="/usr/local/bin/python3.10"
 # 定义虚拟环境的Python路径，并确保使用它
 # 在 Dockerfile 中，这个路径会被设置为 /app/venv/bin/python
 # 在本地开发时，你可能需要根据实际虚拟环境路径进行调整
@@ -40,20 +41,35 @@ parser.add_argument('--proxy', type=str, default=None, help='http://127.0.0.1:10
 args, unknown = parser.parse_known_args()
 proxy = args.proxy or os.environ.get('PROXY')
 
+def clean_user_data_dir(user_data_dir):
+    """
+    清理Chrome用户配置目录下的缓存子目录，降低内存占用。
+    """
+    for sub in ['Cache', 'Code Cache', 'GPUCache', 'ShaderCache', 'GrShaderCache']:
+        path = os.path.join(user_data_dir, sub)
+        if os.path.exists(path):
+            try:
+                shutil.rmtree(path)
+                print(f'[DEBUG] 已清理缓存目录: {path}')
+            except Exception as e:
+                print(f'[WARNING] 清理缓存目录失败: {path}, {e}')
+
 def create_driver(headless=True, user_data_dir=None):
     """
     创建并配置Chrome浏览器实例，使用undetected_chromedriver规避反爬虫。
+    启动前自动清理用户配置目录下的缓存。
     """
+    final_user_data_dir = user_data_dir if user_data_dir else DEFAULT_USER_DATA_DIR
+    clean_user_data_dir(final_user_data_dir)
     chrome_options = uc.ChromeOptions()
     # chrome_options.binary_location = "/usr/bin/google-chrome"  # 建议注释掉，自动寻找chrome路径
-    chrome_options.add_argument('--window-size=1920,1080')
+    chrome_options.add_argument('--window-size=2560,1440')
     # chrome_options.add_argument('--disable-gpu') # 在有头模式下通常不需要禁用GPU
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     # chrome_options.add_argument('user-agent=...') # 保持注释
 
     # 修改此处，优先使用传入的 user_data_dir，否则使用默认的同级目录
-    final_user_data_dir = user_data_dir if user_data_dir else DEFAULT_USER_DATA_DIR
     chrome_options.add_argument(f'--user-data-dir={final_user_data_dir}')
     print(f'[DEBUG] 用户数据目录设置为: {final_user_data_dir}')
 
@@ -183,9 +199,32 @@ def wait_for_clipboard_image(driver, max_retry=3, interval=2):
     print('[DEBUG] wait_for_clipboard_image() 超时退出')
     return False
 
+def clear_save_dir(save_dir):
+    """
+    清空保存截图的目录。
+    """
+    if os.path.exists(save_dir):
+        for f in os.listdir(save_dir):
+            fpath = os.path.join(save_dir, f)
+            try:
+                if os.path.isfile(fpath) or os.path.islink(fpath):
+                    os.unlink(fpath)
+                elif os.path.isdir(fpath):
+                    shutil.rmtree(fpath)
+            except Exception as e:
+                print(f'[WARNING] 删除文件失败: {fpath}, {e}')
+
 def main():
     filepath = None
     driver = None
+    # 启动前清空保存目录
+    clear_save_dir(SAVE_DIR)
+    # 启动前杀掉所有chrome进程
+    try:
+        subprocess.run(['pkill', '-9', 'chrome'], check=False)
+        print('[DEBUG] 已执行 pkill chrome')
+    except Exception as e:
+        print(f'[WARNING] pkill chrome 失败: {e}')
     # 强制检查当前运行的Python解释器是否是指定的venv_python
     if sys.executable != venv_python:
         print(f"[CRITICAL ERROR] 当前脚本运行的Python解释器不是指定的虚拟环境解释器！")

@@ -7,6 +7,8 @@ from datetime import datetime, timezone
 import re
 import sys
 from okx.api import Market  # type: ignore
+import logging
+import threading
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 flag="0"
@@ -23,34 +25,38 @@ def extract_first_json(text):
             idx += 1
     return None
 
-venv_python = "venv/bin/python"
+venv_python = "/usr/local/bin/python3.10"
 
 def run_script(name, proxies=None):
     path = os.path.join(BASE_DIR, name)
     env = os.environ.copy()
-    # 支持通过环境变量传递代理
-    if proxies:
-        if 'http' in proxies:
-            env['http_proxy'] = proxies['http']
-        if 'https' in proxies:
-            env['https_proxy'] = proxies['https']
+    # 先不传代理，排查网络问题
+    # if proxies:
+    #     if 'http' in proxies:
+    #         env['http_proxy'] = proxies['http']
+    #     if 'https' in proxies:
+    #         env['https_proxy'] = proxies['https']
     try:
         result = subprocess.run(
-            [venv_python, path],  # 强制使用虚拟环境解释器
+            [venv_python, path],
             capture_output=True,
             text=True,
-            env=env
+            env=env,
+            cwd=BASE_DIR  # 保证子模块在同一目录下运行
         )
-        stdout = result.stdout
-        obj = extract_first_json(stdout)
+        # 日志映射
+        if result.stdout:
+            for line in result.stdout.splitlines():
+                logging.info(f"[{name}][stdout] {line}")
+        if result.stderr:
+            for line in result.stderr.splitlines():
+                logging.error(f"[{name}][stderr] {line}")
+        obj = extract_first_json(result.stdout)
         if obj is not None:
             return obj
-        # 若无json，输出调试信息
-        print(f"{name} 脚本输出内容：", result.stdout)
-        print(f"{name} 脚本错误输出：", result.stderr)
         return None
     except Exception as e:
-        print(f"运行{name}异常: {e}")
+        logging.error(f"运行{name}异常: {e}")
         return None
 
 def run_tradingview_screenshot():
@@ -64,23 +70,27 @@ def run_tradingview_screenshot():
             capture_output=True,
             text=True
         )
-        # 在输出中查找 [DEBUG] 剪切板图片已保存: 路径
+        # 日志映射
+        if result.stdout:
+            for line in result.stdout.splitlines():
+                logging.info(f"[tradingview_auto_screenshot.py][stdout] {line}")
+        if result.stderr:
+            for line in result.stderr.splitlines():
+                logging.error(f"[tradingview_auto_screenshot.py][stderr] {line}")
         for line in result.stdout.splitlines():
             if "剪切板图片已保存:" in line:
                 filepath = line.split("剪切板图片已保存:")[-1].strip()
                 if os.path.exists(filepath):
                     return filepath
-        # 新增：如果没有找到，直接返回stdout最后一行（便于调试）
         if result.stdout.strip():
             return result.stdout.strip().splitlines()[-1]
         return None
     except Exception as e:
-        print(f"运行tradingview_auto_screenshot.py异常: {e}")
+        logging.error(f"运行tradingview_auto_screenshot.py异常: {e}")
         return None
 
 if __name__ == "__main__":
-    # 将所有print输出（除最后“完成”）改为logging，stdout只输出“完成”
-    import logging
+    # 将所有print输出（除最后"完成"）改为logging，stdout只输出"完成"
     logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(levelname)s %(message)s')
     proxies = {
         "http": "http://127.0.0.1:1080",

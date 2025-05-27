@@ -14,6 +14,7 @@ TELEGRAM_BOT_TOKEN = '8046148449:AAF8TnmmoUDxQqTBtaq_MUOftL422mCJsAY'
 REPLY_FILE = os.path.join(os.path.dirname(__file__), '../gemini_reply.txt')  # Gemini回复输出文件
 os.environ['GEMINI_API_KEY'] = "AIzaSyAP8WsfGTPJ2TOB8Hlnqcby6VZzlUXMQpg"
 REGISTERED_CHAT_IDS = set()
+venv_python = "/usr/local/bin/python3.10"
 
 # --- MarkdownV2 特殊字符转义 ---
 def escape_md_v2(text: str) -> str:
@@ -67,12 +68,12 @@ async def ask_gemini(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     if chat_id not in REGISTERED_CHAT_IDS:
         REGISTERED_CHAT_IDS.add(chat_id)
-    await update.message.reply_text("正在采集数据并调用Gemini，请稍候...")
+    await update.message.reply_text("正在采集数据并调用 Qwen ，请稍候...")
     try:
-        # 1. 运行 main.py 采集数据
+        # 1. 用特定python调用 main.py
         base_dir = os.path.dirname(os.path.abspath(__file__))
         main_path = os.path.join(base_dir, "main.py")
-        result = subprocess.run(["python3", main_path], capture_output=True, text=True, timeout=120)
+        result = subprocess.run([venv_python, main_path], capture_output=True, text=True, timeout=120)
         if result.returncode != 0:
             await update.message.reply_text(f"数据采集失败: {result.stderr}")
             return
@@ -84,14 +85,18 @@ async def ask_gemini(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(data_path, "r", encoding="utf-8") as f:
             packaged = json.load(f)
         screenshot_path = packaged.get("clipboard_image_path")
-        # 3. 调用 Gemini API (流式)
+        # 3. 先发图片
+        if screenshot_path and os.path.exists(screenshot_path):
+            with open(screenshot_path, "rb") as img_f:
+                await update.message.reply_photo(img_f)
+        # 4. 调用 Qwen API (流式)
         sys.path.insert(0, base_dir)
-        gemini_api_caller = importlib.import_module("gemini_api_caller")
-        call_gemini_api_stream = gemini_api_caller.call_gemini_api_stream
-        # 流式收集内容
+        import importlib
+        qwen_api_caller = importlib.import_module("qwen_api_caller")
+        call_qwen_api_stream = qwen_api_caller.call_qwen_api_stream
         buffer = ""
         max_len = 4000
-        for chunk in call_gemini_api_stream(packaged, screenshot_path=screenshot_path):
+        for chunk in call_qwen_api_stream(packaged, screenshot_path=screenshot_path):
             if chunk:
                 buffer += chunk
                 # 分块推送，防止超长
@@ -101,7 +106,7 @@ async def ask_gemini(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if buffer:
             await update.message.reply_text(buffer)
     except Exception as e:
-        await update.message.reply_text(f"Gemini推理失败: {e}")
+        await update.message.reply_text(f"Qwen推理失败: {e}")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # 仅用于注册chat_id

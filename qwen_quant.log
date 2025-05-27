@@ -358,3 +358,170 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect A
 [2025-05-27 23:34:24] INFO  * Restarting with stat
 [2025-05-27 23:34:25] WARNING  * Debugger is active!
 [2025-05-27 23:34:25] INFO  * Debugger PIN: 102-245-084
+[2025-05-28 00:51:15] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://172.26.10.66:3000
+[2025-05-28 00:51:15] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 00:51:15] INFO  * Restarting with stat
+[2025-05-28 00:51:17] WARNING  * Debugger is active!
+[2025-05-28 00:51:17] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 00:51:22] INFO 127.0.0.1 - - [28/May/2025 00:51:22] "GET / HTTP/1.1" 200 -
+[2025-05-28 00:52:10] INFO 开始 Qwen API 流式推理。
+[2025-05-28 00:52:10] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 00:52:11] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 00:52:11] INFO 传递给AI的screenshot_path: 
+[2025-05-28 00:52:11] INFO 127.0.0.1 - - [28/May/2025 00:52:11] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 00:52:11] INFO 127.0.0.1 - - [28/May/2025 00:52:11] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 00:52:15] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 01:37:22] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 01:42:13] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://172.26.10.66:3000
+[2025-05-28 01:42:13] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 01:42:13] INFO  * Restarting with stat
+[2025-05-28 01:42:14] WARNING  * Debugger is active!
+[2025-05-28 01:42:14] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 01:42:20] INFO 127.0.0.1 - - [28/May/2025 01:42:20] "GET / HTTP/1.1" 200 -
+[2025-05-28 01:42:36] ERROR 206.168.34.223 - - [28/May/2025 01:42:36] code 400, message Bad request version ('À\x14À')
+[2025-05-28 01:42:36] INFO 206.168.34.223 - - [28/May/2025 01:42:36] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Ë.\x06/_L\x88¤bÎþTcÄJRB·SJ\x9fó)ªO\x8b«qÑ\x841\x16 \x15Íx¥låó`\x8dpö©\x0e»W\x94¤\x8e\x1cp%í\x1d\x83i\x1daá\\Çè(\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 01:42:45] INFO 127.0.0.1 - - [28/May/2025 01:42:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 01:42:47] INFO 开始 Qwen API 流式推理。
+[2025-05-28 01:42:47] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 01:43:13] ERROR 206.168.34.223 - - [28/May/2025 01:43:13] code 400, message Bad request syntax ('ZG\x00\x00\x00\x05\x00+\x0e\x01\x00')
+[2025-05-28 01:43:13] INFO 206.168.34.223 - - [28/May/2025 01:43:13] "[35m[1mZG\x00\x00\x00\x05\x00+\x0e\x01\x00[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 01:43:53] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 01:43:53] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250528_014347.png
+[2025-05-28 01:43:53] INFO 127.0.0.1 - - [28/May/2025 01:43:53] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 01:43:53] INFO 127.0.0.1 - - [28/May/2025 01:43:53] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 01:43:54] INFO 127.0.0.1 - - [28/May/2025 01:43:54] "GET /screenshots/tradingview_clipboard_20250528_014347.png HTTP/1.1" 200 -
+[2025-05-28 01:43:57] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 01:44:20] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 01:44:21] INFO  * Restarting with stat
+[2025-05-28 01:44:23] WARNING  * Debugger is active!
+[2025-05-28 01:44:23] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 01:45:38] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/main.py', reloading
+[2025-05-28 01:45:38] INFO  * Restarting with stat
+[2025-05-28 01:45:40] WARNING  * Debugger is active!
+[2025-05-28 01:45:40] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 01:45:43] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/main.py', reloading
+[2025-05-28 01:45:43] INFO  * Restarting with stat
+[2025-05-28 01:45:45] WARNING  * Debugger is active!
+[2025-05-28 01:45:45] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 01:54:08] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.10.66:5000
+[2025-05-28 01:54:08] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 01:54:08] INFO  * Restarting with stat
+[2025-05-28 01:54:10] WARNING  * Debugger is active!
+[2025-05-28 01:54:10] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 01:54:33] INFO 127.0.0.1 - - [28/May/2025 01:54:33] "GET /?vscodeBrowserReqId=1748368473204 HTTP/1.1" 200 -
+[2025-05-28 01:55:10] INFO 60.211.79.243 - - [28/May/2025 01:55:10] "GET / HTTP/1.1" 200 -
+[2025-05-28 01:55:34] INFO 60.211.79.243 - - [28/May/2025 01:55:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 02:01:13] INFO 60.211.79.243 - - [28/May/2025 02:01:13] "GET / HTTP/1.1" 200 -
+[2025-05-28 02:01:27] INFO 127.0.0.1 - - [28/May/2025 02:01:27] "GET / HTTP/1.1" 200 -
+[2025-05-28 02:01:28] INFO 127.0.0.1 - - [28/May/2025 02:01:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 02:01:43] INFO 60.211.79.243 - - [28/May/2025 02:01:43] "GET / HTTP/1.1" 200 -
+[2025-05-28 02:01:43] INFO 60.211.79.243 - - [28/May/2025 02:01:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 02:01:44] INFO 开始 Qwen API 流式推理。
+[2025-05-28 02:01:44] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 02:04:44] ERROR 自动运行 main.py 失败: Command '['/usr/local/bin/python3.10', '/root/codespace/Qwen_quant_v1/code/web_gui/../main.py']' timed out after 180 seconds
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/app.py", line 76, in qwen_advice
+    result = subprocess.run([sys.executable, main_py_path], capture_output=True, text=True, timeout=180)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['/usr/local/bin/python3.10', '/root/codespace/Qwen_quant_v1/code/web_gui/../main.py']' timed out after 180 seconds
+
+[2025-05-28 02:04:44] INFO 60.211.79.243 - - [28/May/2025 02:04:44] "[35m[1mPOST /api/qwen_advice HTTP/1.1[0m" 500 -
+[2025-05-28 02:04:44] INFO 60.211.79.243 - - [28/May/2025 02:04:44] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 02:04:44] INFO 60.211.79.243 - - [28/May/2025 02:04:44] "GET /screenshots/tradingview_clipboard_20250528_020302.png?t=1748369084893 HTTP/1.1" 200 -
+[2025-05-28 02:34:34] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.10.66:5000
+[2025-05-28 02:34:34] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 02:34:34] INFO  * Restarting with stat
+[2025-05-28 02:34:35] WARNING  * Debugger is active!
+[2025-05-28 02:34:35] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 02:36:02] INFO 开始 Qwen API 流式推理。
+[2025-05-28 02:36:02] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 02:37:15] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 02:37:15] INFO 传递给AI的screenshot_path: code/cache_screenshots/tradingview_clipboard_20250528_023702.png
+[2025-05-28 02:37:15] INFO 60.211.79.243 - - [28/May/2025 02:37:15] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 02:37:15] INFO 60.211.79.243 - - [28/May/2025 02:37:15] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 02:37:15] INFO 60.211.79.243 - - [28/May/2025 02:37:15] "[33mGET /screenshots/tradingview_clipboard_20250528_023702.png?t=1748371035244 HTTP/1.1[0m" 404 -
+[2025-05-28 02:37:19] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 02:39:15] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.10.66:5000
+[2025-05-28 02:39:15] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 02:39:15] INFO  * Restarting with stat
+[2025-05-28 02:39:16] WARNING  * Debugger is active!
+[2025-05-28 02:39:16] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 02:39:17] INFO 开始 Qwen API 流式推理。
+[2025-05-28 02:39:17] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 02:40:19] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 02:40:19] INFO 传递给AI的screenshot_path: code/cache_screenshots/tradingview_clipboard_20250528_024013.png
+[2025-05-28 02:40:19] INFO 60.211.79.243 - - [28/May/2025 02:40:19] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 02:40:19] INFO 60.211.79.243 - - [28/May/2025 02:40:19] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 02:40:19] INFO 60.211.79.243 - - [28/May/2025 02:40:19] "[33mGET /screenshots/tradingview_clipboard_20250528_024013.png?t=1748371219348 HTTP/1.1[0m" 404 -
+[2025-05-28 02:40:22] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 02:40:24] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 02:40:24] INFO  * Restarting with stat
+[2025-05-28 02:40:26] WARNING  * Debugger is active!
+[2025-05-28 02:40:26] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 02:40:51] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 02:40:51] INFO  * Restarting with stat
+[2025-05-28 02:41:51] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.10.66:5000
+[2025-05-28 02:41:51] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 02:41:51] INFO  * Restarting with stat
+[2025-05-28 02:41:52] WARNING  * Debugger is active!
+[2025-05-28 02:41:52] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 02:41:53] INFO 开始 Qwen API 流式推理。
+[2025-05-28 02:41:53] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 02:42:56] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 02:42:56] INFO 传递给AI的screenshot_path: code/cache_screenshots/tradingview_clipboard_20250528_024251.png
+[2025-05-28 02:42:56] INFO 60.211.79.243 - - [28/May/2025 02:42:56] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 02:42:56] INFO 60.211.79.243 - - [28/May/2025 02:42:56] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 02:42:57] INFO 60.211.79.243 - - [28/May/2025 02:42:57] "[33mGET /screenshots/tradingview_clipboard_20250528_024251.png?t=1748371377020 HTTP/1.1[0m" 404 -
+[2025-05-28 02:43:00] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 02:45:36] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 02:45:37] INFO  * Restarting with stat
+[2025-05-28 02:45:38] WARNING  * Debugger is active!
+[2025-05-28 02:45:38] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 02:45:54] INFO 60.211.79.243 - - [28/May/2025 02:45:54] "GET / HTTP/1.1" 200 -
+[2025-05-28 02:47:58] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.10.66:5000
+[2025-05-28 02:47:58] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 02:47:58] INFO  * Restarting with stat
+[2025-05-28 02:48:00] WARNING  * Debugger is active!
+[2025-05-28 02:48:00] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 02:48:00] INFO 60.211.79.243 - - [28/May/2025 02:48:00] "GET / HTTP/1.1" 200 -
+[2025-05-28 02:50:20] INFO 60.211.79.243 - - [28/May/2025 02:50:20] "GET / HTTP/1.1" 200 -
+[2025-05-28 02:50:23] INFO 开始 Qwen API 流式推理。
+[2025-05-28 02:50:23] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 02:51:26] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 02:51:26] INFO 传递给AI的screenshot_path: code/cache_screenshots/tradingview_clipboard_20250528_025119.png
+[2025-05-28 02:51:26] INFO 60.211.79.243 - - [28/May/2025 02:51:26] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 02:51:26] INFO 60.211.79.243 - - [28/May/2025 02:51:26] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 02:51:26] INFO 60.211.79.243 - - [28/May/2025 02:51:26] "[33mGET /screenshots/tradingview_clipboard_20250528_025119.png?t=1748371886749 HTTP/1.1[0m" 404 -
+[2025-05-28 02:51:30] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 02:52:16] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 02:52:17] INFO  * Restarting with stat
+[2025-05-28 02:52:19] WARNING  * Debugger is active!
+[2025-05-28 02:52:19] INFO  * Debugger PIN: 138-205-243

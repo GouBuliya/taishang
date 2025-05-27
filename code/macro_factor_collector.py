@@ -4,6 +4,7 @@ import json
 import os 
 from okx.api import Public  # type: ignore
 import logging
+from datetime import datetime, timezone, timedelta
 
 flag="0"
 
@@ -59,7 +60,9 @@ def get_okx_open_interest():
         return None
 
 def get_market_factors():
-    now = datetime.datetime.now(datetime.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    # 北京时间（东八区）
+    beijing_tz = timezone(timedelta(hours=8))
+    now = datetime.now(beijing_tz).replace(microsecond=0).isoformat()
     
     funding_rate = get_okx_funding_rate()
     fear_greed = get_fear_greed_index()
