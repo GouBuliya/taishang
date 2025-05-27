@@ -142,7 +142,7 @@ all_periods_data = {}  # 存放所有周期的结果数据
 
 marketDataAPI = Market(flag=flag)
 
-venv_python = "/usr/bin/python3"
+venv_python = "venv/bin/python"
 
 for label, okx_bar_string in period_map.items():
     logger.info(f"正在获取 {TARGET_SYMBOL_INST} 在 {label} ({okx_bar_string}) 周期的数据...")

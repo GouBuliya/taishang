@@ -6,10 +6,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from PIL import ImageGrab
 import pyperclip
 import argparse
 import undetected_chromedriver as uc
+import sys # 导入sys模块
 
 # 配置
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'  # 你的超级图表链接，可自定义
@@ -18,8 +18,20 @@ INTERVAL_MINUTES = 15
 CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cache_screenshots')
 CACHE_MAX = 15
 
+# 定义虚拟环境的Python路径，并确保使用它
+# 在 Dockerfile 中，这个路径会被设置为 /app/venv/bin/python
+# 在本地开发时，你可能需要根据实际虚拟环境路径进行调整
+venv_python = os.environ.get("VIRTUAL_ENV_PYTHON_PATH", sys.executable)
+
+# 获取当前脚本的绝对路径
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# 将浏览器配置文件放在脚本所在目录下的 'chrome_profile' 文件夹中
+DEFAULT_USER_DATA_DIR = os.path.join(SCRIPT_DIR, 'chrome_profile')
+
+
 os.makedirs(SAVE_DIR, exist_ok=True)
 os.makedirs(CACHE_DIR, exist_ok=True)
+os.makedirs(DEFAULT_USER_DATA_DIR, exist_ok=True) # 确保配置文件目录存在
 
 # 代理支持
 parser = argparse.ArgumentParser()
@@ -27,27 +39,32 @@ parser.add_argument('--proxy', type=str, default=None, help='http://127.0.0.1:10
 args, unknown = parser.parse_known_args()
 proxy = args.proxy or os.environ.get('PROXY')
 
-def create_driver(headless=False, user_data_dir=None):
+def create_driver(headless=True, user_data_dir=None):
     """
     创建并配置Chrome浏览器实例，使用undetected_chromedriver规避反爬虫。
     """
     chrome_options = uc.ChromeOptions()
     # chrome_options.binary_location = "/usr/bin/google-chrome"  # 建议注释掉，自动寻找chrome路径
     chrome_options.add_argument('--window-size=1920,1080')
-    chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument('--disable-gpu') # 在有头模式下通常不需要禁用GPU
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     # chrome_options.add_argument('user-agent=...') # 保持注释
-    if user_data_dir:
-        chrome_options.add_argument(f'--user-data-dir={user_data_dir}')
-    else:
-        chrome_options.add_argument(f'--user-data-dir={os.path.expanduser("~/.config/tradingview_chrome_profile")}')
+
+    # 修改此处，优先使用传入的 user_data_dir，否则使用默认的同级目录
+    final_user_data_dir = user_data_dir if user_data_dir else DEFAULT_USER_DATA_DIR
+    chrome_options.add_argument(f'--user-data-dir={final_user_data_dir}')
+    print(f'[DEBUG] 用户数据目录设置为: {final_user_data_dir}')
+
+
     prefs = {
-        "download.default_directory": os.path.expanduser('~/Downloads'),
+        # 将下载目录也设在脚本同级目录下的 'downloads' 文件夹中
+        "download.default_directory": os.path.join(SCRIPT_DIR, 'downloads'),
         "download.prompt_for_download": False,
         "download.directory_upgrade": True,
         "safebrowsing.enabled": True
     }
+    os.makedirs(prefs["download.default_directory"], exist_ok=True) # 确保下载目录存在
     chrome_options.add_experimental_option("prefs", prefs)
     chrome_options.add_argument('--disable-popup-blocking')
     if proxy:
@@ -55,13 +72,14 @@ def create_driver(headless=False, user_data_dir=None):
         print(f'[DEBUG] 已设置代理: {proxy}')
     print('[DEBUG] Chrome options:', chrome_options.arguments)
     try:
-        driver = uc.Chrome(options=chrome_options, headless=False)  # 改为有头模式
+        # 传入headless参数，这里将是False
+        driver = uc.Chrome(options=chrome_options, headless=headless)
     except Exception as e:
         print(f"[ERROR] 启动Chrome失败: {e}")
         import traceback
         traceback.print_exc()
         raise
-    print(f"[DEBUG] 启动无头浏览器（undetected_chromedriver）")
+    print(f"[DEBUG] 启动浏览器 (有头模式)") # 明确指出为有头模式
     time.sleep(2)
     print(f"[DEBUG] 跳转到目标页面: {TRADINGVIEW_URL}")
     driver.get(TRADINGVIEW_URL)
@@ -75,7 +93,9 @@ def take_screenshot(driver):
     保留清理旧图、检测新图、重试等机制。
     """
     try:
-        downloads_dir = os.path.expanduser('~/Downloads')
+        # 使用 prefs 中设置的下载目录
+        downloads_dir = os.path.join(SCRIPT_DIR, 'downloads')
+        
         old_files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
         for f in old_files:
             try:
@@ -87,7 +107,7 @@ def take_screenshot(driver):
         # 移除JS注入，直接访问目标页
         driver.get(TRADINGVIEW_URL)
         print(f'[DEBUG] 等待5秒加载页面...')
-        time.sleep(5)
+        time.sleep(7)
         print(f'[DEBUG] 发送快捷键 Ctrl+Alt+S 触发下载图片...')
         try:
             body = driver.find_element(By.TAG_NAME, 'body')
@@ -109,7 +129,9 @@ def take_screenshot(driver):
             for f in files:
                 fpath = os.path.join(downloads_dir, f)
                 mtime = os.path.getmtime(fpath)
-                if now_ts - mtime < 60:
+                # 检查文件创建时间是否在新截图操作之后（通常更可靠）
+                # 或者检查文件修改时间是否在最近60秒内，防止识别旧文件
+                if now_ts - mtime < 60 and os.path.getsize(fpath) > 1024: # 确保文件大小非零
                     valid_files.append((f, mtime))
             if valid_files:
                 valid_files.sort(key=lambda x: x[1], reverse=True)
@@ -132,14 +154,18 @@ def take_screenshot(driver):
 def wait_for_clipboard_image(driver, max_retry=3, interval=2):
     print('[DEBUG] wait_for_clipboard_image() called')
     for i in range(max_retry):
-        # 检查剪切板是否有图片
+        # 检查剪切板是否有图片 (xclip 在 Docker 环境中可能需要额外配置)
+        # 在 Docker 中运行 Selenium/Chrome 通常不直接访问宿主机剪切板，
+        # 如果需要，可能要考虑X服务器/VNC或特殊Selenium配置
         check = os.system('xclip -selection clipboard -t image/png -o > /dev/null 2>&1')
         if check == 0:
             print(f'[DEBUG] 剪切板检测到图片，第{i+1}次')
             return True
         print(f'[DEBUG] 剪切板无图片，第{i+1}次重试，{interval}秒后再次发送快捷键...')
         try:
-            driver.switch_to.active_element.send_keys(Keys.CONTROL, Keys.SHIFT, 's')
+            # 确保在正确的元素上发送快捷键，或者直接发送到body
+            body = driver.find_element(By.TAG_NAME, 'body')
+            body.send_keys(Keys.CONTROL, Keys.ALT, 's') # 统一使用Ctrl+Alt+S
         except Exception as e:
             print(f'[ERROR] 发送快捷键失败: {e}')
         time.sleep(interval)
@@ -149,12 +175,18 @@ def wait_for_clipboard_image(driver, max_retry=3, interval=2):
 def main():
     filepath = None
     driver = None
+    # 强制检查当前运行的Python解释器是否是指定的venv_python
+    if sys.executable != venv_python:
+        print(f"[CRITICAL ERROR] 当前脚本运行的Python解释器不是指定的虚拟环境解释器！")
+        print(f"Expected: {venv_python}")
+        print(f"Actual: {sys.executable}")
+        print("请确保通过 `/app/venv/bin/python your_script.py` 或正确配置了PATH环境变量来运行脚本。")
+        sys.exit(1) # 强制退出，因为运行环境不符
+
     try:
-        print("[DEBUG] 使用无头模式截图...")
-        user_data_dir = os.path.expanduser("~/.config/tradingview_chrome_profile")
-        if not os.path.exists(user_data_dir):
-            print("[提示] 首次运行会自动创建浏览器配置目录，请在弹出的浏览器中手动登录 TradingView 并勾选保持登录，然后关闭浏览器后重新运行脚本。")
-        driver = create_driver(headless=True, user_data_dir=user_data_dir)
+        print("[DEBUG] 启动浏览器进行截图 (有头模式)...") # 更新调试信息
+        # user_data_dir 参数将使用上面定义的 DEFAULT_USER_DATA_DIR
+        driver = create_driver(headless=True, user_data_dir=DEFAULT_USER_DATA_DIR) # 将headless设置为False
         filepath = take_screenshot(driver)
         return filepath
     finally:
@@ -169,9 +201,3 @@ if __name__ == '__main__':
         print(result)
     else:
         print('截图失败')
-
-
-# 所有子进程调用请用 venv_python 作为解释器
-# 示例：如有子进程调用请用 venv_python 作为解释器
-# subprocess.run([venv_python, 'other_script.py', ...])
-

@@ -301,7 +301,7 @@ $$
 #### 当前时间：{timestamp}
 #### 市场状态：{market_state}
 
-### 交易推荐（Trade Recommendation）：
+### 交易建议（Trade Recommendation）：
 **总结：**{trade_recommendation.summary}
 **AI信心度：**{trade_recommendation.confidence}
 **信号类型：**{trade_recommendation.signal}

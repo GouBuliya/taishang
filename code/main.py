@@ -23,7 +23,7 @@ def extract_first_json(text):
             idx += 1
     return None
 
-venv_python = "/usr/bin/python3"
+venv_python = "venv/bin/python"
 
 def run_script(name, proxies=None):
     path = os.path.join(BASE_DIR, name)

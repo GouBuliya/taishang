@@ -8,7 +8,6 @@ import os
 import sys
 import json
 import traceback
-from PIL import Image
 
 try:
     from qwen_trade_advisor import build_prompt_from_json
@@ -59,7 +58,11 @@ DEFAULT_THINKING_BUDGET = 5  # 百炼API支持的最高思考预算为5
 # ===================== qwen API 调用主模块 =====================
 # 适配qwen的API调用，假设有qwen官方SDK或API HTTP接口
 
-from openai import OpenAI
+try:
+    from openai import OpenAI
+except ImportError as e:
+    raise ImportError("未找到 openai 库，请先运行 'pip install openai' 安装依赖。") from e
+
 import base64
 
 def build_messages(prompt_text, screenshot_path=None, system_prompt=None):
