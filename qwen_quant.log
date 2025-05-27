@@ -239,3 +239,19 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect A
 [2025-05-27 10:07:31] INFO 127.0.0.1 - - [27/May/2025 10:07:31] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Å\x94ßc¯¯°5oó\x00öKLÉ$ÔT\x924ñòd¿\x8eRó¶tj,Ä \x18\x81Þ\x86\x1f®\x16x\x0cEàb\x96>F\x1a£\x86\x88\x92l\x0f"!à\x89Í#l\x8b£Å\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
 [2025-05-27 10:07:31] ERROR 127.0.0.1 - - [27/May/2025 10:07:31] code 400, message Bad request version ('À(À$À\x14À')
 [2025-05-27 10:07:31] INFO 127.0.0.1 - - [27/May/2025 10:07:31] "[31m[1m\x16\x03\x01\x00Ê\x01\x00\x00Æ\x03\x03q\x12ù¹\x0cÜ7^ü½óå\x91öR\x8b3.T|Ðtèum#ù\x06¿9\x06~\x00\x00hÌ\x14Ì\x13À/À+À0À,À\x11À\x07À'À#À\x13À\x09À(À$À\x14À[0m" 400 -
+[2025-05-27 20:07:23] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://198.18.0.1:3000
+[2025-05-27 20:07:23] INFO [33mPress CTRL+C to quit[0m
+[2025-05-27 20:07:23] INFO  * Restarting with stat
+[2025-05-27 20:07:24] WARNING  * Debugger is active!
+[2025-05-27 20:07:24] INFO  * Debugger PIN: 615-432-310
+[2025-05-27 20:24:42] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://198.18.0.1:3000
+[2025-05-27 20:24:42] INFO [33mPress CTRL+C to quit[0m
+[2025-05-27 20:24:42] INFO  * Restarting with stat
+[2025-05-27 20:24:43] WARNING  * Debugger is active!
+[2025-05-27 20:24:43] INFO  * Debugger PIN: 615-432-310

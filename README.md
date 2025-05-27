@@ -1,4 +1,3 @@
-
 # 图灵保佑别出bug了
 
 
@@ -21,7 +20,7 @@
 ## Web端流式推理体验
 
 1. 启动Web服务（见下方“快速启动”）。
-2. 浏览器访问 `http://localhost:5000`，点击“获取 Gemini 建议”按钮。
+2. 浏览器访问 `http://localhost:3000`，点击“获取 Gemini 建议”按钮。
 3. AI推理内容将以流式方式实时输出在页面，支持长文本、分块、公式等。
 4. 支持异常提示、状态反馈、推理完成标记。
 
@@ -42,7 +41,37 @@
    ```zsh
    python3 code/web_gui/app.py
    ```
-4. 浏览器访问 `http://localhost:5000`，体验流式AI推理。
+4. 浏览器访问 `http://localhost:3000`，体验流式AI推理。
+
+---
+
+## Docker 打包与运行
+
+### 构建镜像
+```zsh
+docker build -t qwen_quant_v1 .
+```
+
+### 运行 Web 服务
+```zsh
+docker run -it --rm -p 3000:3000 \
+  -e GEMINI_API_KEY=你的API_KEY \
+  qwen_quant_v1
+```
+
+浏览器访问 http://localhost:3000 体验 Web 端。
+
+### 运行桌面 GUI（可选）
+如需在容器内运行 PyQt6 GUI，请确保主机已安装 X11 并允许 X11 转发：
+```zsh
+docker run -it --rm \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -e GEMINI_API_KEY=你的API_KEY \
+  qwen_quant_v1 python start.py
+```
+
+> 推荐优先使用 Web 端，GUI 需主机支持图形界面。
 
 ---
 

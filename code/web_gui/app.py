@@ -159,32 +159,32 @@ def serve_data_json():
 # def gemini_advice():
 #     return jsonify({"error": "暂未实现 Gemini 推理接口，请使用 /api/qwen_advice。"}), 501
 
-def start_ssh_tunnel_background():
-    """
-    以后台线程方式启动 SSH 隧道，不占用主进程终端。
-    """
-    def tunnel():
-        while True:
-            try:
-                print("[SSH隧道] 正在建立端口转发: ssh -N -R 5000:localhost:3000 root@114.55.238.254")
-                proc = subprocess.Popen([
-                    "ssh", "-N", "-o", "ServerAliveInterval=60", "-R", "5000:localhost:3000", "root@114.55.238.254"
-                ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                proc.wait()
-                print("[SSH隧道] 连接断开，5秒后重试...")
-                import time; time.sleep(5)
-            except Exception as e:
-                print(f"[SSH隧道] 启动失败: {e}")
-                import time; time.sleep(10)
-    t = threading.Thread(target=tunnel, daemon=True)
-    t.start()
+# def start_ssh_tunnel_background():
+#     """
+#     以后台线程方式启动 SSH 隧道，不占用主进程终端。
+#     """
+#     def tunnel():
+#         while True:
+#             try:
+#                 print("[SSH隧道] 正在建立端口转发: ssh -N -R 5000:localhost:3000 root@114.55.238.254")
+#                 proc = subprocess.Popen([
+#                     "ssh", "-N", "-o", "ServerAliveInterval=60", "-R", "5000:localhost:3000", "root@114.55.238.254"
+#                 ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+#                 proc.wait()
+#                 print("[SSH隧道] 连接断开，5秒后重试...")
+#                 import time; time.sleep(5)
+#             except Exception as e:
+#                 print(f"[SSH隧道] 启动失败: {e}")
+#                 import time; time.sleep(10)
+#     t = threading.Thread(target=tunnel, daemon=True)
+#     t.start()
 
 if __name__ == '__main__':
-    start_ssh_tunnel_background()  # 后台自动启动 SSH 隧道
+    # Docker环境下不启动SSH隧道
     if not os.getenv('qwen_API_KEY'):
         print("警告：qwen_API_KEY 环境变量未设置。API 调用可能会失败。\n请在启动应用前设置该环境变量，例如：export qwen_API_KEY=\"YOUR_API_KEY\"")
     # 只在非debug模式下自动启动Bot，开发调试时不自动拉起
-    if not app.debug:
-        start_telegram_bot()
+    # if not app.debug:
+    #     start_telegram_bot()
     # 启动主服务
     app.run(host='0.0.0.0', port=3000, debug=True)
