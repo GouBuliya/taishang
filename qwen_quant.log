@@ -212,3 +212,30 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect A
 [2025-05-27 09:27:45] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/Qwen_quant_v1/code/web_gui/../main.py
 [2025-05-27 09:27:45] INFO 开始 Qwen API 流式推理。
 [2025-05-27 09:27:45] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-27 09:28:56] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-27 09:28:56] INFO 传递给AI的screenshot_path: #19 0x7a69ed929c3c <unknown>
+[2025-05-27 09:28:56] INFO 127.0.0.1 - - [27/May/2025 09:28:56] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-27 09:28:56] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-27 09:28:56] INFO 传递给AI的screenshot_path: #19 0x7a69ed929c3c <unknown>
+[2025-05-27 09:28:56] INFO 127.0.0.1 - - [27/May/2025 09:28:56] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-27 09:28:57] INFO 127.0.0.1 - - [27/May/2025 09:28:57] "GET /data.json HTTP/1.1" 200 -
+[2025-05-27 09:28:57] INFO 127.0.0.1 - - [27/May/2025 09:28:57] "GET /data.json HTTP/1.1" 200 -
+[2025-05-27 09:28:57] INFO 127.0.0.1 - - [27/May/2025 09:28:57] "[33mGET /screenshots/ HTTP/1.1[0m" 404 -
+[2025-05-27 09:28:57] INFO 127.0.0.1 - - [27/May/2025 09:28:57] "[33mGET /screenshots/ HTTP/1.1[0m" 404 -
+[2025-05-27 09:29:00] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-27 09:29:01] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-27 09:31:53] INFO 开始 Qwen API 流式推理。
+[2025-05-27 09:31:53] INFO 自动运行数据采集脚本: /home/li-xufeng/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-27 09:32:24] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-27 09:32:24] INFO 传递给AI的screenshot_path: /tmp/tradingview_screenshots/tradingview_clipboard_20250527_093215.png
+[2025-05-27 09:32:24] INFO 127.0.0.1 - - [27/May/2025 09:32:24] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-27 09:32:24] INFO 127.0.0.1 - - [27/May/2025 09:32:24] "GET /data.json HTTP/1.1" 200 -
+[2025-05-27 09:32:25] INFO 127.0.0.1 - - [27/May/2025 09:32:25] "GET /screenshots/tradingview_clipboard_20250527_093215.png HTTP/1.1" 200 -
+[2025-05-27 09:32:28] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-27 09:34:54] INFO 127.0.0.1 - - [27/May/2025 09:34:54] "[33mGET /robots.txt HTTP/1.1[0m" 404 -
+[2025-05-27 09:35:05] INFO 127.0.0.1 - - [27/May/2025 09:35:05] "GET / HTTP/1.1" 200 -
+[2025-05-27 09:36:45] INFO 127.0.0.1 - - [27/May/2025 09:36:45] "GET / HTTP/1.1" 200 -
+[2025-05-27 10:07:31] ERROR 127.0.0.1 - - [27/May/2025 10:07:31] code 400, message Bad request version ('À\x13À')
+[2025-05-27 10:07:31] INFO 127.0.0.1 - - [27/May/2025 10:07:31] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Å\x94ßc¯¯°5oó\x00öKLÉ$ÔT\x924ñòd¿\x8eRó¶tj,Ä \x18\x81Þ\x86\x1f®\x16x\x0cEàb\x96>F\x1a£\x86\x88\x92l\x0f"!à\x89Í#l\x8b£Å\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+[2025-05-27 10:07:31] ERROR 127.0.0.1 - - [27/May/2025 10:07:31] code 400, message Bad request version ('À(À$À\x14À')
+[2025-05-27 10:07:31] INFO 127.0.0.1 - - [27/May/2025 10:07:31] "[31m[1m\x16\x03\x01\x00Ê\x01\x00\x00Æ\x03\x03q\x12ù¹\x0cÜ7^ü½óå\x91öR\x8b3.T|Ðtèum#ù\x06¿9\x06~\x00\x00hÌ\x14Ì\x13À/À+À0À,À\x11À\x07À'À#À\x13À\x09À(À$À\x14À[0m" 400 -
