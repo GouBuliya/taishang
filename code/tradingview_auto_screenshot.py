@@ -99,8 +99,8 @@ def create_driver(headless=True, user_data_dir=None):
             dst = final_user_data_dir
             print(f"[DEBUG] 尝试用{src}覆盖{dst}")
             if safe_rmtree(dst):
-                shutil.copytree(src, dst)
-                print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
+            shutil.copytree(src, dst)
+            print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
                 driver = uc.Chrome(options=chrome_options, headless=headless, version_main=136)
             else:
                 raise

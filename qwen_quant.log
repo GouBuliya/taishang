@@ -884,3 +884,7 @@ AttributeError: 'str' object has no attribute 'get'
 [2025-05-28 15:31:34] INFO  * Restarting with stat
 [2025-05-28 15:31:35] WARNING  * Debugger is active!
 [2025-05-28 15:31:35] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 15:35:09] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/tradingview_auto_screenshot.py', reloading
+[2025-05-28 15:35:10] INFO  * Restarting with stat
+[2025-05-28 15:35:11] WARNING  * Debugger is active!
+[2025-05-28 15:35:11] INFO  * Debugger PIN: 138-205-243
