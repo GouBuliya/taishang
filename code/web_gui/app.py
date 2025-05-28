@@ -193,21 +193,48 @@ def gemini_advice():
             return jsonify({"error": "Missing prompt text in data.json"}), 400
 
         def generate():
+            logger.info(f"Gemini流式推理参数: prompt_text={prompt_text[:100]}..., screenshot_path={screenshot_path}, reasoning_effort='high'")
             yield f"data: {json.dumps({'type': 'status', 'stage': 'connecting', 'message': '正在连接 Gemini API...'})}\n\n"
             error_occurred = False
+            reply_text = ""
             try:
                 gemini_path = os.path.join(parent_dir, 'gemini_api_caller.py')
+                logger.info(f"动态加载 Gemini API 模块: {gemini_path}")
                 spec = importlib.util.spec_from_file_location("gemini_api_caller", gemini_path)
                 gemini_api_caller = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(gemini_api_caller)
-                for chunk in gemini_api_caller.call_gemini_api_stream(prompt_text, screenshot_path):
+                logger.info("Gemini API 模块加载完成，开始流式推理...")
+                for chunk in gemini_api_caller.call_gemini_api_stream(prompt_text, screenshot_path, reasoning_effort="high"):
+                    logger.debug(f"Gemini流式返回: {chunk}")
                     if chunk:
+                        reply_text += str(chunk)
                         yield f"data: {json.dumps({'type': 'content', 'text': chunk}, ensure_ascii=False)}\n\n"
+                logger.info("Gemini流式推理结束。")
+                # 日志同步：将子模块日志同步到主日志
+                gemini_log_path = os.path.join(parent_dir, '../gemini_quant.log')
+                if os.path.exists(gemini_log_path):
+                    with open(gemini_log_path, 'r', encoding='utf-8') as f:
+                        gemini_logs = f.readlines()[-20:]
+                    for line in gemini_logs:
+                        logger.info(f"[Gemini子模块] {line.strip()}")
             except Exception as e:
                 error_occurred = True
                 app.logger.error(f"流式推理异常: {e}\n{traceback.format_exc()}")
                 yield f"data: {json.dumps({'type': 'error', 'message': f'[Gemini流式API调用异常] {str(e)}'})}\n\n"
             finally:
+                logger.info(f"Gemini流式推理流程已完成，error_occurred={error_occurred}")
+                # 缓存推理结果到 reply_cache 目录
+                try:
+                    cache_dir = os.path.join(parent_dir, 'reply_cache')
+                    os.makedirs(cache_dir, exist_ok=True)
+                    import datetime
+                    ts = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+                    cache_file = os.path.join(cache_dir, f'gemini_reply_{ts}.txt')
+                    with open(cache_file, 'w', encoding='utf-8') as f:
+                        f.write(reply_text)
+                    logger.info(f"Gemini推理结果已缓存到: {cache_file}")
+                except Exception as cache_e:
+                    logger.warning(f"Gemini推理结果缓存失败: {cache_e}")
                 yield f"data: {json.dumps({'type': 'status', 'stage': 'completed', 'message': '数据流已结束。', 'error': error_occurred})}\n\n"
 
         return Response(generate(), mimetype='text/event-stream')
