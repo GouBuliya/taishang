@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qwen 量化助手</title>
-    <!-- 替换为 BootCDN 的 Bootstrap CSS -->
+    <title>太熵（服务器非ssh版本）</title>
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
-    <!-- 替换为 BootCDN 的 Marked.js -->
     <script src="https://cdn.bootcdn.net/ajax/libs/marked/12.0.1/marked.min.js"></script>
-    <!-- 移除 polyfill.io <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
     
-    <!-- MathJax 配置 (不立即加载脚本) -->
     <script id="mathjax-config">
         window.MathJax = {
             tex: {
@@ -22,12 +18,11 @@
                 fontCache: 'global'
             },
             options: {
-                enableMenu: false,  // 禁用右键菜单
-                processHtmlClass: 'mathjax',  // 只处理带有 mathjax 类的元素
+                enableMenu: false,
+                processHtmlClass: 'mathjax',
             }
         };
     </script>
-    <!-- MathJax 脚本将动态加载 -->
     
     <style>
         :root {
@@ -35,14 +30,15 @@
             --primary-hover: #2980b9;
             --secondary-color: #2ecc71;
             --background-dark: #1a1c1e;
-            --background-light: #22272e;
+            --background-light: #22272e; 
             --text-color: #e0e0e0;
             --text-muted: #a0a0a0;
             --border-color: #2d333b;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(40, 43, 48, 0.75);
             --success-color: #2ecc71;
             --warning-color: #f1c40f;
             --error-color: #e74c3c;
+            --glow-color: rgba(52, 152, 219, 0.5);
         }
 
         body { 
@@ -52,23 +48,42 @@
             line-height: 1.6;
             margin: 0;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 背景动画效果 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, 
+                                    rgba(52, 152, 219, 0.05) 0%, 
+                                    rgba(46, 204, 113, 0.05) 50%, 
+                                    transparent 100%);
+            pointer-events: none;
+            animation: backgroundPulse 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
         }
 
         .container {
             max-width: 1400px;
             padding: 2rem;
             animation: fadeIn 0.5s ease-out;
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
 
         .main-title {
@@ -81,6 +96,13 @@
             margin-bottom: 2rem;
             text-align: center;
             letter-spacing: -1px;
+            position: relative;
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(52, 152, 219, 0.3); }
+            50% { text-shadow: 0 0 30px rgba(46, 204, 113, 0.5); }
         }
 
         .card {
@@ -89,13 +111,122 @@
             border-radius: 16px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.05),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+        }
+        
+        .model-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .model-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease-out, height 0.6s ease-out;
+            z-index: -1;
+        }
+
+        .model-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        #qwenBtn {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        #geminiBtn {
+            background: linear-gradient(135deg, var(--secondary-color), #27ae60);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        #qwenBtn.active {
+            animation: activeButtonPulse 2s infinite;
+        }
+
+        #geminiBtn.active {
+            animation: activeButtonPulse 2s infinite;
+        }
+
+        @keyframes activeButtonPulse {
+            0% { box-shadow: 0 0 15px rgba(52, 152, 219, 0.7); }
+            50% { box-shadow: 0 0 25px rgba(52, 152, 219, 0.9); }
+            100% { box-shadow: 0 0 15px rgba(52, 152, 219, 0.7); }
+        }
+
+        .model-btn:disabled {
+            background-color: #555 !important; 
+            color: #aaa;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .btn-group {
+            width: 100%; 
+        }
+        .btn-group .model-btn {
+            flex-grow: 1; 
+        }
+         .btn-group .model-btn:not(:last-child) {
+            margin-right: 10px; 
+        }
+
+        #gemini_status_message {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 1.5rem; 
+            padding: 1rem;
+            border-radius: 12px;
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
         }
 
         #response-container {
@@ -106,71 +237,66 @@
             background: var(--background-light);
             border-radius: 16px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-        }
-
-        #collectAndGeminiBtn {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            width: 100%;
-            max-width: 300px;
+            position: relative;
         }
 
-        #collectAndGeminiBtn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
-        }
-
-        #collectAndGeminiBtn:active {
-            transform: translateY(1px);
-        }
-
-        #collectAndGeminiBtn:disabled {
-            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
-            cursor: not-allowed;
-        }
-
-        #gemini_status_message {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 12px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+        #response-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom,
+                var(--background-light) 0%,
+                transparent 100%
+            );
+            pointer-events: none;
+            z-index: 1;
         }
 
         #screenshot-preview {
-            background: var(--card-bg);
+            background: var(--background-light);
             padding: 1.5rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #screenshot-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.4);
         }
 
         #preview-image {
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             max-width: 100%;
             height: auto;
+            transform-origin: center;
         }
 
         #preview-image:hover {
-            transform: scale(1.02);
+            transform: scale(1.18);
+            box-shadow: 0 12px 40px rgba(52,152,219,0.35);
+            z-index: 10;
+        }
+
+        #screenshot-time {
+            color: var(--text-muted);
         }
 
         #gemini_content_area {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-color);
+            position: relative;
+            z-index: 0;
         }
 
         #gemini_content_area h1,
@@ -183,15 +309,22 @@
         }
 
         #gemini_content_area code {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             padding: 0.2em 0.4em;
             border-radius: 4px;
             color: #e83e8c;
             font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s ease;
+        }
+
+        #gemini_content_area code:hover {
+            background: rgba(0,0,0,0.6);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         #gemini_content_area pre {
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.5); 
             padding: 1.5rem;
             border-radius: 12px;
             overflow-x: auto;
@@ -202,23 +335,36 @@
             border-left: 4px solid var(--primary-color);
             padding: 1rem 1.5rem;
             margin: 1.5rem 0;
-            background: var(--card-bg);
+            background: var(--card-bg); 
             border-radius: 0 12px 12px 0;
         }
 
+        /* 添加打字机效果的动画 */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 1s steps(40, end);
+        }
+
+        /* 自定义滚动条 */
         ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
         }
 
         ::-webkit-scrollbar-track {
             background: var(--background-dark);
-            border-radius: 5px;
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb {
             background: var(--border-color);
-            border-radius: 5px;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
 
@@ -226,8 +372,62 @@
             background: var(--primary-color);
         }
 
-        .loading {
+        .loading { 
             animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .progress-wrapper {
+            margin-top: 1rem;
+            background: var(--background-dark);
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 6px;
+            background-color: var(--background-dark);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 1.5s infinite;
+            transform: skewX(-20deg);
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) skewX(-20deg); }
+            100% { transform: translateX(100%) skewX(-20deg); }
         }
 
         @media (max-width: 768px) {
@@ -238,87 +438,154 @@
                 min-height: 400px;
                 padding: 1rem;
             }
-            #collectAndGeminiBtn {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
+            .model-btn { 
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
             }
+            .btn-group .model-btn:not(:last-child) {
+                margin-right: 5px; 
+            }
+        }
+
+        /* 玻璃拟态量子面板 */
+        .quantum-panel {
+            background: rgba(34, 39, 46, 0.35);
+            border: 1.5px solid rgba(52, 152, 219, 0.18);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        .quantum-panel:hover {
+            box-shadow: 0 12px 48px 0 rgba(52, 152, 219, 0.25);
+            border-color: rgba(52, 152, 219, 0.35);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="main-title">Qwen 金融智能体</h1>
+        <h1 class="main-title">太熵</h1>
         <div class="row g-4">
             <div class="col-lg-4">
-                <div class="card">
+                <div class="card quantum-panel">
                     <div class="d-flex flex-column align-items-center">
-                        <button id="collectAndGeminiBtn" class="btn btn-primary mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill me-2" viewBox="0 0 16 16">
-                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-                            </svg>
-                            一键采集并推理
-                        </button>
+                        <div class="btn-group mb-3" role="group" aria-label="推理选择">
+                            <button id="qwenBtn" class="model-btn">Qwen推理</button>
+                            <button id="geminiBtn" class="model-btn">Gemini推理（不稳定，但是推荐）</button>
+                        </div>
                         <div id="gemini_status_message" class="w-100 text-center">
                             准备就绪，请点击按钮开始分析...
                         </div>
+                        <div class="progress-wrapper">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="screenshot-preview" class="card d-none">
-                    <h5 class="text-light mb-3">最新截图预览</h5>
+                <div id="screenshot-preview" class="card quantum-panel d-none">
+                    <h5 class="mb-3" style="color: var(--text-color);">最新截图预览</h5>
                     <img id="preview-image" class="img-fluid" alt="Trading View 截图">
                     <p id="screenshot-time" class="text-muted mt-2 mb-0 text-center"></p>
                 </div>
             </div>
             <div class="col-lg-8">
-                <div id="response-container">
+                <div id="response-container" class="quantum-panel">
                     <div id="gemini_content_area"></div>
                 </div>
             </div>
         </div>
     </div>
     <script>
-    let mathJaxLoaded = false; // 标记 MathJax 是否已加载
+    let mathJaxLoaded = false;
 
     const statusP = document.getElementById('gemini_status_message');
     const contentDiv = document.getElementById('gemini_content_area');
-    const btn = document.getElementById('collectAndGeminiBtn');
+    const qwenBtn = document.getElementById('qwenBtn');
+    const geminiBtn = document.getElementById('geminiBtn');
     const screenshotPreview = document.getElementById('screenshot-preview');
     const previewImage = document.getElementById('preview-image');
     const screenshotTime = document.getElementById('screenshot-time');
+    const progressWrapper = document.querySelector('.progress-wrapper');
+    const progressBar = document.querySelector('.progress-bar');
     
-    // 异步加载 MathJax 脚本的函数
+    let progressInterval;
+    
+    function startProgress() {
+        let progress = 0;
+        progressWrapper.style.display = 'block';
+        progressBar.style.width = '0%';
+        
+        progressInterval = setInterval(() => {
+            if (progress < 90) {  // 只增加到90%，留下最后10%给实际完成时
+                progress += Math.random() * 3;  // 随机增加进度，使其看起来更自然
+                progressBar.style.width = `${Math.min(progress, 90)}%`;
+            }
+        }, 200);
+    }
+    
+    function completeProgress() {
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        setTimeout(() => {
+            progressWrapper.style.display = 'none';
+            progressBar.style.width = '0%';
+        }, 500);
+    }
+    
+    function resetProgress() {
+        clearInterval(progressInterval);
+        progressWrapper.style.display = 'none';
+        progressBar.style.width = '0%';
+    }
+    
+    qwenBtn.classList.add('active');
+
     async function loadMathJax() {
         if (!mathJaxLoaded) {
             const script = document.createElement('script');
-            script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"; // 保持使用jsdelivr的MathJax
-            script.async = true; // 异步加载
+            script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js";
+            script.async = true;
             document.head.appendChild(script);
-            await new Promise(resolve => script.onload = resolve); // 等待加载完成
+            await new Promise(resolve => script.onload = resolve);
             mathJaxLoaded = true;
             console.log('MathJax 脚本已动态加载');
         }
     }
 
-    btn.addEventListener('click', async () => {
+    function updateButtonStates(activeBtn) {
+        [qwenBtn, geminiBtn].forEach(btn => {
+            btn.classList.remove('active');
+        });
+        activeBtn.classList.add('active');
+    }
+
+    async function runAdvice(api, clickedBtn) {
+        updateButtonStates(clickedBtn);
+        
         statusP.textContent = '正在采集数据并推理，请稍候...';
-        statusP.style.color = 'inherit';
+        statusP.style.color = 'var(--text-muted)';
         contentDiv.innerHTML = '';
-        btn.disabled = true;
+        
+        qwenBtn.disabled = true;
+        geminiBtn.disabled = true;
+        
+        startProgress();  // 开始显示进度条
+
         try {
-            const response = await fetch('/api/qwen_advice', {
+            const response = await fetch(api, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({})
             });
             
-            // 检查data.json中的screenshot_path并更新预览
             const dataResponse = await fetch('/data.json');
             if (dataResponse.ok) {
                 const data = await dataResponse.json();
                 if (data.clipboard_image_path) {
-                    // 获取当前时间戳作为参数，防止浏览器缓存图片
                     const imgTimestamp = new Date().getTime();
-                    previewImage.src = `/cache_screenshots/${data.clipboard_image_path.split('/').pop()}?t=${imgTimestamp}`;
+                    previewImage.src = `${window.location.origin}/cache_screenshots/${data.clipboard_image_path.split('/').pop()}?t=${imgTimestamp}`;
                     screenshotTime.textContent = `截图时间：${new Date().toLocaleString('zh-CN')}`;
                     screenshotPreview.classList.remove('d-none');
                 }
@@ -331,65 +598,77 @@
                     errorMsg = `错误: ${errorJson.error || '无法启动建议流。'}`;
                 } catch (e) {}
                 statusP.textContent = errorMsg;
-                statusP.style.color = 'red';
-                btn.disabled = false;
+                statusP.style.color = 'var(--error-color)';
+                resetProgress();  // 出错时重置进度条
                 return;
             }
+            
             const reader = response.body.getReader();
             const decoder = new TextDecoder('utf-8');
             let buffer = '';
             let markdownBuffer = '';
+            
             while (true) {
                 const { value, done } = await reader.read();
-                if (done) break;
+                if (done) {
+                    completeProgress();  // 完成时显示100%
+                    break;
+                }
+                
                 buffer += decoder.decode(value, { stream: true });
                 let lines = buffer.split('\n');
                 buffer = lines.pop();
+                
                 for (const line of lines) {
                     if (line.startsWith('data: ')) {
                         try {
                             const eventData = JSON.parse(line.substring(5).trim());
                             if (eventData.type === 'status') {
                                 statusP.textContent = `状态: ${eventData.message || eventData.stage}`;
-                                statusP.style.color = 'inherit';
+                                statusP.style.color = 'var(--text-muted)';
                             } else if (eventData.type === 'content') {
                                 markdownBuffer += eventData.text;
                                 contentDiv.innerHTML = marked.parse(markdownBuffer);
-                                contentDiv.classList.add('mathjax'); // 添加类
+                                contentDiv.classList.add('mathjax');
                                 
-                                // 只有当 MathJax 脚本加载完成后才尝试渲染
-                                // 这里使用异步加载 MathJax
-                                if (!mathJaxLoaded && markdownBuffer.includes('$$') || markdownBuffer.includes('$')) { // 仅当检测到公式时才加载
+                                if (!mathJaxLoaded && (markdownBuffer.includes('$$') || markdownBuffer.includes('$'))) {
                                     await loadMathJax();
                                 }
-                                if (window.MathJax && MathJax.typesetPromise) { // 确保加载完成后再渲染
+                                
+                                if (window.MathJax && MathJax.typesetPromise) {
                                     MathJax.typesetPromise([contentDiv]).catch(function (err) {
                                         console.log('MathJax 渲染错误:', err);
                                     });
                                 }
-                                
-                                // 自动滚动到底部
                                 contentDiv.scrollTop = contentDiv.scrollHeight;
                             } else if (eventData.type === 'error') {
                                 statusP.textContent = `错误: ${eventData.message}`;
-                                statusP.style.color = 'red';
+                                statusP.style.color = 'var(--error-color)';
+                                resetProgress();  // 出错时重置进度条
                                 reader.cancel();
                                 break;
                             }
                         } catch (e) {
                             statusP.textContent = `数据解析错误: ${e.message}`;
-                            statusP.style.color = 'red';
+                            statusP.style.color = 'var(--error-color)';
+                            resetProgress();  // 出错时重置进度条
                         }
                     }
                 }
             }
         } catch (error) {
             statusP.textContent = `连接错误或获取建议失败: ${error.message}`;
-            statusP.style.color = 'red';
+            statusP.style.color = 'var(--error-color)';
+            resetProgress();  // 出错时重置进度条
         } finally {
-            btn.disabled = false;
+            qwenBtn.disabled = false;
+            geminiBtn.disabled = false;
         }
-    });
+    }
+
+    qwenBtn.addEventListener('click', () => runAdvice('/api/qwen_advice', qwenBtn));
+    geminiBtn.addEventListener('click', () => runAdvice('/api/gemini_advice', geminiBtn));
+    
     </script>
 </body>
 </html>

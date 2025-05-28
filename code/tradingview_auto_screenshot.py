@@ -88,7 +88,7 @@ def create_driver(headless=True, user_data_dir=None):
         print(f'[DEBUG] 已设置代理: {proxy}')
     print('[DEBUG] Chrome options:', chrome_options.arguments)
     try:
-        driver = uc.Chrome(options=chrome_options, headless=headless)
+        driver = uc.Chrome(options=chrome_options, headless=headless, version_main=136)
     except Exception as e:
         print(f"[ERROR] 启动Chrome失败: {e}")
         import traceback
@@ -98,11 +98,12 @@ def create_driver(headless=True, user_data_dir=None):
             src = os.path.join(SCRIPT_DIR, 'chrome_profile_copy')
             dst = final_user_data_dir
             print(f"[DEBUG] 尝试用{src}覆盖{dst}")
-            if os.path.exists(dst):
-                shutil.rmtree(dst)
-            shutil.copytree(src, dst)
-            print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
-            driver = uc.Chrome(options=chrome_options, headless=headless)
+            if safe_rmtree(dst):
+                shutil.copytree(src, dst)
+                print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
+                driver = uc.Chrome(options=chrome_options, headless=headless, version_main=136)
+            else:
+                raise
         except Exception as e2:
             print(f"[ERROR] 第二次启动Chrome仍然失败: {e2}")
             traceback.print_exc()
@@ -213,6 +214,17 @@ def clear_save_dir(save_dir):
                     shutil.rmtree(fpath)
             except Exception as e:
                 print(f'[WARNING] 删除文件失败: {fpath}, {e}')
+
+def safe_rmtree(path, max_retry=3):
+    for i in range(max_retry):
+        try:
+            shutil.rmtree(path)
+            return True
+        except Exception as e:
+            print(f"[WARNING] 第{i+1}次删除目录失败: {path}, {e}")
+            time.sleep(1)
+    print(f"[ERROR] 多次尝试后仍无法删除目录: {path}，请手动清理！")
+    return False
 
 def main():
     filepath = None

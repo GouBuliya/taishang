@@ -9,6 +9,7 @@ import traceback
 from werkzeug.exceptions import UnsupportedMediaType # 导入特定的异常类型
 import threading
 from telegram_bot_singleton import start_telegram_bot
+import importlib.util
 
 # 确保可以导入 qwen_api_caller
 # 根据您的路径结构，可能需要调整 sys.path
@@ -37,11 +38,13 @@ logger = logging.getLogger("app")
 
 # 移除硬编码的 API Key，只依赖环境变量
 os.environ['qwen_API_KEY'] = "sk-2f17c724d71e448fac1b20ac1c8e09db"
+os.environ['GEMINI_API_KEY'] = "AIzaSyCkBZzYyaSvLzHRWGEsoabZbyNzlvAxa98"
+
 # os.environ['qwen_API_KEY'] = "AIzaSyAP8WsfGTPJ2TOB8Hlnqcby6VZzlUXMQpg"
 
 # 设置 QWEN_API_KEY 环境变量，确保 Qwen API 能正常调用
 os.environ['QWEN_API_KEY'] = os.environ.get('qwen_API_KEY', '')
-os.environ['DASHSCOPE_API_KEY'] = os.environ.get('qwen_API_KEY', '')
+os.environ['DASHSCOPE_API_KEY'] = os.environ.get('q wen_API_KEY', '')
 
 # 假设您的 main.py 是一个数据采集脚本，这里只是模拟运行
 def run_data_collection_script():
@@ -54,11 +57,23 @@ def index():
     # 使用 render_template 来渲染 HTML 模板
     return render_template('index.html')
 
+def extract_all_text(data):
+    # 递归提取所有字符串
+    texts = []
+    if isinstance(data, dict):
+        for v in data.values():
+            texts.append(extract_all_text(v))
+    elif isinstance(data, list):
+        for item in data:
+            texts.append(extract_all_text(item))
+    elif isinstance(data, str):
+        texts.append(data)
+    return '\n'.join([t for t in texts if t])
+
 @app.route('/api/qwen_advice', methods=['POST'])
 def qwen_advice():
     logger.info("开始 Qwen API 流式推理。")
     try:
-        # 尝试获取 JSON 数据，并捕获 UnsupportedMediaType 异常
         try:
             data = request.get_json()
         except UnsupportedMediaType as e:
@@ -68,7 +83,6 @@ def qwen_advice():
             logger.error(f"解析请求 JSON 异常: {e}\n{traceback.format_exc()}")
             return jsonify({"error": f"请求数据解析失败: {e}"}), 400
 
-        # 1. 自动运行 main.py 生成 data.json
         main_py_path = os.path.join(parent_dir, 'main.py')
         data_json_path = os.path.join(parent_dir, 'data.json')
         try:
@@ -86,40 +100,26 @@ def qwen_advice():
             logger.error(f"自动运行 main.py 失败: {e}\n{traceback.format_exc()}")
             return jsonify({"error": f"自动运行 main.py 失败: {e}"}), 500
 
-        # 2. 兼容前端传参和自动采集
-        if data and isinstance(data, dict):
-            # 优先用前端传参，否则用 main.py 采集结果
-            packaged_json = data.get('packaged_json') or data_json
-            screenshot_path = data.get('screenshot_path') if 'screenshot_path' in data else data_json.get('clipboard_image_path')
-        else:
-            packaged_json = data_json
-            screenshot_path = data_json.get('clipboard_image_path')
-        if not packaged_json:
-            return jsonify({"error": "Missing packaged_json"}), 400
-
-        # 调试：打印传递给AI的内容
-        logger.info(f"传递给AI的packaged_json keys: {list(packaged_json.keys()) if isinstance(packaged_json, dict) else type(packaged_json)}")
-        logger.info(f"传递给AI的screenshot_path: {screenshot_path}")
+        screenshot_path = data_json.get('clipboard_image_path')
+        prompt_text = extract_all_text(data_json)
+        if not prompt_text:
+            return jsonify({"error": "Missing prompt text in data.json"}), 400
 
         def generate():
-            # 发送一个初始状态消息
             yield f"data: {json.dumps({'type': 'status', 'stage': 'connecting', 'message': '正在连接 Qwen API...'})}\n\n"
             error_occurred = False
             tried_without_image = False
             try:
-                for chunk in qwen_api_caller.call_qwen_api_stream(packaged_json, screenshot_path):
-                    # 兼容异常降级逻辑（如有图片相关异常可自定义）
+                for chunk in qwen_api_caller.call_qwen_api_stream(prompt_text, screenshot_path):
                     if chunk and isinstance(chunk, str) and '[Qwen API调用异常]' in chunk and '图片' in chunk:
                         if not tried_without_image:
                             app.logger.warning("图片推理失败，自动降级为无图片模式重试。")
                             tried_without_image = True
-                            for chunk2 in qwen_api_caller.call_qwen_api_stream(packaged_json, None):
+                            for chunk2 in qwen_api_caller.call_qwen_api_stream(prompt_text, None):
                                 if chunk2:
                                     yield f"data: {json.dumps({'type': 'content', 'text': chunk2}, ensure_ascii=False)}\n\n"
                             break
-                    # 直接流式输出内容
                     if chunk:
-                        # chunk 可能是 dict(reasoning_content/content) 或 str(异常)
                         if isinstance(chunk, dict):
                             for k, v in chunk.items():
                                 yield f"data: {json.dumps({'type': k, 'text': v}, ensure_ascii=False)}\n\n"
@@ -130,13 +130,11 @@ def qwen_advice():
                 app.logger.error(f"流式推理异常: {e}\n{traceback.format_exc()}")
                 yield f"data: {json.dumps({'type': 'error', 'message': f'[qwen流式API调用异常] {str(e)}'})}\n\n"
             finally:
-                # 无论是否异常都要通知前端流结束，避免连接悬挂
                 yield f"data: {json.dumps({'type': 'status', 'stage': 'completed', 'message': '数据流已结束。', 'error': error_occurred})}\n\n"
 
         return Response(generate(), mimetype='text/event-stream')
 
     except Exception as e:
-        # 捕获其他未被 generate() 内部处理的异常
         logger.error(f"API 调用异常: {e}\n{traceback.format_exc()}")
         return jsonify({"error": f"服务器内部错误: {e}"}), 500
 
@@ -158,6 +156,65 @@ def serve_data_json():
 # @app.route('/api/gemini_advice', methods=['POST'])
 # def gemini_advice():
 #     return jsonify({"error": "暂未实现 Gemini 推理接口，请使用 /api/qwen_advice。"}), 501
+
+@app.route('/api/gemini_advice', methods=['POST'])
+def gemini_advice():
+    logger.info("开始 Gemini API 流式推理。")
+    try:
+        try:
+            data = request.get_json()
+        except UnsupportedMediaType as e:
+            logger.error(f"API 调用异常: {e}")
+            return jsonify({"error": f"请求 Content-Type 错误: {e.description}"}), 415
+        except Exception as e:
+            logger.error(f"解析请求 JSON 异常: {e}\n{traceback.format_exc()}")
+            return jsonify({"error": f"请求数据解析失败: {e}"}), 400
+
+        main_py_path = os.path.join(parent_dir, 'main.py')
+        data_json_path = os.path.join(parent_dir, 'data.json')
+        try:
+            logger.info(f"自动运行数据采集脚本: {main_py_path}")
+            result = subprocess.run([sys.executable, main_py_path], capture_output=True, text=True, timeout=180)
+            if result.returncode != 0:
+                logger.error(f"main.py 执行失败: {result.stderr}")
+                return jsonify({"error": f"main.py 执行失败: {result.stderr}"}), 500
+            if not os.path.exists(data_json_path):
+                logger.error("main.py 执行后未生成 data.json")
+                return jsonify({"error": "main.py 执行后未生成 data.json"}), 500
+            with open(data_json_path, 'r', encoding='utf-8') as f:
+                data_json = json.load(f)
+        except Exception as e:
+            logger.error(f"自动运行 main.py 失败: {e}\n{traceback.format_exc()}")
+            return jsonify({"error": f"自动运行 main.py 失败: {e}"}), 500
+
+        screenshot_path = data_json.get('clipboard_image_path')
+        prompt_text = extract_all_text(data_json)
+        if not prompt_text:
+            return jsonify({"error": "Missing prompt text in data.json"}), 400
+
+        def generate():
+            yield f"data: {json.dumps({'type': 'status', 'stage': 'connecting', 'message': '正在连接 Gemini API...'})}\n\n"
+            error_occurred = False
+            try:
+                gemini_path = os.path.join(parent_dir, 'gemini_api_caller.py')
+                spec = importlib.util.spec_from_file_location("gemini_api_caller", gemini_path)
+                gemini_api_caller = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(gemini_api_caller)
+                for chunk in gemini_api_caller.call_gemini_api_stream(prompt_text, screenshot_path):
+                    if chunk:
+                        yield f"data: {json.dumps({'type': 'content', 'text': chunk}, ensure_ascii=False)}\n\n"
+            except Exception as e:
+                error_occurred = True
+                app.logger.error(f"流式推理异常: {e}\n{traceback.format_exc()}")
+                yield f"data: {json.dumps({'type': 'error', 'message': f'[Gemini流式API调用异常] {str(e)}'})}\n\n"
+            finally:
+                yield f"data: {json.dumps({'type': 'status', 'stage': 'completed', 'message': '数据流已结束。', 'error': error_occurred})}\n\n"
+
+        return Response(generate(), mimetype='text/event-stream')
+
+    except Exception as e:
+        logger.error(f"API 调用异常: {e}\n{traceback.format_exc()}")
+        return jsonify({"error": f"服务器内部错误: {e}"}), 500
 
 # def start_ssh_tunnel_background():
 #     """

@@ -1846,3 +1846,265 @@ VWAP: 2507.624042937908
 [2025-05-28 02:51:22] INFO 成功获取并处理 1h 周期的数据。
 [2025-05-28 02:51:22] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
 [2025-05-28 02:51:22] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 03:03:33] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 03:03:33] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 03:03:33] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 03:03:33] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 03:03:33] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 03:03:34] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 03:14:23] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/chat/completions "HTTP/1.1 404 Not Found"
+[2025-05-28 03:14:23] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 404
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 157, in call_gemini_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404
+
+[2025-05-28 03:14:51] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/chat/completions "HTTP/1.1 404 Not Found"
+[2025-05-28 03:14:51] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 404
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 157, in call_gemini_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404
+
+[2025-05-28 03:17:16] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/chat/completions "HTTP/1.1 404 Not Found"
+[2025-05-28 03:17:16] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 404
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 158, in call_gemini_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404
+
+[2025-05-28 03:18:09] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/chat/completions "HTTP/1.1 404 Not Found"
+[2025-05-28 03:18:09] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 404
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 158, in call_gemini_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404
+
+[2025-05-28 03:28:17] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/chat/completions "HTTP/1.1 404 Not Found"
+[2025-05-28 03:28:17] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 404
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 176, in call_gemini_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404
+
+[2025-05-28 03:29:42] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/chat/completions "HTTP/1.1 404 Not Found"
+[2025-05-28 03:29:42] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 404 - [{'error': {'code': 404, 'message': 'Gemini 1.0 Pro Vision has been deprecated on July 12, 2024. Consider switching to different model, for example gemini-1.5-flash.', 'status': 'NOT_FOUND'}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 132, in call_gemini_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404 - [{'error': {'code': 404, 'message': 'Gemini 1.0 Pro Vision has been deprecated on July 12, 2024. Consider switching to different model, for example gemini-1.5-flash.', 'status': 'NOT_FOUND'}}]
+
+[2025-05-28 03:32:26] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:32:26] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 160, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}]
+
+[2025-05-28 03:33:01] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:33:01] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 160, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'API key not valid. Please pass a valid API key.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'API_KEY_INVALID', 'domain': 'googleapis.com', 'metadata': {'service': 'generativelanguage.googleapis.com'}}, {'@type': 'type.googleapis.com/google.rpc.LocalizedMessage', 'locale': 'en-US', 'message': 'API key not valid. Please pass a valid API key.'}]}}]
+
+[2025-05-28 03:34:20] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:34:20] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 160, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}]
+
+[2025-05-28 03:35:45] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:35:45] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 160, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'User location is not supported for the API use.', 'status': 'FAILED_PRECONDITION'}}]
+
+[2025-05-28 03:55:27] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:55:27] ERROR [gemini_api_caller] Gemini API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'Unable to submit request because thinking is not supported by this model. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 127, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'Unable to submit request because thinking is not supported by this model. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}]
+
+[2025-05-28 03:56:47] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 04:03:19] ERROR [gemini_api_caller] Gemini API调用异常: Completions.create() got an unexpected keyword argument 'thinkingBudget'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 133, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+TypeError: Completions.create() got an unexpected keyword argument 'thinkingBudget'
+
+[2025-05-28 04:04:22] ERROR [gemini_api_caller] Gemini API调用异常: Completions.create() got an unexpected keyword argument 'generation_config'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 144, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+TypeError: Completions.create() got an unexpected keyword argument 'generation_config'
+
+[2025-05-28 04:06:02] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 04:07:51] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 04:13:50] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 04:13:50] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 04:13:50] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 04:13:51] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 04:13:51] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 04:13:51] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 04:17:55] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 04:17:55] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 04:17:55] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 04:17:56] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 04:17:56] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 04:17:56] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 04:19:03] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 04:19:03] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 04:19:03] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 04:19:04] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 04:19:04] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 04:19:04] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 04:47:42] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 04:47:42] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 04:47:42] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 04:47:43] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 04:47:43] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 04:47:43] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 04:54:31] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 04:54:31] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 04:54:31] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 04:54:31] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 04:54:31] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 04:54:32] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 05:33:30] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 05:33:31] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 05:33:31] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 05:33:31] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 05:33:31] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 05:33:31] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 08:40:38] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 08:40:38] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 08:40:38] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 08:40:39] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 08:40:39] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 08:40:39] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 08:44:09] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 08:44:09] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 08:44:09] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 08:44:10] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 08:44:10] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 08:44:10] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 14:50:51] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 14:50:53] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 14:50:53] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 14:50:53] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 14:50:53] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 14:50:54] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 14:52:55] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 14:52:56] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 14:52:56] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 14:52:56] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 14:52:56] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 14:52:57] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 14:56:36] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 14:56:36] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 14:56:36] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 14:56:37] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 14:56:37] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 14:56:37] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 15:27:25] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 15:27:26] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 15:27:26] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 15:27:26] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 15:27:26] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 15:27:27] INFO 成功获取并处理 4h 周期的数据。

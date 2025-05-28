@@ -525,3 +525,362 @@ subprocess.TimeoutExpired: Command '['/usr/local/bin/python3.10', '/root/codespa
 [2025-05-28 02:52:17] INFO  * Restarting with stat
 [2025-05-28 02:52:19] WARNING  * Debugger is active!
 [2025-05-28 02:52:19] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 03:02:24] INFO 60.211.79.243 - - [28/May/2025 03:02:24] "GET / HTTP/1.1" 200 -
+[2025-05-28 03:02:29] INFO 开始 Qwen API 流式推理。
+[2025-05-28 03:02:29] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 03:03:38] INFO 传递给AI的packaged_json keys: ['clipboard_image_path', 'indicators', 'factors', 'data', 'timestamp']
+[2025-05-28 03:03:38] INFO 传递给AI的screenshot_path: code/cache_screenshots/tradingview_clipboard_20250528_030332.png
+[2025-05-28 03:03:38] INFO 60.211.79.243 - - [28/May/2025 03:03:38] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 03:03:38] INFO 60.211.79.243 - - [28/May/2025 03:03:38] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 03:03:38] INFO 60.211.79.243 - - [28/May/2025 03:03:38] "GET /cache_screenshots/tradingview_clipboard_20250528_030332.png?t=1748372618736 HTTP/1.1" 200 -
+[2025-05-28 03:03:42] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 03:09:02] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-28 03:09:02] INFO  * Restarting with stat
+[2025-05-28 03:09:05] WARNING  * Debugger is active!
+[2025-05-28 03:09:05] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 03:09:53] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-28 03:09:53] INFO  * Restarting with stat
+[2025-05-28 03:09:55] WARNING  * Debugger is active!
+[2025-05-28 03:09:55] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 03:14:03] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-28 03:14:03] INFO  * Restarting with stat
+[2025-05-28 03:14:05] WARNING  * Debugger is active!
+[2025-05-28 03:14:05] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 03:25:51] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:25:51] ERROR [qwen_api_caller] Qwen API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 144, in call_qwen_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+
+[2025-05-28 03:26:00] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:26:00] ERROR [qwen_api_caller] Qwen API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 144, in call_qwen_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+
+[2025-05-28 03:26:26] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:26:26] ERROR [qwen_api_caller] Qwen API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 144, in call_qwen_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+
+[2025-05-28 03:26:58] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 400 Bad Request"
+[2025-05-28 03:26:58] ERROR [qwen_api_caller] Qwen API调用异常: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py", line 144, in call_qwen_api_stream
+    stream = client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - [{'error': {'code': 400, 'message': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.\nInvalid JSON payload received. Unknown name "thinking_budget": Cannot find field.', 'status': 'INVALID_ARGUMENT', 'details': [{'@type': 'type.googleapis.com/google.rpc.BadRequest', 'fieldViolations': [{'description': 'Invalid JSON payload received. Unknown name "enable_thinking": Cannot find field.'}, {'description': 'Invalid JSON payload received. Unknown name "thinking_budget": Cannot find field.'}]}]}}]
+
+[2025-05-28 03:30:21] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 03:55:19] INFO HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 04:13:24] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 04:13:24] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 04:13:24] INFO  * Restarting with stat
+[2025-05-28 04:13:25] WARNING  * Debugger is active!
+[2025-05-28 04:13:25] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:13:29] INFO 60.211.79.243 - - [28/May/2025 04:13:29] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:13:33] INFO 开始 Gemini API 流式推理。
+[2025-05-28 04:13:33] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 04:13:55] INFO 60.211.79.243 - - [28/May/2025 04:13:55] "[31m[1mPOST /api/gemini_advice HTTP/1.1[0m" 400 -
+[2025-05-28 04:13:55] INFO 60.211.79.243 - - [28/May/2025 04:13:55] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 04:13:55] INFO 60.211.79.243 - - [28/May/2025 04:13:55] "[33mGET /cache_screenshots/chrome_profile_copy'?t=1748376835790 HTTP/1.1[0m" 404 -
+[2025-05-28 04:14:09] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:14:10] INFO  * Restarting with stat
+[2025-05-28 04:14:11] WARNING  * Debugger is active!
+[2025-05-28 04:14:11] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:15:37] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:15:37] INFO  * Restarting with stat
+[2025-05-28 04:15:39] WARNING  * Debugger is active!
+[2025-05-28 04:15:39] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:17:33] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:17:34] INFO  * Restarting with stat
+[2025-05-28 04:17:36] WARNING  * Debugger is active!
+[2025-05-28 04:17:36] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:17:50] INFO 开始 Gemini API 流式推理。
+[2025-05-28 04:17:50] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 04:17:59] INFO 60.211.79.243 - - [28/May/2025 04:17:59] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 04:17:59] ERROR [gemini_api_caller] Gemini API调用异常: 未配置 GEMINI_API_KEY
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/../gemini_api_caller.py", line 101, in call_gemini_api_stream
+    raise RuntimeError("未配置 GEMINI_API_KEY")
+RuntimeError: 未配置 GEMINI_API_KEY
+
+[2025-05-28 04:17:59] INFO 60.211.79.243 - - [28/May/2025 04:17:59] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 04:17:59] INFO 60.211.79.243 - - [28/May/2025 04:17:59] "[33mGET /cache_screenshots/chrome_profile_copy'?t=1748377079788 HTTP/1.1[0m" 404 -
+[2025-05-28 04:18:31] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:18:31] INFO  * Restarting with stat
+[2025-05-28 04:18:33] WARNING  * Debugger is active!
+[2025-05-28 04:18:33] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:18:34] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:18:35] INFO  * Restarting with stat
+[2025-05-28 04:18:36] WARNING  * Debugger is active!
+[2025-05-28 04:18:36] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:18:52] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:18:53] INFO  * Restarting with stat
+[2025-05-28 04:18:54] WARNING  * Debugger is active!
+[2025-05-28 04:18:54] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:18:57] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 04:18:58] INFO  * Restarting with stat
+[2025-05-28 04:18:59] WARNING  * Debugger is active!
+[2025-05-28 04:18:59] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:18:59] INFO 开始 Gemini API 流式推理。
+[2025-05-28 04:18:59] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 04:19:07] INFO 60.211.79.243 - - [28/May/2025 04:19:07] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 04:19:07] INFO 60.211.79.243 - - [28/May/2025 04:19:07] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 04:19:07] INFO 60.211.79.243 - - [28/May/2025 04:19:07] "[33mGET /cache_screenshots/[ERROR]%20第二次启动Chrome仍然失败:%20[Errno%2039]%20Directory%20not%20empty:%20'Default'?t=1748377147716 HTTP/1.1[0m" 404 -
+[2025-05-28 04:19:54] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 04:32:28] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 04:32:28] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 04:32:28] INFO  * Restarting with stat
+[2025-05-28 04:32:30] WARNING  * Debugger is active!
+[2025-05-28 04:32:30] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:32:40] INFO 127.0.0.1 - - [28/May/2025 04:32:40] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:32:41] INFO 127.0.0.1 - - [28/May/2025 04:32:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 04:33:08] INFO 127.0.0.1 - - [28/May/2025 04:33:08] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:33:09] INFO 127.0.0.1 - - [28/May/2025 04:33:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 04:38:16] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 04:38:16] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 04:38:16] INFO  * Restarting with stat
+[2025-05-28 04:38:18] WARNING  * Debugger is active!
+[2025-05-28 04:38:18] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 04:38:22] INFO 127.0.0.1 - - [28/May/2025 04:38:22] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:45:37] INFO 127.0.0.1 - - [28/May/2025 04:45:37] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:46:43] INFO 127.0.0.1 - - [28/May/2025 04:46:43] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:46:46] INFO 开始 Gemini API 流式推理。
+[2025-05-28 04:46:46] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 04:47:47] INFO 127.0.0.1 - - [28/May/2025 04:47:47] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 04:47:47] INFO 127.0.0.1 - - [28/May/2025 04:47:47] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 04:47:47] INFO 127.0.0.1 - - [28/May/2025 04:47:47] "GET /cache_screenshots/tradingview_clipboard_20250528_044740.png?t=1748378867712 HTTP/1.1" 200 -
+[2025-05-28 04:48:32] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 04:49:24] INFO 127.0.0.1 - - [28/May/2025 04:49:24] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:49:42] INFO 40.77.167.26 - - [28/May/2025 04:49:42] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:51:30] INFO 127.0.0.1 - - [28/May/2025 04:51:30] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:53:08] INFO 127.0.0.1 - - [28/May/2025 04:53:08] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:53:14] INFO 127.0.0.1 - - [28/May/2025 04:53:14] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:53:20] INFO 127.0.0.1 - - [28/May/2025 04:53:20] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:53:35] INFO 127.0.0.1 - - [28/May/2025 04:53:35] "GET / HTTP/1.1" 200 -
+[2025-05-28 04:53:36] INFO 开始 Gemini API 流式推理。
+[2025-05-28 04:53:36] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 04:54:34] INFO 127.0.0.1 - - [28/May/2025 04:54:34] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 04:54:35] INFO 127.0.0.1 - - [28/May/2025 04:54:35] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 04:54:35] INFO 127.0.0.1 - - [28/May/2025 04:54:35] "GET /cache_screenshots/tradingview_clipboard_20250528_045430.png?t=1748379275189 HTTP/1.1" 200 -
+[2025-05-28 04:55:19] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 05:02:18] INFO 127.0.0.1 - - [28/May/2025 05:02:18] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:09:17] INFO 121.41.167.197 - - [28/May/2025 05:09:17] "GET / HTTP/1.0" 200 -
+[2025-05-28 05:09:20] INFO 121.41.167.197 - - [28/May/2025 05:09:20] "[33mGET /nmaplowercheck1748380160 HTTP/1.1[0m" 404 -
+[2025-05-28 05:09:20] INFO 121.41.167.197 - - [28/May/2025 05:09:20] "GET / HTTP/1.0" 200 -
+[2025-05-28 05:09:20] INFO 121.41.167.197 - - [28/May/2025 05:09:20] "[33mPOST /sdk HTTP/1.1[0m" 404 -
+[2025-05-28 05:09:20] INFO 121.41.167.197 - - [28/May/2025 05:09:20] "[33mGET /HNAP1 HTTP/1.1[0m" 404 -
+[2025-05-28 05:09:20] INFO 121.41.167.197 - - [28/May/2025 05:09:20] "[33mGET /evox/about HTTP/1.1[0m" 404 -
+[2025-05-28 05:09:30] ERROR 121.41.167.197 - - [28/May/2025 05:09:30] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03þósû\x12¤5\x0eU\x05±Óó\x1a|¦Ñ!\x08Á\x8bÒý\x9fg^\x8a\x05ýi'·\x00\x00Ú\x00\x05\x00\x04\x00\x02\x00\x01\x00\x16\x003\x009\x00:\x00\x18\x005\x00")
+[2025-05-28 05:09:30] INFO 121.41.167.197 - - [28/May/2025 05:09:30] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03þósû\x12¤5\x0eU\x05±Óó\x1a|¦Ñ!\x08Á\x8bÒý\x9fg^\x8a\x05ýi'·\x00\x00Ú\x00\x05\x00\x04\x00\x02\x00\x01\x00\x16\x003\x009\x00:\x00\x18\x005\x00[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 05:09:30] ERROR 121.41.167.197 - - [28/May/2025 05:09:30] code 400, message Bad request version ('\x8e*þ6¡cT\x00\x00Ú\x00\x05\x00\x04\x00\x02\x00\x01\x00\x16\x003\x009\x00:\x00\x18\x005\x00')
+[2025-05-28 05:09:30] INFO 121.41.167.197 - - [28/May/2025 05:09:30] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03õfq\\\x1cfÜ»®ÚhÜk©¤ytÕ\x874\x0eé;%\x0d\x8e*þ6¡cT\x00\x00Ú\x00\x05\x00\x04\x00\x02\x00\x01\x00\x16\x003\x009\x00:\x00\x18\x005\x00[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 05:09:30] INFO 121.41.167.197 - - [28/May/2025 05:09:30] "GET / HTTP/1.0" 200 -
+[2025-05-28 05:09:30] INFO 121.41.167.197 - - [28/May/2025 05:09:30] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:12:28] INFO 127.0.0.1 - - [28/May/2025 05:12:28] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:15:02] INFO 127.0.0.1 - - [28/May/2025 05:15:02] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:29:04] INFO 127.0.0.1 - - [28/May/2025 05:29:04] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:29:30] INFO 127.0.0.1 - - [28/May/2025 05:29:30] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:32:05] INFO 127.0.0.1 - - [28/May/2025 05:32:05] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:32:33] INFO 开始 Gemini API 流式推理。
+[2025-05-28 05:32:33] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 05:33:35] INFO 127.0.0.1 - - [28/May/2025 05:33:35] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 05:33:36] INFO 127.0.0.1 - - [28/May/2025 05:33:36] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 05:33:36] INFO 127.0.0.1 - - [28/May/2025 05:33:36] "GET /cache_screenshots/tradingview_clipboard_20250528_053329.png?t=1748381616217 HTTP/1.1" 200 -
+[2025-05-28 05:34:17] INFO 127.0.0.1 - - [28/May/2025 05:34:17] "GET / HTTP/1.1" 200 -
+[2025-05-28 05:34:29] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 05:34:51] INFO 127.0.0.1 - - [28/May/2025 05:34:51] "GET / HTTP/1.1" 200 -
+[2025-05-28 07:16:19] INFO 205.210.31.145 - - [28/May/2025 07:16:19] "GET / HTTP/1.1" 200 -
+[2025-05-28 08:39:29] INFO 122.227.162.30 - - [28/May/2025 08:39:29] "GET / HTTP/1.1" 200 -
+[2025-05-28 08:39:30] INFO 122.227.162.30 - - [28/May/2025 08:39:30] "GET / HTTP/1.1" 200 -
+[2025-05-28 08:39:40] INFO 开始 Gemini API 流式推理。
+[2025-05-28 08:39:40] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 08:40:43] INFO 122.227.162.30 - - [28/May/2025 08:40:43] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 08:40:43] INFO 122.227.162.30 - - [28/May/2025 08:40:43] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 08:40:43] INFO 122.227.162.30 - - [28/May/2025 08:40:43] "GET /cache_screenshots/tradingview_clipboard_20250528_084037.png?t=1748392843256 HTTP/1.1" 200 -
+[2025-05-28 08:41:43] INFO Retrying request to /chat/completions in 0.402679 seconds
+[2025-05-28 08:42:44] INFO Retrying request to /chat/completions in 0.801602 seconds
+[2025-05-28 08:43:13] INFO 开始 Qwen API 流式推理。
+[2025-05-28 08:43:13] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 08:43:45] ERROR [gemini_api_caller] Gemini API调用异常: Connection error.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/usr/local/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/http_proxy.py", line 343, in handle_request
+    return self._connection.handle_request(request)
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 136, in handle_request
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "/usr/local/lib/python3.10/site-packages/httpcore/_sync/http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 969, in request
+    response = self._client.send(
+  File "/usr/local/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/usr/local/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/usr/local/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/usr/local/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/usr/local/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/usr/local/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/../gemini_api_caller.py", line 130, in call_gemini_api_stream
+    stream = client.chat.completions.create(**chat_params)
+  File "/usr/local/lib/python3.10/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/openai/resources/chat/completions/completions.py", line 925, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/openai/_base_client.py", line 1001, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+
+[2025-05-28 08:44:13] INFO 122.227.162.30 - - [28/May/2025 08:44:13] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 08:44:13] ERROR [qwen_api_caller] Qwen API调用异常: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/../qwen_api_caller.py", line 119, in call_qwen_api_stream
+    prompt_text = build_prompt_from_json(packaged_json)
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/../qwen_trade_advisor.py", line 30, in build_prompt_from_json
+    timestamp = info_json.get("timestamp")
+AttributeError: 'str' object has no attribute 'get'
+
+[2025-05-28 08:44:13] INFO 122.227.162.30 - - [28/May/2025 08:44:13] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 08:44:13] INFO 122.227.162.30 - - [28/May/2025 08:44:13] "GET /cache_screenshots/tradingview_clipboard_20250528_084408.png?t=1748393053210 HTTP/1.1" 200 -
+[2025-05-28 14:49:39] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 14:49:39] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 14:49:39] INFO  * Restarting with stat
+[2025-05-28 14:49:43] WARNING  * Debugger is active!
+[2025-05-28 14:49:43] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 14:49:53] INFO 122.227.162.30 - - [28/May/2025 14:49:53] "GET / HTTP/1.1" 200 -
+[2025-05-28 14:49:56] INFO 开始 Qwen API 流式推理。
+[2025-05-28 14:49:56] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 14:50:58] INFO 122.227.162.30 - - [28/May/2025 14:50:58] "POST /api/qwen_advice HTTP/1.1" 200 -
+[2025-05-28 14:50:58] ERROR [qwen_api_caller] Qwen API调用异常: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/../qwen_api_caller.py", line 119, in call_qwen_api_stream
+    prompt_text = build_prompt_from_json(packaged_json)
+  File "/root/codespace/Qwen_quant_v1/code/web_gui/../qwen_trade_advisor.py", line 30, in build_prompt_from_json
+    timestamp = info_json.get("timestamp")
+AttributeError: 'str' object has no attribute 'get'
+
+[2025-05-28 14:50:58] INFO 122.227.162.30 - - [28/May/2025 14:50:58] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 14:50:58] INFO 122.227.162.30 - - [28/May/2025 14:50:58] "GET /cache_screenshots/tradingview_clipboard_20250528_145050.png?t=1748415057919 HTTP/1.1" 200 -
+[2025-05-28 14:51:23] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 14:51:24] INFO  * Restarting with stat
+[2025-05-28 14:51:25] WARNING  * Debugger is active!
+[2025-05-28 14:51:25] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 14:51:57] INFO 开始 Gemini API 流式推理。
+[2025-05-28 14:51:57] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 14:53:00] INFO 127.0.0.1 - - [28/May/2025 14:53:00] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 14:53:00] INFO 127.0.0.1 - - [28/May/2025 14:53:00] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 14:53:00] INFO 127.0.0.1 - - [28/May/2025 14:53:00] "GET /cache_screenshots/tradingview_clipboard_20250528_145255.png?t=1748415180494 HTTP/1.1" 200 -
+[2025-05-28 14:54:00] INFO Retrying request to /chat/completions in 0.436409 seconds
+[2025-05-28 14:54:46] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 14:55:34] INFO 开始 Gemini API 流式推理。
+[2025-05-28 14:55:34] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 14:56:40] INFO 122.227.162.30 - - [28/May/2025 14:56:40] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 14:56:40] INFO 122.227.162.30 - - [28/May/2025 14:56:40] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 14:56:40] INFO 122.227.162.30 - - [28/May/2025 14:56:40] "GET /cache_screenshots/tradingview_clipboard_20250528_145635.png?t=1748415400242 HTTP/1.1" 200 -
+[2025-05-28 14:57:40] INFO Retrying request to /chat/completions in 0.454525 seconds
+[2025-05-28 14:58:41] INFO Retrying request to /chat/completions in 0.988337 seconds
+[2025-05-28 14:59:37] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 15:25:38] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 15:25:38] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 15:25:38] INFO  * Restarting with stat
+[2025-05-28 15:25:39] WARNING  * Debugger is active!
+[2025-05-28 15:25:39] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 15:26:08] INFO 127.0.0.1 - - [28/May/2025 15:26:08] "GET / HTTP/1.1" 200 -
+[2025-05-28 15:26:11] INFO 开始 Gemini API 流式推理。
+[2025-05-28 15:26:11] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 15:27:32] INFO 127.0.0.1 - - [28/May/2025 15:27:32] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 15:27:32] INFO 127.0.0.1 - - [28/May/2025 15:27:32] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 15:27:32] INFO 127.0.0.1 - - [28/May/2025 15:27:32] "GET /cache_screenshots/tradingview_clipboard_20250528_152724.png?t=1748417252536 HTTP/1.1" 200 -
+[2025-05-28 15:28:19] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 15:29:35] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 15:29:35] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 15:29:35] INFO  * Restarting with stat
+[2025-05-28 15:29:37] WARNING  * Debugger is active!
+[2025-05-28 15:29:37] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 15:31:33] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 15:31:34] INFO  * Restarting with stat
+[2025-05-28 15:31:35] WARNING  * Debugger is active!
+[2025-05-28 15:31:35] INFO  * Debugger PIN: 138-205-243
