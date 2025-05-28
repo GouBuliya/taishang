@@ -1,3 +1,2 @@
-2025/05/28-18:32:53.631 5ed5f Reusing MANIFEST /root/codespace/Qwen_quant_v1/code/chrome_profile/Default/GCM Store/MANIFEST-000001
-2025/05/28-18:32:53.632 5ed5f Recovering log #3
-2025/05/28-18:32:53.633 5ed5f Reusing old log /root/codespace/Qwen_quant_v1/code/chrome_profile/Default/GCM Store/000003.log 
+2025/05/28-21:00:41.046 623ab Creating DB /root/codespace/Qwen_quant_v1/code/chrome_profile/Default/GCM Store since it was missing.
+2025/05/28-21:00:41.063 623ab Reusing MANIFEST /root/codespace/Qwen_quant_v1/code/chrome_profile/Default/GCM Store/MANIFEST-000001

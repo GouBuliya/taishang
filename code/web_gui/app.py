@@ -11,6 +11,15 @@ import threading
 from telegram_bot_singleton import start_telegram_bot
 import importlib.util
 
+#邮件
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+#
+
+import time
+import datetime  # 新增：导入datetime模块
+
 # 确保可以导入 qwen_api_caller
 # 根据您的路径结构，可能需要调整 sys.path
 # 假设 app.py 在 web_gui 目录下，qwen_api_caller.py 在 web_gui 的父目录 (code 目录)
@@ -45,6 +54,9 @@ os.environ['GEMINI_API_KEY'] = "AIzaSyCkBZzYyaSvLzHRWGEsoabZbyNzlvAxa98"
 # 设置 QWEN_API_KEY 环境变量，确保 Qwen API 能正常调用
 os.environ['QWEN_API_KEY'] = os.environ.get('qwen_API_KEY', '')
 os.environ['DASHSCOPE_API_KEY'] = os.environ.get('q wen_API_KEY', '')
+
+os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
+os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'#代理
 
 # 假设您的 main.py 是一个数据采集脚本，这里只是模拟运行
 def run_data_collection_script():
@@ -85,6 +97,7 @@ def qwen_advice():
 
         main_py_path = os.path.join(parent_dir, 'main.py')
         data_json_path = os.path.join(parent_dir, 'data.json')
+        # 确保 main.py 和 data.json 存在
         try:
             logger.info(f"自动运行数据采集脚本: {main_py_path}")
             result = subprocess.run([sys.executable, main_py_path], capture_output=True, text=True, timeout=180)
@@ -233,6 +246,18 @@ def gemini_advice():
                     with open(cache_file, 'w', encoding='utf-8') as f:
                         f.write(reply_text)
                     logger.info(f"Gemini推理结果已缓存到: {cache_file}")
+                    # 发送邮件到指定邮箱
+                    send_ai_reply_email(
+                        subject="Gemini AI回复",
+                        content=reply_text,
+                        to_addrs=[
+                            "jeffreymcadams750@gmail.com",
+                            "changnikita71@gmail.com",
+                            "1837572554@qq.com",
+                            "a528895030@gmail.com",
+                            "1528895030@qq.com"
+                              ]
+                    )
                 except Exception as cache_e:
                     logger.warning(f"Gemini推理结果缓存失败: {cache_e}")
                 yield f"data: {json.dumps({'type': 'status', 'stage': 'completed', 'message': '数据流已结束。', 'error': error_occurred})}\n\n"
@@ -243,33 +268,122 @@ def gemini_advice():
         logger.error(f"API 调用异常: {e}\n{traceback.format_exc()}")
         return jsonify({"error": f"服务器内部错误: {e}"}), 500
 
-# def start_ssh_tunnel_background():
-#     """
-#     以后台线程方式启动 SSH 隧道，不占用主进程终端。
-#     """
-#     def tunnel():
-#         while True:
-#             try:
-#                 print("[SSH隧道] 正在建立端口转发: ssh -N -R 5000:localhost:3000 root@114.55.238.254")
-#                 proc = subprocess.Popen([
-#                     "ssh", "-N", "-o", "ServerAliveInterval=60", "-R", "5000:localhost:3000", "root@114.55.238.254"
-#                 ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-#                 proc.wait()
-#                 print("[SSH隧道] 连接断开，5秒后重试...")
-#                 import time; time.sleep(5)
-#             except Exception as e:
-#                 print(f"[SSH隧道] 启动失败: {e}")
-#                 import time; time.sleep(10)
-#     t = threading.Thread(target=tunnel, daemon=True)
-#     t.start()
+def send_ai_reply_email(subject, content, to_addrs):
+    smtp_server = 'smtp.gmail.com'  # 例如QQ邮箱
+    smtp_port = 465
+    from_addr = 'a528895030@gmail.com'  # 替换为你的发件邮箱
+    password = 'owuh lyqs bmuh qkde'  # 替换为你的SMTP授权码
 
+    msg = MIMEText(content, 'plain', 'utf-8')
+    msg['From'] = Header(from_addr)
+    msg['To'] = Header(','.join(to_addrs))
+    msg['Subject'] = Header(subject, 'utf-8')
+
+    try:
+        server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+        server.login(from_addr, password)
+        server.sendmail(from_addr, to_addrs, msg.as_string())
+        server.quit()
+        logger.info(f"AI回复已发送到邮箱：{to_addrs}")
+    except Exception as e:
+        logger.error(f"发送邮件失败: {e}")
+
+def schedule_gemini_task():
+    """
+    每到分钟模15为0时自动调用一次 Gemini 推理。
+    """
+    while True:
+        now = datetime.datetime.now()
+        if now.minute % 15 == 0 and now.second < 5:  # 避免多次触发
+            try:
+                # 自动运行 main.py 生成最新 data.json
+                main_py_path = os.path.join(parent_dir, 'main.py')
+                data_json_path = os.path.join(parent_dir, 'data.json')
+                logger.info(f"[定时任务] 自动运行数据采集脚本: {main_py_path}")
+                result = subprocess.run([sys.executable, main_py_path], capture_output=True, text=True, timeout=180)
+                if result.returncode != 0:
+                    logger.error(f"[定时任务] main.py 执行失败: {result.stderr}")
+                elif not os.path.exists(data_json_path):
+                    logger.error("[定时任务] main.py 执行后未生成 data.json")
+                else:
+                    with open(data_json_path, 'r', encoding='utf-8') as f:
+                        data_json = json.load(f)
+                    screenshot_path = data_json.get('clipboard_image_path')
+                    prompt_text = extract_all_text(data_json)
+                    if prompt_text:
+                        logger.info("[定时任务] 触发 Gemini API 推理...")
+                        # 直接调用 Gemini 推理流式接口
+                        gemini_path = os.path.join(parent_dir, 'gemini_api_caller.py')
+                        spec = importlib.util.spec_from_file_location("gemini_api_caller", gemini_path)
+                        gemini_api_caller = importlib.util.module_from_spec(spec)
+                        spec.loader.exec_module(gemini_api_caller)
+                        reply_text = ""
+                        try:
+                            for chunk in gemini_api_caller.call_gemini_api_stream(prompt_text, screenshot_path, reasoning_effort="high"):
+                                if chunk:
+                                    reply_text += str(chunk)
+                            # 缓存结果
+                            cache_dir = os.path.join(parent_dir, 'reply_cache')
+                            os.makedirs(cache_dir, exist_ok=True)
+                            ts = now.strftime('%Y%m%d_%H%M%S')
+                            cache_file = os.path.join(cache_dir, f'gemini_reply_{ts}_auto.txt')
+                            with open(cache_file, 'w', encoding='utf-8') as f:
+                                f.write(reply_text)
+                            logger.info(f"[定时任务] Gemini推理结果已缓存到: {cache_file}")
+                            # 发送邮件
+                            send_ai_reply_email(
+                                subject="Gemini AI回复",
+                                content=reply_text,
+                                to_addrs=[
+                                    "jeffreymcadams750@gmail.com",
+                                    "changnikita71@gmail.com",
+                                    "1837572554@qq.com",
+                                    "a528895030@gmail.com",
+                                    "1528895030@qq.com"
+                                ]
+                    )
+                        except Exception as e:
+                            logger.error(f"[定时任务] Gemini流式推理异常: {e}\n{traceback.format_exc()}")
+            except Exception as e:
+                logger.error(f"[定时任务] 定时Gemini任务异常: {e}\n{traceback.format_exc()}")
+            time.sleep(60)  # 防止一分钟内多次触发
+        else:
+            time.sleep(2)
+
+import gc
+import shutil
+
+def clean_memory_on_start():
+    logger.info("启动时主动清理内存和缓存...")
+    # 主动垃圾回收
+    gc.collect()
+    # 清理 __pycache__ 目录
+    for root, dirs, files in os.walk(parent_dir):
+        for d in dirs:
+            if d == '__pycache__':
+                try:
+                    shutil.rmtree(os.path.join(root, d))
+                    logger.info(f"已清理缓存目录: {os.path.join(root, d)}")
+                except Exception as e:
+                    logger.warning(f"清理缓存目录失败: {e}")
+    # 尝试释放 Linux 系统缓存（需要root权限）
+    try:
+        os.system('sync; echo 3 > /proc/sys/vm/drop_caches')
+        logger.info("已尝试释放 Linux 系统缓存")
+    except Exception as e:
+        logger.warning(f"释放系统缓存失败: {e}")
+
+# 在主入口调用
 if __name__ == '__main__':
+    clean_memory_on_start()
     # Docker环境下不启动SSH隧道
     if not os.getenv('qwen_API_KEY'):
         print("警告：qwen_API_KEY 环境变量未设置。API 调用可能会失败。\n请在启动应用前设置该环境变量，例如：export qwen_API_KEY=\"YOUR_API_KEY\"")
     # 只在非debug模式下自动启动Bot，开发调试时不自动拉起
     # if not app.debug:
     #     start_telegram_bot()
+    # 启动定时Gemini任务线程
+    threading.Thread(target=schedule_gemini_task, daemon=True).start()
     # 启动主服务
     
     app.run(host='0.0.0.0', port=5000, debug=True)

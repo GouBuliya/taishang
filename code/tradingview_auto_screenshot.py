@@ -12,6 +12,7 @@ import undetected_chromedriver as uc
 import sys # 导入sys模块
 import shutil
 import subprocess
+import gc
 
 # 配置
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'  # 你的超级图表链接，可自定义
@@ -99,8 +100,8 @@ def create_driver(headless=True, user_data_dir=None):
             dst = final_user_data_dir
             print(f"[DEBUG] 尝试用{src}覆盖{dst}")
             if safe_rmtree(dst):
-            shutil.copytree(src, dst)
-            print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
+                shutil.copytree(src, dst)
+                print(f"[DEBUG] 覆盖完成，重试启动Chrome...")
                 driver = uc.Chrome(options=chrome_options, headless=headless, version_main=136)
             else:
                 raise
@@ -226,7 +227,29 @@ def safe_rmtree(path, max_retry=3):
     print(f"[ERROR] 多次尝试后仍无法删除目录: {path}，请手动清理！")
     return False
 
+def clean_memory_on_start():
+    print('[DEBUG] 启动时主动清理内存...')
+    gc.collect()
+    # 释放 Linux 系统缓存（需要root权限，非必须）
+    try:
+        os.system('sync; echo 3 > /proc/sys/vm/drop_caches')
+        print('[DEBUG] 已尝试释放 Linux 系统缓存')
+    except Exception as e:
+        print(f'[WARNING] 释放系统缓存失败: {e}')
+
+def update_user_profile():
+    """
+    用 chrome_profile_copy 覆盖 chrome_profile，确保用户配置为最新。
+    """
+    src = os.path.join(SCRIPT_DIR, 'chrome_profile_copy')
+    dst = os.path.join(SCRIPT_DIR, 'chrome_profile')
+    if os.path.exists(dst):
+        safe_rmtree(dst)
+    shutil.copytree(src, dst)
+    print(f'[DEBUG] 已用 {src} 覆盖 {dst}')
+
 def main():
+    clean_memory_on_start()  # ←加在最前面
     filepath = None
     driver = None
     # 启动前清空保存目录
@@ -237,6 +260,8 @@ def main():
         print('[DEBUG] 已执行 pkill chrome')
     except Exception as e:
         print(f'[WARNING] pkill chrome 失败: {e}')
+    # 启动前自动更新用户配置
+    update_user_profile()
     # 强制检查当前运行的Python解释器是否是指定的venv_python
     if sys.executable != venv_python:
         print(f"[CRITICAL ERROR] 当前脚本运行的Python解释器不是指定的虚拟环境解释器！")
