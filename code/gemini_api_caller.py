@@ -205,7 +205,7 @@ if __name__ == "__main__":
         screenshot_path=screenshot_path,
         system_prompt=system_prompt,
         enable_reasoning=True,
-        reasoning_effort="low"
+        reasoning_effort="high"
     ):
         print(text, end="", flush=True)
     print("\nGemini API 流式调用结束。")

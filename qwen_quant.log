@@ -884,7 +884,152 @@ AttributeError: 'str' object has no attribute 'get'
 [2025-05-28 15:31:34] INFO  * Restarting with stat
 [2025-05-28 15:31:35] WARNING  * Debugger is active!
 [2025-05-28 15:31:35] INFO  * Debugger PIN: 138-205-243
+<<<<<<< HEAD
 [2025-05-28 15:35:09] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/tradingview_auto_screenshot.py', reloading
 [2025-05-28 15:35:10] INFO  * Restarting with stat
 [2025-05-28 15:35:11] WARNING  * Debugger is active!
 [2025-05-28 15:35:11] INFO  * Debugger PIN: 138-205-243
+=======
+[2025-05-28 18:21:44] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 18:21:44] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 18:21:44] INFO  * Restarting with stat
+[2025-05-28 18:21:45] WARNING  * Debugger is active!
+[2025-05-28 18:21:45] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:21:46] INFO 开始 Gemini API 流式推理。
+[2025-05-28 18:21:46] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 18:22:48] INFO 60.211.79.243 - - [28/May/2025 18:22:48] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 18:22:48] INFO 60.211.79.243 - - [28/May/2025 18:22:48] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 18:22:48] INFO 60.211.79.243 - - [28/May/2025 18:22:48] "GET /cache_screenshots/tradingview_clipboard_20250528_182242.png?t=1748427769031 HTTP/1.1" 200 -
+[2025-05-28 18:23:42] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 18:24:31] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py', reloading
+[2025-05-28 18:24:32] INFO  * Restarting with stat
+[2025-05-28 18:24:35] WARNING  * Debugger is active!
+[2025-05-28 18:24:35] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:25:16] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 18:25:16] INFO  * Restarting with stat
+[2025-05-28 18:25:18] WARNING  * Debugger is active!
+[2025-05-28 18:25:18] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:25:57] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 18:25:58] INFO  * Restarting with stat
+[2025-05-28 18:25:59] WARNING  * Debugger is active!
+[2025-05-28 18:25:59] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:26:29] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 18:26:29] INFO  * Restarting with stat
+[2025-05-28 18:26:31] WARNING  * Debugger is active!
+[2025-05-28 18:26:31] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:26:37] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 18:26:37] INFO  * Restarting with stat
+[2025-05-28 18:26:38] WARNING  * Debugger is active!
+[2025-05-28 18:26:38] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:26:42] INFO 开始 Gemini API 流式推理。
+[2025-05-28 18:26:42] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 18:27:50] INFO Gemini流式推理参数: prompt_text=code/cache_screenshots/tradingview_clipboard_20250528_182742.png
+ETH-USDT-SWAP
+ETHUSDT.P
+ETH-USDT-SW..., screenshot_path=code/cache_screenshots/tradingview_clipboard_20250528_182742.png, reasoning_effort='high'
+[2025-05-28 18:27:50] INFO 60.211.79.243 - - [28/May/2025 18:27:50] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 18:27:50] INFO 动态加载 Gemini API 模块: /root/codespace/Qwen_quant_v1/code/web_gui/../gemini_api_caller.py
+[2025-05-28 18:27:50] INFO Gemini API 模块加载完成，开始流式推理...
+[2025-05-28 18:27:51] INFO 60.211.79.243 - - [28/May/2025 18:27:51] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 18:27:51] INFO 60.211.79.243 - - [28/May/2025 18:27:51] "GET /cache_screenshots/tradingview_clipboard_20250528_182742.png?t=1748428071269 HTTP/1.1" 200 -
+[2025-05-28 18:28:51] INFO Retrying request to /chat/completions in 0.462034 seconds
+[2025-05-28 18:29:51] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 18:30:14] INFO Gemini流式推理结束。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 14:56:37] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 14:56:37] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 15:27:25] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 15:27:26] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 15:27:26] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 15:27:26] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 15:27:26] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 15:27:27] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:22:43] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:22:45] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:27:45] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:30:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:30:14] INFO Gemini流式推理流程已完成，error_occurred=False
+[2025-05-28 18:31:58] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 18:31:59] INFO  * Restarting with stat
+[2025-05-28 18:32:01] WARNING  * Debugger is active!
+[2025-05-28 18:32:01] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:32:33] INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+[2025-05-28 18:32:33] INFO [33mPress CTRL+C to quit[0m
+[2025-05-28 18:32:33] INFO  * Restarting with stat
+[2025-05-28 18:32:34] WARNING  * Debugger is active!
+[2025-05-28 18:32:34] INFO  * Debugger PIN: 138-205-243
+[2025-05-28 18:32:45] INFO 开始 Gemini API 流式推理。
+[2025-05-28 18:32:45] INFO 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/code/web_gui/../main.py
+[2025-05-28 18:33:49] INFO Gemini流式推理参数: prompt_text=code/cache_screenshots/tradingview_clipboard_20250528_183343.png
+ETH-USDT-SWAP
+ETHUSDT.P
+ETH-USDT-SW..., screenshot_path=code/cache_screenshots/tradingview_clipboard_20250528_183343.png, reasoning_effort='high'
+[2025-05-28 18:33:49] INFO 60.211.79.243 - - [28/May/2025 18:33:49] "POST /api/gemini_advice HTTP/1.1" 200 -
+[2025-05-28 18:33:49] INFO 动态加载 Gemini API 模块: /root/codespace/Qwen_quant_v1/code/web_gui/../gemini_api_caller.py
+[2025-05-28 18:33:49] INFO Gemini API 模块加载完成，开始流式推理...
+[2025-05-28 18:33:49] INFO 60.211.79.243 - - [28/May/2025 18:33:49] "GET /data.json HTTP/1.1" 200 -
+[2025-05-28 18:33:49] INFO 60.211.79.243 - - [28/May/2025 18:33:49] "GET /cache_screenshots/tradingview_clipboard_20250528_183343.png?t=1748428429646 HTTP/1.1" 200 -
+[2025-05-28 18:34:49] INFO HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[2025-05-28 18:35:14] INFO Gemini流式推理结束。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 15:27:26] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 15:27:27] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:22:43] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:22:44] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:22:45] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:27:45] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:27:46] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:33:45] INFO 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:33:45] INFO 成功获取并处理 15m 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:33:45] INFO 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:33:45] INFO 成功获取并处理 1h 周期的数据。
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:33:45] INFO 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[2025-05-28 18:35:14] INFO [Gemini子模块] [2025-05-28 18:33:46] INFO 成功获取并处理 4h 周期的数据。
+[2025-05-28 18:35:14] INFO Gemini流式推理流程已完成，error_occurred=False
+[2025-05-28 18:35:14] INFO Gemini推理结果已缓存到: /root/codespace/Qwen_quant_v1/code/web_gui/../reply_cache/gemini_reply_20250528_183514.txt
+[2025-05-28 18:35:38] ERROR 167.94.145.100 - - [28/May/2025 18:35:38] code 400, message Bad request version ('À\x14À')
+[2025-05-28 18:35:38] INFO 167.94.145.100 - - [28/May/2025 18:35:38] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03µçù\x0cR!\x9abÖÝÈ\x82\x1bm\x02ù¹\x0b:q\x92\x9cÉ\x00¼\x1f.5\x18;\x9cË \x84y\x86e\x9a\x89Ò\x86ïR#W*\x8eZ§xî\x1f\x8e\x0fh8z\x8eòÌx\x07o¥s\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 18:35:38] ERROR 206.168.34.127 - - [28/May/2025 18:35:38] code 400, message Bad request version ('À\x14À')
+[2025-05-28 18:35:38] INFO 206.168.34.127 - - [28/May/2025 18:35:38] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ÿ6\x00-\x9eØz+ú¾X³6\x87 Î\x83MßÍfú\x0cßÙWÝP÷\x94\x9c) íµ\x08\x8a¸Þéj"¼ý¹gWÏ\x94©0xµ\x90×\x14¶0\x16Ï\x0b9Ä?»\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 18:35:42] INFO 167.94.145.100 - - [28/May/2025 18:35:42] "GET / HTTP/1.1" 200 -
+[2025-05-28 18:35:43] INFO 206.168.34.127 - - [28/May/2025 18:35:43] "GET / HTTP/1.1" 200 -
+[2025-05-28 18:35:45] INFO 167.94.145.100 - - [28/May/2025 18:35:45] "GET / HTTP/1.1" 200 -
+[2025-05-28 18:35:48] INFO 167.94.145.100 - - [28/May/2025 18:35:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 18:35:48] INFO 206.168.34.127 - - [28/May/2025 18:35:48] "GET / HTTP/1.1" 200 -
+[2025-05-28 18:35:49] ERROR 167.94.145.100 - - [28/May/2025 18:35:49] code 505, message Invalid HTTP version (2.0)
+[2025-05-28 18:35:49] INFO 167.94.145.100 - - [28/May/2025 18:35:49] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+[2025-05-28 18:35:49] INFO 206.168.34.127 - - [28/May/2025 18:35:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 18:35:50] ERROR 206.168.34.127 - - [28/May/2025 18:35:50] code 505, message Invalid HTTP version (2.0)
+[2025-05-28 18:35:50] INFO 206.168.34.127 - - [28/May/2025 18:35:50] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+[2025-05-28 18:35:53] INFO 167.94.145.100 - - [28/May/2025 18:35:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 18:35:54] ERROR 167.94.145.100 - - [28/May/2025 18:35:54] code 400, message Bad request version ('À\x14À')
+[2025-05-28 18:35:54] INFO 167.94.145.100 - - [28/May/2025 18:35:54] "[35m[1m\x16\x03\x01\x00÷\x01\x00\x00ó\x03\x038\x11\x97â7a¯\x07³Õ\x9b­í1\x92w°ý\x1dÏg\x8fp\x7f»û^ Ø^\x03è Ð\x92Õ\x0c\x0f\x9aLFÛ¸¯ò\x0d@(§ß\x0c\x81B#Ïó(¬\x8cXw;/è\x09\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 18:35:56] INFO 206.168.34.127 - - [28/May/2025 18:35:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2025-05-28 18:35:58] ERROR 206.168.34.127 - - [28/May/2025 18:35:58] code 400, message Bad request version ('À\x14À')
+[2025-05-28 18:35:58] INFO 206.168.34.127 - - [28/May/2025 18:35:58] "[35m[1m\x16\x03\x01\x00÷\x01\x00\x00ó\x03\x03»Üã¦!Jå«{¢@©\x92©\x0e\x01g÷½\x88w±±¸e«f\x1fû/_\x01 Ã¤k\x12UQæ\x90\\Ä§B=RÍ¦WW\x1b;?jÙ9\x8a\x0e¹5_#\x0eó\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+[2025-05-28 18:47:03] INFO  * Detected change in '/root/codespace/Qwen_quant_v1/code/web_gui/app.py', reloading
+[2025-05-28 18:47:03] INFO  * Restarting with stat
+[2025-05-28 18:47:05] WARNING  * Debugger is active!
+[2025-05-28 18:47:05] INFO  * Debugger PIN: 138-205-243
+>>>>>>> 1c57aaf4 (Gemini流式推理：同步子模块日志、推理结果缓存到reply_cache，日志增强)
+[2025-05-28 18:52:40] WARNING  * Debugger is active!
+[2025-05-28 18:52:40] INFO  * Debugger PIN: 138-205-243
