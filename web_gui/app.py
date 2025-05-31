@@ -8,7 +8,6 @@ import sys
 import traceback
 from werkzeug.exceptions import UnsupportedMediaType # 导入特定的异常类型
 import threading
-from telegram_bot_singleton import start_telegram_bot
 import importlib.util
 from queue import Queue
 
@@ -32,10 +31,10 @@ app = Flask(__name__, template_folder='templates')
 if not app.debug:
     logging.basicConfig(level=logging.INFO)
 
-
+config = json.load(open("/root/codespace/Qwen_quant_v1/config/config.json", "r"))
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-LOG_FILE = "/root/codespace/Qwen_quant_v1/nohup.out"
+LOG_FILE = config["log_path"]
 logging.basicConfig(
     level=logging.INFO,
     format='[%(filename)s][%(asctime)s] [%(levelname)s] %(message)s',
@@ -48,10 +47,10 @@ logger = logging.getLogger("GeminiQuant")
 
 
 # 移除硬编码的 API Key，只依赖环境变量
-os.environ['GEMINI_API_KEY'] = "AIzaSyCkBZzYyaSvLzHRWGEsoabZbyNzlvAxa98"
+os.environ['GEMINI_API_KEY'] = config["GEMINI_API_KEY"]
 
-os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
-os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'#代理
+os.environ['HTTP_PROXY'] = config["proxy"]["http_proxy"]
+os.environ['HTTPS_PROXY'] = config["proxy"]["https_proxy"]#代理
 
 # 假设您的 main.py 是一个数据采集脚本，这里只是模拟运行
 def run_data_collection_script():
@@ -63,6 +62,9 @@ def run_data_collection_script():
 def index():
     # 使用 render_template 来渲染 HTML 模板
     return render_template('index.html')
+
+
+
 
 def extract_all_text(data):
     # 递归提取所有字符串
@@ -174,27 +176,27 @@ def gemini_advice():
 
     # 串行执行BTC采集、推理、邮件
     logger.info("[主流程] 串行执行BTC采集、推理、邮件...")
-    btc_main_py = '/root/codespace/Qwen_quant_v1/BTC_code/main.py'
-    btc_data_json = '/root/codespace/Qwen_quant_v1/BTC_code/data.json'
+    btc_main_py = config["path"]["main_BTC"]
+    btc_data_json = config["path"]["data_BTC"]
     coin_task(
         'BTC',
         btc_main_py,
         btc_data_json,
-        '/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py',
-        '/root/codespace/Qwen_quant_v1/BTC_code/reply_cache',
+        config["path"]["gemini_api_caller_BTC"],
+        config["path"]["reply_cache_BTC"],
         'Gemini BTC AI回复',
         ["a528895030@gmail.com", "1528895030@qq.com"]
     )
     # 串行执行ETH采集、推理、邮件
     logger.info("[主流程] 串行执行ETH采集、推理、邮件...")
-    eth_main_py = '/root/codespace/Qwen_quant_v1/code/main.py'
-    eth_data_json = '/root/codespace/Qwen_quant_v1/code/data.json'
+    eth_main_py = config["path"]["main_ETH"]
+    eth_data_json = config["path"]["data_ETH"]
     coin_task(
         'ETH',
         eth_main_py,
         eth_data_json,
-        '/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py',
-        '/root/codespace/Qwen_quant_v1/code/reply_cache',
+        config["path"]["gemini_api_caller_ETH"],
+        config["path"]["reply_cache_ETH"],
         'Gemini ETH AI回复',
         ["a528895030@gmail.com", "1528895030@qq.com"]
     )
@@ -215,28 +217,33 @@ def schedule_gemini_task():
         now = datetime.datetime.now()
         if now.minute % 15 == 0 and now.second < 5:
             # 串行执行BTC采集、推理、邮件
+            
             logger.info("[定时] 串行执行BTC采集、推理、邮件...")
-            btc_main_py = '/root/codespace/Qwen_quant_v1/BTC_code/main.py'
-            btc_data_json = '/root/codespace/Qwen_quant_v1/BTC_code/data.json'
+            btc_main_py = config["path"]["main_BTC"]
+            btc_data_json = config["path"]["data_BTC"]
+            clean_memory_on_start()
+            logger.info("[定时] 清理内存完成")
             coin_task(
                 'BTC',
                 btc_main_py,
                 btc_data_json,
-                '/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py',
-                '/root/codespace/Qwen_quant_v1/BTC_code/reply_cache',
+                config["path"]["gemini_api_caller_BTC"],
+                config["path"]["reply_cache_BTC"],
                 'Gemini BTC AI回复',
                 ["a528895030@gmail.com", "1528895030@qq.com","changnikita71@gmail.com"]
             )
             # 串行执行ETH采集、推理、邮件
             logger.info("[定时] 串行执行ETH采集、推理、邮件...")
-            eth_main_py = '/root/codespace/Qwen_quant_v1/code/main.py'
-            eth_data_json = '/root/codespace/Qwen_quant_v1/code/data.json'
+            eth_main_py = config["path"]["main_ETH"]
+            eth_data_json = config["path"]["data_ETH"]
+            clean_memory_on_start()
+            logger.info("[定时] 清理内存完成")
             coin_task(
                 'ETH',
                 eth_main_py,
                 eth_data_json,
-                '/root/codespace/Qwen_quant_v1/code/gemini_api_caller.py',
-                '/root/codespace/Qwen_quant_v1/code/reply_cache',
+                config["path"]["gemini_api_caller_ETH"],
+                config["path"]["reply_cache_ETH"],
                 'Gemini ETH AI回复',
                 ["a528895030@gmail.com", "1528895030@qq.com","jeffreymcadams750@gmail.com","1837572554@qq.com"]
             )

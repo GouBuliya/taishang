@@ -11,11 +11,12 @@
     "BTC_log_path": "/root/codespace/Qwen_quant_v1/log/nohup.out",
     "ETH_log_path": "/root/codespace/Qwen_quant_v1/log/nohup.out",
     "SYSTEM_PROMPT_PATH": "/root/codespace/Qwen_quant_v1/config/system_prompt_config.md",
+    "bot_system_prompt_path": "/root/codespace/Qwen_quant_v1/config/bot_system_prompt.md",
     "MODEL_CONFIG":{
         "default_temperature": 0.0,
         "default_top_p": 0.9,
         "default_max_output_tokens": 24576,
-        "default_thinking_budget": 1000,
+        "default_thinking_budget": 2000,
         "default_include_thoughts": "True"
     },
     "ETH_gemini_answer_path": "/root/codespace/Qwen_quant_v1/ETH_code/reply_cache/gemini.json",
@@ -32,5 +33,22 @@
         "http_proxy":"http://127.0.0.1:7890",
         "https_proxy":"http://127.0.0.1:7890"
     },
-    "schema_path": "/root/codespace/Qwen_quant_v1/config/schema.json"
+    "schema_path": "/root/codespace/Qwen_quant_v1/config/schema.json",
+    "path":{
+        "BTC_code":"/root/codespace/Qwen_quant_v1/BTC_code",
+        "ETH_code":"/root/codespace/Qwen_quant_v1/ETH_code",
+        "main_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/main.py",
+        "main_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/main.py",
+        "data_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/data.json",
+        "data_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/data.json",
+        "gemini_api_caller_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/gemini_api_caller.py",
+        "gemini_api_caller_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py",
+        "reply_cache_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/reply_cache",
+        "reply_cache_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/reply_cache",
+        "cache_screenshot_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot",
+        "cache_screenshot_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot",
+        "get_positions_path_ETH":"/root/codespace/Qwen_quant_v1/code/get_positions.py",
+        "get_positions_path_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/get_positions.py"
+        
+    }
 }

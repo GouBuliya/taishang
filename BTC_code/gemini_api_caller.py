@@ -44,9 +44,7 @@ else:
 
 # ===================== 全局配置与初始化 END =====================
 
-# 从config.json中读取配置   
-with open("/root/codespace/Qwen_quant_v1/config/config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
+
 
 DEFAULT_TEMPERATURE = config["MODEL_CONFIG"]["default_temperature"]
 DEFAULT_TOP_P = config["MODEL_CONFIG"]["default_top_p"]
@@ -61,42 +59,12 @@ DEFAULT_INCLUDE_THOUGHTS = config["MODEL_CONFIG"]["default_include_thoughts"]
 # except ImportError as e:
 #     raise ImportError("未找到 openai 库，请先运行 'pip install openai' 安装依赖。") from e
 
-def build_messages(prompt_text, screenshot_path=None, system_prompt=None):
-    """
-    构造符合OpenAI兼容API的messages结构。
-    - content字段：无图片时为字符串，有图片时为list（text+image_url）
-    - role: 支持 system 和 user
-    - 若prompt_text为空，自动填充默认内容，避免API 400错误
-    - 支持自定义system_prompt
-    """
-    messages = []
-    sys_prompt = system_prompt if system_prompt is not None else SYSTEM_PROMPT
 
-    # Gemini's OpenAI compatibility supports a dedicated 'system' role
-    if sys_prompt:
-        messages.append({"role": "system", "content": sys_prompt.strip()})
-
-    if not prompt_text or (isinstance(prompt_text, str) and not prompt_text.strip()):
-        prompt_text = "请分析当前市场趋势"
-
-    user_content_parts = []
-    user_content_parts.append({"type": "text", "text": prompt_text})
-
-    if screenshot_path and os.path.exists(screenshot_path):
-        with open(screenshot_path, "rb") as f:
-            img_b64 = base64.b64encode(f.read()).decode()
-        # Ensure correct image format for Gemini (jpeg, png, webp, heic, heif)
-        user_content_parts.append({"type": "image_url", "image_url": {"url": f"data:image/png;base64,{img_b64}"}})
-
-    # If there's only text and no screenshot, send content as a string, otherwise as a list of parts
-    messages.append({"role": "user", "content": user_content_parts if len(user_content_parts) > 1 or screenshot_path else prompt_text})
-    return messages
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
 
-json_schema = open(config["schema_path"], "r", encoding="utf-8").read()
-json_schema = json.loads(json_schema)
+
 def call_gemini_api_stream(
     prompt_text, # Directly accept prompt_text
     screenshot_path=None,
@@ -122,7 +90,9 @@ def call_gemini_api_stream(
         _api_key =  API_KEY
         if not _api_key:
             raise RuntimeError("未配置 GEMINI_API_KEY")
-        
+        tools=[
+            types.Tool(code_execution=types.ToolCodeExecution)
+            ]
         
         gemini_config = types.GenerateContentConfig(
             temperature=DEFAULT_TEMPERATURE,
@@ -133,8 +103,7 @@ def call_gemini_api_stream(
                 "thinking_budget":DEFAULT_THINKING_BUDGET,
             },
             system_instruction=system_prompt,
-            response_mime_type="application/json",
-            response_schema=json_schema
+            # tools=tools,
         )
 
 
@@ -191,6 +160,10 @@ if __name__ == "__main__":
     output_buffer = []  # 新增：用于收集输出内容
 
     thinking_config=config["MODEL_CONFIG"]["default_thinking_budget"]
+
+
+
+
     for text in call_gemini_api_stream(
         prompt_text=prompt_text,
         screenshot_path=screenshot_path,
@@ -200,13 +173,15 @@ if __name__ == "__main__":
         output_buffer.append(text)  # 新增：收集内容
     print("\nGemini API 流式调用结束。")
 
-    #将test开头的"```json"和结尾的"```"去掉
-    output_buffer = [line.strip("```json").strip() for line in output_buffer]
-    output_buffer = [line.strip("```").strip() for line in output_buffer]
+    #去````json和````
     output_buffer = "".join(output_buffer)
-    #将output_buffer直接写入/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json
+    output_buffer = output_buffer.replace("```json", "").replace("```", "")
+    output_buffer = json.loads(output_buffer)
+
+    #将output_buffer写入/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json
     with open(config["BTC_gemini_answer_path"], "w", encoding="utf-8") as f:
-        f.write(output_buffer)
+        json.dump(output_buffer, f, indent=4, ensure_ascii=False)
+
 
     print(f"已将输出内容保存到 {config['BTC_gemini_answer_path']}")
 

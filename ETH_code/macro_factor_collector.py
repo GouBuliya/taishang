@@ -87,7 +87,6 @@ def get_market_factors():
 
 
     return {
-        "timestamp": now,
         "factors": {
             "funding_rate": funding_rate_str,
             "FGI": f"{fear_greed}/100" if fear_greed is not None else None,

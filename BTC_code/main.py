@@ -141,7 +141,6 @@ if __name__ == "__main__":
         "data_summary": data if isinstance(data, dict) else {},
         "okx_positions": okx_positions if isinstance(okx_positions, dict) else {},
         "timestamp": datetime.now(timezone.utc).replace(microsecond=0).isoformat() + "Z",
-
     }
     # 写入 data.json
     data_path = config["BTC_data_path"]

@@ -91,7 +91,6 @@ def get_market_factors():
 
 
     return {
-        "timestamp": now,
         "factors": {
             "funding_rate": funding_rate_str,
             # 恐惧贪婪指数，字符串格式如“71/100”
