@@ -1,0 +1,198 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "symbol": "ETHUSDT.P",
+    "timeframe": "M15",
+    "timestamp": "2025-05-22T04:33:23+00:00Z",
+    "market_state": "Bull",
+    "trade_recommendation": {
+        "summary": "...",
+        "confidence": "...",
+        "signal": "LONG",
+        "risk_level": "medium",
+        "key_factors": [
+            {
+                "name": "EMA强度",
+                "value": "...",
+                "relevance": "...",
+                "reason": "..."
+            },
+            {
+                "name": "RSI中性度",
+                "value": "...",
+                "relevance": "...",
+                "reason": "..."
+            }
+        ],
+        "entry_zone": "...",
+        "stop_loss_price": "...",
+        "take_profit_targets": [
+            "TP1...",
+            "TP2...",
+            "TP3..."
+        ],
+        "alternative_scenarios_and_alerts": [
+            "如果H4转弱，则趋势失败概率提升"
+        ]
+    },
+    "detailed_analysis_and_reasoning": {
+        "low_level_reflection": {
+            "short_term_reason": "...",
+            "mid_term_reason": "...",
+            "long_term_reason": "...",
+            "vp_analysis": "...",
+            "volume_analysis": "...",
+            "price_action": "...",
+            "indicators_analysis": "...",
+            "behavioral_finance_analysis": "..."
+        },
+        "quant_features_output": {
+            "X1": {
+                "value": "...",
+                "signal_quality": "...",
+                "relevance": "...",
+                "reason": "..."
+            },
+            "X2": {
+                "value": "...",
+                "signal_quality": "...",
+                "relevance": "...",
+                "reason": "..."
+            },
+            "X3": {
+                "value": "...",
+                "signal_quality": "N/A",
+                "relevance": "N/A",
+                "reason": "N/A"
+            },
+            "X4": {
+                "value": "...",
+                "signal_quality": "...",
+                "relevance": "...",
+                "reason": "..."
+            },
+            "X5": {
+                "value": "...",
+                "signal_quality": "...",
+                "relevance": "...",
+                "reason": "..."
+            },
+            "X6": {
+                "value": "...",
+                "signal_quality": "...",
+                "relevance": "...",
+                "reason": "..."
+            },
+            "X7": {
+                "value": "...",
+                "signal_quality": "...",
+                "relevance": "...",
+                "reason": "..."
+            }
+        },
+        "meta_analysis": {
+            "global_consistency_check_and_key_drivers": "...",
+            "confidence_and_uncertainty_quantification": {
+                "overall_confidence": "...",
+                "uncertainty_sources": [
+                    {
+                        "source": "...",
+                        "probability": "...",
+                        "impact_strength": "..."
+                    },
+                    {
+                        "source": "...",
+                        "probability": "...",
+                        "impact_strength": "..."
+                    }
+                ]
+            },
+            "historical_pattern_recognition_and_analogical_reasoning": {
+                "kline_pattern_match": "...",
+                "feature_cluster_categorization": "...",
+                "strategy_calibration_and_expected_performance": "..."
+            },
+            "counter_argument_and_rebuttal": "...",
+            "self_check_result": "...",
+            "internal_coordination_result": "...",
+            "logic_validation_result": "...",
+            "rationality_validation_result": "...",
+            "limitations_and_assumptions": "..."
+        }
+    },
+    "execution_details": {
+        "operation_comment": "...",
+        "type": "buy",
+        "price": "...",
+        "stop_loss": "...",
+        "take_profit": [
+            "...",
+            "..."
+        ],
+        "size": "...",
+        "expected_winrate": "...%",
+        "expected_return": "...",
+        "trade_RR_ratio": "...",
+        "signal_strength": "...",
+        "risk_management_strategy": "...",
+        "position_action": "...",
+        "risk_assessment": "..."
+    },
+    "data_info": {
+        "data_source": "...",
+        "data_format": "...",
+        "data_integrity": "..."
+    },
+    "indicators": {
+        "15m": {},
+        "1h": {},
+        "4h": {}
+    },
+    "factors": {
+        "timestamp": "2025-05-22T04:33:21Z",
+        "factors": {
+            "funding_rate": 0.0003,
+            "fear_greed_index": 78,
+            "open_interest": 1000000000
+        }
+    },
+    "data_summary": {
+        "code": "0",
+        "msg": "",
+        "data": [
+            {
+                "instType": "SWAP",
+                "instId": "ETH-USDT-SWAP",
+                "last": "2707.56",
+                "lastSz": "4.06",
+                "askPx": "2707.56",
+                "askSz": "790.82",
+                "bidPx": "2707.55",
+                "bidSz": "923.49",
+                "open24h": "2640",
+                "high24h": "2721.96",
+                "low24h": "2606.53",
+                "volCcy24h": "4134280.404",
+                "vol24h": "41342804.04",
+                "ts": "1748483154390",
+                "sodUtc0": "2679.99",
+                "sodUtc8": "2626.25"
+            }
+        ]
+    },
+    "okx_positions": {
+        "instrument_id": "BTC-USDT-SWAP",
+        "balance": {
+            "Available_Margin": "102651.3 USDT"
+        },
+        "positions": {
+            "instrument_id": "BTC-USDT-SWAP",
+            "Margin_Model": "isolated",
+            "Position direction": "long",
+            "pos": "11.75 piece",
+            "avgPrice": "107970.3 USDT",
+            "Unrealized Gains": "-241.4625 USDT",
+            "liqPrice": "72332.13529662554 USDT",
+            "lever": "3 x"
+        }
+    }
+}
