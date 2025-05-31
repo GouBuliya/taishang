@@ -24,7 +24,7 @@
         "properties": {
           "summary": { "type": "string" },
           "confidence": { "type": "string" },
-          "signal": { "type": "string", "enum": ["LONG", "SHORT", "HOLD"] },
+          "signal": { "type": "string", "enum": ["LONG", "SHORT", "WAIT"] },
           "risk_level": { "type": "string", "enum": ["low", "medium", "high"] },
           "key_factors": {
             "type": "array",
@@ -37,7 +37,7 @@
                 "reason": { "type": "string" }
               },
               "required": ["name", "value", "relevance", "reason"],
-              "description": "key_factors 是关键因素信息，例如 name 是名称，value 是值，relevance 是相关性，reason 是原因"
+              "description": "key_factors 是关键因素信息，例如 name 是名称，value 是值，relevance 是相关性，reason 是原因，详细信息由模型动态生成"
             }
           },
           "entry_zone": { "type": "string" },
@@ -50,9 +50,10 @@
             "type": "array",
             "items": { "type": "string" }
           }
+          
         },
         "required": ["summary", "confidence", "signal", "risk_level"],
-        "description": "trade_recommendation 是交易推荐信息，例如 summary 是总结，confidence 是置信度，signal 是信号，risk_level 是风险等级"
+        "description": "trade_recommendation 是交易推荐信息，例如 summary 是总结，confidence 是置信度，signal 是信号，risk_level 是风险等级，"
       },
       "detailed_analysis_and_reasoning": {
         "type": "object",
@@ -74,19 +75,16 @@
           },
           "quant_features_output": {
             "type": "object",
-            "patternProperties": {
-              "^X[0-9]+$": {
-                "type": "object",
-                "properties": {
-                  "value": { "type": "string" },
-                  "signal_quality": { "type": "string" },
-                  "relevance": { "type": "string" },
-                  "reason": { "type": "string" }
-                },
-                "required": ["value"],
-                "description": "X1, X2, ... 是量化指标，例如 X1 是 EMA 强度，X2 是 RSI 中性度"
-              }
-            }
+            "properties": {
+              "X1": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]},
+              "X2": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]},
+              "X3": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]},
+              "X4": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]},
+              "X5": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]},
+              "X6": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]},
+              "X7": {"type": "object", "properties": {"value": {"type": "string"}, "signal_quality": {"type": "string"}, "relevance": {"type": "string"}, "reason": {"type": "string"}}, "required": ["value"]}
+            },
+            "description": "quant_features_output 是量化特征输出"
           },
           "meta_analysis": {
             "type": "object",
@@ -169,101 +167,6 @@
         },
         "required": ["data_source", "data_format", "data_integrity"],
         "description": "data_info 是数据源的信息，例如 data_source 是数据源，data_format 是数据格式，data_integrity 是数据完整性"
-      },
-      "indicators": {
-        "type": "object",
-        "patternProperties": {
-          "^[0-9]+m|h$": {
-            "type": "object",
-            "additionalProperties": true,
-            "description": "15m, 1h, 4h 是时间周期，例如 15m 是15分钟，1h 是1小时，4h 是4小时"
-          }
-        },
-        "required": ["15m", "1h", "4h"],
-        "description": "indicators 是指标信息，例如 15m 是15分钟指标，1h 是1小时指标，4h 是4小时指标"
-      },
-      "factors": {
-        "type": "object",
-        "properties": {
-          "factors": {
-            "type": "object",
-            "properties": {
-              "funding_rate": { "type": "number" },
-              "fear_greed_index": { "type": "integer" },
-              "open_interest": { "type": "integer" }
-            },
-            "required": ["funding_rate", "fear_greed_index", "open_interest"],
-            "description": "factors 是因子信息，例如 funding_rate 是资金费率，fear_greed_index 是恐惧贪婪指数，open_interest 是持仓量"
-          }
-        },
-        "required": ["factors"],
-        "description": "factors 是因子信息，例如 funding_rate 是资金费率，fear_greed_index 是恐惧贪婪指数，open_interest 是持仓量"
-      },
-      "data_summary": {
-        "type": "object",
-        "properties": {
-          "code": { "type": "string" },
-          "msg": { "type": "string" },
-          "data": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "instType": { "type": "string" },
-                "instId": { "type": "string" },
-                "last": { "type": "string" },
-                "lastSz": { "type": "string" },
-                "askPx": { "type": "string" },
-                "askSz": { "type": "string" },
-                "bidPx": { "type": "string" },
-                "bidSz": { "type": "string" },
-                "open24h": { "type": "string" },
-                "high24h": { "type": "string" },
-                "low24h": { "type": "string" },
-                "volCcy24h": { "type": "string" },
-                "vol24h": { "type": "string" },
-                "ts": { "type": "string" },
-                "sodUtc0": { "type": "string" },
-                "sodUtc8": { "type": "string" }
-              },
-              "required": ["instType", "instId", "last", "ts"],
-              "description": "data 是数据源，例如 instType 是交易对类型，instId 是交易对ID，last 是最新价格，ts 是时间戳"
-            }
-          }
-        },
-        "required": ["code", "msg", "data"],
-        "description": "data_summary 是数据源的摘要信息，例如 code 是状态码，msg 是消息，data 是数据源"
-      },
-      "okx_positions": {
-        "type": "object",
-        "properties": {
-          "instrument_id": { "type": "string" },
-          "balance": {
-            "type": "object",
-            "properties": {
-              "Available_Margin": { "type": "string" }
-            },
-            "required": ["Available_Margin"],
-            "description": "balance 是余额信息，例如 Available_Margin 是可用保证金"
-          },
-          "positions": {
-            "type": "object",
-            "properties": {
-              "instrument_id": { "type": "string" },
-              "Margin_Model": { "type": "string" },
-              "Position direction": { "type": "string" },
-              "pos": { "type": "string" },
-              "avgPrice": { "type": "string" },
-              "Unrealized Gains": { "type": "string" },
-              "liqPrice": { "type": "string" },
-              "lever": { "type": "string" }
-            },
-            "required": ["instrument_id", "pos"],
-            "description": "positions 是持仓信息，例如 instrument_id 是交易对ID，pos 是持仓数量，avgPrice 是平均价格，Unrealized Gains 是未实现盈亏，liqPrice 是强平价格，lever 是杠杆倍数"
-          }
-        },
-        "required": ["instrument_id", "balance", "positions"],
-        "description": "okx_positions 是okx的持仓信息，例如 instrument_id 是交易对ID，balance 是余额，positions 是持仓信息"
       }
     },
     "required": [
@@ -274,10 +177,6 @@
       "trade_recommendation",
       "detailed_analysis_and_reasoning",
       "execution_details",
-      "data_info",
-      "indicators",
-      "factors",
-      "data_summary",
-      "okx_positions"
+      "data_info"
     ]
   }

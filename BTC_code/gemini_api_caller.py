@@ -4,7 +4,6 @@ import sys
 import json
 import traceback
 import base64
-
 # ===================== 全局配置与初始化 =====================
 # 从config.json中读取配置
 with open("/root/codespace/Qwen_quant_v1/config/config.json", "r", encoding="utf-8") as f:
@@ -52,17 +51,15 @@ with open("/root/codespace/Qwen_quant_v1/config/config.json", "r", encoding="utf
 DEFAULT_TEMPERATURE = config["MODEL_CONFIG"]["default_temperature"]
 DEFAULT_TOP_P = config["MODEL_CONFIG"]["default_top_p"]
 DEFAULT_MAX_OUTPUT_TOKENS = config["MODEL_CONFIG"]["default_max_output_tokens"]
-DEFAULT_REASONING_EFFORT = config["MODEL_CONFIG"]["default_reasoning_effort"]
 DEFAULT_THINKING_BUDGET = config["MODEL_CONFIG"]["default_thinking_budget"]
 DEFAULT_INCLUDE_THOUGHTS = config["MODEL_CONFIG"]["default_include_thoughts"]
 
 # ===================== Gemini API 调用主模块 =====================
 
-try:
-    from openai import OpenAI
-except ImportError as e:
-    raise ImportError("未找到 openai 库，请先运行 'pip install openai' 安装依赖。") from e
-
+# try:
+#     from openai import OpenAI
+# except ImportError as e:
+#     raise ImportError("未找到 openai 库，请先运行 'pip install openai' 安装依赖。") from e
 
 def build_messages(prompt_text, screenshot_path=None, system_prompt=None):
     """
@@ -94,15 +91,16 @@ def build_messages(prompt_text, screenshot_path=None, system_prompt=None):
     # If there's only text and no screenshot, send content as a string, otherwise as a list of parts
     messages.append({"role": "user", "content": user_content_parts if len(user_content_parts) > 1 or screenshot_path else prompt_text})
     return messages
+from google import genai
+from google.genai import types
+from pydantic import BaseModel
 
+json_schema = open(config["schema_path"], "r", encoding="utf-8").read()
+json_schema = json.loads(json_schema)
 def call_gemini_api_stream(
     prompt_text, # Directly accept prompt_text
     screenshot_path=None,
-    model_name=None,
     system_prompt=None,
-    enable_reasoning=True, # 此参数现在将通过 reasoning_effort 起作用
-    reasoning_effort=None, # 此参数会直接传递
-    api_key=None
 ):
     """
     流式调用 Gemini API，支持文本+图片输入。
@@ -112,37 +110,54 @@ def call_gemini_api_stream(
         reasoning_effort: Gemini 的思考强度 ("low", "medium", "high", "none")
         api_key: 可选，优先使用传入的API KEY
     """
+
+    #结构化输出
+
+
+
+
     with open(SYSTEM_PROMPT_PATH, "r", encoding="utf-8") as f:
         system_prompt = f.read().strip()
     try:
-        _api_key = api_key or API_KEY
+        _api_key =  API_KEY
         if not _api_key:
             raise RuntimeError("未配置 GEMINI_API_KEY")
         
         
-        client = OpenAI(
-            api_key=_api_key,
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+        gemini_config = types.GenerateContentConfig(
+            temperature=DEFAULT_TEMPERATURE,
+            top_p=DEFAULT_TOP_P,
+            max_output_tokens=DEFAULT_MAX_OUTPUT_TOKENS,
+            thinking_config={
+                "include_thoughts":DEFAULT_INCLUDE_THOUGHTS,
+                "thinking_budget":DEFAULT_THINKING_BUDGET,
+            },
+            system_instruction=system_prompt,
+            response_mime_type="application/json",
+            response_schema=json_schema
         )
-        messages = build_messages(prompt_text, screenshot_path, system_prompt=system_prompt)
-        
-        chat_params = {
-            "model": model_name or DEFAULT_MODEL_NAME,
-            "messages": messages,
-            "stream": True,
-            "temperature": DEFAULT_TEMPERATURE,
-            "max_tokens": DEFAULT_MAX_OUTPUT_TOKENS,
-        }
 
-        # 根据文档，reasoning_effort 是直接的参数
-        if enable_reasoning:
-            chat_params["reasoning_effort"] = reasoning_effort or DEFAULT_REASONING_EFFORT
-        
-        stream = client.chat.completions.create(**chat_params)
 
-        for chunk in stream:
-            if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
-                yield chunk.choices[0].delta.content
+        from PIL import Image
+        if screenshot_path and os.path.exists(screenshot_path):
+            image=Image.open(screenshot_path)
+
+        client = genai.Client(api_key=_api_key)
+        
+
+        contents = [
+           image,
+           prompt_text
+        ]
+        response = client.models.generate_content_stream(
+            model=DEFAULT_MODEL_NAME ,
+            contents=contents,
+            config=gemini_config
+        )
+
+        for chunk in response:
+            if chunk.text:
+                yield chunk.text
     except Exception as e:
         tb = traceback.format_exc()
         logger.error(f"{MODULE_TAG}Gemini API调用异常: {e}\n{tb}")
@@ -150,58 +165,36 @@ def call_gemini_api_stream(
 __all__ = ["call_gemini_api_stream"]
 
 if __name__ == "__main__":
-    # 示例main函数：只调用Gemini API流式接口并打印结果
-    # 请将 "YOUR_GEMINI_API_KEY" 替换为您的实际Gemini API KEY
 
-
-    # ==========================================================
-    # >>>>> 在这里添加代理设置 <<<<<
-    # 请根据您的Clash配置修改端口号。
-    # 如果Clash提供HTTP代理，推荐使用HTTP代理。
-    # 如果是混合端口，则两者都设置为该端口。
-
-    # 假设您的Clash HTTP代理端口是 7890
     os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
     os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 
-    # 如果您的Clash只提供SOCKS5代理，或者您更倾向于使用SOCKS5，
-    # 并且您的Python环境安装了 `socksio` 或 `PySocks` 库，
-    # 则可以这样设置（需要先 pip install 'httpx[socks]' 或 pip install 'requests[socks]'）
-    # os.environ['ALL_PROXY'] = 'socks5://127.0.0.1:7891' # 假设SOCKS5端口是7891
-    # ==========================================================
-    
-    # 读取 data.json 内容
+
     data_json_path = SYSTEM_JSON_PATH
-    # Create a dummy data.json for testing if it doesn't exist
-    
 
     with open(data_json_path, "r", encoding="utf-8") as f:
         data_json = json.load(f)
-    
-    # 获取 prompt_text 和图片路径
-    #将data直接导入prompt_text
-    with open(data_json_path, "r", encoding="utf-8") as f:
-        data_json = json.load(f)
+
     prompt_text = json.dumps(data_json, indent=2, ensure_ascii=False)
-    logging.info(f"prompt_text: {prompt_text}")
+
+    #确保prompt_text为[]
+
+    logging.info(f"prompt_text导入完成")
     screenshot_path = data_json.get("clipboard_image_path")
-    
-    # 读取 system_prompt_config.txt 内容
+    logging.info(f"screenshot_path导入完成,path:{screenshot_path}")
     system_prompt_path = SYSTEM_PROMPT_PATH
-    
+    logging.info(f"system_prompt_path导入完成,path:{system_prompt_path}")
     with open(system_prompt_path, "r", encoding="utf-8") as f:
         system_prompt = f.read().strip()
 
-    print("开始测试 Gemini API 流式调用...")
+    logging.info("开始测试 Gemini API 流式调用...")
     output_buffer = []  # 新增：用于收集输出内容
 
-
+    thinking_config=config["MODEL_CONFIG"]["default_thinking_budget"]
     for text in call_gemini_api_stream(
-        prompt_text,
+        prompt_text=prompt_text,
         screenshot_path=screenshot_path,
         system_prompt=system_prompt,
-        enable_reasoning=True,
-        reasoning_effort="low"
     ):
         print(text, end="", flush=True)
         output_buffer.append(text)  # 新增：收集内容

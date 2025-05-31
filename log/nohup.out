@@ -16142,3 +16142,390 @@ Gemini API 流式调用结束。
   }
 }
 [_client.py][11:18:26] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+[gemini_api_caller.py][12:06:16] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:06:16] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:06:16] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:06:16] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:06:16] [ERROR] [gemini_api_caller] Gemini API调用异常: module 'google.genai.types' has no attribute 'GenerativeModelConfig'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 124, in call_gemini_api_stream
+    gemini_config = types.GenerativeModelConfig(
+AttributeError: module 'google.genai.types' has no attribute 'GenerativeModelConfig'
+
+[gemini_api_caller.py][12:07:14] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:07:14] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:07:14] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:07:14] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:07:14] [ERROR] [gemini_api_caller] Gemini API调用异常: 2 validation errors for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+include_thoughts
+  Extra inputs are not permitted [type=extra_forbidden, input_value='True', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 118, in call_gemini_api_stream
+    gemini_config = types.GenerateContentConfig(
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+include_thoughts
+  Extra inputs are not permitted [type=extra_forbidden, input_value='True', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[gemini_api_caller.py][12:08:48] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:08:48] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:08:48] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:08:48] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:08:48] [ERROR] [gemini_api_caller] Gemini API调用异常: 2 validation errors for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+include_thoughts
+  Extra inputs are not permitted [type=extra_forbidden, input_value='True', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 118, in call_gemini_api_stream
+    gemini_config = types.GenerateContentConfig(
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+include_thoughts
+  Extra inputs are not permitted [type=extra_forbidden, input_value='True', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[gemini_api_caller.py][12:08:55] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:08:55] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:08:55] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:08:55] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:08:55] [ERROR] [gemini_api_caller] Gemini API调用异常: 2 validation errors for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+include_thoughts
+  Extra inputs are not permitted [type=extra_forbidden, input_value='True', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 118, in call_gemini_api_stream
+    gemini_config = types.GenerateContentConfig(
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=24576, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+include_thoughts
+  Extra inputs are not permitted [type=extra_forbidden, input_value='True', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[gemini_api_caller.py][12:10:00] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:10:00] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:10:00] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:10:00] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:10:01] [ERROR] [gemini_api_caller] Gemini API调用异常: Models.generate_content_stream() got an unexpected keyword argument 'generation_config'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 146, in call_gemini_api_stream
+    response = client.models.generate_content_stream(
+TypeError: Models.generate_content_stream() got an unexpected keyword argument 'generation_config'
+
+[gemini_api_caller.py][12:14:54] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:14:54] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:14:54] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:14:54] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:14:54] [ERROR] [gemini_api_caller] Gemini API调用异常: 1 validation error for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=['True', 24576], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 118, in call_gemini_api_stream
+    gemini_config = types.GenerateContentConfig(
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateContentConfig
+thinking_config
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value=['True', 24576], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+
+[gemini_api_caller.py][12:15:18] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:15:18] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:15:18] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:15:18] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:15:19] [ERROR] [gemini_api_caller] Gemini API调用异常: Models.generate_content_stream() got an unexpected keyword argument 'content'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 139, in call_gemini_api_stream
+    response = client.models.generate_content_stream(
+TypeError: Models.generate_content_stream() got an unexpected keyword argument 'content'
+
+[gemini_api_caller.py][12:15:44] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:15:44] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:15:44] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:15:44] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:15:44] [ERROR] [gemini_api_caller] Gemini API调用异常: Models.generate_content_stream() got an unexpected keyword argument 'content'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 139, in call_gemini_api_stream
+    response = client.models.generate_content_stream(
+TypeError: Models.generate_content_stream() got an unexpected keyword argument 'content'
+
+[gemini_api_caller.py][12:20:34] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:20:34] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:20:34] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:20:34] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:20:34] [ERROR] [gemini_api_caller] Gemini API调用异常: Models.generate_content_stream() got an unexpected keyword argument 'content'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 165, in call_gemini_api_stream
+    response = client.models.generate_content_stream(
+TypeError: Models.generate_content_stream() got an unexpected keyword argument 'content'
+
+[gemini_api_caller.py][12:21:17] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:21:17] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:21:17] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:21:17] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][12:21:17] [ERROR] [gemini_api_caller] Gemini API调用异常: Models.generate_content_stream() got an unexpected keyword argument 'content'
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 149, in call_gemini_api_stream
+    response = client.models.generate_content_stream(
+TypeError: Models.generate_content_stream() got an unexpected keyword argument 'content'
+
+[gemini_api_caller.py][12:22:08] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:22:08] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:22:08] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:22:08] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][12:22:09] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][12:22:09] [INFO] AFC remote call 1 is done.
+[_client.py][12:22:12] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[gemini_api_caller.py][12:25:40] [INFO] prompt_text导入完成
+[gemini_api_caller.py][12:25:40] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][12:25:40] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][12:25:40] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][12:25:40] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][12:25:40] [INFO] AFC remote call 1 is done.
+[_client.py][12:25:43] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[gemini_api_caller.py][13:58:46] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:58:46] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][13:58:46] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][13:58:46] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][13:58:46] [ERROR] [gemini_api_caller] Gemini API调用异常: 6 validation errors for GenerateContentConfig
+response_schema.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/dict_type
+response_schema.custom-error[is-instance[type]]
+  Input should be a type [type=is_type, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+response_schema.Schema
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+response_schema.is-instance[GenericAlias]
+  Input should be an instance of GenericAlias [type=is_instance_of, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+response_schema.is-instance[UnionType]
+  Input should be an instance of UnionType [type=is_instance_of, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+response_schema.is-instance[_UnionGenericAlias]
+  Input should be an instance of _UnionGenericAlias [type=is_instance_of, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 127, in call_gemini_api_stream
+    gemini_config = types.GenerateContentConfig(
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 6 validation errors for GenerateContentConfig
+response_schema.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/dict_type
+response_schema.custom-error[is-instance[type]]
+  Input should be a type [type=is_type, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+response_schema.Schema
+  Input should be a valid dictionary or object to extract fields from [type=model_attributes_type, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_attributes_type
+response_schema.is-instance[GenericAlias]
+  Input should be an instance of GenericAlias [type=is_instance_of, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+response_schema.is-instance[UnionType]
+  Input should be an instance of UnionType [type=is_instance_of, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+response_schema.is-instance[_UnionGenericAlias]
+  Input should be an instance of _UnionGenericAlias [type=is_instance_of, input_value='{\n    "$schema": "http:..._positions"\n    ]\n  }', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+
+[gemini_api_caller.py][14:06:32] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:06:32] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:06:32] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:06:32] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:06:32] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:06:32] [INFO] AFC remote call 1 is done.
+[gemini_api_caller.py][14:06:33] [ERROR] [gemini_api_caller] Gemini API调用异常: 3 validation errors for Schema
+properties.detailed_analysis_and_reasoning.properties.quant_features_output.patternProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'^X[0-9]+$': {'type': 'o...X2 是 RSI 中性度'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.patternProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'^[0-9]+m|h$': {'type': ...时，4h 是4小时'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+$schema
+  Extra inputs are not permitted [type=extra_forbidden, input_value='http://json-schema.org/draft-07/schema#', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 157, in call_gemini_api_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 4640, in _generate_content_stream
+    request_dict = _GenerateContentParameters_to_mldev(
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 812, in _GenerateContentParameters_to_mldev
+    _GenerateContentConfig_to_mldev(
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 691, in _GenerateContentConfig_to_mldev
+    t.t_schema(api_client, getv(from_object, ['response_schema'])),
+  File "/usr/local/lib/python3.10/site-packages/google/genai/_transformers.py", line 816, in t_schema
+    return types.Schema.model_validate(origin)
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+pydantic_core._pydantic_core.ValidationError: 3 validation errors for Schema
+properties.detailed_analysis_and_reasoning.properties.quant_features_output.patternProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'^X[0-9]+$': {'type': 'o...X2 是 RSI 中性度'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.patternProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'^[0-9]+m|h$': {'type': ...时，4h 是4小时'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+$schema
+  Extra inputs are not permitted [type=extra_forbidden, input_value='http://json-schema.org/draft-07/schema#', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[gemini_api_caller.py][14:09:14] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:09:14] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:09:14] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:09:14] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:09:14] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:09:14] [INFO] AFC remote call 1 is done.
+[gemini_api_caller.py][14:09:14] [ERROR] [gemini_api_caller] Gemini API调用异常: 5 validation errors for Schema
+properties.detailed_analysis_and_reasoning.properties.quant_features_output.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'type': 'object', 'prope... 'relevance', 'reason']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.properties.15m.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.properties.1h.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.properties.4h.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 157, in call_gemini_api_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 4640, in _generate_content_stream
+    request_dict = _GenerateContentParameters_to_mldev(
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 812, in _GenerateContentParameters_to_mldev
+    _GenerateContentConfig_to_mldev(
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 691, in _GenerateContentConfig_to_mldev
+    t.t_schema(api_client, getv(from_object, ['response_schema'])),
+  File "/usr/local/lib/python3.10/site-packages/google/genai/_transformers.py", line 816, in t_schema
+    return types.Schema.model_validate(origin)
+  File "/usr/local/lib/python3.10/site-packages/pydantic/main.py", line 705, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for Schema
+properties.detailed_analysis_and_reasoning.properties.quant_features_output.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value={'type': 'object', 'prope... 'relevance', 'reason']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.properties.15m.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.properties.1h.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.properties.4h.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+properties.indicators.additionalProperties
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+
+[gemini_api_caller.py][14:17:41] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:17:41] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:17:41] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:17:41] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:17:41] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:17:41] [INFO] AFC remote call 1 is done.
+[_client.py][14:17:43] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 400 Bad Request"
+[gemini_api_caller.py][14:17:43] [ERROR] [gemini_api_caller] Gemini API调用异常: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.generation_config.response_schema.properties["detailed_analysis_and_reasoning"].properties["quant_features_output"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["1h"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["15m"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["4h"].properties: should be non-empty for OBJECT type\n', 'status': 'INVALID_ARGUMENT'}}
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 157, in call_gemini_api_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/usr/local/lib/python3.10/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+  File "/usr/local/lib/python3.10/site-packages/google/genai/_api_client.py", line 672, in _request
+    errors.APIError.raise_for_response(response)
+  File "/usr/local/lib/python3.10/site-packages/google/genai/errors.py", line 101, in raise_for_response
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.generation_config.response_schema.properties["detailed_analysis_and_reasoning"].properties["quant_features_output"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["1h"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["15m"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["4h"].properties: should be non-empty for OBJECT type\n', 'status': 'INVALID_ARGUMENT'}}
+
+[gemini_api_caller.py][14:18:44] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:18:44] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:18:44] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:18:44] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:18:44] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:18:44] [INFO] AFC remote call 1 is done.
+[_client.py][14:18:45] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 400 Bad Request"
+[gemini_api_caller.py][14:18:45] [ERROR] [gemini_api_caller] Gemini API调用异常: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.generation_config.response_schema.properties["detailed_analysis_and_reasoning"].properties["quant_features_output"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["15m"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["1h"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["4h"].properties: should be non-empty for OBJECT type\n', 'status': 'INVALID_ARGUMENT'}}
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 157, in call_gemini_api_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 5783, in generate_content_stream
+    for chunk in response:
+  File "/usr/local/lib/python3.10/site-packages/google/genai/models.py", line 4666, in _generate_content_stream
+    for response_dict in self._api_client.request_streamed(
+  File "/usr/local/lib/python3.10/site-packages/google/genai/_api_client.py", line 774, in request_streamed
+    session_response = self._request(http_request, stream=True)
+  File "/usr/local/lib/python3.10/site-packages/google/genai/_api_client.py", line 672, in _request
+    errors.APIError.raise_for_response(response)
+  File "/usr/local/lib/python3.10/site-packages/google/genai/errors.py", line 101, in raise_for_response
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': '* GenerateContentRequest.generation_config.response_schema.properties["detailed_analysis_and_reasoning"].properties["quant_features_output"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["15m"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["1h"].properties: should be non-empty for OBJECT type\n* GenerateContentRequest.generation_config.response_schema.properties["indicators"].properties["4h"].properties: should be non-empty for OBJECT type\n', 'status': 'INVALID_ARGUMENT'}}
+
+[gemini_api_caller.py][14:19:35] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:19:35] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:19:35] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:19:35] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:19:35] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:19:35] [INFO] AFC remote call 1 is done.
+[_client.py][14:19:38] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[gemini_api_caller.py][14:29:01] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:29:01] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:29:01] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:29:01] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:29:01] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:29:01] [INFO] AFC remote call 1 is done.
+[_client.py][14:29:04] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[gemini_api_caller.py][14:36:54] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:36:54] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:36:54] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:36:54] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:36:54] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:36:54] [INFO] AFC remote call 1 is done.
+[_client.py][14:36:58] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[gemini_api_caller.py][14:44:28] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:44:28] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:44:28] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:44:28] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:44:28] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:44:28] [INFO] AFC remote call 1 is done.
+[_client.py][14:44:31] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[gemini_api_caller.py][14:45:58] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:45:58] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png
+[gemini_api_caller.py][14:45:58] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.txt
+[gemini_api_caller.py][14:45:58] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:45:58] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:45:58] [INFO] AFC remote call 1 is done.
+[_client.py][14:46:01] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
