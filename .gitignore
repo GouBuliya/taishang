@@ -1,4 +1,6 @@
 venv/
+venv_okx/
+venv_selenium/
 __pycache__/
 *.log
 *.tar.gz

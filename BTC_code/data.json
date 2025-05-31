@@ -1,0 +1,132 @@
+{
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250531_103307.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 105817.3,
+        "volume": 110643.81,
+        "RSI": 45.43572187861009,
+        "MACD_macd": 70.2892582254135,
+        "MACD_signal": 123.13467028909403,
+        "ATR": 266.59765643285675,
+        "ADX": 23.318544563754724,
+        "Stoch_K": 46.8755098711055,
+        "Stoch_D": 37.88112718116283,
+        "StochRSI_K": 40.27436622817088,
+        "StochRSI_D": 13.424788742723626,
+        "BB_upper": 106240.35055432643,
+        "BB_lower": 105726.44944567356,
+        "BB_middle": 105983.4,
+        "EMA5": 105838.67225214359,
+        "EMA21": 105858.36108244445,
+        "EMA55": 105562.73824875026,
+        "EMA144": 104904.11305734498,
+        "EMA200": 104662.70777316776,
+        "VWAP": 104915.15066370762
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 109145.1,
+        "volume": 229206.24,
+        "RSI": 51.611745971059314,
+        "MACD_macd": -11.43454787498922,
+        "MACD_signal": 55.351394794614095,
+        "ATR": 830.6978612239229,
+        "ADX": 22.041020180031765,
+        "Stoch_K": 69.6798336798338,
+        "Stoch_D": 67.1061719535316,
+        "StochRSI_K": 81.49491664341562,
+        "StochRSI_D": 88.40045671220987,
+        "BB_upper": 110470.059089313,
+        "BB_lower": 108218.130910687,
+        "BB_middle": 109344.095,
+        "EMA5": 109038.03342526786,
+        "EMA21": 109103.59481554767,
+        "EMA55": 108578.02021758819,
+        "EMA144": 106917.55202492196,
+        "EMA200": 106269.2975796086,
+        "VWAP": 107345.11402431481
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103909.7,
+        "volume": 1570920.33,
+        "RSI": 59.62128647168463,
+        "MACD_macd": -402.31170479909633,
+        "MACD_signal": -583.4100519172059,
+        "ATR": 1346.0856954041888,
+        "ADX": 13.646822539266843,
+        "Stoch_K": 83.02135174185253,
+        "Stoch_D": 70.22309603064242,
+        "StochRSI_K": 100.0,
+        "StochRSI_D": 94.01335054195283,
+        "BB_upper": 104495.94655414436,
+        "BB_lower": 102147.10344585562,
+        "BB_middle": 103321.525,
+        "EMA5": 103426.65505621104,
+        "EMA21": 103525.3029504342,
+        "EMA55": 104759.77563213109,
+        "EMA144": 105424.56711055795,
+        "EMA200": 105326.8102045381,
+        "VWAP": 106881.18206060042
+      }
+    }
+  },
+  "factors_main": {
+    "timestamp": "2025-05-31T10:33:11+08:00",
+    "factors": {
+      "funding_rate": "-0.0073%",
+      "FGI": "50/100",
+      "open_interest": "$22958504870.999996 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "103450.1",
+        "lastSz": "1.24",
+        "askPx": "103450.1",
+        "askSz": "111.56",
+        "bidPx": "103450",
+        "bidSz": "686.83",
+        "open24h": "105918",
+        "high24h": "106277.2",
+        "low24h": "103224.1",
+        "volCcy24h": "101435.2752",
+        "vol24h": "10143527.52",
+        "ts": "1748658794612",
+        "sodUtc0": "103959",
+        "sodUtc8": "105499.9"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "102651.36 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "isolated",
+      "Position direction": "long",
+      "pos": "11.75 piece",
+      "avgPrice": "107970.3 USDT",
+      "Unrealized Gains": "-530.7709999999996 USDT",
+      "liqPrice": "72298.38496263331 USDT",
+      "lever": "3 x"
+    }
+  },
+  "timestamp": "2025-05-31T02:33:15+00:00Z"
+}
