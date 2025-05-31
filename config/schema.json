@@ -1,0 +1,283 @@
+{
+    "type": "object",
+    "properties": {
+      "symbol": {
+        "type": "string",
+        "description": "交易对符号，例如 ETHUSDT.P"
+      },
+      "timeframe": {
+        "type": "string",
+        "description": "时间周期，例如 M15"
+      },
+      "timestamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "时间戳，ISO 8601 格式"
+      },
+      "market_state": {
+        "type": "string",
+        "description": "市场状态，例如 Bull",
+        "enum": ["Bull", "Bear", "Neutral"]
+      },
+      "trade_recommendation": {
+        "type": "object",
+        "properties": {
+          "summary": { "type": "string" },
+          "confidence": { "type": "string" },
+          "signal": { "type": "string", "enum": ["LONG", "SHORT", "HOLD"] },
+          "risk_level": { "type": "string", "enum": ["low", "medium", "high"] },
+          "key_factors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "value": { "type": "string" },
+                "relevance": { "type": "string" },
+                "reason": { "type": "string" }
+              },
+              "required": ["name", "value", "relevance", "reason"],
+              "description": "key_factors 是关键因素信息，例如 name 是名称，value 是值，relevance 是相关性，reason 是原因"
+            }
+          },
+          "entry_zone": { "type": "string" },
+          "stop_loss_price": { "type": "string" },
+          "take_profit_targets": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "alternative_scenarios_and_alerts": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["summary", "confidence", "signal", "risk_level"],
+        "description": "trade_recommendation 是交易推荐信息，例如 summary 是总结，confidence 是置信度，signal 是信号，risk_level 是风险等级"
+      },
+      "detailed_analysis_and_reasoning": {
+        "type": "object",
+        "properties": {
+          "low_level_reflection": {
+            "type": "object",
+            "properties": {
+              "short_term_reason": { "type": "string" },
+              "mid_term_reason": { "type": "string" },
+              "long_term_reason": { "type": "string" },
+              "vp_analysis": { "type": "string" },
+              "volume_analysis": { "type": "string" },
+              "price_action": { "type": "string" },
+              "indicators_analysis": { "type": "string" },
+              "behavioral_finance_analysis": { "type": "string" }
+            },
+            "required": ["short_term_reason", "mid_term_reason", "long_term_reason"],
+            "description": "low_level_reflection 是低层次反思信息，例如 short_term_reason 是短期原因，mid_term_reason 是中期原因，long_term_reason 是长期原因"
+          },
+          "quant_features_output": {
+            "type": "object",
+            "patternProperties": {
+              "^X[0-9]+$": {
+                "type": "object",
+                "properties": {
+                  "value": { "type": "string" },
+                  "signal_quality": { "type": "string" },
+                  "relevance": { "type": "string" },
+                  "reason": { "type": "string" }
+                },
+                "required": ["value"],
+                "description": "X1, X2, ... 是量化指标，例如 X1 是 EMA 强度，X2 是 RSI 中性度"
+              }
+            }
+          },
+          "meta_analysis": {
+            "type": "object",
+            "properties": {
+              "global_consistency_check_and_key_drivers": { "type": "string" },
+              "confidence_and_uncertainty_quantification": {
+                "type": "object",
+                "properties": {
+                  "overall_confidence": { "type": "string" },
+                  "uncertainty_sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "source": { "type": "string" },
+                        "probability": { "type": "string" },
+                        "impact_strength": { "type": "string" }
+                      },
+                      "required": ["source", "probability", "impact_strength"],
+                      "description": "uncertainty_sources 是不确定性来源信息，例如 source 是来源，probability 是概率，impact_strength 是影响强度"
+                    }
+                  }
+                },
+                "required": ["overall_confidence", "uncertainty_sources"],
+                "description": "confidence_and_uncertainty_quantification 是置信度和不确定性量化信息，例如 overall_confidence 是总体置信度，uncertainty_sources 是不确定性来源"
+              },
+              "historical_pattern_recognition_and_analogical_reasoning": {
+                "type": "object",
+                "properties": {
+                  "kline_pattern_match": { "type": "string" },
+                  "feature_cluster_categorization": { "type": "string" },
+                  "strategy_calibration_and_expected_performance": { "type": "string" }
+                },
+                "required": ["kline_pattern_match"],
+                "description": "historical_pattern_recognition_and_analogical_reasoning 是历史模式识别和类比推理信息，例如 kline_pattern_match 是K线模式匹配，feature_cluster_categorization 是特征聚类分类，strategy_calibration_and_expected_performance 是策略校准和预期表现"
+              },
+              "counter_argument_and_rebuttal": { "type": "string" },
+              "self_check_result": { "type": "string" },
+              "internal_coordination_result": { "type": "string" },
+              "logic_validation_result": { "type": "string" },
+              "rationality_validation_result": { "type": "string" },
+              "limitations_and_assumptions": { "type": "string" }
+            },
+            "required": ["global_consistency_check_and_key_drivers"],
+            "description": "meta_analysis 是元分析信息，例如 global_consistency_check_and_key_drivers 是全局一致性检查和关键驱动因素"
+          }
+        },
+        "required": ["low_level_reflection", "quant_features_output", "meta_analysis"],
+        "description": "detailed_analysis_and_reasoning 是详细分析和推理信息，例如 low_level_reflection 是低层次反思，quant_features_output 是量化特征输出，meta_analysis 是元分析"
+      },
+      "execution_details": {
+        "type": "object",
+        "properties": {
+          "operation_comment": { "type": "string" },
+          "type": { "type": "string", "enum": ["buy", "sell"] },
+          "price": { "type": "string" },
+          "stop_loss": { "type": "string" },
+          "take_profit": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "size": { "type": "string" },
+          "expected_winrate": { "type": "string" },
+          "expected_return": { "type": "string" },
+          "trade_RR_ratio": { "type": "string" },
+          "signal_strength": { "type": "string" },
+          "risk_management_strategy": { "type": "string" },
+          "position_action": { "type": "string" },
+          "risk_assessment": { "type": "string" }
+        },
+        "required": ["operation_comment", "type", "price"],
+        "description": "execution_details 是执行细节信息，例如 operation_comment 是操作评论，type 是交易类型，price 是价格"
+      },
+      "data_info": {
+        "type": "object",
+        "properties": {
+          "data_source": { "type": "string" },
+          "data_format": { "type": "string" },
+          "data_integrity": { "type": "string" }
+        },
+        "required": ["data_source", "data_format", "data_integrity"],
+        "description": "data_info 是数据源的信息，例如 data_source 是数据源，data_format 是数据格式，data_integrity 是数据完整性"
+      },
+      "indicators": {
+        "type": "object",
+        "patternProperties": {
+          "^[0-9]+m|h$": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "15m, 1h, 4h 是时间周期，例如 15m 是15分钟，1h 是1小时，4h 是4小时"
+          }
+        },
+        "required": ["15m", "1h", "4h"],
+        "description": "indicators 是指标信息，例如 15m 是15分钟指标，1h 是1小时指标，4h 是4小时指标"
+      },
+      "factors": {
+        "type": "object",
+        "properties": {
+          "factors": {
+            "type": "object",
+            "properties": {
+              "funding_rate": { "type": "number" },
+              "fear_greed_index": { "type": "integer" },
+              "open_interest": { "type": "integer" }
+            },
+            "required": ["funding_rate", "fear_greed_index", "open_interest"],
+            "description": "factors 是因子信息，例如 funding_rate 是资金费率，fear_greed_index 是恐惧贪婪指数，open_interest 是持仓量"
+          }
+        },
+        "required": ["factors"],
+        "description": "factors 是因子信息，例如 funding_rate 是资金费率，fear_greed_index 是恐惧贪婪指数，open_interest 是持仓量"
+      },
+      "data_summary": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "msg": { "type": "string" },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "instType": { "type": "string" },
+                "instId": { "type": "string" },
+                "last": { "type": "string" },
+                "lastSz": { "type": "string" },
+                "askPx": { "type": "string" },
+                "askSz": { "type": "string" },
+                "bidPx": { "type": "string" },
+                "bidSz": { "type": "string" },
+                "open24h": { "type": "string" },
+                "high24h": { "type": "string" },
+                "low24h": { "type": "string" },
+                "volCcy24h": { "type": "string" },
+                "vol24h": { "type": "string" },
+                "ts": { "type": "string" },
+                "sodUtc0": { "type": "string" },
+                "sodUtc8": { "type": "string" }
+              },
+              "required": ["instType", "instId", "last", "ts"],
+              "description": "data 是数据源，例如 instType 是交易对类型，instId 是交易对ID，last 是最新价格，ts 是时间戳"
+            }
+          }
+        },
+        "required": ["code", "msg", "data"],
+        "description": "data_summary 是数据源的摘要信息，例如 code 是状态码，msg 是消息，data 是数据源"
+      },
+      "okx_positions": {
+        "type": "object",
+        "properties": {
+          "instrument_id": { "type": "string" },
+          "balance": {
+            "type": "object",
+            "properties": {
+              "Available_Margin": { "type": "string" }
+            },
+            "required": ["Available_Margin"],
+            "description": "balance 是余额信息，例如 Available_Margin 是可用保证金"
+          },
+          "positions": {
+            "type": "object",
+            "properties": {
+              "instrument_id": { "type": "string" },
+              "Margin_Model": { "type": "string" },
+              "Position direction": { "type": "string" },
+              "pos": { "type": "string" },
+              "avgPrice": { "type": "string" },
+              "Unrealized Gains": { "type": "string" },
+              "liqPrice": { "type": "string" },
+              "lever": { "type": "string" }
+            },
+            "required": ["instrument_id", "pos"],
+            "description": "positions 是持仓信息，例如 instrument_id 是交易对ID，pos 是持仓数量，avgPrice 是平均价格，Unrealized Gains 是未实现盈亏，liqPrice 是强平价格，lever 是杠杆倍数"
+          }
+        },
+        "required": ["instrument_id", "balance", "positions"],
+        "description": "okx_positions 是okx的持仓信息，例如 instrument_id 是交易对ID，balance 是余额，positions 是持仓信息"
+      }
+    },
+    "required": [
+      "symbol",
+      "timeframe",
+      "timestamp",
+      "market_state",
+      "trade_recommendation",
+      "detailed_analysis_and_reasoning",
+      "execution_details",
+      "data_info",
+      "indicators",
+      "factors",
+      "data_summary",
+      "okx_positions"
+    ]
+  }
