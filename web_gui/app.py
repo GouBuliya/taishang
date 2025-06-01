@@ -37,6 +37,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["path"]["log_file"]
 logging.basicConfig(
     level=logging.INFO,
+    #time
+    
     format='[%(filename)s][%(asctime)s] [%(levelname)s] %(message)s',
     datefmt='%H:%M:%S',
     handlers=[logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8'), logging.StreamHandler()]
@@ -179,7 +181,7 @@ def coin_task(coin_name, main_py_path, data_json_path, gemini_api_path, reply_ca
                 try:
                     # 使用指定的python3.10解释器运行 trade_api_eth.py
                     trade_result = subprocess.run(
-                        [config["pyehon_path"]["okx"], trade_api_eth_path],
+                        [config["python_path"]["venv_okx"], trade_api_eth_path],
                         stdout=subprocess.PIPE,
                         stderr=subprocess.PIPE,
                         encoding='utf-8',
@@ -222,18 +224,6 @@ def gemini_advice():
     result_queue = Queue()
 
     # 串行执行BTC采集、推理、邮件
-    logger.info("[主流程] 串行执行BTC采集、推理、邮件...")
-    btc_main_py = config["path"]["main_BTC"]
-    btc_data_json = config["path"]["data_BTC"]
-    coin_task(
-        'BTC',
-        btc_main_py,
-        btc_data_json,
-        config["path"]["gemini_api_caller_BTC"],
-        config["path"]["reply_cache_BTC"],
-        'Gemini BTC AI回复',
-        ["a528895030@gmail.com", "1528895030@qq.com"]
-    )
     # 串行执行ETH采集、推理、邮件
     logger.info("[主流程] 串行执行ETH采集、推理、邮件...")
     eth_main_py = config["path"]["main_ETH"]
@@ -247,6 +237,19 @@ def gemini_advice():
         'Gemini ETH AI回复',
         ["a528895030@gmail.com", "1528895030@qq.com"]
     )
+    logger.info("[主流程] 串行执行BTC采集、推理、邮件...")
+    btc_main_py = config["path"]["main_BTC"]
+    btc_data_json = config["path"]["data_BTC"]
+    coin_task(
+        'BTC',
+        btc_main_py,
+        btc_data_json,
+        config["path"]["gemini_api_caller_BTC"],
+        config["path"]["reply_cache_BTC"],
+        'Gemini BTC AI回复',
+        ["a528895030@gmail.com", "1528895030@qq.com"]
+    )
+    
     # 汇总结果
     results = []
     while not result_queue.empty():
@@ -264,21 +267,6 @@ def schedule_gemini_task():
         now = datetime.datetime.now()
         if now.minute % 15 == 0 and now.second < 5:
             # 串行执行BTC采集、推理、邮件
-            
-            logger.info("[定时] 串行执行BTC采集、推理、邮件...")
-            btc_main_py = config["path"]["main_BTC"]
-            btc_data_json = config["path"]["data_BTC"]
-            clean_memory_on_start()
-            logger.info("[定时] 清理内存完成")
-            coin_task(
-                'BTC',
-                btc_main_py,
-                btc_data_json,
-                config["path"]["gemini_api_caller_BTC"],
-                config["path"]["reply_cache_BTC"],
-                'Gemini BTC AI回复',
-                ["a528895030@gmail.com", "1528895030@qq.com","changnikita71@gmail.com"]
-            )
             # 串行执行ETH采集、推理、邮件
             logger.info("[定时] 串行执行ETH采集、推理、邮件...")
             eth_main_py = config["path"]["main_ETH"]
@@ -294,6 +282,21 @@ def schedule_gemini_task():
                 'Gemini ETH AI回复',
                 ["a528895030@gmail.com", "1528895030@qq.com","jeffreymcadams750@gmail.com","1837572554@qq.com"]
             )
+            logger.info("[定时] 串行执行BTC采集、推理、邮件...")
+            btc_main_py = config["path"]["main_BTC"]
+            btc_data_json = config["path"]["data_BTC"]
+            clean_memory_on_start()
+            logger.info("[定时] 清理内存完成")
+            coin_task(
+                'BTC',
+                btc_main_py,
+                btc_data_json,
+                config["path"]["gemini_api_caller_BTC"],
+                config["path"]["reply_cache_BTC"],
+                'Gemini BTC AI回复',
+                ["a528895030@gmail.com", "1528895030@qq.com","changnikita71@gmail.com"]
+            )
+            
             time.sleep(60)
         else:
             time.sleep(2)

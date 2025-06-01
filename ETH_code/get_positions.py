@@ -83,7 +83,7 @@ def get_orders(instrument_id:str=None):
 
     tradeAPI = Trade.TradeAPI(apikey, secretkey, passphrase, False, flag)
 
-    res = tradeAPI.get_order_list(instId=instrument_id,ordType="post_only,fok,ioc")
+    res = tradeAPI.get_order_list(instId=instrument_id,ordType="post_only,fok,ioc,limit")
     ans={}
 
     # Check if the response is successful and contains data

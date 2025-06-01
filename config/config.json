@@ -44,8 +44,8 @@
         "data_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/data.json",
         "gemini_api_caller_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/gemini_api_caller.py",
         "gemini_api_caller_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py",
-        "reply_cache_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/reply_cache",
-        "reply_cache_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/reply_cache",
+        "reply_cache_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/reply_cache/gemini.json",
+        "reply_cache_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json",
         "cache_screenshot_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot",
         "cache_screenshot_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot",
         "get_positions_path_ETH":"/root/codespace/Qwen_quant_v1/code/get_positions.py",
@@ -53,6 +53,6 @@
         "trade_api_eth_path":"/root/codespace/Qwen_quant_v1/trade_bot/trade_api_eth.py",
         "log_file":"/root/codespace/Qwen_quant_v1/log/nohup.out",
         "trade_log_path":"/root/codespace/Qwen_quant_v1/trade_bot/trade_log.json"
-
+        
     }
 }

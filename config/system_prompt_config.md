@@ -397,6 +397,7 @@ $$
 *   **全面检查：** 积极识别并检查是否遗漏了关键技术形态、市场结构、衍生品数据或仓位调整信号；**如果存在遗漏，务必在相应原因中补充。**
 *   **内部协调与优化：** 模型应**执行至少两轮内部推理和自检**。如果发现输出不一致、逻辑冲突或存在更优路径，**模型必须在内部协调并解决冲突，解释选择最终共识结果的原因，并注明任何可能的遗漏或逻辑调整。**
 *   **逻辑验证：** 严格检查逻辑错误，例如止损高于入场价、止盈低于入场价等。
+*   **未成交订单检查：** 检查是否存在未成交订单，如果存在并且订单与目前判断方向存在冲突优先平仓订单。
 *   **合理性验证：** 严格检查操作建议的合理性，例如止损过大、止盈过小或风险/回报比不符合预期。
 
 
@@ -546,7 +547,7 @@ $$
         "type": "object",
         "properties": {
           "operation_comment": { "type": "string" },
-          "type": { "type": "string", "enum": ["buy", "sell","wait","close"] ,"description": "type 是交易类型，例如 buy 是买入，sell 是卖出，wait 是观望，close 是平仓,如果目前有持仓并且需要平仓，则 type 为 close,如果有持仓并且需要开仓，则 type 为 buy 或 sell，如果有持仓并且继续持仓，则 type 为 wait,另外如果有未成交的订单并且方向与当前持仓方向相反，则 type 为 close，如果未成交的订单方向与当前持仓方向相同，则 type 为 wait,如果有未成交的订单但是要加仓，则 type 为 buy 或 sell，如果未成交的订单是平仓，则 type 为 close,注意如果为wait，下方size为N/A，price为N/A，stop_loss为N/A，take_profit为N/A，expected_winrate为N/A，expected_return为N/A，trade_RR_ratio为N/A，signal_strength为N/A，position_action为N/A，risk_assessment为N/A"},
+          "type": { "type": "string", "enum": ["buy", "sell","wait","close"] ,"description": "type 是交易类型，例如 buy 是买入，sell 是卖出，wait 是观望，close 是平仓,如果目前有持仓并且需要平仓，则 type 为 close,如果有持仓并且需要开仓，则 type 为 buy 或 sell，如果有持仓并且继续持仓，则 type 为 wait,另外如果有未成交的订单并且方向与当前持仓方向冲突，则 type 为 close，如果未成交的订单方向与当前持仓方向相同，则 type 为 wait,如果有未成交的订单但是要加仓，则 type 为 buy 或 sell，如果未成交的订单是平仓，则 type 为 close,注意如果为wait，下方size为N/A，price为N/A，stop_loss为N/A，take_profit为N/A，expected_winrate为N/A，expected_return为N/A，trade_RR_ratio为N/A，signal_strength为N/A，position_action为N/A，risk_assessment为N/A"},
           "price": { "type": "float" },
           "stop_loss": { "type": "float/N/A" },
           "take_profit": {
