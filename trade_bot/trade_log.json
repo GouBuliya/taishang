@@ -104,5 +104,49 @@
         "trade_api_result": {
             "status": "wait"
         }
+    },
+    {
+        "timestamp": "2025-06-01 13:38:24",
+        "execution_details": {
+            "operation_comment": "市场处于震荡盘整，缺乏明确方向，建议观望，等待更清晰的趋势信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略，避免在无明确趋势的市场中进行交易，以保护本金。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于缺乏明确趋势和潜在的突发消息面影响。建议保持现金头寸，规避不确定性。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:49:52",
+        "execution_details": {
+            "operation_comment": "当前市场多时间框架信号不一致，短期和中期趋势偏弱，长期趋势不明确，市场处于盘整状态，缺乏明确的交易方向。为规避不确定性风险，建议观望，等待更清晰的趋势信号出现。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略：在市场方向不明朗时，不进行任何交易，以规避不必要的风险。等待市场形成明确的趋势或突破关键区间后再考虑入场。此策略旨在保护本金，避免在震荡市场中被反复止损。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等。主要风险来源于多时间框架信号冲突导致的趋势不确定性，以及低波动性可能带来的假突破风险。建议保持观望，避免在无明确趋势的市场中进行交易，以降低资金损失的风险。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
     }
 ]

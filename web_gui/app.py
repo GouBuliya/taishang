@@ -80,42 +80,48 @@ def extract_all_text(data):
     return '\n'.join([t for t in texts if t])
 
 
-def send_ai_reply_email(subject, content, to_addrs):#subject: Gemini BTC AI回复, Gemini ETH AI回复 
-    # content: Gemini回复内容 
-    # to_addrs: ["a528895030@gmail.com", "1528895030@qq.com"]
-    smtp_server = 'smtp.gmail.com'  # 例如QQ邮箱
-    smtp_port = 465
-    from_addr = 'a528895030@gmail.com'  # 替换为你的发件邮箱
-    password = 'owuh lyqs bmuh qkde'  # 替换为你的SMTP授权码
-    msg = MIMEText(content, 'plain', 'utf-8')
-    #解释代码逻辑：
+def send_ai_reply_email(subject, content, to_addrs):
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 465 # 对于Gmail通常使用465端口的SSL连接
+    from_addr = 'a528895030@gmail.com'
+    password = 'owuh lyqs bmuh qkde' 
+
+    # 1. 确定邮件正文内容
+    email_body_text = ""
+    if isinstance(content, dict):
+        # 如果传入的 content 是一个字典
+        if 'execution_details' in content:
+            # 尝试获取 'execution_details'，并检查它是否也是一个字典
+            if isinstance(content['execution_details'], dict):
+                # 如果 'execution_details' 是一个字典，将其转换为格式化的 JSON 字符串
+                email_body_text = json.dumps(content['execution_details'], indent=4, ensure_ascii=False)
+            else:
+                # 如果 'execution_details' 已经是字符串或其他非字典类型，直接使用它
+                email_body_text = str(content['execution_details'])
+        else:
+            # 如果 content 是字典但没有 'execution_details' 键，就发送整个 content 字典的 JSON 字符串
+            email_body_text = json.dumps(content, indent=4, ensure_ascii=False)
+    else:
+        # 如果 content 本身就不是字典（例如，它可能已经是字符串），直接使用它
+        email_body_text = str(content) # 确保它是字符串，以防万一
+
+    # 2. 构建邮件
+    msg = MIMEText(email_body_text, 'plain', 'utf-8') # 确保这里传入的是字符串
     msg['From'] = Header(from_addr)
     msg['To'] = Header(','.join(to_addrs))
     msg['Subject'] = Header(subject, 'utf-8')
 
-    #只发"execution_details"
-    # 解析JSON内容
+    # 3. 发送邮件
     try:
-        data = json.loads(content)
-    except json.JSONDecodeError:
-        logger.error("JSON解析失败")
-        return
-    #只发"execution_details"
-    try:
-        execution_details = data['execution_details']
-        msg = MIMEText(execution_details, 'plain', 'utf-8')
-    except Exception as e:
-        logger.error(f"解析JSON失败: {e}")
-        return
-    try:
-        server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+        server = smtplib.SMTP_SSL(smtp_server, smtp_port) # 使用SMTP_SSL进行SSL连接
         server.login(from_addr, password)
         server.sendmail(from_addr, to_addrs, msg.as_string())
         server.quit()
         logger.info(f"AI回复已发送到邮箱：{to_addrs}")
+    except smtplib.SMTPAuthenticationError:
+        logger.error(f"发送邮件失败：SMTP 认证失败。请检查发件人邮箱、密码/授权码是否正确，或是否已开启两步验证并生成了应用专用密码/授权码。")
     except Exception as e:
         logger.error(f"发送邮件失败: {e}")
-
 result_queue = Queue()
 
 
@@ -156,7 +162,7 @@ def coin_task(coin_name, main_py_path, data_json_path, gemini_api_path, reply_ca
                 reply_text = f.read() # 读取文件内容
 
             logger.info(f"[{coin_name}] 成功读取Gemini回复内容")
-
+            reply_text=json.loads(reply_text)#将字符串转换为json
             # 发送邮件
             send_ai_reply_email(
                 subject=mail_subject,
@@ -173,7 +179,7 @@ def coin_task(coin_name, main_py_path, data_json_path, gemini_api_path, reply_ca
                 try:
                     # 使用指定的python3.10解释器运行 trade_api_eth.py
                     trade_result = subprocess.run(
-                        [config["python_path"]["venv_okx"], trade_api_eth_path],
+                        [config["pyehon_path"]["okx"], trade_api_eth_path],
                         stdout=subprocess.PIPE,
                         stderr=subprocess.PIPE,
                         encoding='utf-8',

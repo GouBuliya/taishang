@@ -12133,3 +12133,102 @@ INFO:GeminiQuant:[主流程] 串行执行BTC采集、推理、邮件...
 INFO:GeminiQuant:[BTC] 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/BTC_code/main.py
 INFO:GeminiQuant:[BTC] main.py 执行完成，文件地址：/root/codespace/Qwen_quant_v1/BTC_code/data.json
 INFO:GeminiQuant:[BTC] 自动运行Gemini API调用脚本: /root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py
+INFO:GeminiQuant:[BTC] gemini_api_caller.py 执行完成，文件地址：/root/codespace/Qwen_quant_v1/BTC_code/reply_cache
+INFO:GeminiQuant:[BTC] 读取Gemini回复文件: /root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json
+INFO:GeminiQuant:[BTC] 成功读取Gemini回复内容
+ERROR:GeminiQuant:解析JSON失败: 'dict' object has no attribute 'encode'
+INFO:GeminiQuant:[BTC] Gemini推理结果已发送邮件。
+INFO:GeminiQuant:[主流程] 串行执行ETH采集、推理、邮件...
+INFO:GeminiQuant:[ETH] 自动运行数据采集脚本: /root/codespace/Qwen_quant_v1/ETH_code/main.py
+INFO:GeminiQuant:[ETH] main.py 执行完成，文件地址：/root/codespace/Qwen_quant_v1/ETH_code/data.json
+INFO:GeminiQuant:[ETH] 自动运行Gemini API调用脚本: /root/codespace/Qwen_quant_v1/ETH_code/gemini_api_caller.py
+INFO:GeminiQuant:启动时主动清理内存和缓存...
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/websockets/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/websocket/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/_distutils_hack/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/charset_normalizer/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/urllib3/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/urllib3/http2/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/urllib3/util/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/urllib3/contrib/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/_vendor/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/_vendor/packaging/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/_vendor/more_itertools/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/_vendor/pyparsing/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/_vendor/jaraco/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/_vendor/jaraco/text/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pkg_resources/extern/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/idna/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_vendor/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_vendor/packaging/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_vendor/more_itertools/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_vendor/pyparsing/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_vendor/jaraco/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_vendor/jaraco/text/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/config/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/extern/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/command/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_distutils/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/setuptools/_distutils/command/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/common/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/edge/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/safari/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/remote/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/firefox/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/webkitgtk/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/ie/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/chrome/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/support/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/common/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/common/bidi/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/common/fedcm/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/common/actions/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/wpewebkit/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/selenium/webdriver/chromium/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/undetected_chromedriver/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/requests/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/certifi/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_selenium/lib/python3.10/site-packages/pyperclip/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/attr/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/attrs/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/loguru/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/trio/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/trio/_subprocess_platform/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/trio/_core/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/_distutils_hack/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/h11/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/httpx/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/httpx/_transports/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/sniffio/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/outcome/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/exceptiongroup/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/okx/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/idna/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/socksio/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/hpack/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/sortedcontainers/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/httpcore/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/httpcore/_async/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/httpcore/_backends/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/httpcore/_sync/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/hyperframe/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/certifi/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/anyio/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/anyio/abc/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/anyio/streams/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/anyio/_core/__pycache__
+INFO:GeminiQuant:已清理缓存目录: /root/codespace/Qwen_quant_v1/web_gui/../venv_okx/lib/python3.10/site-packages/h2/__pycache__
+INFO:GeminiQuant:已尝试释放 Linux 系统缓存
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://198.18.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m

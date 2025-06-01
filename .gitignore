@@ -24,3 +24,4 @@ Qwen_quant_v1_backup_*.tar.gz
 build/start/start.pkg
 dist/start
 code/chrome_profile/Default/Preferences
+nohup.out

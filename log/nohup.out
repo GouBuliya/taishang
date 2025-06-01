@@ -45407,3 +45407,3280 @@ UnboundLocalError: local variable 'image' referenced before assignment
 [models.py][13:22:54] [INFO] AFC is enabled with max remote calls: 10.
 [models.py][13:22:54] [INFO] AFC remote call 1 is done.
 [_client.py][13:22:57] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:23:42] [INFO] 截图模块运行中...
+[截图模块][13:23:43] [INFO]  __main__ 入口被执行
+[截图模块][13:23:43] [INFO]  启动时主动清理内存...
+[截图模块][13:23:43] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:23:43] [INFO]  已执行 pkill chrome
+[截图模块][13:23:46] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:23:46] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:23:46] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:23:46] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:23:46] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:23:46] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:23:46] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:23:48] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:23:50] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:23:50] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:24:01] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:24:01] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:24:01] [INFO]  打开目标图表页...
+[截图模块][13:24:07] [INFO]  等待5秒加载页面...
+[截图模块][13:24:12] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:24:13] [INFO]  快捷键已发送
+[截图模块][13:24:14] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_132414.png
+[截图模块][13:24:14] [INFO]  关闭浏览器...
+[数据收集总模块][13:24:14] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_132414.png
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:43] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:43] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:43] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:43] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:46] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:48] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:50] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:23:50] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:01] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:01] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:01] [INFO]  打开目标图表页...
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:07] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:12] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:13] [INFO]  快捷键已发送
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:14] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_132414.png
+[数据收集总模块][13:24:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:24:14] [INFO]  关闭浏览器...
+[数据收集总模块][13:24:14] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_132414.png
+[数据收集总模块][13:24:14] [INFO] 技术指标模块运行中...
+[技术指标模块][13:24:15] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:24:16] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:24:16] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:24:17] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:24:17] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:24:17] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:24:18] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:24:18] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:24:18] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:24:20] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:24:20] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:24:21] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:24:21] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:24:21] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:24:21] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:24:22] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:24:22] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:24:22] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:24:23] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_132414.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2518.1,
+        "volume": 619279.39,
+        "RSI": 49.23197862913104,
+        "MACD_macd": -1.7660314437912348,
+        "MACD_signal": -2.175526424867683,
+        "ATR": 10.095547106924663,
+        "ADX": 18.34074038460615,
+        "Stoch_K": 68.63636363636321,
+        "Stoch_D": 63.84925201380852,
+        "StochRSI_K": 62.45766907131065,
+        "StochRSI_D": 65.98943851966241,
+        "BB_upper": 2525.06299100747,
+        "BB_lower": 2512.7560089925296,
+        "BB_middle": 2518.9094999999998,
+        "EMA5": 2517.9939772491475,
+        "EMA21": 2519.313247896813,
+        "EMA55": 2523.253058490397,
+        "EMA144": 2524.5387950433897,
+        "EMA200": 2524.217176026803,
+        "VWAP": 2524.3587743334992
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0058%",
+      "FGI": "56/100",
+      "open_interest": "$589611127.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2517.66",
+        "lastSz": "27.43",
+        "askPx": "2517.67",
+        "askSz": "652.44",
+        "bidPx": "2517.66",
+        "bidSz": "753.19",
+        "open24h": "2517.19",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2256086.925",
+        "vol24h": "22560869.25",
+        "ts": "1748755462513",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:24:23+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:24:24] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:24:24] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_132414.png
+[gemini_api_caller.py][13:24:24] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:24:24] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:24:24] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:24:24] [INFO] AFC remote call 1 is done.
+[_client.py][13:24:27] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:30:02] [INFO] 截图模块运行中...
+[截图模块][13:30:04] [INFO]  __main__ 入口被执行
+[截图模块][13:30:04] [INFO]  启动时主动清理内存...
+[截图模块][13:30:04] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:30:04] [INFO]  已执行 pkill chrome
+[截图模块][13:30:06] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:30:06] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:30:06] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][13:30:06] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][13:30:06] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:30:06] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:30:06] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:30:14] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:30:16] [INFO] 启动浏览器 (有头模式)
+[截图模块][13:30:18] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:30:54] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:30:54] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:30:54] [INFO]  打开目标图表页...
+[截图模块][13:31:03] [INFO]  等待5秒加载页面...
+[截图模块][13:31:08] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:31:09] [INFO]  快捷键已发送
+[截图模块][13:31:10] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133110.png
+[截图模块][13:31:10] [INFO]  关闭浏览器...
+[数据收集总模块][13:31:11] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133110.png
+[数据收集总模块][13:31:11] [INFO] 技术指标模块运行中...
+[技术指标模块][13:31:12] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:31:12] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:31:12] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:31:12] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:31:12] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:31:13] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:31:13] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:31:13] [INFO] 宏观因子模块运行中...
+[数据收集总模块][13:31:16] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:31:16] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:31:17] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][13:31:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:31:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:31:18] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][13:31:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:31:18] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:31:18] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:31:19] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133110.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103692.1,
+        "volume": 24214.42,
+        "RSI": 52.3165148296566,
+        "MACD_macd": -22.83492183346243,
+        "MACD_signal": -48.76542687211899,
+        "ATR": 175.35576952933326,
+        "ADX": 20.263400760645094,
+        "Stoch_K": 54.681372549021035,
+        "Stoch_D": 60.12087108682056,
+        "StochRSI_K": 47.788728558593775,
+        "StochRSI_D": 56.26248901433234,
+        "BB_upper": 103850.49411802804,
+        "BB_lower": 103449.57588197196,
+        "BB_middle": 103650.035,
+        "EMA5": 103690.14885064843,
+        "EMA21": 103674.1279000568,
+        "EMA55": 103858.45152662515,
+        "EMA144": 104152.49037482531,
+        "EMA200": 104235.29031203309,
+        "VWAP": 104184.45353260229
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108650.9,
+        "volume": 266302.71,
+        "RSI": 54.204301119833346,
+        "MACD_macd": 369.9278011439892,
+        "MACD_signal": 389.0663405154481,
+        "ATR": 554.2160492030032,
+        "ADX": 17.158433117327135,
+        "Stoch_K": 67.08241758241726,
+        "Stoch_D": 77.0757698579132,
+        "StochRSI_K": 17.761999254695883,
+        "StochRSI_D": 41.11177766075221,
+        "BB_upper": 109711.47040141541,
+        "BB_lower": 106762.74959858462,
+        "BB_middle": 108237.11000000002,
+        "EMA5": 108716.25151866695,
+        "EMA21": 108367.9925420621,
+        "EMA55": 107474.88355091296,
+        "EMA144": 106185.51822205452,
+        "EMA200": 105819.06842647407,
+        "VWAP": 106266.31315331464
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "56/100",
+      "open_interest": "$22995036209.000027 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104524.5",
+        "lastSz": "0.01",
+        "askPx": "104524.6",
+        "askSz": "1150.71",
+        "bidPx": "104524.5",
+        "bidSz": "721.8",
+        "open24h": "103601.3",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39445.5267",
+        "vol24h": "3944552.67",
+        "ts": "1748755878318",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T05:31:19+00:00Z"
+}
+[gemini_api_caller.py][13:31:20] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:31:20] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133110.png
+[gemini_api_caller.py][13:31:20] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:31:20] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:31:20] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:31:20] [INFO] AFC remote call 1 is done.
+[_client.py][13:31:23] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:32:14] [INFO] 截图模块运行中...
+[截图模块][13:32:16] [INFO]  __main__ 入口被执行
+[截图模块][13:32:16] [INFO]  启动时主动清理内存...
+[截图模块][13:32:16] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:32:16] [INFO]  已执行 pkill chrome
+[截图模块][13:32:19] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:32:19] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:32:19] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:32:19] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:32:19] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:32:19] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:32:19] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:32:23] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:32:25] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:32:25] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:33:01] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:33:01] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:33:01] [INFO]  打开目标图表页...
+[截图模块][13:33:06] [INFO]  等待5秒加载页面...
+[截图模块][13:33:11] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:33:12] [INFO]  快捷键已发送
+[截图模块][13:33:13] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133313.png
+[截图模块][13:33:13] [INFO]  关闭浏览器...
+[数据收集总模块][13:33:14] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133313.png
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:16] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:16] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:16] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:16] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:19] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:23] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:25] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:32:25] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:01] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:01] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:01] [INFO]  打开目标图表页...
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:06] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:11] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:12] [INFO]  快捷键已发送
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:13] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133313.png
+[数据收集总模块][13:33:14] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:33:13] [INFO]  关闭浏览器...
+[数据收集总模块][13:33:14] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133313.png
+[数据收集总模块][13:33:14] [INFO] 技术指标模块运行中...
+[技术指标模块][13:33:15] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:33:15] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:33:15] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:33:16] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:33:16] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:33:17] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:33:18] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:33:18] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:33:18] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:33:20] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:33:20] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:33:21] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:33:22] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:33:22] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:33:22] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:33:23] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:33:23] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:33:23] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:33:24] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133313.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2516.66,
+        "volume": 260408.99,
+        "RSI": 46.33156307093078,
+        "MACD_macd": -1.887650445381496,
+        "MACD_signal": -2.2756049631933895,
+        "ATR": 8.270247452090203,
+        "ADX": 13.616292517423927,
+        "Stoch_K": 47.21518987341741,
+        "Stoch_D": 57.70042194092838,
+        "StochRSI_K": 50.99215684932664,
+        "StochRSI_D": 63.48248913138238,
+        "BB_upper": 2525.06838960516,
+        "BB_lower": 2512.77161039484,
+        "BB_middle": 2518.92,
+        "EMA5": 2517.9409658737213,
+        "EMA21": 2519.4343188516204,
+        "EMA55": 2523.3570575397134,
+        "EMA144": 2523.824835978265,
+        "EMA200": 2523.0970510538236,
+        "VWAP": 2524.559973776824
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.005%",
+      "FGI": "56/100",
+      "open_interest": "$590033927.0000007 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2520.18",
+        "lastSz": "33.91",
+        "askPx": "2520.19",
+        "askSz": "1084.88",
+        "bidPx": "2520.18",
+        "bidSz": "567.52",
+        "open24h": "2516.94",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2258341.29",
+        "vol24h": "22583412.9",
+        "ts": "1748756003610",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:33:24+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:33:25] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:33:25] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133313.png
+[gemini_api_caller.py][13:33:25] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:33:25] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:33:25] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:33:25] [INFO] AFC remote call 1 is done.
+[_client.py][13:33:29] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:34:59] [INFO] 截图模块运行中...
+[截图模块][13:35:01] [INFO]  __main__ 入口被执行
+[截图模块][13:35:01] [INFO]  启动时主动清理内存...
+[截图模块][13:35:01] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:35:01] [INFO]  已执行 pkill chrome
+[截图模块][13:35:03] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:35:03] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:35:03] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][13:35:03] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][13:35:03] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:35:03] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:35:03] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:35:05] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:35:08] [INFO] 启动浏览器 (有头模式)
+[截图模块][13:35:10] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:35:44] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:35:44] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:35:44] [INFO]  打开目标图表页...
+[截图模块][13:35:50] [INFO]  等待5秒加载页面...
+[截图模块][13:35:55] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:35:56] [INFO]  快捷键已发送
+[截图模块][13:35:57] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133557.png
+[截图模块][13:35:57] [INFO]  关闭浏览器...
+[数据收集总模块][13:35:57] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133557.png
+[数据收集总模块][13:35:57] [INFO] 技术指标模块运行中...
+[技术指标模块][13:35:58] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:35:59] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:35:59] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:35:59] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:35:59] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:36:00] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:36:00] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:36:00] [INFO] 宏观因子模块运行中...
+[数据收集总模块][13:36:02] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:36:02] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:36:04] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][13:36:04] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:36:04] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:36:04] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][13:36:05] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:36:05] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:36:05] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:36:06] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133557.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103692.1,
+        "volume": 24214.42,
+        "RSI": 52.3165148296566,
+        "MACD_macd": -22.83492183346243,
+        "MACD_signal": -48.76542687211899,
+        "ATR": 175.35576952933326,
+        "ADX": 20.263400760645094,
+        "Stoch_K": 54.681372549021035,
+        "Stoch_D": 60.12087108682056,
+        "StochRSI_K": 47.788728558593775,
+        "StochRSI_D": 56.26248901433234,
+        "BB_upper": 103850.49411802804,
+        "BB_lower": 103449.57588197196,
+        "BB_middle": 103650.035,
+        "EMA5": 103690.14885064843,
+        "EMA21": 103674.1279000568,
+        "EMA55": 103858.45152662515,
+        "EMA144": 104152.49037482531,
+        "EMA200": 104235.29031203309,
+        "VWAP": 104184.45353260229
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108650.9,
+        "volume": 266302.71,
+        "RSI": 54.204301119833346,
+        "MACD_macd": 369.9278011439892,
+        "MACD_signal": 389.0663405154481,
+        "ATR": 554.2160492030032,
+        "ADX": 17.158433117327135,
+        "Stoch_K": 67.08241758241726,
+        "Stoch_D": 77.0757698579132,
+        "StochRSI_K": 17.761999254695883,
+        "StochRSI_D": 41.11177766075221,
+        "BB_upper": 109711.47040141541,
+        "BB_lower": 106762.74959858462,
+        "BB_middle": 108237.11000000002,
+        "EMA5": 108716.25151866695,
+        "EMA21": 108367.9925420621,
+        "EMA55": 107474.88355091296,
+        "EMA144": 106185.51822205452,
+        "EMA200": 105819.06842647407,
+        "VWAP": 106266.31315331464
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "56/100",
+      "open_interest": "$22995340363.00002 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104564.3",
+        "lastSz": "0.01",
+        "askPx": "104564.3",
+        "askSz": "455.01",
+        "bidPx": "104564.2",
+        "bidSz": "1800.02",
+        "open24h": "103614.1",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39348.8345",
+        "vol24h": "3934883.45",
+        "ts": "1748756165813",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T05:36:06+00:00Z"
+}
+[gemini_api_caller.py][13:36:07] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:36:07] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_133557.png
+[gemini_api_caller.py][13:36:07] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:36:07] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:36:07] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:36:07] [INFO] AFC remote call 1 is done.
+[_client.py][13:36:11] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:36:51] [INFO] 截图模块运行中...
+[截图模块][13:36:51] [INFO]  __main__ 入口被执行
+[截图模块][13:36:51] [INFO]  启动时主动清理内存...
+[截图模块][13:36:51] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:36:51] [INFO]  已执行 pkill chrome
+[截图模块][13:36:54] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:36:54] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:36:54] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:36:54] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:36:54] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:36:54] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:36:54] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:36:56] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:36:58] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:36:58] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:37:16] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:37:16] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:37:16] [INFO]  打开目标图表页...
+[截图模块][13:37:23] [INFO]  等待5秒加载页面...
+[截图模块][13:37:28] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:37:28] [INFO]  快捷键已发送
+[截图模块][13:37:29] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133729.png
+[截图模块][13:37:29] [INFO]  关闭浏览器...
+[数据收集总模块][13:37:30] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133729.png
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:51] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:51] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:51] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:51] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:54] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:56] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:58] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:36:58] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:16] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:16] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:16] [INFO]  打开目标图表页...
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:23] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:28] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:28] [INFO]  快捷键已发送
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:29] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133729.png
+[数据收集总模块][13:37:30] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:37:29] [INFO]  关闭浏览器...
+[数据收集总模块][13:37:30] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133729.png
+[数据收集总模块][13:37:30] [INFO] 技术指标模块运行中...
+[技术指标模块][13:37:31] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:37:31] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:37:31] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:37:32] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:37:32] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:37:33] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:37:33] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:37:33] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:37:34] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:37:36] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:37:36] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:37:36] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:37:37] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:37:37] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:37:37] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:37:37] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:37:37] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:37:38] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:37:39] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133729.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2516.66,
+        "volume": 260408.99,
+        "RSI": 46.33156307093078,
+        "MACD_macd": -1.887650445381496,
+        "MACD_signal": -2.2756049631933895,
+        "ATR": 8.270247452090203,
+        "ADX": 13.616292517423927,
+        "Stoch_K": 47.21518987341741,
+        "Stoch_D": 57.70042194092838,
+        "StochRSI_K": 50.99215684932664,
+        "StochRSI_D": 63.48248913138238,
+        "BB_upper": 2525.06838960516,
+        "BB_lower": 2512.77161039484,
+        "BB_middle": 2518.92,
+        "EMA5": 2517.9409658737213,
+        "EMA21": 2519.4343188516204,
+        "EMA55": 2523.3570575397134,
+        "EMA144": 2523.824835978265,
+        "EMA200": 2523.0970510538236,
+        "VWAP": 2524.559973776824
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0048%",
+      "FGI": "56/100",
+      "open_interest": "$590609355.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2520.48",
+        "lastSz": "5",
+        "askPx": "2520.49",
+        "askSz": "3215.95",
+        "bidPx": "2520.48",
+        "bidSz": "97.66",
+        "open24h": "2517.19",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2257603.866",
+        "vol24h": "22576038.66",
+        "ts": "1748756258510",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:37:39+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:37:40] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:37:40] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_133729.png
+[gemini_api_caller.py][13:37:40] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:37:40] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:37:40] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:37:40] [INFO] AFC remote call 1 is done.
+[_client.py][13:37:44] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[_client.py][13:38:24] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-position-mode "HTTP/2 200 OK"
+[trade_api_eth.py][13:38:24] [INFO] 正在设置 ETH-USDT-SWAP 在 cross 模式下的杠杆为 100 倍...
+[_client.py][13:38:24] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[trade_api_eth.py][13:38:24] [INFO] 杠杆设置为 100 倍成功。
+[trade_api_eth.py][13:38:24] [INFO] 类型为 wait，不执行交易操作。
+[trade_api_eth.py][13:38:24] [INFO] trade_result: {'status': 'wait'}
+[trade_api_eth.py][13:38:24] [INFO] execution: {
+    "operation_comment": "市场处于震荡盘整，缺乏明确方向，建议观望，等待更清晰的趋势信号。",
+    "type": "wait",
+    "price": "N/A",
+    "stop_loss": "N/A",
+    "take_profit": "N/A",
+    "size": "N/A",
+    "market": false,
+    "expected_winrate": "N/A",
+    "expected_return": "N/A",
+    "trade_RR_ratio": "N/A",
+    "signal_strength": "N/A",
+    "risk_management_strategy": "观望策略，避免在无明确趋势的市场中进行交易，以保护本金。",
+    "position_action": "N/A",
+    "risk_assessment": "当前市场风险中等，主要风险来源于缺乏明确趋势和潜在的突发消息面影响。建议保持现金头寸，规避不确定性。"
+}
+[trade_api_eth.py][13:38:24] [INFO] 交易API调用完成
+[trade_api_eth.py][13:38:24] [INFO] 交易日志已追加到 /root/codespace/Qwen_quant_v1/trade_bot/trade_log.json
+[数据收集总模块][13:39:07] [INFO] 截图模块运行中...
+[截图模块][13:39:08] [INFO]  __main__ 入口被执行
+[截图模块][13:39:08] [INFO]  启动时主动清理内存...
+[截图模块][13:39:08] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:39:08] [INFO]  已执行 pkill chrome
+[截图模块][13:39:11] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:39:11] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:39:11] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][13:39:11] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][13:39:11] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:39:11] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:39:11] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:39:14] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:39:16] [INFO] 启动浏览器 (有头模式)
+[截图模块][13:39:18] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:39:53] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:39:53] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:39:53] [INFO]  打开目标图表页...
+[截图模块][13:39:59] [INFO]  等待5秒加载页面...
+[截图模块][13:40:04] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:40:05] [INFO]  快捷键已发送
+[截图模块][13:40:06] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134006.png
+[截图模块][13:40:06] [INFO]  关闭浏览器...
+[数据收集总模块][13:40:06] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134006.png
+[数据收集总模块][13:40:06] [INFO] 技术指标模块运行中...
+[技术指标模块][13:40:07] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:40:08] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:40:08] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:40:08] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:40:08] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:40:12] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:40:12] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:40:12] [INFO] 宏观因子模块运行中...
+[数据收集总模块][13:40:15] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:40:15] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:40:16] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][13:40:17] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:40:17] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:40:17] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][13:40:17] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:40:17] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:40:17] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:40:18] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134006.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103692.1,
+        "volume": 24214.42,
+        "RSI": 52.3165148296566,
+        "MACD_macd": -22.83492183346243,
+        "MACD_signal": -48.76542687211899,
+        "ATR": 175.35576952933326,
+        "ADX": 20.263400760645094,
+        "Stoch_K": 54.681372549021035,
+        "Stoch_D": 60.12087108682056,
+        "StochRSI_K": 47.788728558593775,
+        "StochRSI_D": 56.26248901433234,
+        "BB_upper": 103850.49411802804,
+        "BB_lower": 103449.57588197196,
+        "BB_middle": 103650.035,
+        "EMA5": 103690.14885064843,
+        "EMA21": 103674.1279000568,
+        "EMA55": 103858.45152662515,
+        "EMA144": 104152.49037482531,
+        "EMA200": 104235.29031203309,
+        "VWAP": 104184.45353260229
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108650.9,
+        "volume": 266302.71,
+        "RSI": 54.204301119833346,
+        "MACD_macd": 369.9278011439892,
+        "MACD_signal": 389.0663405154481,
+        "ATR": 554.2160492030032,
+        "ADX": 17.158433117327135,
+        "Stoch_K": 67.08241758241726,
+        "Stoch_D": 77.0757698579132,
+        "StochRSI_K": 17.761999254695883,
+        "StochRSI_D": 41.11177766075221,
+        "BB_upper": 109711.47040141541,
+        "BB_lower": 106762.74959858462,
+        "BB_middle": 108237.11000000002,
+        "EMA5": 108716.25151866695,
+        "EMA21": 108367.9925420621,
+        "EMA55": 107474.88355091296,
+        "EMA144": 106185.51822205452,
+        "EMA200": 105819.06842647407,
+        "VWAP": 106266.31315331464
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "56/100",
+      "open_interest": "$22998219486.000015 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104547.6",
+        "lastSz": "0.1",
+        "askPx": "104547.7",
+        "askSz": "841.5",
+        "bidPx": "104547.6",
+        "bidSz": "692.38",
+        "open24h": "103674.3",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39290.0645",
+        "vol24h": "3929006.45",
+        "ts": "1748756418005",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T05:40:18+00:00Z"
+}
+[gemini_api_caller.py][13:40:19] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:40:19] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134006.png
+[gemini_api_caller.py][13:40:19] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:40:19] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:40:20] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:40:20] [INFO] AFC remote call 1 is done.
+[_client.py][13:40:23] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:42:01] [INFO] 截图模块运行中...
+[截图模块][13:42:02] [INFO]  __main__ 入口被执行
+[截图模块][13:42:02] [INFO]  启动时主动清理内存...
+[截图模块][13:42:02] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:42:02] [INFO]  已执行 pkill chrome
+[截图模块][13:42:05] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:42:05] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:42:05] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:42:05] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:42:05] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:42:05] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:42:05] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:42:07] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:42:09] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:42:09] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:42:43] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:42:43] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:42:43] [INFO]  打开目标图表页...
+[截图模块][13:42:53] [INFO]  等待5秒加载页面...
+[截图模块][13:42:58] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:43:01] [INFO]  快捷键已发送
+[截图模块][13:43:02] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134302.png
+[截图模块][13:43:02] [INFO]  关闭浏览器...
+[数据收集总模块][13:43:02] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134302.png
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:02] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:02] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:02] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:02] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:05] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:07] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:09] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:09] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:43] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:43] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:43] [INFO]  打开目标图表页...
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:53] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:42:58] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:43:01] [INFO]  快捷键已发送
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:43:02] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134302.png
+[数据收集总模块][13:43:02] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:43:02] [INFO]  关闭浏览器...
+[数据收集总模块][13:43:02] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134302.png
+[数据收集总模块][13:43:02] [INFO] 技术指标模块运行中...
+[技术指标模块][13:43:05] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:43:06] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:43:06] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:43:06] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:43:06] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:43:07] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:43:07] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:43:07] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:43:08] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:43:09] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:43:09] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:43:10] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:43:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:43:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:43:11] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:43:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:43:11] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:43:11] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:43:12] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134302.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2516.66,
+        "volume": 260408.99,
+        "RSI": 46.33156307093078,
+        "MACD_macd": -1.887650445381496,
+        "MACD_signal": -2.2756049631933895,
+        "ATR": 8.270247452090203,
+        "ADX": 13.616292517423927,
+        "Stoch_K": 47.21518987341741,
+        "Stoch_D": 57.70042194092838,
+        "StochRSI_K": 50.99215684932664,
+        "StochRSI_D": 63.48248913138238,
+        "BB_upper": 2525.06838960516,
+        "BB_lower": 2512.77161039484,
+        "BB_middle": 2518.92,
+        "EMA5": 2517.9409658737213,
+        "EMA21": 2519.4343188516204,
+        "EMA55": 2523.3570575397134,
+        "EMA144": 2523.824835978265,
+        "EMA200": 2523.0970510538236,
+        "VWAP": 2524.559973776824
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0046%",
+      "FGI": "56/100",
+      "open_interest": "$591036926.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2516.5",
+        "lastSz": "16.38",
+        "askPx": "2516.51",
+        "askSz": "1561.28",
+        "bidPx": "2516.5",
+        "bidSz": "269.75",
+        "open24h": "2519.49",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2259739.569",
+        "vol24h": "22597395.69",
+        "ts": "1748756590814",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:43:12+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:43:17] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:43:17] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134302.png
+[gemini_api_caller.py][13:43:17] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:43:17] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:43:19] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:43:19] [INFO] AFC remote call 1 is done.
+[_client.py][13:43:23] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:45:02] [INFO] 截图模块运行中...
+[截图模块][13:45:03] [INFO]  __main__ 入口被执行
+[截图模块][13:45:03] [INFO]  启动时主动清理内存...
+[截图模块][13:45:03] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:45:03] [INFO]  已执行 pkill chrome
+[截图模块][13:45:06] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:45:06] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:45:06] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][13:45:06] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][13:45:06] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:45:06] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:45:06] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:45:08] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:45:10] [INFO] 启动浏览器 (有头模式)
+[截图模块][13:45:12] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:45:47] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:45:47] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:45:47] [INFO]  打开目标图表页...
+[截图模块][13:45:53] [INFO]  等待5秒加载页面...
+[截图模块][13:45:58] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:45:59] [INFO]  快捷键已发送
+[截图模块][13:46:00] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134600.png
+[截图模块][13:46:00] [INFO]  关闭浏览器...
+[数据收集总模块][13:46:00] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134600.png
+[数据收集总模块][13:46:00] [INFO] 技术指标模块运行中...
+[技术指标模块][13:46:01] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:46:02] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:46:02] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:46:02] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:46:02] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:46:03] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:46:03] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:46:03] [INFO] 宏观因子模块运行中...
+[数据收集总模块][13:46:05] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:46:05] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:46:07] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][13:46:07] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:46:07] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:46:07] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][13:46:08] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:46:08] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:46:08] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:46:09] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134600.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103769.4,
+        "volume": 19450.07,
+        "RSI": 59.765261372836804,
+        "MACD_macd": -26.888620282697957,
+        "MACD_signal": -55.2033038140122,
+        "ATR": 188.45664018583233,
+        "ADX": 19.82499014701907,
+        "Stoch_K": 73.62745098039073,
+        "Stoch_D": 55.74867762915992,
+        "StochRSI_K": 70.6626364552687,
+        "StochRSI_D": 53.55071363022531,
+        "BB_upper": 103852.35754475264,
+        "BB_lower": 103426.69245524735,
+        "BB_middle": 103639.525,
+        "EMA5": 103689.17327597263,
+        "EMA21": 103672.32574108065,
+        "EMA55": 103862.91929551426,
+        "EMA144": 104143.253692605,
+        "EMA200": 104217.71194636913,
+        "VWAP": 104189.28158094613
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108650.9,
+        "volume": 266302.71,
+        "RSI": 54.204301119833346,
+        "MACD_macd": 369.9278011439892,
+        "MACD_signal": 389.0663405154481,
+        "ATR": 554.2160492030032,
+        "ADX": 17.158433117327135,
+        "Stoch_K": 67.08241758241726,
+        "Stoch_D": 77.0757698579132,
+        "StochRSI_K": 17.761999254695883,
+        "StochRSI_D": 41.11177766075221,
+        "BB_upper": 109711.47040141541,
+        "BB_lower": 106762.74959858462,
+        "BB_middle": 108237.11000000002,
+        "EMA5": 108716.25151866695,
+        "EMA21": 108367.9925420621,
+        "EMA55": 107474.88355091296,
+        "EMA144": 106185.51822205452,
+        "EMA200": 105819.06842647407,
+        "VWAP": 106266.31315331464
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "56/100",
+      "open_interest": "$22996307512.000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104455.8",
+        "lastSz": "16.82",
+        "askPx": "104455.8",
+        "askSz": "662.55",
+        "bidPx": "104455.7",
+        "bidSz": "433.52",
+        "open24h": "103602.8",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39380.0821",
+        "vol24h": "3938008.21",
+        "ts": "1748756767917",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T05:46:09+00:00Z"
+}
+[gemini_api_caller.py][13:46:10] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:46:10] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_134600.png
+[gemini_api_caller.py][13:46:10] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:46:10] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:46:10] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:46:10] [INFO] AFC remote call 1 is done.
+[_client.py][13:46:14] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:47:44] [INFO] 截图模块运行中...
+[截图模块][13:47:45] [INFO]  __main__ 入口被执行
+[截图模块][13:47:45] [INFO]  启动时主动清理内存...
+[截图模块][13:47:45] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:47:45] [INFO]  已执行 pkill chrome
+[截图模块][13:47:48] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:47:48] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:47:48] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:47:48] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:47:48] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:47:48] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:47:48] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:47:50] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:47:51] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:47:51] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:48:28] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:48:28] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:48:28] [INFO]  打开目标图表页...
+[截图模块][13:48:35] [INFO]  等待5秒加载页面...
+[截图模块][13:48:40] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:48:40] [INFO]  快捷键已发送
+[截图模块][13:48:41] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134841.png
+[截图模块][13:48:41] [INFO]  关闭浏览器...
+[数据收集总模块][13:48:42] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134841.png
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:45] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:45] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:45] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:45] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:48] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:50] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:51] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:47:51] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:28] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:28] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:28] [INFO]  打开目标图表页...
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:35] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:40] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:40] [INFO]  快捷键已发送
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:41] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134841.png
+[数据收集总模块][13:48:42] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:48:41] [INFO]  关闭浏览器...
+[数据收集总模块][13:48:42] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134841.png
+[数据收集总模块][13:48:42] [INFO] 技术指标模块运行中...
+[技术指标模块][13:48:45] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:48:46] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:48:46] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:48:47] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:48:47] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:48:47] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:48:47] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:48:47] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:48:49] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:48:51] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:48:51] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:48:53] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:48:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:48:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:48:53] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:48:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:48:53] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:48:54] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:48:54] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134841.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2521.16,
+        "volume": 206028.45,
+        "RSI": 54.81270102100232,
+        "MACD_macd": -1.8693741698139092,
+        "MACD_signal": -2.3707170083528557,
+        "ATR": 8.621053808437093,
+        "ADX": 15.627067482757578,
+        "Stoch_K": 75.69620253164493,
+        "Stoch_D": 57.95358649789114,
+        "StochRSI_K": 84.5183903307137,
+        "StochRSI_D": 63.921360814462,
+        "BB_upper": 2525.110542095573,
+        "BB_lower": 2512.996457904427,
+        "BB_middle": 2519.0535,
+        "EMA5": 2518.5814488105816,
+        "EMA21": 2519.711543198835,
+        "EMA55": 2523.534083211311,
+        "EMA144": 2523.267675055944,
+        "EMA200": 2522.1956536080106,
+        "VWAP": 2524.595837743008
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0042%",
+      "FGI": "56/100",
+      "open_interest": "$591491983.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2515.31",
+        "lastSz": "0.04",
+        "askPx": "2515.31",
+        "askSz": "488.86",
+        "bidPx": "2515.3",
+        "bidSz": "631.33",
+        "open24h": "2518.89",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2259309.677",
+        "vol24h": "22593096.77",
+        "ts": "1748756933407",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:48:54+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:48:56] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:48:56] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_134841.png
+[gemini_api_caller.py][13:48:56] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:48:56] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:48:56] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:48:56] [INFO] AFC remote call 1 is done.
+[_client.py][13:49:00] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[_client.py][13:49:51] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-position-mode "HTTP/2 200 OK"
+[trade_api_eth.py][13:49:51] [INFO] 正在设置 ETH-USDT-SWAP 在 cross 模式下的杠杆为 100 倍...
+[_client.py][13:49:52] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[trade_api_eth.py][13:49:52] [INFO] 杠杆设置为 100 倍成功。
+[trade_api_eth.py][13:49:52] [INFO] 类型为 wait，不执行交易操作。
+[trade_api_eth.py][13:49:52] [INFO] trade_result: {'status': 'wait'}
+[trade_api_eth.py][13:49:52] [INFO] execution: {
+    "operation_comment": "当前市场多时间框架信号不一致，短期和中期趋势偏弱，长期趋势不明确，市场处于盘整状态，缺乏明确的交易方向。为规避不确定性风险，建议观望，等待更清晰的趋势信号出现。",
+    "type": "wait",
+    "price": "N/A",
+    "stop_loss": "N/A",
+    "take_profit": "N/A",
+    "size": "N/A",
+    "market": false,
+    "expected_winrate": "N/A",
+    "expected_return": "N/A",
+    "trade_RR_ratio": "N/A",
+    "signal_strength": "N/A",
+    "risk_management_strategy": "观望策略：在市场方向不明朗时，不进行任何交易，以规避不必要的风险。等待市场形成明确的趋势或突破关键区间后再考虑入场。此策略旨在保护本金，避免在震荡市场中被反复止损。",
+    "position_action": "N/A",
+    "risk_assessment": "当前市场风险中等。主要风险来源于多时间框架信号冲突导致的趋势不确定性，以及低波动性可能带来的假突破风险。建议保持观望，避免在无明确趋势的市场中进行交易，以降低资金损失的风险。"
+}
+[trade_api_eth.py][13:49:52] [INFO] 交易API调用完成
+[trade_api_eth.py][13:49:52] [INFO] 交易日志已追加到 /root/codespace/Qwen_quant_v1/trade_bot/trade_log.json
+[数据收集总模块][13:50:06] [INFO] 截图模块运行中...
+[截图模块][13:50:08] [INFO]  __main__ 入口被执行
+[截图模块][13:50:08] [INFO]  启动时主动清理内存...
+[截图模块][13:50:08] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:50:08] [INFO]  已执行 pkill chrome
+[截图模块][13:50:10] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:50:10] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:50:10] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][13:50:10] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][13:50:10] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:50:10] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:50:10] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:50:12] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:50:14] [INFO] 启动浏览器 (有头模式)
+[截图模块][13:50:16] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:50:54] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:50:54] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:50:54] [INFO]  打开目标图表页...
+[截图模块][13:50:59] [INFO]  等待5秒加载页面...
+[截图模块][13:51:04] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:51:06] [INFO]  快捷键已发送
+[截图模块][13:51:07] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135107.png
+[截图模块][13:51:07] [INFO]  关闭浏览器...
+[数据收集总模块][13:51:07] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135107.png
+[数据收集总模块][13:51:07] [INFO] 技术指标模块运行中...
+[技术指标模块][13:51:09] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:51:09] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:51:09] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:51:10] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:51:10] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:51:10] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:51:11] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:51:11] [INFO] 宏观因子模块运行中...
+[数据收集总模块][13:51:13] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:51:13] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:51:14] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][13:51:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:51:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:51:15] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][13:51:16] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:51:16] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:51:16] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:51:16] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135107.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103769.4,
+        "volume": 19450.07,
+        "RSI": 59.765261372836804,
+        "MACD_macd": -26.888620282697957,
+        "MACD_signal": -55.2033038140122,
+        "ATR": 188.45664018583233,
+        "ADX": 19.82499014701907,
+        "Stoch_K": 73.62745098039073,
+        "Stoch_D": 55.74867762915992,
+        "StochRSI_K": 70.6626364552687,
+        "StochRSI_D": 53.55071363022531,
+        "BB_upper": 103852.35754475264,
+        "BB_lower": 103426.69245524735,
+        "BB_middle": 103639.525,
+        "EMA5": 103689.17327597263,
+        "EMA21": 103672.32574108065,
+        "EMA55": 103862.91929551426,
+        "EMA144": 104143.253692605,
+        "EMA200": 104217.71194636913,
+        "VWAP": 104189.28158094613
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108650.9,
+        "volume": 266302.71,
+        "RSI": 54.204301119833346,
+        "MACD_macd": 369.9278011439892,
+        "MACD_signal": 389.0663405154481,
+        "ATR": 554.2160492030032,
+        "ADX": 17.158433117327135,
+        "Stoch_K": 67.08241758241726,
+        "Stoch_D": 77.0757698579132,
+        "StochRSI_K": 17.761999254695883,
+        "StochRSI_D": 41.11177766075221,
+        "BB_upper": 109711.47040141541,
+        "BB_lower": 106762.74959858462,
+        "BB_middle": 108237.11000000002,
+        "EMA5": 108716.25151866695,
+        "EMA21": 108367.9925420621,
+        "EMA55": 107474.88355091296,
+        "EMA144": 106185.51822205452,
+        "EMA200": 105819.06842647407,
+        "VWAP": 106266.31315331464
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "56/100",
+      "open_interest": "$22985994323.999996 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104433.6",
+        "lastSz": "2.85",
+        "askPx": "104433.6",
+        "askSz": "481.36",
+        "bidPx": "104433.5",
+        "bidSz": "454.21",
+        "open24h": "103600.1",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39376.9859",
+        "vol24h": "3937698.59",
+        "ts": "1748757076113",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T05:51:16+00:00Z"
+}
+[gemini_api_caller.py][13:51:18] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:51:18] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135107.png
+[gemini_api_caller.py][13:51:18] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:51:18] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:51:18] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:51:18] [INFO] AFC remote call 1 is done.
+[_client.py][13:51:21] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:52:09] [INFO] 截图模块运行中...
+[截图模块][13:52:10] [INFO]  __main__ 入口被执行
+[截图模块][13:52:10] [INFO]  启动时主动清理内存...
+[截图模块][13:52:10] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:52:10] [INFO]  已执行 pkill chrome
+[截图模块][13:52:13] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:52:13] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:52:13] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:52:13] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:52:13] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:52:13] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:52:13] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:52:16] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:52:18] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:52:18] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:52:51] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:52:51] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:52:51] [INFO]  打开目标图表页...
+[截图模块][13:52:58] [INFO]  等待5秒加载页面...
+[截图模块][13:53:03] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:53:04] [INFO]  快捷键已发送
+[截图模块][13:53:05] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135305.png
+[截图模块][13:53:05] [INFO]  关闭浏览器...
+[数据收集总模块][13:53:05] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135305.png
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:10] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:10] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:10] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:10] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:13] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:16] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:18] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:18] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:51] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:51] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:51] [INFO]  打开目标图表页...
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:52:58] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:53:03] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:53:04] [INFO]  快捷键已发送
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:53:05] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135305.png
+[数据收集总模块][13:53:05] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:53:05] [INFO]  关闭浏览器...
+[数据收集总模块][13:53:05] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135305.png
+[数据收集总模块][13:53:05] [INFO] 技术指标模块运行中...
+[技术指标模块][13:53:06] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:53:07] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:53:07] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:53:07] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:53:07] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:53:09] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:53:09] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:53:09] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:53:09] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:53:11] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:53:11] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:53:12] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:53:12] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:53:13] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:53:13] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:53:13] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:53:13] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:53:13] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:53:13] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135305.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2521.16,
+        "volume": 206028.45,
+        "RSI": 54.81270102100232,
+        "MACD_macd": -1.8693741698139092,
+        "MACD_signal": -2.3707170083528557,
+        "ATR": 8.621053808437093,
+        "ADX": 15.627067482757578,
+        "Stoch_K": 75.69620253164493,
+        "Stoch_D": 57.95358649789114,
+        "StochRSI_K": 84.5183903307137,
+        "StochRSI_D": 63.921360814462,
+        "BB_upper": 2525.110542095573,
+        "BB_lower": 2512.996457904427,
+        "BB_middle": 2519.0535,
+        "EMA5": 2518.5814488105816,
+        "EMA21": 2519.711543198835,
+        "EMA55": 2523.534083211311,
+        "EMA144": 2523.267675055944,
+        "EMA200": 2522.1956536080106,
+        "VWAP": 2524.595837743008
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0042%",
+      "FGI": "56/100",
+      "open_interest": "$590748054.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2518.57",
+        "lastSz": "0.76",
+        "askPx": "2518.57",
+        "askSz": "785.97",
+        "bidPx": "2518.56",
+        "bidSz": "174.25",
+        "open24h": "2514.77",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2256870.562",
+        "vol24h": "22568705.62",
+        "ts": "1748757193108",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:53:13+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:53:15] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:53:15] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135305.png
+[gemini_api_caller.py][13:53:15] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:53:15] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:53:15] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:53:15] [INFO] AFC remote call 1 is done.
+[_client.py][13:53:18] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:56:25] [INFO] 截图模块运行中...
+[截图模块][13:56:26] [INFO]  __main__ 入口被执行
+[截图模块][13:56:26] [INFO]  启动时主动清理内存...
+[截图模块][13:56:26] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:56:26] [INFO]  已执行 pkill chrome
+[截图模块][13:56:29] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:56:29] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:56:29] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][13:56:29] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][13:56:29] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][13:56:29] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:56:29] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:56:38] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:56:39] [INFO] 启动浏览器 (有头模式)
+[截图模块][13:56:41] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:57:16] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][13:57:16] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:57:16] [INFO]  打开目标图表页...
+[截图模块][13:57:23] [INFO]  等待5秒加载页面...
+[截图模块][13:57:28] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:57:29] [INFO]  快捷键已发送
+[截图模块][13:57:30] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135730.png
+[截图模块][13:57:30] [INFO]  关闭浏览器...
+[数据收集总模块][13:57:30] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135730.png
+[数据收集总模块][13:57:30] [INFO] 技术指标模块运行中...
+[技术指标模块][13:57:32] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:57:32] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:57:32] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:57:33] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:57:33] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:57:34] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:57:34] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:57:34] [INFO] 宏观因子模块运行中...
+[数据收集总模块][13:57:36] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:57:36] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:57:37] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][13:57:38] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:57:38] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:57:38] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][13:57:38] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:57:38] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:57:38] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:57:39] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135730.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103769.4,
+        "volume": 19450.07,
+        "RSI": 59.765261372836804,
+        "MACD_macd": -26.888620282697957,
+        "MACD_signal": -55.2033038140122,
+        "ATR": 188.45664018583233,
+        "ADX": 19.82499014701907,
+        "Stoch_K": 73.62745098039073,
+        "Stoch_D": 55.74867762915992,
+        "StochRSI_K": 70.6626364552687,
+        "StochRSI_D": 53.55071363022531,
+        "BB_upper": 103852.35754475264,
+        "BB_lower": 103426.69245524735,
+        "BB_middle": 103639.525,
+        "EMA5": 103689.17327597263,
+        "EMA21": 103672.32574108065,
+        "EMA55": 103862.91929551426,
+        "EMA144": 104143.253692605,
+        "EMA200": 104217.71194636913,
+        "VWAP": 104189.28158094613
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108650.9,
+        "volume": 266302.71,
+        "RSI": 54.204301119833346,
+        "MACD_macd": 369.9278011439892,
+        "MACD_signal": 389.0663405154481,
+        "ATR": 554.2160492030032,
+        "ADX": 17.158433117327135,
+        "Stoch_K": 67.08241758241726,
+        "Stoch_D": 77.0757698579132,
+        "StochRSI_K": 17.761999254695883,
+        "StochRSI_D": 41.11177766075221,
+        "BB_upper": 109711.47040141541,
+        "BB_lower": 106762.74959858462,
+        "BB_middle": 108237.11000000002,
+        "EMA5": 108716.25151866695,
+        "EMA21": 108367.9925420621,
+        "EMA55": 107474.88355091296,
+        "EMA144": 106185.51822205452,
+        "EMA200": 105819.06842647407,
+        "VWAP": 106266.31315331464
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "56/100",
+      "open_interest": "$22998022794.0 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104482.8",
+        "lastSz": "2.15",
+        "askPx": "104482.9",
+        "askSz": "730.88",
+        "bidPx": "104482.8",
+        "bidSz": "271.63",
+        "open24h": "103515.1",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39244.4212",
+        "vol24h": "3924442.12",
+        "ts": "1748757458722",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T05:57:39+00:00Z"
+}
+[gemini_api_caller.py][13:57:40] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:57:40] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135730.png
+[gemini_api_caller.py][13:57:40] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:57:40] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:57:41] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:57:41] [INFO] AFC remote call 1 is done.
+[_client.py][13:57:44] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][13:58:53] [INFO] 截图模块运行中...
+[截图模块][13:58:53] [INFO]  __main__ 入口被执行
+[截图模块][13:58:53] [INFO]  启动时主动清理内存...
+[截图模块][13:58:54] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][13:58:54] [INFO]  已执行 pkill chrome
+[截图模块][13:58:56] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:58:56] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][13:58:56] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][13:58:56] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][13:58:56] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][13:58:56] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][13:58:56] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][13:58:58] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][13:59:00] [INFO]  启动浏览器 (有头模式)
+[截图模块][13:59:00] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:59:34] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][13:59:34] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][13:59:34] [INFO]  打开目标图表页...
+[截图模块][13:59:40] [INFO]  等待5秒加载页面...
+[截图模块][13:59:45] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][13:59:46] [INFO]  快捷键已发送
+[截图模块][13:59:47] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135947.png
+[截图模块][13:59:47] [INFO]  关闭浏览器...
+[数据收集总模块][13:59:47] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135947.png
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:53] [INFO]  __main__ 入口被执行
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:53] [INFO]  启动时主动清理内存...
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:54] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:54] [INFO]  已执行 pkill chrome
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:56] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:58:58] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:00] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:00] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:34] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:34] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:34] [INFO]  打开目标图表页...
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:40] [INFO]  等待5秒加载页面...
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:45] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:46] [INFO]  快捷键已发送
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:47] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135947.png
+[数据收集总模块][13:59:47] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][13:59:47] [INFO]  关闭浏览器...
+[数据收集总模块][13:59:47] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135947.png
+[数据收集总模块][13:59:47] [INFO] 技术指标模块运行中...
+[技术指标模块][13:59:48] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][13:59:49] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][13:59:49] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][13:59:49] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][13:59:49] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][13:59:50] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][13:59:50] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:59:50] [INFO] 宏观因子模块运行中...
+[宏观因子模块][13:59:51] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][13:59:52] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:59:52] [INFO] OKX 持仓模块运行中...
+[get_positions.py][13:59:53] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][13:59:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][13:59:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][13:59:53] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][13:59:54] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][13:59:54] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][13:59:54] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][13:59:55] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135947.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2521.16,
+        "volume": 206028.45,
+        "RSI": 54.81270102100232,
+        "MACD_macd": -1.8693741698139092,
+        "MACD_signal": -2.3707170083528557,
+        "ATR": 8.621053808437093,
+        "ADX": 15.627067482757578,
+        "Stoch_K": 75.69620253164493,
+        "Stoch_D": 57.95358649789114,
+        "StochRSI_K": 84.5183903307137,
+        "StochRSI_D": 63.921360814462,
+        "BB_upper": 2525.110542095573,
+        "BB_lower": 2512.996457904427,
+        "BB_middle": 2519.0535,
+        "EMA5": 2518.5814488105816,
+        "EMA21": 2519.711543198835,
+        "EMA55": 2523.534083211311,
+        "EMA144": 2523.267675055944,
+        "EMA200": 2522.1956536080106,
+        "VWAP": 2524.595837743008
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2633.69,
+        "volume": 1321200.43,
+        "RSI": 43.151619560424834,
+        "MACD_macd": -8.072509845729655,
+        "MACD_signal": -8.166986037225728,
+        "ATR": 26.78999279139848,
+        "ADX": 16.123072868761952,
+        "Stoch_K": 33.353800810511984,
+        "Stoch_D": 39.060133447951124,
+        "StochRSI_K": 42.28146425540002,
+        "StochRSI_D": 59.104107201776365,
+        "BB_upper": 2662.7427401040204,
+        "BB_lower": 2614.69725989598,
+        "BB_middle": 2638.7200000000003,
+        "EMA5": 2637.557028845475,
+        "EMA21": 2646.5726628528214,
+        "EMA55": 2642.400934504616,
+        "EMA144": 2600.8315355083655,
+        "EMA200": 2585.023005690767,
+        "VWAP": 2618.488416454772
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0039%",
+      "FGI": "56/100",
+      "open_interest": "$591560165.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2517.14",
+        "lastSz": "10",
+        "askPx": "2517.14",
+        "askSz": "492.94",
+        "bidPx": "2517.13",
+        "bidSz": "810.69",
+        "open24h": "2511.01",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2246011.88",
+        "vol24h": "22460118.8",
+        "ts": "1748757594009",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T05:59:55+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][13:59:56] [INFO] prompt_text导入完成
+[gemini_api_caller.py][13:59:56] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_135947.png
+[gemini_api_caller.py][13:59:56] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][13:59:56] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][13:59:56] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][13:59:56] [INFO] AFC remote call 1 is done.
+[_client.py][13:59:59] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][14:00:03] [INFO] 截图模块运行中...
+[截图模块][14:00:04] [INFO]  __main__ 入口被执行
+[截图模块][14:00:04] [INFO]  启动时主动清理内存...
+[截图模块][14:00:04] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][14:00:04] [INFO]  已执行 pkill chrome
+[截图模块][14:00:07] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][14:00:07] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][14:00:07] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][14:00:07] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][14:00:07] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][14:00:07] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][14:00:07] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][14:00:19] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][14:00:21] [INFO] 启动浏览器 (有头模式)
+[截图模块][14:00:23] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][14:00:59] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][14:00:59] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][14:00:59] [INFO]  打开目标图表页...
+[截图模块][14:01:06] [INFO]  等待5秒加载页面...
+[截图模块][14:01:07] [INFO]  关闭浏览器...
+[gemini_api_caller.py][14:01:10] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:01:10] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_135730.png
+[gemini_api_caller.py][14:01:10] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][14:01:10] [INFO] 开始测试 Gemini API 流式调用...
+[gemini_api_caller.py][14:01:10] [ERROR] [gemini_api_caller] Gemini API调用异常: local variable 'image' referenced before assignment
+Traceback (most recent call last):
+  File "/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py", line 118, in call_gemini_api_stream
+    image,
+UnboundLocalError: local variable 'image' referenced before assignment
+
+[数据收集总模块][14:03:22] [INFO] 截图模块运行中...
+[截图模块][14:03:24] [INFO]  __main__ 入口被执行
+[截图模块][14:03:24] [INFO]  启动时主动清理内存...
+[截图模块][14:03:24] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][14:03:24] [INFO]  已执行 pkill chrome
+[截图模块][14:03:26] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][14:03:26] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][14:03:26] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][14:03:26] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][14:03:26] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][14:03:26] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][14:03:26] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][14:03:28] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][14:03:30] [INFO] 启动浏览器 (有头模式)
+[截图模块][14:03:32] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][14:04:07] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][14:04:07] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][14:04:07] [INFO]  打开目标图表页...
+[截图模块][14:04:14] [INFO]  等待5秒加载页面...
+[截图模块][14:04:19] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][14:04:21] [INFO]  快捷键已发送
+[截图模块][14:04:22] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_140422.png
+[截图模块][14:04:22] [INFO]  关闭浏览器...
+[数据收集总模块][14:04:22] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_140422.png
+[数据收集总模块][14:04:22] [INFO] 技术指标模块运行中...
+[技术指标模块][14:04:23] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][14:04:24] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][14:04:24] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][14:04:24] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][14:04:24] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][14:04:25] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][14:04:25] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:04:25] [INFO] 宏观因子模块运行中...
+[数据收集总模块][14:04:27] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:04:27] [INFO] OKX 持仓模块运行中...
+[get_positions.py][14:04:29] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][14:04:29] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][14:04:29] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][14:04:29] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][14:04:29] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][14:04:29] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][14:04:30] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:04:30] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_140422.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103680.9,
+        "volume": 43332.61,
+        "RSI": 53.14604860563592,
+        "MACD_macd": -39.58803587217699,
+        "MACD_signal": -62.2966986659083,
+        "ATR": 202.2653332325081,
+        "ADX": 19.150416497182956,
+        "Stoch_K": 52.053789731049925,
+        "Stoch_D": 46.560717196413066,
+        "StochRSI_K": 50.33608166525687,
+        "StochRSI_D": 44.65725875979001,
+        "BB_upper": 103838.34803049211,
+        "BB_lower": 103413.80196950788,
+        "BB_middle": 103626.075,
+        "EMA5": 103649.05991395892,
+        "EMA21": 103662.61994356339,
+        "EMA55": 103866.94015594493,
+        "EMA144": 104153.64022932376,
+        "EMA200": 104229.79769603121,
+        "VWAP": 104192.42975054301
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108596.6,
+        "volume": 361407.98,
+        "RSI": 52.29173096180888,
+        "MACD_macd": 394.7565024383948,
+        "MACD_signal": 393.92105856402026,
+        "ATR": 537.5722879781546,
+        "ADX": 17.499651767410246,
+        "Stoch_K": 76.90783888312461,
+        "Stoch_D": 85.67273527654663,
+        "StochRSI_K": 39.01624311854018,
+        "StochRSI_D": 62.9073449743934,
+        "BB_upper": 109678.21202421191,
+        "BB_lower": 106675.59797578809,
+        "BB_middle": 108176.905,
+        "EMA5": 108748.92727800041,
+        "EMA21": 108339.69404552419,
+        "EMA55": 107428.67530516499,
+        "EMA144": 106126.48717593552,
+        "EMA200": 105754.52800861045,
+        "VWAP": 106242.64303339335
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0099%",
+      "FGI": "56/100",
+      "open_interest": "$22999611660.0 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104427.6",
+        "lastSz": "2.61",
+        "askPx": "104427.7",
+        "askSz": "671.42",
+        "bidPx": "104427.6",
+        "bidSz": "499.77",
+        "open24h": "103531.9",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39134.1463",
+        "vol24h": "3913414.63",
+        "ts": "1748757869414",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T06:04:30+00:00Z"
+}
+[gemini_api_caller.py][14:04:31] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:04:31] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_140422.png
+[gemini_api_caller.py][14:04:31] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][14:04:31] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:04:32] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:04:32] [INFO] AFC remote call 1 is done.
+[_client.py][14:04:36] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][14:05:18] [INFO] 截图模块运行中...
+[截图模块][14:05:19] [INFO]  __main__ 入口被执行
+[截图模块][14:05:19] [INFO]  启动时主动清理内存...
+[截图模块][14:05:19] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][14:05:19] [INFO]  已执行 pkill chrome
+[截图模块][14:05:22] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][14:05:22] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][14:05:22] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][14:05:22] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][14:05:22] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][14:05:22] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][14:05:22] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][14:05:26] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][14:05:27] [INFO]  启动浏览器 (有头模式)
+[截图模块][14:05:27] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][14:05:37] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图模块][14:05:37] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][14:05:37] [INFO]  打开目标图表页...
+[截图模块][14:05:43] [INFO]  等待5秒加载页面...
+[截图模块][14:05:48] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][14:05:50] [INFO]  快捷键已发送
+[截图模块][14:05:51] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_140551.png
+[截图模块][14:05:51] [INFO]  关闭浏览器...
+[数据收集总模块][14:05:51] [INFO] [tradingview_auto_screenshot.py][stdout] /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_140551.png
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:19] [INFO]  __main__ 入口被执行
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:19] [INFO]  启动时主动清理内存...
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:19] [INFO]  已尝试释放 Linux 系统缓存
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:19] [INFO]  已执行 pkill chrome
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  启动浏览器进行截图 (有头模式)...
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  已设置代理: http://127.0.0.1:7890
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:22] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:26] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:27] [INFO]  启动浏览器 (有头模式)
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:27] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:37] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:37] [INFO]  旧截图已清理，开始截图流程...
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:37] [INFO]  打开目标图表页...
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:43] [INFO]  等待5秒加载页面...
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:48] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:50] [INFO]  快捷键已发送
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:51] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_140551.png
+[数据收集总模块][14:05:51] [ERROR] [tradingview_auto_screenshot.py][stderr] [截图模块][14:05:51] [INFO]  关闭浏览器...
+[数据收集总模块][14:05:51] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_140551.png
+[数据收集总模块][14:05:51] [INFO] 技术指标模块运行中...
+[技术指标模块][14:05:52] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][14:05:53] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][14:05:53] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][14:05:53] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][14:05:53] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][14:05:54] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][14:05:54] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:05:54] [INFO] 宏观因子模块运行中...
+[宏观因子模块][14:05:55] [INFO] [macro_factor_collector]  开始采集宏观因子...
+[数据收集总模块][14:05:56] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:05:56] [INFO] OKX 持仓模块运行中...
+[get_positions.py][14:05:57] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][14:05:57] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][14:05:58] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][14:05:58] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[_client.py][14:05:58] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][14:05:58] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][14:05:58] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:05:59] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_140551.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.13,
+        "volume": 277617.7,
+        "RSI": 47.329465243413,
+        "MACD_macd": -2.279302307340913,
+        "MACD_signal": -2.4971642332993955,
+        "ATR": 8.971984924339942,
+        "ADX": 17.457604256135095,
+        "Stoch_K": 50.18987341772279,
+        "Stoch_D": 51.63772571087558,
+        "StochRSI_K": 54.936885236278776,
+        "StochRSI_D": 61.29930859631671,
+        "BB_upper": 2525.265236233817,
+        "BB_lower": 2512.9517637661825,
+        "BB_middle": 2519.1085,
+        "EMA5": 2517.2921732158725,
+        "EMA21": 2519.5668204450417,
+        "EMA55": 2523.664074059396,
+        "EMA144": 2523.686517399724,
+        "EMA200": 2522.778285570227,
+        "VWAP": 2524.593210242713
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2637.25,
+        "volume": 2078808.6,
+        "RSI": 45.4779487957597,
+        "MACD_macd": -8.015099617736723,
+        "MACD_signal": -8.188013955248387,
+        "ATR": 26.516142481728465,
+        "ADX": 18.185331680054077,
+        "Stoch_K": 37.72565393589569,
+        "Stoch_D": 43.632567849686815,
+        "StochRSI_K": 55.88517209321542,
+        "StochRSI_D": 72.25557439208443,
+        "BB_upper": 2664.0363646239257,
+        "BB_lower": 2615.0996353760747,
+        "BB_middle": 2639.568,
+        "EMA5": 2639.4905432682126,
+        "EMA21": 2647.860642576092,
+        "EMA55": 2642.625508457498,
+        "EMA144": 2599.464302478852,
+        "EMA200": 2583.1999408545953,
+        "VWAP": 2618.017664121312
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2562.66,
+        "volume": 18323487.31,
+        "RSI": 54.76611056941951,
+        "MACD_macd": 14.897970633182013,
+        "MACD_signal": 9.561623649587307,
+        "ATR": 76.63236296105782,
+        "ADX": 27.24523536067079,
+        "Stoch_K": 57.95852012414393,
+        "Stoch_D": 50.08785326042324,
+        "StochRSI_K": 31.259309753786095,
+        "StochRSI_D": 14.80480456503897,
+        "BB_upper": 2639.120168280061,
+        "BB_lower": 2412.633831719938,
+        "BB_middle": 2525.8769999999995,
+        "EMA5": 2558.94278636743,
+        "EMA21": 2537.780841102731,
+        "EMA55": 2537.384042396312,
+        "EMA144": 2541.694283496745,
+        "EMA200": 2539.0444837615273,
+        "VWAP": 2561.714793595232
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0038%",
+      "FGI": "56/100",
+      "open_interest": "$591664740.0000008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2514.83",
+        "lastSz": "11.58",
+        "askPx": "2514.84",
+        "askSz": "1089.66",
+        "bidPx": "2514.83",
+        "bidSz": "563.85",
+        "open24h": "2515.68",
+        "high24h": "2549.99",
+        "low24h": "2489.24",
+        "volCcy24h": "2244453.234",
+        "vol24h": "22444532.34",
+        "ts": "1748757958314",
+        "sodUtc0": "2527.07",
+        "sodUtc8": "2535.28"
+      }
+    ]
+  },
+  "timestamp": "2025-06-01T06:05:59+00:00Z",
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  }
+}
+[gemini_api_caller.py][14:06:00] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:06:00] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot/tradingview_clipboard_20250601_140551.png
+[gemini_api_caller.py][14:06:00] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][14:06:00] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:06:00] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:06:00] [INFO] AFC remote call 1 is done.
+[_client.py][14:06:03] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][14:09:08] [INFO] 截图模块运行中...
+[截图模块][14:09:09] [INFO]  __main__ 入口被执行
+[截图模块][14:09:09] [INFO]  启动时主动清理内存...
+[截图模块][14:09:09] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][14:09:09] [INFO]  已执行 pkill chrome
+[截图模块][14:09:12] [INFO]  已用 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][14:09:12] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][14:09:12] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/ShaderCache
+[截图模块][14:09:12] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile/GrShaderCache
+[截图模块][14:09:12] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/BTC_code/chrome_profile
+[截图模块][14:09:12] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][14:09:12] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/BTC_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][14:09:14] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][14:09:16] [INFO] 启动浏览器 (有头模式)
+[截图模块][14:09:18] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][14:09:53] [INFO]  当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUSD.P
+[截图模块][14:09:53] [INFO]  旧截图已清理，开始截图流程...
+[截图模块][14:09:53] [INFO]  打开目标图表页...
+[截图模块][14:10:00] [INFO]  等待5秒加载页面...
+[截图模块][14:10:05] [INFO]  发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图模块][14:10:05] [INFO]  快捷键已发送
+[截图模块][14:10:06] [INFO]  K线图片已保存: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_141006.png
+[截图模块][14:10:06] [INFO]  关闭浏览器...
+[数据收集总模块][14:10:07] [INFO] 截图模块完成，截图路径: /root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_141006.png
+[数据收集总模块][14:10:07] [INFO] 技术指标模块运行中...
+[技术指标模块][14:10:08] [INFO] 正在获取 BTC-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][14:10:08] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][14:10:08] [INFO] 正在获取 BTC-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][14:10:09] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][14:10:09] [INFO] 正在获取 BTC-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][14:10:09] [INFO] 成功获取并处理 4h 周期的数据。
+[数据收集总模块][14:10:09] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:10:09] [INFO] 宏观因子模块运行中...
+[数据收集总模块][14:10:13] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:10:13] [INFO] OKX 持仓模块运行中...
+[get_positions.py][14:10:14] [INFO] instrument_id: BTC-USDT-SWAP
+[_client.py][14:10:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][14:10:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=BTC-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][14:10:15] [INFO] 未获取到 BTC-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][14:10:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=BTC-USDT-SWAP&ordType=post_only,fok,ioc "HTTP/2 200 OK"
+[get_positions.py][14:10:15] [INFO] 未获取到 BTC-USDT-SWAP 的挂单信息或挂单列表为空。
+[数据收集总模块][14:10:15] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[数据收集总模块][14:10:16] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_141006.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103680.9,
+        "volume": 43332.61,
+        "RSI": 53.14604860563592,
+        "MACD_macd": -39.58803587217699,
+        "MACD_signal": -62.2966986659083,
+        "ATR": 202.2653332325081,
+        "ADX": 19.150416497182956,
+        "Stoch_K": 52.053789731049925,
+        "Stoch_D": 46.560717196413066,
+        "StochRSI_K": 50.33608166525687,
+        "StochRSI_D": 44.65725875979001,
+        "BB_upper": 103838.34803049211,
+        "BB_lower": 103413.80196950788,
+        "BB_middle": 103626.075,
+        "EMA5": 103649.05991395892,
+        "EMA21": 103662.61994356339,
+        "EMA55": 103866.94015594493,
+        "EMA144": 104153.64022932376,
+        "EMA200": 104229.79769603121,
+        "VWAP": 104192.42975054301
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 108596.6,
+        "volume": 361407.98,
+        "RSI": 52.29173096180888,
+        "MACD_macd": 394.7565024383948,
+        "MACD_signal": 393.92105856402026,
+        "ATR": 537.5722879781546,
+        "ADX": 17.499651767410246,
+        "Stoch_K": 76.90783888312461,
+        "Stoch_D": 85.67273527654663,
+        "StochRSI_K": 39.01624311854018,
+        "StochRSI_D": 62.9073449743934,
+        "BB_upper": 109678.21202421191,
+        "BB_lower": 106675.59797578809,
+        "BB_middle": 108176.905,
+        "EMA5": 108748.92727800041,
+        "EMA21": 108339.69404552419,
+        "EMA55": 107428.67530516499,
+        "EMA144": 106126.48717593552,
+        "EMA200": 105754.52800861045,
+        "VWAP": 106242.64303339335
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "BTC-USDT-SWAP",
+        "name": "BTCUSDT.P",
+        "close": 103209.3,
+        "volume": 2544481.27,
+        "RSI": 40.84757770750365,
+        "MACD_macd": -578.986559751138,
+        "MACD_signal": -715.829437221096,
+        "ATR": 1254.7054886099613,
+        "ADX": 14.832185363657455,
+        "Stoch_K": 58.593361511685714,
+        "Stoch_D": 49.025736936044666,
+        "StochRSI_K": 19.899826160430674,
+        "StochRSI_D": 29.79545165028291,
+        "BB_upper": 104752.52865583556,
+        "BB_lower": 102442.10134416445,
+        "BB_middle": 103597.315,
+        "EMA5": 103436.9367807302,
+        "EMA21": 103925.39360068626,
+        "EMA55": 105271.63120384578,
+        "EMA144": 105766.70685882824,
+        "EMA200": 105634.06732573181,
+        "VWAP": 106978.9546254877
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.0096%",
+      "FGI": "56/100",
+      "open_interest": "$23000638907.999992 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "BTC-USDT-SWAP",
+        "last": "104395.9",
+        "lastSz": "0.01",
+        "askPx": "104395.9",
+        "askSz": "766.73",
+        "bidPx": "104395.8",
+        "bidSz": "105.76",
+        "open24h": "103518.7",
+        "high24h": "104861.4",
+        "low24h": "103231.6",
+        "volCcy24h": "39168.9945",
+        "vol24h": "3916899.45",
+        "ts": "1748758215715",
+        "sodUtc0": "104550",
+        "sodUtc8": "104503"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "BTC-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "115946.25 USDT"
+    },
+    "positions": {
+      "instrument_id": "BTC-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A"
+    }
+  },
+  "timestamp": "2025-06-01T06:10:16+00:00Z"
+}
+[gemini_api_caller.py][14:10:17] [INFO] prompt_text导入完成
+[gemini_api_caller.py][14:10:17] [INFO] screenshot_path导入完成,path:/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot/tradingview_clipboard_20250601_141006.png
+[gemini_api_caller.py][14:10:17] [INFO] system_prompt_path导入完成,path:/root/codespace/Qwen_quant_v1/config/system_prompt_config.md
+[gemini_api_caller.py][14:10:17] [INFO] 开始测试 Gemini API 流式调用...
+[models.py][14:10:17] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][14:10:17] [INFO] AFC remote call 1 is done.
+[_client.py][14:10:21] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[数据收集总模块][14:11:10] [INFO] 截图模块运行中...
+[截图模块][14:11:11] [INFO]  __main__ 入口被执行
+[截图模块][14:11:11] [INFO]  启动时主动清理内存...
+[截图模块][14:11:11] [INFO]  已尝试释放 Linux 系统缓存
+[截图模块][14:11:11] [INFO]  已执行 pkill chrome
+[截图模块][14:11:13] [INFO]  已用 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile_copy 覆盖 /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][14:11:13] [INFO]  启动浏览器进行截图 (有头模式)...
+[截图模块][14:11:13] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/ShaderCache
+[截图模块][14:11:13] [INFO]  已清理缓存目录: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile/GrShaderCache
+[截图模块][14:11:13] [INFO]  用户数据目录设置为: /root/codespace/Qwen_quant_v1/ETH_code/chrome_profile
+[截图模块][14:11:13] [INFO]  已设置代理: http://127.0.0.1:7890
+[截图模块][14:11:13] [INFO]  Chrome options: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/Qwen_quant_v1/ETH_code/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图模块][14:11:22] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图模块][14:11:23] [INFO]  启动浏览器 (有头模式)
+[截图模块][14:11:23] [INFO]  跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
