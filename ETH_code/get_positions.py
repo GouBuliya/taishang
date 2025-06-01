@@ -85,10 +85,12 @@ def get_orders(instrument_id:str=None):
 
     res = tradeAPI.get_order_list(instId=instrument_id,ordType="post_only,fok,ioc,limit")
     ans={}
+    logger.info(f"res: {json.dumps(res,indent=4,ensure_ascii=False)}")
 
     # Check if the response is successful and contains data
     if res and res.get('code') == '0' and res.get('data') and len(res['data']) > 0:
         # Assuming only the first order is needed as per previous structure
+        
         order_data = res['data'][0]
         ans['size'] = order_data.get('sz', "N/A")  # 订单数量
         ans['price'] = order_data.get('px', "N/A")  # 订单价格

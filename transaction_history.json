@@ -1,0 +1,71 @@
+[
+    {
+        "timestamp": "2025-06-01 20:02:48",
+        "execution_details": {
+            "operation_comment": "市场处于明确下跌趋势，M15 RSI超卖预示短期反弹。维持在2515 USDT挂卖单，等待反弹至阻力位后入场做空，以顺应主趋势并利用短期回调。此操作将撤销现有订单并重新下达，以调整仓位大小至最大允许风险。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2530.0,
+            "take_profit": 2475.0,
+            "size": 154.77,
+            "market": false,
+            "expected_winrate": 0.6713,
+            "expected_return": 0.008721,
+            "trade_RR_ratio": 2.667,
+            "signal_strength": 0.71372,
+            "risk_management_strategy": "基于可用保证金2%的风险控制，并设置结构性止损和分级止盈。若价格未触及入场点而继续下跌，将取消当前订单并重新评估。",
+            "position_action": "重新下达卖出限价单，调整仓位大小以最大化收益，同时严格控制单笔风险。",
+            "risk_assessment": "当前市场波动性较高，短期存在超卖反弹风险。整体趋势为空头，但需警惕反弹强度。严格执行止损，避免过度杠杆。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 20:17:51",
+        "execution_details": {
+            "operation_comment": "市场整体处于下跌趋势，M15 RSI超卖可能引发短期反弹。现有挂单2515为理想做空点位，建议重新下达该限价挂单，等待反弹入场。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2535.0,
+            "take_profit": 2476.03,
+            "size": 115.83,
+            "market": false,
+            "expected_winrate": 0.5404,
+            "expected_return": 0.00472138,
+            "trade_RR_ratio": 1.949,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "每笔交易风险控制在可用保证金的2%，止损位设置在关键阻力上方，分批止盈。",
+            "position_action": "N/A",
+            "risk_assessment": "市场处于下跌趋势，短期反弹风险存在，但整体风险可控。建议严格执行止损，并关注2476.03的支撑作用。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 20:33:18",
+        "execution_details": {
+            "operation_comment": "市场整体处于下跌趋势，M15 RSI超卖可能引发短期反弹。现有挂单2515为理想做空点位，建议重新下达该限价挂单，等待反弹入场。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2535.0,
+            "take_profit": 2476.03,
+            "size": 115.83,
+            "market": false,
+            "expected_winrate": 0.5404,
+            "expected_return": 0.00472138,
+            "trade_RR_ratio": 1.949,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "每笔交易风险控制在可用保证金的2%，止损位设置在关键阻力上方，分批止盈。",
+            "position_action": "N/A",
+            "risk_assessment": "市场处于下跌趋势，短期反弹风险存在，但整体风险可控。建议严格执行止损，并关注2476.03的支撑作用。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    }
+]

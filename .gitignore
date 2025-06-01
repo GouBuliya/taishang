@@ -25,3 +25,4 @@ build/start/start.pkg
 dist/start
 code/chrome_profile/Default/Preferences
 nohup.out
+node_modules/

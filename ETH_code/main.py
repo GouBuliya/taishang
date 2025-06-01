@@ -3,7 +3,7 @@
 import subprocess
 import os
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import re
 import sys
 from okx.api import Market  # type: ignore
@@ -149,8 +149,9 @@ if __name__ == "__main__":
         "indicators_main": indicators_output if isinstance(indicators_output, dict) else {},
         "factors_main": factors_output if isinstance(factors_output, dict) else {},
         "data_summary": data,
-        "timestamp": datetime.now(timezone.utc).replace(microsecond=0).isoformat() + "Z",
         "okx_positions": okx_positions ,
+        "timestamp": datetime.now(timezone.utc).replace(microsecond=0).astimezone(timezone(timedelta(hours=8))).isoformat() # 东八区时间
+
     }
     # 写入 data.json
 

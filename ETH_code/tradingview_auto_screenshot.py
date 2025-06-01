@@ -23,7 +23,7 @@ config = json.load(open("/root/codespace/Qwen_quant_v1/config/config.json", "r")
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'  # 你的超级图表链接，可自定义
 SAVE_DIR = config["ETH_cache_screenshot_path"]  # 修改为你想保存的目录
 INTERVAL_MINUTES = 15
-CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cache_screenshots') #
+CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cache_screenshot') #
 CACHE_MAX = 15
 VIRTUAL_ENV_PYTHON_PATH=config["python_path"]["venv_selenium"]
 # 定义虚拟环境的Python路径，并确保使用它

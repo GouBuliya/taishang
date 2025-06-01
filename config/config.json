@@ -16,7 +16,7 @@
         "default_temperature": 0.0,
         "default_top_p": 0.9,
         "default_max_output_tokens": 24576,
-        "default_thinking_budget": 2000,
+        "default_thinking_budget": 4000,
         "default_include_thoughts": "True"
     },
     "ETH_gemini_answer_path": "/root/codespace/Qwen_quant_v1/ETH_code/reply_cache/gemini.json",
@@ -52,7 +52,13 @@
         "get_positions_path_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/get_positions.py",
         "trade_api_eth_path":"/root/codespace/Qwen_quant_v1/trade_bot/trade_api_eth.py",
         "log_file":"/root/codespace/Qwen_quant_v1/log/nohup.out",
-        "trade_log_path":"/root/codespace/Qwen_quant_v1/trade_bot/trade_log.json"
-        
+        "trade_log_path":"/root/codespace/Qwen_quant_v1/trade_bot/trade_log.json",
+        "function_path":
+        {
+            "base_path":"/root/codespace/Qwen_quant_v1/function",
+            "tools_list":"/root/codespace/Qwen_quant_v1/function/tools_list.txt",
+            "get_transaction_history":"/root/codespace/Qwen_quant_v1/function/get_transaction_history.py",
+            "get_time":"/root/codespace/Qwen_quant_v1/function/get_time.py"
+        }
     }
 }
