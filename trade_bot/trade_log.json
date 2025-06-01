@@ -1,17 +1,108 @@
-{
-"time": "2025-05-30 06:53:04",
-"response": {
-    "symbol": "ETHUSDT.P",
-    "action": "sell",
-    "order_type": "limit",
-    "price": "2680.0",
-    "stop_loss": "2700.0",
-    "take_profit_targets": [
-        "2620.0",
-        "2580.0",
-        "2500.0"
-    ],
-    "size": "51.33",
-    "comment": "基于H4/H1强劲下跌趋势和FGI极度贪婪信号，建议逢高做空。M15短期反弹被视为下跌中继。入场价取推荐区间上限，止损设于2700，风险控制在可用保证金的1%。"
-}
-}
+[
+    {
+        "time": "2025-05-30 06:53:04",
+        "response": {
+            "symbol": "ETHUSDT.P",
+            "action": "sell",
+            "order_type": "limit",
+            "price": "2680.0",
+            "stop_loss": "2700.0",
+            "take_profit_targets": [
+                "2620.0",
+                "2580.0",
+                "2500.0"
+            ],
+            "size": "51.33",
+            "comment": "基于H4/H1强劲下跌趋势和FGI极度贪婪信号，建议逢高做空。M15短期反弹被视为下跌中继。入场价取推荐区间上限，止损设于2700，风险控制在可用保证金的1%。"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 12:23:03",
+        "execution_details": {
+            "operation_comment": "市场处于震荡筑底阶段，缺乏明确趋势信号。尽管15m RSI超卖且存在潜在双底，但MACD和EMA仍偏空，且缺乏放量反弹确认。建议观望，等待价格突破关键阻力或支撑位，以获得更明确的交易信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": 0.5979,
+            "expected_return": 0.00849,
+            "trade_RR_ratio": 1.5,
+            "signal_strength": 0.396675,
+            "risk_management_strategy": "当前市场处于震荡筑底阶段，多空力量胶着，缺乏明确趋势。波动率相对较低，但随时可能因突破而放大。建议等待更明确的信号再入场。避免高杠杆操作，并保持足够的现金头寸以应对市场不确定性。本次交易不建议立即执行。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场处于震荡筑底阶段，多空力量胶着，缺乏明确趋势。波动率相对较低，但随时可能因突破而放大。风险等级为中等，建议等待更明确的信号再入场。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 12:48:36",
+        "execution_details": {
+            "operation_comment": "当前市场缺乏明确趋势，多空信号冲突，风险回报比不佳，建议观望，等待更清晰的入场信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "在市场无明确趋势时，保持观望是最佳风险管理策略。避免不必要的交易，保存本金，等待高胜率机会。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于趋势不明确和多空信号冲突，可能导致频繁止损。建议规避风险，不进行操作。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:03:28",
+        "execution_details": {
+            "operation_comment": "ETHUSDT在M15和H1周期呈现明显下跌趋势，短期反弹动能不足，MACD和EMA均支持做空。在2525-2535 USDT区间做空，止损设于2545 USDT，止盈目标2500 USDT。",
+            "type": "sell",
+            "price": 2535.0,
+            "stop_loss": 2545.0,
+            "take_profit": 2500.0,
+            "size": 23.2,
+            "market": false,
+            "expected_winrate": 0.65,
+            "expected_return": 0.0065,
+            "trade_RR_ratio": 2.35,
+            "signal_strength": 0.7,
+            "risk_management_strategy": "根据ATR波动率、总账户权益和每笔交易最大亏损（可用保证金的2%）确定初始仓位。如果价格突破2540 USDT并伴随放量，则立即止损。如果价格回调至2525-2535 USDT区域并出现做空信号，则视为入场机会。如果价格跌破2500 USDT，则止盈90%仓位，剩余10%继续持有并上移止损。",
+            "position_action": "开空",
+            "risk_assessment": "当前市场处于下跌趋势，但短期存在反弹风险。高波动率可能导致止损被触发。建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:20:14",
+        "execution_details": {
+            "operation_comment": "当前市场缺乏明确趋势，多时间框架信号不一致，建议观望，等待更清晰的入场信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略，避免在不确定市场中开仓。如果市场出现明确的突破或反转信号，将重新评估并制定交易计划。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于趋势不明确导致的潜在震荡和假突破。建议保持现金头寸，规避不确定性。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    }
+]

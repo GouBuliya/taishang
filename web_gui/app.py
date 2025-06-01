@@ -34,7 +34,7 @@ if not app.debug:
 config = json.load(open("/root/codespace/Qwen_quant_v1/config/config.json", "r"))
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-LOG_FILE = config["log_path"]
+LOG_FILE = config["path"]["log_file"]
 logging.basicConfig(
     level=logging.INFO,
     format='[%(filename)s][%(asctime)s] [%(levelname)s] %(message)s',
@@ -87,12 +87,26 @@ def send_ai_reply_email(subject, content, to_addrs):#subject: Gemini BTC AI回�
     smtp_port = 465
     from_addr = 'a528895030@gmail.com'  # 替换为你的发件邮箱
     password = 'owuh lyqs bmuh qkde'  # 替换为你的SMTP授权码
-
     msg = MIMEText(content, 'plain', 'utf-8')
+    #解释代码逻辑：
     msg['From'] = Header(from_addr)
     msg['To'] = Header(','.join(to_addrs))
     msg['Subject'] = Header(subject, 'utf-8')
 
+    #只发"execution_details"
+    # 解析JSON内容
+    try:
+        data = json.loads(content)
+    except json.JSONDecodeError:
+        logger.error("JSON解析失败")
+        return
+    #只发"execution_details"
+    try:
+        execution_details = data['execution_details']
+        msg = MIMEText(execution_details, 'plain', 'utf-8')
+    except Exception as e:
+        logger.error(f"解析JSON失败: {e}")
+        return
     try:
         server = smtplib.SMTP_SSL(smtp_server, smtp_port)
         server.login(from_addr, password)
@@ -132,7 +146,7 @@ def coin_task(coin_name, main_py_path, data_json_path, gemini_api_path, reply_ca
             logger.info(f"[{coin_name}] gemini_api_caller.py 执行完成，文件地址：{reply_cache_dir}")
 
             # 读取 gemini_api_caller.py 生成的回复文件
-            reply_file = os.path.join(reply_cache_dir, f'gemini.txt') # 使用coin_name前缀
+            reply_file = os.path.join(reply_cache_dir, f'gemini.json') # 使用coin_name前缀，修正文件名
             if not os.path.exists(reply_file) or os.path.getsize(reply_file) == 0:
                 logger.error(f"[{coin_name}] Gemini回复文件未生成或为空: {reply_file}")
                 return
@@ -151,6 +165,33 @@ def coin_task(coin_name, main_py_path, data_json_path, gemini_api_path, reply_ca
             )
             logger.info(f"[{coin_name}] Gemini推理结果已发送邮件。")
             result_queue.put({"coin": coin_name, "status": "success"})
+
+            # --- 计划增强: 在 ETH 流程成功完成后，额外运行 trade_api_eth.py 脚本 ---
+            if coin_name == 'ETH':
+                trade_api_eth_path = config["path"]["trade_api_eth_path"]
+                logger.info(f"[{coin_name}] ETH 流程成功，正在运行交易 API 脚本: {trade_api_eth_path}")
+                try:
+                    # 使用指定的python3.10解释器运行 trade_api_eth.py
+                    trade_result = subprocess.run(
+                        [config["python_path"]["venv_okx"], trade_api_eth_path],
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        encoding='utf-8',
+                        timeout=120 # 设置一个合理的超时时间
+                    )
+                    logger.info(f"[{coin_name}] trade_api_eth.py 执行完成。Stdout: {trade_result.stdout.strip()}")
+                    if trade_result.stderr:
+                         logger.error(f"[{coin_name}] trade_api_eth.py 执行出错。Stderr: {trade_result.stderr.strip()}")
+                    if trade_result.returncode != 0:
+                         logger.error(f"[{coin_name}] trade_api_eth.py 脚本返回非零退出码: {trade_result.returncode}")
+
+                except FileNotFoundError:
+                     logger.error(f"[{coin_name}] trade_api_eth.py 脚本未找到: {trade_api_eth_path}")
+                except subprocess.TimeoutExpired:
+                     logger.error(f"[{coin_name}] trade_api_eth.py 脚本执行超时")
+                except Exception as e:
+                     logger.error(f"[{coin_name}] 运行 trade_api_eth.py 脚本异常: {e}")
+            # --- 计划增强结束 ---
 
         except FileNotFoundError as e:
             logger.error(f"[{coin_name}] 文件未找到错误: {e}")
@@ -282,7 +323,7 @@ if __name__ == '__main__':
     # if not app.debug:
     #     start_telegram_bot()
     # 启动定时Gemini任务线程
-
+    threading.Thread(target=schedule_gemini_task).start()
     # 启动主服务
     
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)
