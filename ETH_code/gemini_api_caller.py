@@ -6,7 +6,7 @@ import traceback
 import base64
 import random
 import re
-
+import time
 # ===================== 全局配置与初始化 =====================
 
 # 假设 config.json 路径正确且包含所需配置
@@ -173,9 +173,23 @@ def call_gemini_api_stream(
                 "thinking_budget": DEFAULT_THINKING_BUDGET,
             },
             system_instruction=system_prompt,
-            tools=[tools]
+            tools=[tools],
+                    gemini_config = types.GenerateContentConfig(
+            temperature=DEFAULT_TEMPERATURE,
+            top_p=DEFAULT_TOP_P,
+            max_output_tokens=DEFAULT_MAX_OUTPUT_TOKENS,
+            thinking_config={
+                "include_thoughts": DEFAULT_INCLUDE_THOUGHTS,
+                "thinking_budget": DEFAULT_THINKING_BUDGET,
+            },
+            system_instruction=system_prompt,
+            tools=[tools],
+            tools_config=types.ToolsConfig(
+                function_calling_config=types.FunctionCallingConfig(mode="parallel")
+            )
         )
-
+        )
+        # gemini_config["automatic_function_calling"]={"disable": True}
         client = genai.Client(api_key=_api_key)
 
         # 准备初始内容
@@ -219,7 +233,8 @@ def call_gemini_api_stream(
         ]
 
         final_output_text = ""
-        max_turns = 5  # 设置最大交互轮次，防止无限循环
+        max_turns = 10  # 设置最大交互轮次，防止无限循环
+#增加重试机制
 
         for turn in range(max_turns):
             logger.info(f"{MODULE_TAG}开始第 {turn + 1} 轮 Gemini API 调用...")
@@ -316,7 +331,8 @@ if __name__ == "__main__":
     # 设置代理（如果需要）
     # os.environ['HTTP_PROXY'] = config["proxy"]["http_proxy"]
     # os.environ['HTTPS_PROXY'] = config["proxy"]["https_proxy"]
-
+    #计时
+    start_time = time.time()
     # tools自检
     logger.info(f"{MODULE_TAG}开始自检")
     try:
@@ -351,21 +367,32 @@ if __name__ == "__main__":
         system_prompt = f.read().strip()
 
     logger.info("开始 Gemini API 流式调用...")
-
     # 调用修改后的函数
-    response = call_gemini_api_stream(
-        prompt_text=prompt_text,
-        screenshot_path=screenshot_path,
-        system_prompt=system_prompt,
-    )
-    print("\n--- 最终 Gemini 响应 ---")
-    print(response)
-
+    max_retries = 3
+    temp=True
+    while temp==True and max_retries>0:#如果失败重试
+        try:
+            response = call_gemini_api_stream(
+            prompt_text=prompt_text,
+            screenshot_path=screenshot_path,
+            system_prompt=system_prompt,
+            )
+            print("\n--- 最终 Gemini 响应 ---")
+            print(response)
+            response_cleaned = response.replace("```json", "").replace("```", "").strip()
+            output_data = json.loads(response_cleaned)
+            break
+        except Exception as e:
+            logger.error(f"Gemini API 调用失败，重试第 {max_retries} 次: {e}")
+            temp=False
+            max_retries-=1
+            continue
     # 尝试解析 JSON 并保存
+    end_time = time.time()
+    logger.info(f"Gemini API 调用完成，耗时: {end_time - start_time} 秒")
     try:
         # 去除可能的 markdown 格式
-        response_cleaned = response.replace("```json", "").replace("```", "").strip()
-        output_data = json.loads(response_cleaned)
+        
         with open(config["ETH_gemini_answer_path"], "w", encoding="utf-8") as f:
             json.dump(output_data, f, indent=4, ensure_ascii=False)
         print(f"已将解析后的输出内容保存到 {config['ETH_gemini_answer_path']}")
@@ -373,8 +400,8 @@ if __name__ == "__main__":
         logger.error(f"无法将 Gemini 响应解析为 JSON: {e}")
         logger.error(f"原始响应内容:\n{response}")
         # 如果不是JSON，直接保存为文本文件
-        with open(config["ETH_gemini_answer_path"].replace(".json", ".txt"), "w", encoding="utf-8") as f:
+        with open(config["ETH_gemini_answer_path"].replace(".json", ".json"), "w", encoding="utf-8") as f:
             f.write(response)
-        print(f"响应不是有效的 JSON，已保存为文本文件到 {config['ETH_gemini_answer_path'].replace('.json', '.txt')}")
+        print(f"响应不是有效的 JSON，已保存为文本文件到 {config['ETH_gemini_answer_path'].replace('.json', '.json')}")
     except Exception as e:
         logger.error(f"保存文件时发生未知错误: {e}")
