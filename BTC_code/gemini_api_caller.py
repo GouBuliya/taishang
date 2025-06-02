@@ -107,12 +107,17 @@ def call_gemini_api_stream(
         )
 
 
-        from PIL import Image
-        if screenshot_path and os.path.exists(screenshot_path):
-            image=Image.open(screenshot_path)
+       
 
         client = genai.Client(api_key=_api_key)
-        
+        try:
+            logger.info(f"{MODULE_TAG}图片导入开始:{screenshot_path}")
+            image=client.files.upload(file=screenshot_path)
+            logger.info(f"{MODULE_TAG}图片导入完成")
+        except Exception as e:
+            logger.error(f"{MODULE_TAG}图片导入失败: {e}")
+            image=None
+
 
         contents = [
            image,
@@ -123,14 +128,19 @@ def call_gemini_api_stream(
             contents=contents,
             config=gemini_config
         )
-
+        output_buffer = []
         for chunk in response:
-            if chunk.text:
-                yield chunk.text
+            print(chunk.text, end="", flush=True)
+            if chunk.text is not None:
+                output_buffer.append(chunk.text)
+        output_buffer = "".join(output_buffer)#将output_buffer转换为字符串
+        return output_buffer
+
+
     except Exception as e:
         tb = traceback.format_exc()
         logger.error(f"{MODULE_TAG}Gemini API调用异常: {e}\n{tb}")
-        yield f"[Gemini API调用异常] {e}\nTraceback:\n{tb}"
+        return f"[Gemini API调用异常] {e}\nTraceback:\n{tb}"
 __all__ = ["call_gemini_api_stream"]
 
 if __name__ == "__main__":
@@ -145,10 +155,7 @@ if __name__ == "__main__":
         data_json = json.load(f)
 
     prompt_text = json.dumps(data_json, indent=2, ensure_ascii=False)
-
-    #确保prompt_text为[]
-
-    logging.info(f"prompt_text导入完成")
+    logging.info(f"prompt_text导入完成:{prompt_text}")
     screenshot_path = data_json.get("clipboard_image_path")
     logging.info(f"screenshot_path导入完成,path:{screenshot_path}")
     system_prompt_path = SYSTEM_PROMPT_PATH
@@ -157,32 +164,27 @@ if __name__ == "__main__":
         system_prompt = f.read().strip()
 
     logging.info("开始测试 Gemini API 流式调用...")
-    output_buffer = []  # 新增：用于收集输出内容
 
     thinking_config=config["MODEL_CONFIG"]["default_thinking_budget"]
 
 
 
 
-    for text in call_gemini_api_stream(
+    response = call_gemini_api_stream(
         prompt_text=prompt_text,
         screenshot_path=screenshot_path,
         system_prompt=system_prompt,
-    ):
-        print(text, end="", flush=True)
-        output_buffer.append(text)  # 新增：收集内容
-    print("\nGemini API 流式调用结束。")
-
-    #去````json和````
-    output_buffer = "".join(output_buffer)
-    output_buffer = output_buffer.replace("```json", "").replace("```", "")
-    output_buffer = json.loads(output_buffer)
-
-    #将output_buffer写入/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json
+    )
+    print(response)
+        # 尝试解析 JSON
+    #去除````json和````(只去除开头和结尾)
+    response = response.replace("```json", "").replace("```", "")#去除开头和结尾的```json和```
+    #将response写入/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json
+   
+    
+    output_data = json.loads(response)
+        # 将解析后的数据写入文件
     with open(config["BTC_gemini_answer_path"], "w", encoding="utf-8") as f:
-        json.dump(output_buffer, f, indent=4, ensure_ascii=False)
-
-
-    print(f"已将输出内容保存到 {config['BTC_gemini_answer_path']}")
-
-    # Clean up dummy files if they were created
+        json.dump(output_data, f, indent=4, ensure_ascii=False)
+    print(f"已将解析后的输出内容保存到 {config['BTC_gemini_answer_path']}")
+   

@@ -175,30 +175,30 @@ def coin_task(coin_name, main_py_path, data_json_path, gemini_api_path, reply_ca
             result_queue.put({"coin": coin_name, "status": "success"})
 
             # --- 计划增强: 在 ETH 流程成功完成后，额外运行 trade_api_eth.py 脚本 ---
-            if coin_name == 'ETH':
-                trade_api_eth_path = config["path"]["trade_api_eth_path"]
-                logger.info(f"[{coin_name}] ETH 流程成功，正在运行交易 API 脚本: {trade_api_eth_path}")
-                try:
-                    # 使用指定的python3.10解释器运行 trade_api_eth.py
-                    trade_result = subprocess.run(
-                        [config["python_path"]["venv_okx"], trade_api_eth_path],
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.PIPE,
-                        encoding='utf-8',
-                        timeout=120 # 设置一个合理的超时时间
-                    )
-                    logger.info(f"[{coin_name}] trade_api_eth.py 执行完成。Stdout: {trade_result.stdout.strip()}")
-                    if trade_result.stderr:
-                         logger.error(f"[{coin_name}] trade_api_eth.py 执行出错。Stderr: {trade_result.stderr.strip()}")
-                    if trade_result.returncode != 0:
-                         logger.error(f"[{coin_name}] trade_api_eth.py 脚本返回非零退出码: {trade_result.returncode}")
+            # if coin_name == 'ETH':
+            #     trade_api_eth_path = config["path"]["trade_api_eth_path"]
+            #     logger.info(f"[{coin_name}] ETH 流程成功，正在运行交易 API 脚本: {trade_api_eth_path}")
+            #     try:
+            #         # 使用指定的python3.10解释器运行 trade_api_eth.py
+            #         trade_result = subprocess.run(
+            #             [config["python_path"]["venv_okx"], trade_api_eth_path],
+            #             stdout=subprocess.PIPE,
+            #             stderr=subprocess.PIPE,
+            #             encoding='utf-8',
+            #             timeout=120 # 设置一个合理的超时时间
+            #         )
+            #         logger.info(f"[{coin_name}] trade_api_eth.py 执行完成。Stdout: {trade_result.stdout.strip()}")
+            #         if trade_result.stderr:
+            #              logger.error(f"[{coin_name}] trade_api_eth.py 执行出错。Stderr: {trade_result.stderr.strip()}")
+            #         if trade_result.returncode != 0:
+            #              logger.error(f"[{coin_name}] trade_api_eth.py 脚本返回非零退出码: {trade_result.returncode}")
 
-                except FileNotFoundError:
-                     logger.error(f"[{coin_name}] trade_api_eth.py 脚本未找到: {trade_api_eth_path}")
-                except subprocess.TimeoutExpired:
-                     logger.error(f"[{coin_name}] trade_api_eth.py 脚本执行超时")
-                except Exception as e:
-                     logger.error(f"[{coin_name}] 运行 trade_api_eth.py 脚本异常: {e}")
+            #     except FileNotFoundError:
+            #          logger.error(f"[{coin_name}] trade_api_eth.py 脚本未找到: {trade_api_eth_path}")
+            #     except subprocess.TimeoutExpired:
+            #          logger.error(f"[{coin_name}] trade_api_eth.py 脚本执行超时")
+            #     except Exception as e:
+            #          logger.error(f"[{coin_name}] 运行 trade_api_eth.py 脚本异常: {e}")
             # --- 计划增强结束 ---
 
         except FileNotFoundError as e:

@@ -25,7 +25,7 @@ TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3ABTCUS
 
 SAVE_DIR = config["BTC_cache_screenshot_path"]  # 修改为你想保存的目录(硬编码)
 INTERVAL_MINUTES = 15
-CACHE_DIR = os.path.join(os.path.dirname(__file__), 'cache_screenshots')
+CACHE_DIR = config["BTC_cache_screenshot_path"]
 CACHE_MAX = 15
 # 定义虚拟环境的Python路径，并确保使用它
 # 在 Dockerfile 中，这个路径会被设置为 /app/venv/bin/python
