@@ -7,6 +7,10 @@ import base64
 import random
 import re
 import time
+# 引入 MCP 相关的 HTTP 客户端
+import asyncio # 用于异步操作
+import httpx # <--- 新增：用于异步 HTTP 请求
+
 # ===================== 全局配置与初始化 =====================
 
 # 假设 config.json 路径正确且包含所需配置
@@ -51,10 +55,9 @@ DEFAULT_INCLUDE_THOUGHTS = config["MODEL_CONFIG"]["default_include_thoughts"]
 
 from google import genai
 from google.genai import types
-from pydantic import BaseModel
+from pydantic import BaseModel # 仍在此处，但在此代码中未使用
 
-# ================= tools =================
-
+# ================= 本地 tools (保持不变) =================
 def get_transaction_history(target: str) -> dict:
     """
     Args:
@@ -63,42 +66,38 @@ def get_transaction_history(target: str) -> dict:
         最近3条交易历史记录 (JSON 格式)
     """
     import subprocess
-    logger.info(f"{MODULE_TAG}运行get_transaction_history.py")
+    logger.info(f"{MODULE_TAG}运行本地 get_transaction_history.py")
     try:
-        # 假设 get_transaction_history.py 脚本会打印 JSON 格式的交易历史
         trade_log_process = subprocess.run(
             [config["python_path"]["global"], config["path"]["function_path"]["get_transaction_history"]],
             capture_output=True, text=True, timeout=360, check=True
         )
         trade_log = trade_log_process.stdout
-        logger.info(f"{MODULE_TAG}获取最后3条交易纪录完成")
-        # 尝试解析为JSON，如果脚本输出不是严格的JSON，这里可能需要调整
+        logger.info(f"{MODULE_TAG}本地获取最后3条交易纪录完成")
         try:
             res = json.loads(trade_log)
         except json.JSONDecodeError:
-            res = {"transaction_history": trade_log.strip()} # 如果不是JSON，则作为字符串返回
-        return {"transaction_history":res}
+            res = {"transaction_history": trade_log.strip()}
+        return {"transaction_history":res, "source": "local"} # 添加 source
     except subprocess.CalledProcessError as e:
-        logger.error(f"{MODULE_TAG}get_transaction_history.py 脚本执行失败: {e.stderr}")
-        return {"error": f"脚本执行失败: {e.stderr}"}
+        logger.error(f"{MODULE_TAG}本地 get_transaction_history.py 脚本执行失败: {e.stderr}")
+        return {"error": f"本地脚本执行失败: {e.stderr}"}
     except Exception as e:
-        logger.error(f"{MODULE_TAG}get_transaction_history 调用异常: {e}")
-        return {"error": f"调用异常: {e}"}
+        logger.error(f"{MODULE_TAG}本地 get_transaction_history 调用异常: {e}")
+        return {"error": f"本地调用异常: {e}"}
 
-
-# 修正后的 get_transaction_history_declaration
 get_transaction_history_declaration = {
     "name": "get_transaction_history",
-    "description": "获取最近3条交易历史记录",
+    "description": "获取最近3条交易历史记录 (本地执行)",
     "parameters": {
         "type": "object",
         "properties": {
-            "target": {  # 参数名应与 Python 函数定义一致
+            "target": {
                 "type": "string",
                 "description": "要获取交易历史记录的目标（例如，'ETH-USDT'）"
             },
         },
-        "required": ["target"]  # 必需参数名
+        "required": ["target"]
     }
 }
 
@@ -110,50 +109,124 @@ def get_time(target: str) -> dict:
         当前时间 (JSON 格式)
     """
     import subprocess
-    logger.info(f"{MODULE_TAG}运行get_time.py")
+    logger.info(f"{MODULE_TAG}运行本地 get_time.py")
     try:
-        # 假设 get_time.py 脚本会打印当前时间
         time_process = subprocess.run(
             [config["python_path"]["global"], config["path"]["function_path"]["get_time"]],
             capture_output=True, text=True, timeout=360, check=True
         )
         current_time = time_process.stdout.strip()
-        logger.info(f"{MODULE_TAG}获取当前时间完成")
+        logger.info(f"{MODULE_TAG}本地获取当前时间完成")
         res =  current_time
-        return {"time":res}
+        return {"time":res, "source": "local"} # 添加 source
     except subprocess.CalledProcessError as e:
-        logger.error(f"{MODULE_TAG}get_time.py 脚本执行失败: {e.stderr}")
-        return {"error": f"脚本执行失败: {e.stderr}"}
+        logger.error(f"{MODULE_TAG}本地 get_time.py 脚本执行失败: {e.stderr}")
+        return {"error": f"本地脚本执行失败: {e.stderr}"}
     except Exception as e:
-        logger.error(f"{MODULE_TAG}get_time 调用异常: {e}")
-        return {"error": f"调用异常: {e}"}
+        logger.error(f"{MODULE_TAG}本地 get_time 调用异常: {e}")
+        return {"error": f"本地调用异常: {e}"}
 
-
-# 修正后的 get_time_declaration
 get_time_declaration = {
     "name": "get_time",
-    "description": "获取当前时间",
+    "description": "获取当前时间 (本地执行)",
     "parameters": {
         "type": "object",
         "properties": {
-            "target": {  # 参数名应与 Python 函数定义一致
+            "target": {
                 "type": "string",
                 "description": "获取时间的上下文目标（例如，'当前时间'）"
             },
         },
-        "required": ["target"]  # 必需参数名
+        "required": ["target"]
     }
 }
+# ================= 本地 tools END =================
 
-# =======================================
+# ================= MCP Server 配置 =================
+MCP_SERVER_URL = "http://127.0.0.1:3000" # 你的 0xAuto OKX MCP 服务器地址和端口
+# ===================================================
 
-def call_gemini_api_stream(
+# ===================== HttpClientSession 类定义 =====================
+class HttpClientSession:
+    """
+    一个用于与 0xAuto OKX MCP 服务器交互的客户端会话，
+    将其功能作为 Gemini 工具暴露。
+    """
+    def __init__(self, url: str):
+        self.url = url
+        # 使用 httpx.AsyncClient 进行异步 HTTP 请求，并设置超时
+        self._client = httpx.AsyncClient(timeout=60.0)
+        self._tool_declarations = [] # 用于存储从 MCP 服务器获取的工具声明
+
+    async def initialize(self):
+        """从 MCP 服务器获取工具声明。"""
+        try:
+            # 假设 MCP 服务器在 /tools 端点暴露其工具声明
+            response = await self._client.get(f"{self.url}/tools")
+            response.raise_for_status() # 如果状态码是 4xx 或 5xx，则抛出异常
+            tools_data = response.json()
+            
+            if not isinstance(tools_data, list):
+                raise ValueError("MCP server /tools endpoint did not return a list.")
+
+            # 将原始字典转换为 types.FunctionDeclaration 对象
+            self._tool_declarations = [types.FunctionDeclaration(**tool_def) for tool_def in tools_data]
+            logger.info(f"{MODULE_TAG}从 MCP 服务器获取了 {len(self._tool_declarations)} 个工具声明。")
+        except httpx.RequestError as e:
+            logger.error(f"{MODULE_TAG}连接 MCP 服务器 {self.url} 时出错: {e}")
+            raise
+        except json.JSONDecodeError as e:
+            logger.error(f"{MODULE_TAG}解码 MCP 服务器工具响应时出错: {e}。响应内容: {response.text if 'response' in locals() else 'N/A'}")
+            raise
+        except Exception as e:
+            logger.error(f"{MODULE_TAG}MCP 工具初始化期间发生意外错误: {e}")
+            raise
+
+    def to_proto(self) -> types.Tool:
+        """
+        返回 Gemini 的 Tool proto 对象。
+        此方法允许 HttpClientSession 直接作为工具传递给 Gemini。
+        """
+        return types.Tool(function_declarations=self._tool_declarations)
+
+    async def run_tools(self, function_call) -> dict:
+        """
+        通过 MCP 服务器执行远程工具调用。
+        当 Gemini 决定使用此会话提供的工具时，会调用此方法。
+        """
+        function_name = function_call.name
+        # 将 protobuf map 转换为 Python 字典
+        args = {k: v for k, v in function_call.args.items()}
+
+        try:
+            # 假设 MCP 服务器有一个执行工具的端点，例如 /execute_tool
+            response = await self._client.post(
+                f"{self.url}/execute_tool",
+                json={"function_name": function_name, "args": args}
+            )
+            response.raise_for_status()
+            result = response.json()
+            logger.info(f"{MODULE_TAG}MCP 工具 '{function_name}' 执行成功。结果: {result}")
+            return result
+        except httpx.RequestError as e:
+            logger.error(f"{MODULE_TAG}在 MCP 服务器上调用远程工具 '{function_name}' 时出错: {e}")
+            return {"error": f"MCP 服务器通信错误: {e}"}
+        except json.JSONDecodeError as e:
+            logger.error(f"{MODULE_TAG}解码远程工具 '{function_name}' 的响应时出错: {e}。响应内容: {response.text if 'response' in locals() else 'N/A'}")
+            return {"error": f"MCP 服务器返回无效 JSON 响应: {e}"}
+        except Exception as e:
+            logger.error(f"{MODULE_TAG}远程工具 '{function_name}' 执行期间发生意外错误: {e}")
+            return {"error": f"远程工具执行期间发生意外错误: {e}"}
+# ===================== HttpClientSession 类定义 END =====================
+
+
+async def call_gemini_api_stream( # 函数改为异步
     prompt_text,
     screenshot_path=None,
     system_prompt=None,
 ):
     """
-    流式调用 Gemini API，支持文本+图片输入，并处理函数调用。
+    流式调用 Gemini API，支持文本+图片输入，并处理函数调用（本地或通过远程 0xAuto OKX MCP 服务器）。
     每次调用都是新的对话（无历史上下文），但内部会处理多轮函数调用。
     """
     try:
@@ -161,8 +234,34 @@ def call_gemini_api_stream(
         if not _api_key:
             raise RuntimeError("未配置 GEMINI_API_KEY")
 
-        # 修正后的工具声明
-        tools = types.Tool(function_declarations=[get_transaction_history_declaration, get_time_declaration])
+        # 1. 初始化 MCP HTTP 客户端会话
+        # 这会连接到 MCP 服务器，并获取其提供的工具声明
+        logger.info(f"{MODULE_TAG}尝试连接到 0xAuto OKX MCP 服务器: {MCP_SERVER_URL}")
+        mcp_session = HttpClientSession(url=MCP_SERVER_URL)
+        mcp_tools_available = False
+        try:
+            await mcp_session.initialize() # 异步初始化会话，获取工具定义
+            logger.info(f"{MODULE_TAG}成功从 0xAuto OKX MCP 服务器获取工具声明。")
+            mcp_tools_available = True
+        except Exception as e:
+            logger.warning(f"{MODULE_TAG}无法连接到 0xAuto OKX MCP 服务器或获取工具: {e}. 将仅使用本地工具。")
+            # traceback.print_exc() # 如果需要更详细的连接错误信息，可以取消注释
+
+        # 2. 组合所有工具声明（本地 + 远程 MCP）
+        # 将本地工具声明封装在一个 Tool 对象中
+        local_tools_declaration = types.Tool(
+            function_declarations=[get_transaction_history_declaration, get_time_declaration]
+        )
+
+        # # 构建要传递给 Gemini 的工具列表
+        tools_for_gemini = [local_tools_declaration]
+        if mcp_tools_available:
+            # 如果 MCP 服务器可用，将 mcp_session 也加入工具列表
+            # mcp_session 对象会自动提供它从服务器获取的工具声明
+            tools_for_gemini.append(mcp_session)
+            logger.info(f"{MODULE_TAG}将本地工具和 0xAuto OKX MCP 服务器工具一并提供给 Gemini。")
+        else:
+            logger.info(f"{MODULE_TAG}仅将本地工具提供给 Gemini。")
 
         gemini_config = types.GenerateContentConfig(
             temperature=DEFAULT_TEMPERATURE,
@@ -173,30 +272,17 @@ def call_gemini_api_stream(
                 "thinking_budget": DEFAULT_THINKING_BUDGET,
             },
             system_instruction=system_prompt,
-            tools=[tools],
-                    gemini_config = types.GenerateContentConfig(
-            temperature=DEFAULT_TEMPERATURE,
-            top_p=DEFAULT_TOP_P,
-            max_output_tokens=DEFAULT_MAX_OUTPUT_TOKENS,
-            thinking_config={
-                "include_thoughts": DEFAULT_INCLUDE_THOUGHTS,
-                "thinking_budget": DEFAULT_THINKING_BUDGET,
-            },
-            system_instruction=system_prompt,
-            tools=[tools],
-            tools_config=types.ToolsConfig(
-                function_calling_config=types.FunctionCallingConfig(mode="parallel")
+            tools=tools_for_gemini, # 传入组合后的工具列表
+            tool_config=types.ToolConfig(
+                function_calling_config=types.FunctionCallingConfig(mode="AUTO")
             )
         )
-        )
-        # gemini_config["automatic_function_calling"]={"disable": True}
+        
         client = genai.Client(api_key=_api_key)
 
-        # 准备初始内容
+        # 准备初始内容 (此处代码保持不变)
         initial_contents = []
-        
-        # 添加一个初始文本部分
-        initial_contents.append(types.Part(text="用户输入：")) # 添加一个引导文本部分
+        initial_contents.append(types.Part(text="用户输入：")) 
 
         if screenshot_path:
             try:
@@ -204,10 +290,9 @@ def call_gemini_api_stream(
                 with open(screenshot_path, "rb") as f:
                     image_bytes = f.read()
                 image_base64 = base64.b64encode(image_bytes).decode('utf-8')
-                # 将图片的base64编码添加到内容中
                 image_part = types.Part(
                     inline_data=types.Blob(
-                        mime_type='image/png', # 假设图片是png格式
+                        mime_type='image/png', 
                         data=image_base64
                     )
                 )
@@ -215,26 +300,20 @@ def call_gemini_api_stream(
                 logger.info(f"{MODULE_TAG}图片导入完成并添加到内容列表")
             except Exception as e:
                 logger.error(f"{MODULE_TAG}图片处理失败: {e}")
-                # 如果图片导入失败，不中断流程，继续只用文本
 
-        # 将 prompt_text 中的数据转换为文本部分
         if isinstance(prompt_text, dict):
             for key, value in prompt_text.items():
-                # 截图路径已经处理过了，跳过
                 if key != "clipboard_image_path":
                     initial_contents.append(types.Part(text=f"{key}: {value}"))
         else:
-             # 如果 prompt_text 不是字典，作为普通文本处理
              initial_contents.append(types.Part(text=prompt_text))
 
-        # 初始化对话历史
         history = [
             types.Content(parts=initial_contents, role="user")
         ]
 
         final_output_text = ""
         max_turns = 10  # 设置最大交互轮次，防止无限循环
-#增加重试机制
 
         for turn in range(max_turns):
             logger.info(f"{MODULE_TAG}开始第 {turn + 1} 轮 Gemini API 调用...")
@@ -245,71 +324,72 @@ def call_gemini_api_stream(
                     config=gemini_config
                 )
 
-                current_turn_text_chunks = []#本轮的文本
-                function_calls_to_execute = []#本轮的函数调用
-                has_text_in_this_turn = False#本轮是否有文本
-                has_function_calls_in_this_turn = False#本轮是否有函数调用
+                current_turn_text_chunks = []
+                function_calls_to_execute = []
+                has_text_in_this_turn = False
+                has_function_calls_in_this_turn = False
 
-                # 遍历流式响应的每个块
                 for chunk in response_stream:
-                    
                     if chunk.text:
-                        current_turn_text_chunks.append(chunk.text)#将本轮的文本添加到本轮的文本列表中
+                        current_turn_text_chunks.append(chunk.text)
                         print(f"chunk.text:{chunk.text}\n", end="", flush=True)
                         has_text_in_this_turn = True
                     if chunk.function_calls:
-                        function_calls_to_execute.extend(chunk.function_calls)#将本轮的函数调用添加到本轮的函数调用列表中
+                        function_calls_to_execute.extend(chunk.function_calls)
                         print(f"chunk.function_calls:{chunk.function_calls}\n", end="", flush=True)
                         has_function_calls_in_this_turn = True
 
-                # 将模型本轮的响应（文本或函数调用）添加到历史中
                 if has_function_calls_in_this_turn:
-                    """
-                    模型请求调用函数
-                    将本轮的函数调用添加到历史中
-                    执行函数并准备工具响应
-                    将工具响应添加到历史中
-                    继续循环，将工具响应发送回模型，等待最终答案
-                    """
-                    model_parts = [types.Part(function_call=fc) for fc in function_calls_to_execute]#将本轮的函数调用添加到本轮的函数调用列表中
-                    history.append(types.Content(parts=model_parts, role="model"))#将本轮的函数调用添加到历史中
+                    model_parts = [types.Part(function_call=fc) for fc in function_calls_to_execute]
+                    history.append(types.Content(parts=model_parts, role="model"))
 
-                    # 执行函数并准备工具响应
                     tool_responses_parts = []
                     for fc in function_calls_to_execute:
                         function_name = fc.name
-                        # 将 protobuf map 转换为 Python 字典
-                        args = {k: v for k, v in fc.args.items()}
-                        logger.info(f"{MODULE_TAG}执行工具: {function_name}，参数: {args}")
+                        args = {k: v for k, v in fc.args.items()} # 将 protobuf map 转换为 Python 字典
+                        
+                        logger.info(f"{MODULE_TAG}模型请求调用工具: {function_name}，参数: {args}")
+                        
                         try:
-                            # 通过 globals() 访问当前模块中的函数
-                            if function_name in globals() and callable(globals()[function_name]):
-                                tool_result = globals()[function_name](**args)
-                                tool_responses_parts.append(types.Part(function_response=types.FunctionResponse(name=function_name, response=tool_result)))
-                                logger.info(f"{MODULE_TAG}工具 {function_name} 执行成功。结果: {tool_result}")
-                            else:
-                                error_msg = f"函数 {function_name} 未找到或不可调用。"
-                                tool_responses_parts.append(types.Part(function_response=types.FunctionResponse(name=function_name, response={"error": error_msg})))
+                            tool_result = None
+                            # 3. **核心逻辑：判断是本地工具还是远程 MCP 工具**
+                            if function_name == "get_transaction_history":
+                                logger.info(f"{MODULE_TAG}执行本地工具: get_transaction_history")
+                                tool_result = get_transaction_history(**args)
+                            elif function_name == "get_time":
+                                logger.info(f"{MODULE_TAG}执行本地工具: get_time")
+                                tool_result = get_time(**args)
+                            elif function_name.startswith("okx_") and mcp_tools_available:
+                                # 如果函数名以 "okx_" 开头，并且 MCP 服务器可用，则认为是 OKX MCP 工具
+                                logger.info(f"{MODULE_TAG}执行远程 0xAuto OKX MCP 工具: {function_name}")
+                                # 通过 MCP 会话异步执行远程函数调用
+                                tool_result = await mcp_session.run_tools(fc)
+                            elif not mcp_tools_available:
+                                error_msg = f"工具 {function_name} 未知或 MCP 服务器不可用。"
+                                tool_result = {"error": error_msg}
                                 logger.error(f"{MODULE_TAG}{error_msg}")
+                            else:
+                                # 这是 MCP 服务器可用但找不到匹配的工具的情况
+                                error_msg = f"MCP 服务器上工具 {function_name} 未知。"
+                                tool_result = {"error": error_msg}
+                                logger.error(f"{MODULE_TAG}{error_msg}")
+
+                            tool_responses_parts.append(types.Part(function_response=types.FunctionResponse(name=function_name, response=tool_result)))
+                            logger.info(f"{MODULE_TAG}工具 {function_name} 执行完成。结果: {tool_result}")
                         except Exception as e:
                             tb = traceback.format_exc()
                             error_msg = f"执行工具 {function_name} 时发生错误: {e}\n{tb}"
                             tool_responses_parts.append(types.Part(function_response=types.FunctionResponse(name=function_name, response={"error": error_msg})))
                             logger.error(f"{MODULE_TAG}{error_msg}")
                     
-                    # 将工具响应添加到历史中
                     history.append(types.Content(parts=tool_responses_parts, role="tool"))
-                    # 继续循环，将工具响应发送回模型，等待最终答案
                     continue
                 elif has_text_in_this_turn:
-                    # 模型返回了文本，这可能是最终答案
                     model_text_response = "".join(current_turn_text_chunks)
                     history.append(types.Content(parts=[types.Part(text=model_text_response)], role="model"))
                     final_output_text = model_text_response
-                    # 如果只有文本返回，通常意味着对话结束
                     break
                 else:
-                    # 没有文本也没有函数调用，可能是流结束或意外的空响应
                     logger.warning(f"{MODULE_TAG}第 {turn + 1} 轮未收到文本或函数调用。")
                     break
 
@@ -327,34 +407,34 @@ def call_gemini_api_stream(
 
 __all__ = ["call_gemini_api_stream"]
 
-if __name__ == "__main__":
+# ===================== 主运行逻辑 (异步化) =====================
+async def main(): 
     # 设置代理（如果需要）
     # os.environ['HTTP_PROXY'] = config["proxy"]["http_proxy"]
     # os.environ['HTTPS_PROXY'] = config["proxy"]["https_proxy"]
-    #计时
+    
     start_time = time.time()
-    # tools自检
-    logger.info(f"{MODULE_TAG}开始自检")
+    
+    logger.info(f"{MODULE_TAG}开始本地工具自检...")
+    # 保留本地工具的自检
     try:
-        # 传入一个示例 target
         logger.info(f"{MODULE_TAG}get_transaction_history 自检结果: {get_transaction_history('ETH-USDT')}")
         logger.info(f"{MODULE_TAG}get_transaction_history 自检完成")
     except Exception as e:
         logger.error(f"{MODULE_TAG}get_transaction_history 自检失败: {e}")
     try:
-        # 传入一个示例 target
         logger.info(f"{MODULE_TAG}get_time 自检结果: {get_time('当前时间')}")
         logger.info(f"{MODULE_TAG}get_time 自检完成")
     except Exception as e:
         logger.error(f"{MODULE_TAG}get_time 自检失败: {e}")
+    logger.info(f"{MODULE_TAG}本地工具自检完成。")
+
 
     data_json_path = SYSTEM_JSON_PATH
 
     with open(data_json_path, "r", encoding="utf-8") as f:
         data_json = json.load(f)
 
-    # prompt_text 可以是用户输入的原始文本，也可以是结构化数据
-    # 这里为了演示，使用 data_json 中的 user_query
     prompt_text = data_json
     logger.info(f"prompt_text 导入完成: {prompt_text}")
 
@@ -367,41 +447,53 @@ if __name__ == "__main__":
         system_prompt = f.read().strip()
 
     logger.info("开始 Gemini API 流式调用...")
-    # 调用修改后的函数
     max_retries = 3
-    temp=True
-    while temp==True and max_retries>0:#如果失败重试
+    output_data = None 
+    
+    for attempt in range(max_retries): 
         try:
-            response = call_gemini_api_stream(
-            prompt_text=prompt_text,
-            screenshot_path=screenshot_path,
-            system_prompt=system_prompt,
+            response = await call_gemini_api_stream( 
+                prompt_text=prompt_text,
+                screenshot_path=screenshot_path,
+                system_prompt=system_prompt,
             )
             print("\n--- 最终 Gemini 响应 ---")
             print(response)
             response_cleaned = response.replace("```json", "").replace("```", "").strip()
             output_data = json.loads(response_cleaned)
-            break
+            break 
         except Exception as e:
-            logger.error(f"Gemini API 调用失败，重试第 {max_retries} 次: {e}")
-            temp=False
-            max_retries-=1
-            continue
-    # 尝试解析 JSON 并保存
+            logger.error(f"Gemini API 调用失败，尝试重试 ({attempt + 1}/{max_retries}): {e}")
+            if attempt == max_retries - 1: 
+                logger.error("所有重试均已失败。")
+                output_data = response # 保存最后一次的原始响应，即使不是JSON
+            await asyncio.sleep(2) 
+
     end_time = time.time()
     logger.info(f"Gemini API 调用完成，耗时: {end_time - start_time} 秒")
+    
     try:
-        # 去除可能的 markdown 格式
-        
-        with open(config["ETH_gemini_answer_path"], "w", encoding="utf-8") as f:
-            json.dump(output_data, f, indent=4, ensure_ascii=False)
-        print(f"已将解析后的输出内容保存到 {config['ETH_gemini_answer_path']}")
+        if output_data is not None:
+            if isinstance(output_data, dict) or isinstance(output_data, list):
+                with open(config["ETH_gemini_answer_path"], "w", encoding="utf-8") as f:
+                    json.dump(output_data, f, indent=4, ensure_ascii=False)
+                print(f"已将解析后的输出内容保存到 {config['ETH_gemini_answer_path']}")
+            else:
+                with open(config["ETH_gemini_answer_path"].replace(".json", ".txt"), "w", encoding="utf-8") as f:
+                    f.write(str(output_data)) 
+                print(f"响应不是有效的 JSON，已保存为文本文件到 {config['ETH_gemini_answer_path'].replace('.json', '.txt')}")
+        else:
+            logger.error("未获取到有效的 Gemini 响应数据。")
+
     except json.JSONDecodeError as e:
-        logger.error(f"无法将 Gemini 响应解析为 JSON: {e}")
-        logger.error(f"原始响应内容:\n{response}")
-        # 如果不是JSON，直接保存为文本文件
-        with open(config["ETH_gemini_answer_path"].replace(".json", ".json"), "w", encoding="utf-8") as f:
-            f.write(response)
-        print(f"响应不是有效的 JSON，已保存为文本文件到 {config['ETH_gemini_answer_path'].replace('.json', '.json')}")
+        logger.error(f"无法将 Gemini 响应解析为 JSON (保存前): {e}")
+        logger.error(f"原始响应内容 (尝试解析前):\n{response}")
+        with open(config["ETH_gemini_answer_path"].replace(".json", ".txt"), "w", encoding="utf-8") as f:
+            f.write(str(output_data)) 
+        print(f"响应不是有效的 JSON，已保存为文本文件到 {config['ETH_gemini_answer_path'].replace('.json', '.txt')}")
     except Exception as e:
         logger.error(f"保存文件时发生未知错误: {e}")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

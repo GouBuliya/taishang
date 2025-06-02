@@ -2,7 +2,8 @@
     "python_path": {
         "global":"/usr/local/bin/python3.10",
         "venv_selenium":"/root/codespace/Qwen_quant_v1/venv_selenium/bin/python",
-        "venv_okx":"/root/codespace/Qwen_quant_v1/venv_okx/bin/python"
+        "venv_okx":"/root/codespace/Qwen_quant_v1/venv_okx/bin/python",
+        "venv_gemini":"/root/codespace/Qwen_quant_v1/venv_gemini/bin/python"
     },
     "MODEL_NAME": "gemini-2.5-flash-preview-05-20",
     "GEMINI_API_KEY": "AIzaSyCkBZzYyaSvLzHRWGEsoabZbyNzlvAxa98",
