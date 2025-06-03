@@ -10,7 +10,9 @@
     "BTC_data_path": "/root/codespace/Qwen_quant_v1/BTC_code/data.json",
     "ETH_data_path": "/root/codespace/Qwen_quant_v1/ETH_code/data.json",
     "BTC_log_path": "/root/codespace/Qwen_quant_v1/log/nohup.out",
-    "ETH_log_path": "/root/codespace/Qwen_quant_v1/log/nohup.out",
+    "ETH_log_path": "/root/codespace/Qwen_quant_v1/log/trade_gemini.log",
+    "trade_log_path": "/root/codespace/Qwen_quant_v1/log/trade_gemini.log",
+    "effective_log_path": "/root/codespace/Qwen_quant_v1/log/effective_communication.log",
     "SYSTEM_PROMPT_PATH": "/root/codespace/Qwen_quant_v1/config/system_prompt_config.md",
     "bot_system_prompt_path": "/root/codespace/Qwen_quant_v1/config/bot_system_prompt.md",
     "MODEL_CONFIG":{

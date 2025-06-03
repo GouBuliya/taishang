@@ -11,18 +11,47 @@ with open("/root/codespace/Qwen_quant_v1/config/config.json", "r", encoding="utf
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["ETH_log_path"]
+EFFECTIVE_LOG_FILE = config["effective_log_path"]
+
+# 定义一个过滤器来忽略特定模块的警告
+class NoGenaiTypesWarningFilter(logging.Filter):
+    def filter(self, record):
+        return not (record.name == 'google.genai.types' and record.levelno >= logging.WARNING)
+
+# 配置主日志
+stream_handler = logging.StreamHandler()
+stream_handler.addFilter(NoGenaiTypesWarningFilter())
+
 logging.basicConfig(
     level=logging.INFO,
     format='[%(filename)s][%(asctime)s] [%(levelname)s] %(message)s',
     datefmt='%H:%M:%S',
-    handlers=[logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8'), logging.StreamHandler()]
+    handlers=[logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8'), stream_handler]
 )
 
 logger = logging.getLogger("GeminiQuant")
 
+# 配置有效通信日志
+effective_logger = logging.getLogger("EffectiveCommunication")
+effective_logger.setLevel(logging.INFO)
+effective_handler = logging.FileHandler(EFFECTIVE_LOG_FILE, mode='a', encoding='utf-8')
+effective_formatter = logging.Formatter('[%(asctime)s] %(message)s', datefmt='%H:%M:%S')
+effective_handler.setFormatter(effective_formatter)
+effective_logger.addHandler(effective_handler)
 
+# 设置 google.genai.types 模块的日志级别为 ERROR，以屏蔽非文本部分的警告
+logging.getLogger('google.genai.types').setLevel(logging.ERROR)
 
 MODULE_TAG = "[gemini_api_caller] "
+
+# 全局计数器，用于限制 execute_python_code 的调用次数
+execute_python_code_call_count = 0
+
+# 新增：全局计数器，用于限制 get_time 的调用次数
+get_time_call_count = 0
+
+# 新增：全局计数器，用于限制 get_transaction_history 的调用次数
+get_transaction_history_call_count = 0
 
 # 推荐用 GEMINI_API_KEY 作为环境变量名
 API_KEY = config["GEMINI_API_KEY"]
@@ -70,40 +99,47 @@ from google.genai import types
 # ===================== 函数调用工具定义框架 =====================
 
 # 示例：定义一个简单的计算器工具
-def add_numbers_func(num1: float, num2: float):
-    """Adds two numbers and returns the sum."""
-    return num1 + num2
+# def add_numbers_func(num1: float, num2: float):
+#     """Adds two numbers and returns the sum."""
+#     return num1 + num2
 
 # 工具声明列表
 available_tools_declarations = [
-    types.FunctionDeclaration(
-        name="add_numbers",
-        description="Adds two numbers together.",
-        parameters={
-            "type": "object",
-            "properties": {
-                "num1": {
-                    "type": "number",
-                    "description": "The first number."
-                },
-                "num2": {
-                    "type": "number",
-                    "description": "The second number."
-                }
-            },
-            "required": ["num1", "num2"]
-        }
-    ),
+    # types.FunctionDeclaration(
+    #     name="add_numbers",
+    #     description="Adds two numbers together.",
+    #     parameters={
+    #         "type": "object",
+    #         "properties": {
+    #             "num1": {
+    #                 "type": "number",
+    #                 "description": "The first number."
+    #             },
+    #             "num2": {
+    #                 "type": "number",
+    #                 "description": "The second number."
+    #             }
+    #         },
+    #         "required": ["num1", "num2"]
+    #     }
+    # ),
     # 您可以在这里添加更多工具声明
     # types.FunctionDeclaration(...)
 ]
-def get_transaction_history(target: str) -> dict:
+def gettransactionhistory(target: str) -> dict:
     """
     Args:
         target: 目标（例如，'ETH-USDT'）
     Returns:
         最近3条交易历史记录 (JSON 格式)
     """
+    global get_transaction_history_call_count
+    get_transaction_history_call_count += 1
+
+    if get_transaction_history_call_count > 1:
+        logger.warning(f"{MODULE_TAG}gettransactionhistory 调用次数超限，已达到 {get_transaction_history_call_count} 次。")
+        return {"error": "获取交易历史工具调用次数超限，请尝试其他方式获取。"}
+
     import subprocess
     logger.info(f"{MODULE_TAG}运行本地 get_transaction_history.py")
     try:
@@ -126,7 +162,7 @@ def get_transaction_history(target: str) -> dict:
         return {"error": f"本地调用异常: {e}"}
 
 get_transaction_history_declaration = {
-    "name": "get_transaction_history",
+    "name": "gettransactionhistory",
     "description": "获取最近3条交易历史记录 (本地执行)",
     "parameters": {
         "type": "object",
@@ -140,13 +176,20 @@ get_transaction_history_declaration = {
     }
 }
 
-def get_time(target: str) -> dict:
+def gettime(target: str) -> dict:
     """
     Args:
         target: 获取时间的上下文目标（例如，'当前时间'）
     Returns:
         当前时间 (JSON 格式)
     """
+    global get_time_call_count
+    get_time_call_count += 1
+
+    if get_time_call_count > 1:
+        logger.warning(f"{MODULE_TAG}gettime 调用次数超限，已达到 {get_time_call_count} 次。")
+        return {"error": "获取时间工具调用次数超限，请尝试其他方式获取。"}
+
     import subprocess
     logger.info(f"{MODULE_TAG}运行本地 get_time.py")
     try:
@@ -166,7 +209,7 @@ def get_time(target: str) -> dict:
         return {"error": f"本地调用异常: {e}"}
 
 get_time_declaration = {
-    "name": "get_time",
+    "name": "gettime",
     "description": "获取当前时间 (本地执行)",
     "parameters": {
         "type": "object",
@@ -180,16 +223,28 @@ get_time_declaration = {
     }
 }
 
-def execute_python_code(code: str) -> dict:
+def executepythoncode(code: str) -> dict:
     """
     Executes the given Python code string in a separate process.
-
+    Important: The code execution tool can only be used in win rate and expected return calculations and decision position calculations and trading operations. The standard number of uses is 2 times, and the maximum number of uses allowed is 2 times.
     Args:
         code: The Python code to execute as a string.
 
     Returns:
         A dictionary containing the execution result (stdout, stderr, returncode).
     """
+    global execute_python_code_call_count
+    execute_python_code_call_count += 1
+
+    if execute_python_code_call_count > 2:
+        logger.warning(f"{MODULE_TAG}executepythoncode 调用次数超限，已达到 {execute_python_code_call_count} 次。")
+        return {
+            "stdout": "",
+            "stderr": "代码执行工具调用次数超限，请尝试口算完成。",
+            "returncode": 1, # Indicate an error
+            "source": "local_execution_limit_exceeded"
+        }
+
     import subprocess
     import sys
     logger.info(f"{MODULE_TAG}Executing Python code:\n{code}")
@@ -216,8 +271,8 @@ def execute_python_code(code: str) -> dict:
             "source": "local_execution"
         }
 
-execute_python_code_declaration = {
-    "name": "execute_python_code",
+executepythoncode_declaration = {
+    "name": "executepythoncode",
     "description": "Executes arbitrary Python code provided as a string. This tool is useful for performing calculations, processing data, or running any standard Python logic. It returns a dictionary containing the standard output (stdout), standard error (stderr), and the return code of the execution. The code should be provided as a single string in the 'code' parameter.",
     "parameters": {
         "type": "object",
@@ -241,22 +296,22 @@ else:
     all_function_declarations.append(available_tools_declarations)
 
 
-# 将其他单独的函数声明使用 append 方法添加
-all_function_declarations.append(get_transaction_history_declaration)
-all_function_declarations.append(get_time_declaration)
-all_function_declarations.append(execute_python_code_declaration)
+# 将其他单独的函数声明使用 append 方法添加，确保它们是 FunctionDeclaration 对象
+all_function_declarations.append(types.FunctionDeclaration(**get_transaction_history_declaration))
+all_function_declarations.append(types.FunctionDeclaration(**get_time_declaration))
+all_function_declarations.append(types.FunctionDeclaration(**executepythoncode_declaration))
 
 
 # 将工具声明放入一个 Tool 对象列表中
-available_tools = [types.Tool(function_declarations=all_function_declarations)]
+# available_tools = [types.Tool(function_declarations=all_function_declarations)] # 移除此行，将在 __main__ 中动态构建
 
 # 模拟函数执行的映射
 # 将函数声明的名称映射到实际的 Python 函数
 function_map = {
-    "add_numbers": add_numbers_func,
-    "get_transaction_history": get_transaction_history,
-    "get_time": get_time,
-    "execute_python_code": execute_python_code,
+    # "add_numbers": add_numbers_func,
+    "gettransactionhistory": gettransactionhistory,
+    "gettime": gettime,
+    "executepythoncode": executepythoncode,
     # 在这里添加更多函数映射
     # "your_tool_name": your_python_function
 }
@@ -356,6 +411,7 @@ def call_gemini_api_stream(
         output_buffer = []
         collected_function_calls = [] # 用于收集本轮的所有函数调用
         model_response_parts = [] # 用于收集模型本轮的完整响应（文本+函数调用）
+        collected_thought_text_for_current_turn = [] # 新增：用于收集本轮的思考摘要文本
 
         # 迭代 chunk 处理流式输出和函数调用
         for chunk in response:
@@ -373,6 +429,25 @@ def call_gemini_api_stream(
                 output_buffer.append(chunk.text)
                 # 将文本添加到模型响应部分
                 model_response_parts.append(types.Part(text=chunk.text))
+            else:
+                # 尝试从非文本/非函数调用部分中捕获思考摘要
+                # 优先从 chunk.parts 中获取文本，其次从 chunk.candidates.content.parts 中获取
+                if hasattr(chunk, 'parts') and chunk.parts:
+                    for part in chunk.parts:
+                        if hasattr(part, 'text') and part.text:
+                            collected_thought_text_for_current_turn.append(part.text)
+                elif hasattr(chunk, 'candidates') and chunk.candidates:
+                    for candidate in chunk.candidates:
+                        if hasattr(candidate, 'content') and hasattr(candidate.content, 'parts'):
+                            for part in candidate.content.parts:
+                                if hasattr(part, 'text') and part.text:
+                                    collected_thought_text_for_current_turn.append(part.text)
+
+        # 在处理完所有 chunk 后，如果收集到思考摘要，则统一记录
+        if collected_thought_text_for_current_turn:
+            thought_summary = ''.join(collected_thought_text_for_current_turn)
+            logger.info(f"{MODULE_TAG}Captured full thought summary for this turn: {thought_summary}")
+            effective_logger.info(f"[Thought Summary]: {thought_summary}") # 记录思考摘要到有效通信日志
 
         # 在处理完所有 chunk 后，将模型本轮的完整响应添加到历史中
         if model_response_parts:
@@ -381,9 +456,11 @@ def call_gemini_api_stream(
         # 在处理完所有 chunk 后，判断是返回函数调用列表还是文本
         if collected_function_calls:
             logger.info(f"{MODULE_TAG}模型请求调用多个函数: {len(collected_function_calls)} 个")
+            effective_logger.info(f"[Function Calls]: {[{'name': fc.name, 'args': fc.args} for fc in collected_function_calls]}") # 记录函数调用到有效通信日志
             return {"function_calls": collected_function_calls} # 返回函数调用列表
         else:
             output_text = "".join(output_buffer)
+            effective_logger.info(f"[Model Response]: {output_text}") # 记录模型回答到有效通信日志
             return {"text": output_text}
 
 
@@ -410,6 +487,7 @@ def execute_function_call(function_call: types.FunctionCall):
             logger.info(f"{MODULE_TAG}Function {func_name} executed successfully. Result: {result}")
             # 返回符合 Gemini API 期望的 function_response 结构
             # 文档示例格式：{'functionResponse': {'name': '...', 'response': {...}}}
+            effective_logger.info(f"[Function Response] from {func_name}: {result}") # 新增：记录函数返回值
             return types.Part.from_function_response(
                 name=func_name,
                 response={"result": result} # 您的实际函数返回值
@@ -457,26 +535,52 @@ if __name__ == "__main__":
     # 初始化对话历史
     current_prompt_text = initial_prompt_text # Use initial prompt for the first turn
     current_screenshot_path = screenshot_path # Use initial screenshot for the first turn
-    max_turns = 20 # 设置最大交互轮数，防止无限循环
+    max_turns = 6 # 设置最大交互轮数，防止无限循环
     function_response_parts = []
 
     for turn in range(max_turns):
-        logger.info(f"--- 第 {turn + 1} 轮 API 调用 ---")
+        logger.info(f"--- 第 {turn + 1} 轮 API 调用 ---\n")
         prompt_to_send = current_prompt_text if turn == 0 else ""
         screenshot_to_send = current_screenshot_path if turn == 0 else None
+
+        # 动态构建本轮可用的工具列表
+        current_all_function_declarations = list(all_function_declarations) # 复制原始声明，避免修改全局变量
+        
+        tools_to_remove_names = []
+        if get_time_call_count >= 1:
+            tools_to_remove_names.append("gettime")
+        if get_transaction_history_call_count >= 1:
+            tools_to_remove_names.append("gettransactionhistory")
+        if execute_python_code_call_count >= 2:
+            tools_to_remove_names.append("executepythoncode")
+
+        if tools_to_remove_names:
+            original_declarations_len = len(current_all_function_declarations)
+            current_all_function_declarations = [
+                decl for decl in current_all_function_declarations
+                if decl.name not in tools_to_remove_names # 使用字典的 "name" 键进行过滤
+            ]
+            if len(current_all_function_declarations) < original_declarations_len:
+                logger.info(f"{MODULE_TAG}已从本轮可用工具中移除: {tools_to_remove_names}")
+        
+        # 重新构建本轮的 available_tools
+        current_available_tools = [types.Tool(function_declarations=current_all_function_declarations)]
 
         result = call_gemini_api_stream(
             prompt_text=prompt_to_send,#历史到当前轮
             screenshot_path=screenshot_to_send,
             system_prompt_path=SYSTEM_PROMPT_PATH,
-            tools=available_tools,
+            tools=current_available_tools, # 传递动态构建的工具列表
             function_response_parts=function_response_parts
         )
 
         current_screenshot_path = None
         current_prompt_text = ""
         function_response_parts.clear()
-        if "function_calls" in result and result["function_calls"]: # 确保键名正确，且列表不为空
+
+        # 移除工具的逻辑已经前移到本轮开始时构建 current_available_tools
+
+        if "function_calls" in result and result["function_calls"]:
             # 模型请求调用一个或多个函数
             list_of_func_calls = result["function_calls"]
             logger.info(f"{MODULE_TAG}接收到 {len(list_of_func_calls)} 个函数调用请求。")
