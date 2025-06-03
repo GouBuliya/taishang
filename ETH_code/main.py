@@ -114,6 +114,7 @@ if __name__ == "__main__":
         "http": config["proxy"]["http_proxy"],
         "https": config["proxy"]["https_proxy"]
     }
+    begin_time = datetime.now()
     logging.info("截图模块运行中...")
     screenshot_path = run_tradingview_screenshot()
     logging.info(f"截图模块完成，截图路径: {screenshot_path}")
@@ -154,7 +155,9 @@ if __name__ == "__main__":
 
     }
     # 写入 data.json
-
+    end_time = datetime.now()
+    duration = end_time - begin_time
+    logging.info(f"总运行时间: {duration}")
     data_path = config["ETH_data_path"]
     tmp_path = data_path + ".tmp"
     try:

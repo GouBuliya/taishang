@@ -4,20 +4,10 @@ import sys
 import json
 import traceback
 import base64
-import random
-import re
-import time
-# 引入 MCP 相关的 HTTP 客户端
-import asyncio # 用于异步操作
-import httpx # <--- 新增：用于异步 HTTP 请求
-import fastmcp # <--- 新增：引入 fastmcp 库
-import uuid # <--- 新增：用于生成会话 ID
-
 # ===================== 全局配置与初始化 =====================
-
-# 假设 config.json 路径正确且包含所需配置
-config = json.load(open("/root/codespace/Qwen_quant_v1/config/config.json", "r"))
-
+# 从config.json中读取配置
+with open("/root/codespace/Qwen_quant_v1/config/config.json", "r", encoding="utf-8") as f:
+    config = json.load(f)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["ETH_log_path"]
@@ -30,22 +20,33 @@ logging.basicConfig(
 
 logger = logging.getLogger("GeminiQuant")
 
+
+
 MODULE_TAG = "[gemini_api_caller] "
 
+# 推荐用 GEMINI_API_KEY 作为环境变量名
 API_KEY = config["GEMINI_API_KEY"]
-DEFAULT_MODEL_NAME = "gemini-2.5-flash-preview-05-20" # 确保模型名正确且可用
+# 推荐Gemini模型名
+DEFAULT_MODEL_NAME = config["MODEL_NAME"]
 SYSTEM_PROMPT_PATH = config["SYSTEM_PROMPT_PATH"]
-SYSTEM_PROMPT = ""
+# SYSTEM_PROMPT = "" # Moved inside the function to read every time if needed
 
-SYSTEM_JSON_PATH = config["ETH_data_path"]
-if os.path.exists(SYSTEM_PROMPT_PATH):
-    with open(SYSTEM_PROMPT_PATH, 'r', encoding='utf-8') as f:
-        SYSTEM_PROMPT = f.read().strip()
-    if not SYSTEM_PROMPT:
-        logger.warning(f"{MODULE_TAG}系统提示词文件内容为空: {SYSTEM_PROMPT_PATH}.")
-else:
-    logger.warning(f"{MODULE_TAG}系统提示词文件未找到: {SYSTEM_PROMPT_PATH}. SYSTEM_PROMPT 将为空。")
+
+# SYSTEM_JSON_PATH = config["ETH_data_path"] # Used in __main__
+
+
+# if os.path.exists(SYSTEM_PROMPT_PATH):
+#     with open(SYSTEM_PROMPT_PATH, 'r', encoding='utf-8') as f:
+#         SYSTEM_PROMPT = f.read().strip()
+#     if not SYSTEM_PROMPT:
+#         logger.warning(f"{MODULE_TAG}系统提示词文件内容为空: {SYSTEM_PROMPT_PATH}.")
+# else:
+#     logger.warning(f"{MODULE_TAG}系统提示词文件未找到: {SYSTEM_PROMPT_PATH}. SYSTEM_PROMPT 将为空。")
+
+
 # ===================== 全局配置与初始化 END =====================
+
+
 
 DEFAULT_TEMPERATURE = config["MODEL_CONFIG"]["default_temperature"]
 DEFAULT_TOP_P = config["MODEL_CONFIG"]["default_top_p"]
@@ -55,11 +56,47 @@ DEFAULT_INCLUDE_THOUGHTS = config["MODEL_CONFIG"]["default_include_thoughts"]
 
 # ===================== Gemini API 调用主模块 =====================
 
+# try:
+#     from openai import OpenAI
+# except ImportError as e:
+#     raise ImportError("未找到 openai 库，请先运行 'pip install openai' 安装依赖。") from e
+
+
 from google import genai
 from google.genai import types
-from pydantic import BaseModel # 仍在此处，但在此代码中未使用
+# from google.genai import FunctionDeclaration # Import FunctionDeclaration
+# from google.genai import Tool # Import Tool
 
-# ================= 本地 tools (保持不变) =================
+# ===================== 函数调用工具定义框架 =====================
+
+# 示例：定义一个简单的计算器工具
+def add_numbers_func(num1: float, num2: float):
+    """Adds two numbers and returns the sum."""
+    return num1 + num2
+
+# 工具声明列表
+available_tools_declarations = [
+    types.FunctionDeclaration(
+        name="add_numbers",
+        description="Adds two numbers together.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "num1": {
+                    "type": "number",
+                    "description": "The first number."
+                },
+                "num2": {
+                    "type": "number",
+                    "description": "The second number."
+                }
+            },
+            "required": ["num1", "num2"]
+        }
+    ),
+    # 您可以在这里添加更多工具声明
+    # types.FunctionDeclaration(...)
+]
 def get_transaction_history(target: str) -> dict:
     """
     Args:
@@ -142,67 +179,119 @@ get_time_declaration = {
         "required": ["target"]
     }
 }
-# ================= 本地 tools END =================
 
-# ================= MCP Server 配置 =================
-MCP_SERVER_URL = "http://127.0.0.1:3000/mcp" # 你的 0xAuto OKX MCP 服务器地址和端口，直接指向 /mcp 端点
-# ===================================================
+def execute_python_code(code: str) -> dict:
+    """
+    Executes the given Python code string in a separate process.
 
-# ===================== HttpClientSession 类定义 (移除) =====================
-# 原来的 HttpClientSession 类已被移除，改为使用 fastmcp.Client
-# ===================== HttpClientSession 类定义 END =====================
+    Args:
+        code: The Python code to execute as a string.
+
+    Returns:
+        A dictionary containing the execution result (stdout, stderr, returncode).
+    """
+    import subprocess
+    import sys
+    logger.info(f"{MODULE_TAG}Executing Python code:\n{code}")
+    try:
+        # Use sys.executable to ensure the same Python interpreter is used
+        process = subprocess.run([sys.executable, "-c", code],
+                                 capture_output=True,
+                                 text=True,
+                                 timeout=180, # Set a timeout to prevent infinite loops
+                                 check=False) # Don't raise exception on non-zero exit code
+
+        return {
+            "stdout": process.stdout,
+            "stderr": process.stderr,
+            "returncode": process.returncode,
+            "source": "local_execution"
+        }
+    except Exception as e:
+        logger.error(f"{MODULE_TAG}Error executing Python code: {e}")
+        return {
+            "stdout": "",
+            "stderr": str(e),
+            "returncode": 1,
+            "source": "local_execution"
+        }
+
+execute_python_code_declaration = {
+    "name": "execute_python_code",
+    "description": "Executes arbitrary Python code provided as a string. This tool is useful for performing calculations, processing data, or running any standard Python logic. It returns a dictionary containing the standard output (stdout), standard error (stderr), and the return code of the execution. The code should be provided as a single string in the 'code' parameter.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "code": {
+                "type": "string",
+                "description": "The Python code to execute as a string."
+            },
+        },
+        "required": ["code"]
+    }
+}
+#============调用函数==========
+all_function_declarations = []
+
+# 如果 available_tools_declarations 是一个列表，使用 extend 方法将其所有元素添加到 all_function_declarations 中
+if isinstance(available_tools_declarations, list):
+    all_function_declarations.extend(available_tools_declarations)
+else:
+    # 如果 available_tools_declarations 实际上是单个字典，就使用 append
+    all_function_declarations.append(available_tools_declarations)
 
 
-async def call_gemini_api_stream( # 函数改为异步
+# 将其他单独的函数声明使用 append 方法添加
+all_function_declarations.append(get_transaction_history_declaration)
+all_function_declarations.append(get_time_declaration)
+all_function_declarations.append(execute_python_code_declaration)
+
+
+# 将工具声明放入一个 Tool 对象列表中
+available_tools = [types.Tool(function_declarations=all_function_declarations)]
+
+# 模拟函数执行的映射
+# 将函数声明的名称映射到实际的 Python 函数
+function_map = {
+    "add_numbers": add_numbers_func,
+    "get_transaction_history": get_transaction_history,
+    "get_time": get_time,
+    "execute_python_code": execute_python_code,
+    # 在这里添加更多函数映射
+    # "your_tool_name": your_python_function
+}
+
+# ===================== 函数调用工具定义框架 END =====================
+history=[]
+
+def call_gemini_api_stream(
     prompt_text,
     screenshot_path=None,
-    system_prompt=None,
+    system_prompt_path=None, # Renamed to clearly indicate it's a path
+    tools=None,
+    function_response_parts=None,
 ):
     """
-    流式调用 Gemini API，支持文本+图片输入，并处理函数调用（本地或通过远程 0xAuto OKX MCP 服务器）。
-    每次调用都是新的对话（无历史上下文），但内部会处理多轮函数调用。
-    使用 fastmcp.Client 与 MCP 服务器交互。
+    流式调用 Gemini API，支持文本+图片输入、思考模式和函数调用。
+    支持多轮对话（通过 history 全局变量）。
+    注意：此函数在接收到文本或函数调用请求后会返回，需要外部循环处理多轮。
     """
+    system_prompt_content = ""
+    if system_prompt_path and os.path.exists(system_prompt_path):
+        with open(system_prompt_path, "r", encoding="utf-8") as f:
+            system_prompt_content = f.read().strip()
+        if not system_prompt_content:
+             logger.warning(f"{MODULE_TAG}系统提示词文件内容为空: {system_prompt_path}.")
+    else:
+         logger.warning(f"{MODULE_TAG}系统提示词文件未找到或未提供: {system_prompt_path}. SYSTEM_PROMPT 将为空。")
+
+
     try:
         _api_key = API_KEY
         if not _api_key:
             raise RuntimeError("未配置 GEMINI_API_KEY")
 
-        # 1. 初始化 fastmcp 客户端会话
-        # 生成一个唯一的会话 ID
-        session_id = str(uuid.uuid4())
-        logger.info(f"{MODULE_TAG}初始化 fastmcp 客户端，连接到 {MCP_SERVER_URL}，会话 ID: {session_id}")
-        mcp_client = None
-        mcp_tools_available = False
-        try:
-            # fastmcp.Client 的初始化可能会尝试连接并获取工具声明
-            # 将 URL 作为第一个参数传递，FastMCP 会自动推断传输方式
-            # 移除 session_id 参数，由 fastmcp 内部管理
-            mcp_client = fastmcp.Client(MCP_SERVER_URL)
-            logger.info(f"{MODULE_TAG}fastmcp 客户端初始化成功。")
-            # fastmcp 客户端实例本身可以作为工具提供给 Gemini，它内部管理工具声明
-            mcp_tools_available = True
-        except Exception as e:
-            logger.warning(f"{MODULE_TAG}无法初始化 fastmcp 客户端或连接到 MCP 服务器 {MCP_SERVER_URL}: {e}. 将仅使用本地工具。")
-            # traceback.print_exc() # 如果需要更详细的连接错误信息，可以取消注释
-
-        # 2. 组合所有工具声明（本地 + 远程 MCP）
-        # 将本地工具声明封装在一个 Tool 对象中
-        local_tools_declaration = types.Tool(
-            function_declarations=[get_transaction_history_declaration, get_time_declaration],
-            code_execution=types.ToolCodeExecution # 如果需要，保留此项
-        )
-
-        # 构建要传递给 Gemini 的工具列表
-        tools_for_gemini = [local_tools_declaration]
-        if mcp_tools_available and mcp_client:
-            # 如果 fastmcp 客户端可用，将其加入工具列表
-            # fastmcp.Client 实例会自动提供它从服务器获取的工具声明给 Gemini
-            tools_for_gemini.append(mcp_client)
-            logger.info(f"{MODULE_TAG}将本地工具和 fastmcp 客户端（代表远程工具）一并提供给 Gemini。")
-        else:
-            logger.info(f"{MODULE_TAG}仅将本地工具提供给 Gemini。")
-
+        # 将 tools 参数传递给 GenerateContentConfig
         gemini_config = types.GenerateContentConfig(
             temperature=DEFAULT_TEMPERATURE,
             top_p=DEFAULT_TOP_P,
@@ -211,168 +300,144 @@ async def call_gemini_api_stream( # 函数改为异步
                 "include_thoughts": DEFAULT_INCLUDE_THOUGHTS,
                 "thinking_budget": DEFAULT_THINKING_BUDGET,
             },
-            system_instruction=system_prompt,
-            tools=tools_for_gemini, # 传入组合后的工具列表
-            tool_config=types.ToolConfig(
-                function_calling_config=types.FunctionCallingConfig(mode="AUTO")
-            )
+            system_instruction=system_prompt_content, # 使用读取的系统提示词内容
+            tools=tools, # 传递工具列表
+            tool_config={"function_calling_config": {"mode": "any"}},
+            # automaticFunctionCalling={"disable": True} # 移除此行以确保自动函数调用启用
         )
-
+        # gemini_config.append({"automatic_function_calling": {"disable": True}})
+        # gemini_config.append({"tool_config": {"function_calling_config": {"mode": "any"}}})
         client = genai.Client(api_key=_api_key)
-
-        # 准备初始内容 (此处代码保持不变)
-        initial_contents = []
-        initial_contents.append(types.Part(text="用户输入："))
-
+        image = None
         if screenshot_path:
             try:
                 logger.info(f"{MODULE_TAG}图片导入开始:{screenshot_path}")
-                with open(screenshot_path, "rb") as f:
-                    image_bytes = f.read()
-                image_base64 = base64.b64encode(image_bytes).decode('utf-8')
-                image_part = types.Part(
-                    inline_data=types.Blob(
-                        mime_type='image/png',
-                        data=image_base64
-                    )
-                )
-                initial_contents.append(image_part)
-                logger.info(f"{MODULE_TAG}图片导入完成并添加到内容列表")
+                image = client.files.upload(file=screenshot_path)
+                logger.info(f"{MODULE_TAG}图片导入完成")
             except Exception as e:
-                logger.error(f"{MODULE_TAG}图片处理失败: {e}")
+                logger.error(f"{MODULE_TAG}图片导入失败: {e}")
+                image = None
 
-        if isinstance(prompt_text, dict):
-            for key, value in prompt_text.items():
-                if key != "clipboard_image_path":
-                    initial_contents.append(types.Part(text=f"{key}: {value}"))
+        # 构建当前轮次的用户输入内容
+        current_user_parts = []
+        if image:
+            logger.info(f"{MODULE_TAG}DEBUG: Type of image object: {type(image)}")
+            logger.info(f"{MODULE_TAG}DEBUG: Image URI: {image.uri}") # 添加此行以调试 URI
+            current_user_parts.append(types.Part(file_data=types.FileData(file_uri=image.uri))) # 确保 File 对象被正确封装为 Part，使用 file_data 参数
+        if prompt_text:
+            logger.info(f"{MODULE_TAG}DEBUG: Type of prompt_text: {type(prompt_text)}")
+            logger.info(f"{MODULE_TAG}DEBUG: Value of prompt_text: {prompt_text[:100]}...") # Log first 100 chars to avoid very long logs
+            current_user_parts.append(types.Part(text=prompt_text))
+
+        # 将上一轮的函数响应添加到历史中
+        if function_response_parts:
+            # function_response_parts 已经是 list of Content objects，直接扩展历史
+            history.extend(function_response_parts)
+
+        # 将当前用户输入添加到历史中
+        if current_user_parts:
+            history.append(types.Content(role="user", parts=current_user_parts))
+
+        logger.info(f"{MODULE_TAG}DEBUG: Type of history: {type(history)}")
+        logger.info(f"{MODULE_TAG}DEBUG: Length of history: {len(history)}")
+        if history:
+            logger.info(f"{MODULE_TAG}DEBUG: Type of history[0]: {type(history[0])}")
+            if hasattr(history[0], 'parts'):
+                logger.info(f"{MODULE_TAG}DEBUG: Type of history[0].parts: {type(history[0].parts)}")
+                if history[0].parts and hasattr(history[0].parts[0], 'text'):
+                    logger.info(f"{MODULE_TAG}DEBUG: Value of history[0].parts[0].text: {str(history[0].parts[0].text)[:50]}...")
+
+        response = client.models.generate_content_stream(
+            model=DEFAULT_MODEL_NAME,
+            contents=history, # 将整个历史对话内容传递给 API
+            config=gemini_config,
+        )
+
+        output_buffer = []
+        collected_function_calls = [] # 用于收集本轮的所有函数调用
+        model_response_parts = [] # 用于收集模型本轮的完整响应（文本+函数调用）
+
+        # 迭代 chunk 处理流式输出和函数调用
+        for chunk in response:
+            # 检查是否有函数调用请求
+            if chunk.function_calls: # 使用 if chunk.function_calls 更加 Pythonic
+                # 遍历 chunk.function_calls 列表，收集所有 FunctionCall 对象
+                for func_call_obj in chunk.function_calls:
+                    collected_function_calls.append(func_call_obj)
+                # 将函数调用添加到模型响应部分
+                model_response_parts.extend([types.Part(function_call=fc) for fc in chunk.function_calls])
+
+            # 如果没有函数调用，检查是否有文本
+            if chunk.text: # 使用 if chunk.text 更加 Pythonic
+                print(chunk.text, end="", flush=True)
+                output_buffer.append(chunk.text)
+                # 将文本添加到模型响应部分
+                model_response_parts.append(types.Part(text=chunk.text))
+
+        # 在处理完所有 chunk 后，将模型本轮的完整响应添加到历史中
+        if model_response_parts:
+            history.append(types.Content(role="model", parts=model_response_parts))
+
+        # 在处理完所有 chunk 后，判断是返回函数调用列表还是文本
+        if collected_function_calls:
+            logger.info(f"{MODULE_TAG}模型请求调用多个函数: {len(collected_function_calls)} 个")
+            return {"function_calls": collected_function_calls} # 返回函数调用列表
         else:
-             initial_contents.append(types.Part(text=prompt_text))
+            output_text = "".join(output_buffer)
+            return {"text": output_text}
 
-        history = [
-            types.Content(parts=initial_contents, role="user")
-        ]
-
-        final_output_text = ""
-        max_turns = 10  # 设置最大交互轮次，防止无限循环
-
-        for turn in range(max_turns):
-            logger.info(f"{MODULE_TAG}开始第 {turn + 1} 轮 Gemini API 调用...")
-            try:
-                response_stream = client.models.generate_content_stream(
-                    model=DEFAULT_MODEL_NAME,
-                    contents=history,
-                    config=gemini_config
-                )
-
-                current_turn_text_chunks = []
-                function_calls_to_execute = []
-                has_text_in_this_turn = False
-                has_function_calls_in_this_turn = False
-
-                for chunk in response_stream:
-                    if chunk.text:
-                        current_turn_text_chunks.append(chunk.text)
-                        print(f"chunk.text:{chunk.text}\n", end="", flush=True)
-                        has_text_in_this_turn = True
-                    if chunk.function_calls:
-                        function_calls_to_execute.extend(chunk.function_calls)
-                        print(f"chunk.function_calls:{chunk.function_calls}\n", end="", flush=True)
-                        has_function_calls_in_this_turn = True
-
-                if has_function_calls_in_this_turn:
-                    model_parts = [types.Part(function_call=fc) for fc in function_calls_to_execute]
-                    history.append(types.Content(parts=model_parts, role="model"))
-
-                    tool_responses_parts = []
-                    for fc in function_calls_to_execute:
-                        function_name = fc.name
-                        # args = {k: v for k, v in fc.args.items()} # fastmcp.Client.run_tool 直接接受 function_call 对象
-
-                        logger.info(f"{MODULE_TAG}模型请求调用工具: {function_name}，原始参数: {fc.args}")
-
-                        try:
-                            tool_result = None
-                            # 3. **核心逻辑：判断是本地工具还是远程 MCP 工具**
-                            # 检查是否是本地工具
-                            if function_name == "get_transaction_history":
-                                logger.info(f"{MODULE_TAG}执行本地工具: get_transaction_history")
-                                args = {k: v for k, v in fc.args.items()} # 本地工具需要 Python 字典参数
-                                tool_result = get_transaction_history(**args)
-                            elif function_name == "get_time":
-                                logger.info(f"{MODULE_TAG}执行本地工具: get_time")
-                                args = {k: v for k, v in fc.args.items()} # 本地工具需要 Python 字典参数
-                                tool_result = get_time(**args)
-                            # 检查是否是远程 MCP 工具，并且 fastmcp 客户端可用
-                            elif mcp_tools_available and mcp_client:
-                                logger.info(f"{MODULE_TAG}执行远程 0xAuto OKX MCP 工具: {function_name}")
-                                # 通过 fastmcp 客户端异步执行远程函数调用
-                                # fastmcp.Client.run_tool 直接接受 function_call 对象
-                                tool_result = await mcp_client.run_tool(fc)
-                            elif not mcp_tools_available:
-                                error_msg = f"工具 {function_name} 未知或 MCP 服务器不可用。"
-                                tool_result = {"error": error_msg}
-                                logger.error(f"{MODULE_TAG}{error_msg}")
-                            else:
-                                # 这是 fastmcp 客户端可用但找不到匹配的工具的情况 (理论上 fastmcp 会处理)
-                                # 但为了健壮性，添加此检查
-                                error_msg = f"MCP 服务器上工具 {function_name} 未知。" # 或 "fastmcp 客户端未能识别工具 {function_name}"
-                                tool_result = {"error": error_msg}
-                                logger.error(f"{MODULE_TAG}{error_msg}")
-
-                            tool_responses_parts.append(types.Part(function_response=types.FunctionResponse(name=function_name, response=tool_result)))
-                            logger.info(f"{MODULE_TAG}工具 {function_name} 执行完成。结果: {tool_result}")
-                        except Exception as e:
-                            tb = traceback.format_exc()
-                            error_msg = f"执行工具 {function_name} 时发生错误: {e}\n{tb}"
-                            tool_responses_parts.append(types.Part(function_response=types.FunctionResponse(name=function_name, response={"error": error_msg})))
-                            logger.error(f"{MODULE_TAG}{error_msg}")
-
-                    history.append(types.Content(parts=tool_responses_parts, role="tool"))
-                    continue
-                elif has_text_in_this_turn:
-                    model_text_response = "".join(current_turn_text_chunks)
-                    history.append(types.Content(parts=[types.Part(text=model_text_response)], role="model"))
-                    final_output_text = model_text_response
-                    break
-                else:
-                    logger.warning(f"{MODULE_TAG}第 {turn + 1} 轮未收到文本或函数调用。")
-                    break
-
-            except Exception as e:
-                tb = traceback.format_exc()
-                logger.error(f"{MODULE_TAG}Gemini API 调用异常: {e}\n{tb}")
-                return f"[Gemini API 调用异常] {e}\nTraceback:\n{tb}"
-
-        return final_output_text
 
     except Exception as e:
-        tb = traceback.format_exc()
-        logger.error(f"{MODULE_TAG}Gemini API 调用初始化或外部异常: {e}\n{tb}")
-        return f"[Gemini API 调用初始化或外部异常] {e}\nTraceback:\n{tb}"
+        tb = traceback.format_exc()#获取异常信息
+        logger.error(f"{MODULE_TAG}Gemini API调用异常: {e}\n{tb}")
+        return {"error": f"""[Gemini API调用异常] {e}
+Traceback:
+{tb}"""}
+
+
+# 模拟执行函数并返回结果的辅助函数
+def execute_function_call(function_call: types.FunctionCall):
+    """Simulates executing the requested function and returns the result in API-compatible format."""
+    logger.info(f"{MODULE_TAG}调用 function: {function_call}")
+    func_name = function_call.name
+    func_args = function_call.args
+    
+    if func_name in function_map:
+        logger.info(f"{MODULE_TAG}Executing function: {func_name} with args {func_args}")
+        try:
+            # 调用实际的 Python 函数，注意参数需要正确传递
+            result = function_map[func_name](**func_args)
+            logger.info(f"{MODULE_TAG}Function {func_name} executed successfully. Result: {result}")
+            # 返回符合 Gemini API 期望的 function_response 结构
+            # 文档示例格式：{'functionResponse': {'name': '...', 'response': {...}}}
+            return types.Part.from_function_response(
+                name=func_name,
+                response={"result": result} # 您的实际函数返回值
+            )
+        except Exception as e:
+            logger.error(f"{MODULE_TAG}Error executing function {func_name}: {e}")
+            return types.Part.from_function_response(
+                name=func_name,
+                response={"error": f"Error executing function: {e}"}
+            )
+    else:
+        logger.warning(f"{MODULE_TAG}Requested function {func_name} not found in function_map.")
+        return types.Part.from_function_response(
+            name=func_name,
+            response={"error": f"Function {func_name} not found"}
+        )
+
 
 __all__ = ["call_gemini_api_stream"]
 
-# ===================== 主运行逻辑 (异步化) =====================
-async def main():
-    # 设置代理（如果需要）
-    # os.environ['HTTP_PROXY'] = config["proxy"]["http_proxy"]
-    # os.environ['HTTPS_PROXY'] = config["proxy"]["https_proxy"]
+if __name__ == "__main__":
 
-    start_time = time.time()
+    os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
+    os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 
-    logger.info(f"{MODULE_TAG}开始本地工具自检...")
-    # 保留本地工具的自检
-    try:
-        logger.info(f"{MODULE_TAG}get_transaction_history 自检结果: {get_transaction_history('ETH-USDT')}")
-        logger.info(f"{MODULE_TAG}get_transaction_history 自检完成")
-    except Exception as e:
-        logger.error(f"{MODULE_TAG}get_transaction_history 自检失败: {e}")
-    try:
-        logger.info(f"{MODULE_TAG}get_time 自检结果: {get_time('当前时间')}")
-        logger.info(f"{MODULE_TAG}get_time 自检完成")
-    except Exception as e:
-        logger.error(f"{MODULE_TAG}get_time 自检失败: {e}")
-    logger.info(f"{MODULE_TAG}本地工具自检完成。")
+
+    SYSTEM_JSON_PATH = config["ETH_data_path"] # Moved here as it's only used in __main__
+    SYSTEM_PROMPT_PATH = config["SYSTEM_PROMPT_PATH"] # Ensure this is available
 
 
     data_json_path = SYSTEM_JSON_PATH
@@ -380,70 +445,87 @@ async def main():
     with open(data_json_path, "r", encoding="utf-8") as f:
         data_json = json.load(f)
 
-    prompt_text = data_json
-    logger.info(f"prompt_text 导入完成: {prompt_text}")
-
+    # 初始用户输入，包含文本和图片信息
+    initial_prompt_text = json.dumps(data_json, indent=2, ensure_ascii=False)
+    logger.info(f"初始 prompt_text 导入完成") # Avoid printing potentially large json to log
     screenshot_path = data_json.get("clipboard_image_path")
     logger.info(f"screenshot_path 导入完成, path:{screenshot_path}")
 
-    system_prompt_path = SYSTEM_PROMPT_PATH
-    logger.info(f"system_prompt_path 导入完成, path:{system_prompt_path}")
-    with open(system_prompt_path, "r", encoding="utf-8") as f:
-        system_prompt = f.read().strip()
 
-    logger.info("开始 Gemini API 流式调用...")
-    max_retries = 3
-    output_data = None
+    logger.info("开始与 Gemini API 进行多轮交互...")
 
-    for attempt in range(max_retries):
-        try:
-            response = await call_gemini_api_stream(
-                prompt_text=prompt_text,
-                screenshot_path=screenshot_path,
-                system_prompt=system_prompt,
-            )
-            print("\n--- 最终 Gemini 响应 ---")
-            print(response)
-            response_cleaned = response.replace("```json", "").replace("```", "").strip()
-            output_data = json.loads(response_cleaned)
-            break
-        except json.JSONDecodeError as e:
-             logger.error(f"无法将 Gemini 响应解析为 JSON (尝试重试 {attempt + 1}/{max_retries}): {e}")
-             logger.error(f"原始响应内容 (尝试解析前):\n{response}")
-             if attempt == max_retries - 1:
-                 output_data = response # 保存最后一次的原始响应，即使不是JSON
-                 print(f"响应不是有效的 JSON，已保存原始文本。")
-                 break # JSONDecodeError 在这里不应该重试，因为输入格式问题不是临时的
-        except Exception as e:
-            logger.error(f"Gemini API 调用失败，尝试重试 ({attempt + 1}/{max_retries}): {e}")
-            if attempt == max_retries - 1:
-                logger.error("所有重试均已失败。")
-                output_data = response # 保存最后一次的原始响应，即使不是JSON
-            await asyncio.sleep(2)
+    # 初始化对话历史
+    current_prompt_text = initial_prompt_text # Use initial prompt for the first turn
+    current_screenshot_path = screenshot_path # Use initial screenshot for the first turn
+    max_turns = 20 # 设置最大交互轮数，防止无限循环
+    function_response_parts = []
 
-    end_time = time.time()
-    logger.info(f"Gemini API 调用完成，耗时: {end_time - start_time} 秒")
+    for turn in range(max_turns):
+        logger.info(f"--- 第 {turn + 1} 轮 API 调用 ---")
+        prompt_to_send = current_prompt_text if turn == 0 else ""
+        screenshot_to_send = current_screenshot_path if turn == 0 else None
 
-    try:
-        if output_data is not None:
-            # 检查 output_data 是否是有效的 JSON 数据（字典或列表）
-            if isinstance(output_data, dict) or isinstance(output_data, list):
-                with open(config["ETH_gemini_answer_path"], "w", encoding="utf-8") as f:
+        result = call_gemini_api_stream(
+            prompt_text=prompt_to_send,#历史到当前轮
+            screenshot_path=screenshot_to_send,
+            system_prompt_path=SYSTEM_PROMPT_PATH,
+            tools=available_tools,
+            function_response_parts=function_response_parts
+        )
+
+        current_screenshot_path = None
+        current_prompt_text = ""
+        function_response_parts.clear()
+        if "function_calls" in result and result["function_calls"]: # 确保键名正确，且列表不为空
+            # 模型请求调用一个或多个函数
+            list_of_func_calls = result["function_calls"]
+            logger.info(f"{MODULE_TAG}接收到 {len(list_of_func_calls)} 个函数调用请求。")
+
+            # 将模型请求的所有 function_calls 添加到历史
+            # 每个 function_call 都是一个 Part
+            model_parts = [fc for fc in list_of_func_calls]
+            # 模拟执行所有函数并收集结果
+            for func_call_obj in list_of_func_calls:
+                logger.info(f"{MODULE_TAG}模拟执行函数: {func_call_obj.name} 参数: {func_call_obj.args}")
+                response_part = execute_function_call(func_call_obj) # execute_function_call 应该返回 Part
+                function_response_parts.append(types.Content(role="user", parts=[response_part])) # 直接添加 Content 对象
+            
+            # 将所有函数执行结果添加到历史
+            logger.info(f"{MODULE_TAG}所有函数执行结果已添加到历史，准备下一轮调用。")
+
+            # 继续下一轮循环，将更新后的历史发送给模型
+            continue # Go to the next iteration of the loop
+
+        elif "text" in result:
+            # 收到最终文本响应
+            final_response = result["text"]
+            logger.info(f"{MODULE_TAG}收到最终模型响应，交互结束。")
+            # 可以选择将最终响应添加到历史，但这通常不是必需的
+
+            # 尝试解析 JSON（假设最终响应是 JSON）
+            try:
+                json_response = final_response.replace("```json", "").replace("```", "")
+                output_data = json.loads(json_response)
+                output_file_path = config["ETH_gemini_answer_path"]
+                with open(output_file_path, "w", encoding="utf-8") as f:
                     json.dump(output_data, f, indent=4, ensure_ascii=False)
-                print(f"已将解析后的输出内容保存到 {config['ETH_gemini_answer_path']}")
-            else:
-                 # 如果不是字典或列表，则认为是原始文本响应，保存为 txt
-                txt_output_path = config["ETH_gemini_answer_path"].replace(".json", ".txt")
-                with open(txt_output_path, "w", encoding="utf-8") as f:
-                    f.write(str(output_data))
-                print(f"响应不是有效的 JSON，已保存为文本文件到 {txt_output_path}")
+                print(f"{MODULE_TAG}已将解析后的输出内容保存到 {output_file_path}")
+            except json.JSONDecodeError as e:
+                logger.error(f"{MODULE_TAG}解析最终响应为 JSON 失败: {e}")
+                print(f"{MODULE_TAG}错误：无法解析最终模型响应为 JSON。")
+                print(f"""原始响应内容：
+{final_response}""")
 
-        else:
-            logger.error("未获取到有效的 Gemini 响应数据。")
+            break # Exit the loop as we received the final text response
 
-    except Exception as e:
-        logger.error(f"保存文件时发生未知错误: {e}")
+        elif "error" in result:
+            # API 调用发生错误
+            logger.error(f"""{MODULE_TAG}API 调用发生错误:
+{result['error']}""")
+            print(f"""{MODULE_TAG}API 调用发生错误:
+{result['error']}""")
+            break # Exit the loop on error
 
-
-if __name__ == "__main__":
-    asyncio.run(main())
+    else:
+        logger.warning(f"{MODULE_TAG}达到最大交互轮数 ({max_turns})，交互结束。可能未收到最终响应。")
+        print(f"{MODULE_TAG}警告：达到最大交互轮数 ({max_turns})，交互结束。可能未收到最终响应。请检查模型行为或增加最大轮数。")
