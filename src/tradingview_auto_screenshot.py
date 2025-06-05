@@ -4,8 +4,11 @@ import logging
 import requests # Import the requests library
 
 # Load configuration
-config = json.load(open("/root/codespace/taishang/config/config.json", "r"))
-
+config = json.load(open("config/config.json", "r"))
+http_proxy = config["proxy"]["http_proxy"]
+https_proxy = config["proxy"]["https_proxy"]
+os.environ["http_proxy"] = http_proxy
+os.environ["https_proxy"] = https_proxy
 # Configuration
 SAVE_DIR = config["cache_screenshot_path"]
 

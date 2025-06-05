@@ -1,13 +1,13 @@
 {
-    "config_path": "/root/codespace/taishang/config/config.json",
-    "main_log_path": "/root/codespace/taishang/logs/main.log",
+    "config_path": "config/config.json",
+    "main_log_path": "logs/main.log",
     "screenshot_server_url": "http://127.0.0.1:5002/screenshot",
-    "cache_screenshot_path": "/root/codespace/taishang/data/cache_screenshot",
+    "cache_screenshot_path": "data/cache_screenshot",
     "proxy": {
-        "http_proxy": "http://127.0.0.1:7890",
-        "https_proxy": "http://127.0.0.1:7890"
+        "http_proxy": "http://127.0.0.1:1080",
+        "https_proxy": "http://127.0.0.1:1080"
     },
-    "data_path": "/root/codespace/taishang/data/data.json",
+    "data_path": "data/data.json",
     "okx":{
         "api_key":"e4690480-5f46-4f5c-9046-bced6c333bf9",
         "secret_key":"7C676520EDE0CF56479E0A13CB110BF8",
@@ -15,7 +15,7 @@
         "flag":"1"
     },
     "chrome_profile":{
-        "user_data_dir": "/root/codespace/taishang/data/chrome_profile",
-        "copy_dir": "/root/codespace/taishang/data/chrome_profile_copy"
+        "user_data_dir": "data/chrome_profile",
+        "copy_dir": "data/chrome_profile_copy"
     }
 }

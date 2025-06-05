@@ -9,9 +9,12 @@ from okx.api import Market  # type: ignore
 import numpy as np # 用于处理NaN值和数值运算
 
 
-config = json.load(open("/root/codespace/taishang/config/config.json", "r"))
+config = json.load(open("config/config.json", "r"))
 
-
+http_proxy = config["proxy"]["http_proxy"]
+https_proxy = config["proxy"]["https_proxy"]
+os.environ["http_proxy"] = http_proxy
+os.environ["https_proxy"] = https_proxy
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["main_log_path"]
 MODULE_TAG = "[technical_indicator_collector] "

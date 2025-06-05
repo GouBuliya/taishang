@@ -16,9 +16,12 @@ from technical_indicator_collector import collect_technical_indicators
 from macro_factor_collector import collect_macro_factors
 from get_positions import collect_positions_data
 
-config = json.load(open("/root/codespace/taishang/config/config.json", "r"))
+config = json.load(open("config/config.json", "r"))
 
-
+http_proxy = config["proxy"]["http_proxy"]
+https_proxy = config["proxy"]["https_proxy"]
+os.environ["http_proxy"] = http_proxy
+os.environ["https_proxy"] = https_proxy
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 flag="0"
 marketDataAPI = Market(flag=flag)
@@ -43,10 +46,14 @@ def extract_first_json(text):
     idx = 0
     while idx < len(text):
         try:
+            logging.debug(f"尝试解码从索引 {idx} 开始的文本: {text[idx:]}")
             obj, end = decoder.raw_decode(text[idx:])
+            logging.debug(f"成功解码: {obj}, 结束位置: {end}")
             return obj
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            logging.debug(f"解码失败 (索引 {idx}): {e}")
             idx += 1
+    logging.debug("未找到有效JSON，返回None")
     return None
 
 def run_tradingview_screenshot():
@@ -94,7 +101,14 @@ if __name__ == "__main__":
 
     logging.info("截图模块运行中...")
     module_timings["screenshot_start"] = datetime.now()
-    screenshot_path = run_tradingview_screenshot()
+    #重试3次
+    for i in range(3):
+        screenshot_path = run_tradingview_screenshot()
+        if screenshot_path:
+            break
+        else:
+            logging.error(f"截图模块第{i+1}次运行失败")
+    
     module_timings["screenshot_end"] = datetime.now()
     logging.info(f"截图模块完成，截图路径: {screenshot_path}")
 

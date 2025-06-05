@@ -1,3 +1,13 @@
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "selenium",
+#     "undetected-chromedriver",
+#     "flask",
+#     "requests",
+# ]
+# ///
+
 import time
 import os
 from datetime import datetime
@@ -18,7 +28,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Load configuration
-config = json.load(open("/root/codespace/taishang/config/config.json", "r"))
+config = json.load(open("config/config.json", "r"))
 
 # Configuration
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'
@@ -221,6 +231,15 @@ def health_check():
 if __name__ == '__main__':
     logger.info("截图服务器正在启动...")
     # Clean up any residual chrome processes before starting for a clean slate
+    #网络代理代理
+    http_proxy = config["proxy"]["http_proxy"]
+    https_proxy = config["proxy"]["https_proxy"]
+    os.environ["http_proxy"] = http_proxy
+    os.environ["https_proxy"] = https_proxy
+
+
+
+    # 清理残留的chrome进程  
     try:
         subprocess.run(['pkill', '-9', 'chrome'], check=False)
         logger.info('已执行 pkill chrome')

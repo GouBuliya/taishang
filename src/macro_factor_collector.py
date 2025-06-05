@@ -5,14 +5,18 @@ import os
 from okx.api import Public  # type: ignore
 import logging
 from datetime import datetime, timezone, timedelta
+import time
 
-config= json.load(open("/root/codespace/taishang/config/config.json", "r"))
+config= json.load(open("config/config.json", "r"))
 
 flag= config["okx"]["flag"]
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["main_log_path"]
-
+http_proxy = config["proxy"]["http_proxy"]
+https_proxy = config["proxy"]["https_proxy"]
+os.environ["http_proxy"] = http_proxy
+os.environ["https_proxy"] = https_proxy
 # 防止重复添加handler
 if not logging.getLogger("GeminiQuant").handlers:
     logging.basicConfig(
@@ -23,17 +27,6 @@ if not logging.getLogger("GeminiQuant").handlers:
     )
 
 logger = logging.getLogger("GeminiQuant")
-
-
-
-
-
-
-
-
-
-
-
 
 def get_okx_funding_rate():
     publicDataAPI = Public(flag=flag)
@@ -80,9 +73,20 @@ def collect_macro_factors():
     beijing_tz = timezone(timedelta(hours=8))
     now = datetime.now(beijing_tz).replace(microsecond=0).isoformat()
     
+    start_time = time.time()
     funding_rate = get_okx_funding_rate()
+    end_time = time.time()
+    logger.info(f"Funding rate collection took {end_time - start_time:.4f} seconds.")
+
+    start_time = time.time()
     fear_greed = get_fear_greed_index()
+    end_time = time.time()
+    logger.info(f"Fear & greed index collection took {end_time - start_time:.4f} seconds.")
+
+    start_time = time.time()
     open_interest = get_okx_open_interest()
+    end_time = time.time()
+    logger.info(f"Open interest collection took {end_time - start_time:.4f} seconds.")
 
     # 只有在funding_rate为None时不加百分号
     funding_rate_str = f"{funding_rate}%" if funding_rate is not None else None
@@ -93,13 +97,15 @@ def collect_macro_factors():
     return {
         "factors": {
             "funding_rate": funding_rate_str,
-            # 恐惧贪婪指数，字符串格式如“71/100”
+            # 恐惧贪婪指数，字符串格式如"71/100"
             "FGI": f"{fear_greed}/100" if fear_greed is not None else None,
             "open_interest": f"${open_interest*100} million" if open_interest is not None else None
         }
     }
 
 if __name__ == "__main__":
+    #代理
+
     try:
         result = collect_macro_factors()
         print(json.dumps(result, indent=2))

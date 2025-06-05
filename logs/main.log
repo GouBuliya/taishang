@@ -1955,3 +1955,2327 @@ Stacktrace:
 [截图服务器][21:03:20] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
 [截图服务器][21:03:20] [INFO] 已设置代理: http://127.0.0.1:7890
 [截图服务器][21:03:20] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[技术指标模块][22:09:36] [INFO] 截图模块运行中...
+[技术指标模块][22:09:36] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:09:39] [ERROR] 请求截图服务器异常: 502 Server Error: Bad Gateway for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:09:39] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][22:09:39] [INFO] 技术指标模块运行中...
+[技术指标模块][22:09:39] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:09:40] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:09:40] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:09:41] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:09:41] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:09:41] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:09:41] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:09:41] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:09:49] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:09:49] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:09:49] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:09:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][22:09:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:09:50] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][22:09:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:09:51] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][22:09:51] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][22:09:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][22:09:51] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][22:09:51] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:09:52] [INFO] 总运行时间: 0:00:15.534799
+[技术指标模块][22:09:52] [INFO] merged: {
+  "clipboard_image_path": "",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2610.83,
+        "volume": 526564.02,
+        "RSI": 33.16501609639806,
+        "MACD_macd": -4.629525103309788,
+        "MACD_signal": 0.3816371146085633,
+        "ATR": 17.24500613844384,
+        "ADX": 39.68697460311847,
+        "Stoch_K": 20.785730939612833,
+        "Stoch_D": 24.990285225771277,
+        "StochRSI_K": 19.526428924930357,
+        "StochRSI_D": 22.89219639527289,
+        "BB_upper": 2677.612846311752,
+        "BB_lower": 2596.641153688248,
+        "BB_middle": 2637.127,
+        "EMA5": 2614.978107116498,
+        "EMA21": 2628.101815236978,
+        "EMA55": 2625.060423160909,
+        "EMA144": 2613.4383984633814,
+        "EMA200": 2608.9456986988716,
+        "VWAP": 2620.6746727681493
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2492.64,
+        "volume": 925585.22,
+        "RSI": 36.53988228326044,
+        "MACD_macd": -10.482641307251015,
+        "MACD_signal": -8.66608065312304,
+        "ATR": 24.35656055121376,
+        "ADX": 46.881266444939854,
+        "Stoch_K": 32.905138339920775,
+        "Stoch_D": 30.508893280632353,
+        "StochRSI_K": 23.771314430099384,
+        "StochRSI_D": 17.308717561332955,
+        "BB_upper": 2553.398057529781,
+        "BB_lower": 2476.033942470219,
+        "BB_middle": 2514.716,
+        "EMA5": 2497.806962268599,
+        "EMA21": 2514.2258684124386,
+        "EMA55": 2540.325030085696,
+        "EMA144": 2569.4332306437627,
+        "EMA200": 2575.529339634785,
+        "VWAP": 2582.916517779724
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0229%",
+      "FGI": "57/100",
+      "open_interest": "$3466795332430.0034 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2589.04",
+        "lastSz": "5",
+        "askPx": "2589.04",
+        "askSz": "1346.62",
+        "bidPx": "2589.03",
+        "bidSz": "1384.14",
+        "open24h": "2599.51",
+        "high24h": "2678.78",
+        "low24h": "2578.02",
+        "volCcy24h": "4131903.77",
+        "vol24h": "41319037.7",
+        "ts": "1749132591550",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T22:09:52+08:00"
+}
+[技术指标模块][22:09:52] [ERROR] 写入data.json失败: [Errno 2] No such file or directory: 'taishang/data/data.json.tmp'
+[技术指标模块][22:11:19] [INFO] 截图模块运行中...
+[技术指标模块][22:11:19] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:11:22] [ERROR] 请求截图服务器异常: 502 Server Error: Bad Gateway for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:11:22] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][22:11:22] [INFO] 技术指标模块运行中...
+[技术指标模块][22:11:22] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:11:22] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:11:22] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:11:23] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:11:23] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:11:24] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:11:24] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:11:24] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:11:31] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:11:31] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:11:31] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:11:31] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][22:11:31] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:11:31] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][22:11:32] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:11:32] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][22:11:32] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][22:11:32] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][22:11:32] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][22:11:32] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:11:33] [INFO] 总运行时间: 0:00:13.759816
+[技术指标模块][22:11:33] [INFO] merged: {
+  "clipboard_image_path": "",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2610.83,
+        "volume": 526564.02,
+        "RSI": 33.16501609639806,
+        "MACD_macd": -4.629525103309788,
+        "MACD_signal": 0.3816371146085633,
+        "ATR": 17.24500613844384,
+        "ADX": 39.68697460311847,
+        "Stoch_K": 20.785730939612833,
+        "Stoch_D": 24.990285225771277,
+        "StochRSI_K": 19.526428924930357,
+        "StochRSI_D": 22.89219639527289,
+        "BB_upper": 2677.612846311752,
+        "BB_lower": 2596.641153688248,
+        "BB_middle": 2637.127,
+        "EMA5": 2614.978107116498,
+        "EMA21": 2628.101815236978,
+        "EMA55": 2625.060423160909,
+        "EMA144": 2613.4383984633814,
+        "EMA200": 2608.9456986988716,
+        "VWAP": 2620.6746727681493
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2492.64,
+        "volume": 925585.22,
+        "RSI": 36.53988228326044,
+        "MACD_macd": -10.482641307251015,
+        "MACD_signal": -8.66608065312304,
+        "ATR": 24.35656055121376,
+        "ADX": 46.881266444939854,
+        "Stoch_K": 32.905138339920775,
+        "Stoch_D": 30.508893280632353,
+        "StochRSI_K": 23.771314430099384,
+        "StochRSI_D": 17.308717561332955,
+        "BB_upper": 2553.398057529781,
+        "BB_lower": 2476.033942470219,
+        "BB_middle": 2514.716,
+        "EMA5": 2497.806962268599,
+        "EMA21": 2514.2258684124386,
+        "EMA55": 2540.325030085696,
+        "EMA144": 2569.4332306437627,
+        "EMA200": 2575.529339634785,
+        "VWAP": 2582.916517779724
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0227%",
+      "FGI": "57/100",
+      "open_interest": "$3466799167852.0044 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2588.02",
+        "lastSz": "0.74",
+        "askPx": "2588.02",
+        "askSz": "258.1",
+        "bidPx": "2588.01",
+        "bidSz": "1969.46",
+        "open24h": "2602.39",
+        "high24h": "2678.78",
+        "low24h": "2578.02",
+        "volCcy24h": "4123603.621",
+        "vol24h": "41236036.21",
+        "ts": "1749132692825",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T22:11:33+08:00"
+}
+[技术指标模块][22:11:33] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][22:11:33] [INFO] 截图模块运行时间: 0:00:02.611006
+[技术指标模块][22:11:33] [INFO] 技术指标模块运行时间: 0:00:01.822727
+[技术指标模块][22:11:33] [INFO] 宏观因子模块运行时间: 0:00:07.110604
+[技术指标模块][22:11:33] [INFO] OKX 持仓模块运行时间: 0:00:01.581282
+[技术指标模块][22:11:33] [INFO] --------------------------
+[技术指标模块][22:13:28] [INFO] 截图模块运行中...
+[技术指标模块][22:13:28] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:13:31] [ERROR] 请求截图服务器异常: 502 Server Error: Bad Gateway for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:13:31] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][22:13:31] [INFO] 技术指标模块运行中...
+[技术指标模块][22:13:31] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:13:32] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:13:32] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[截图服务器][22:26:26] [INFO] 截图服务器正在启动...
+[截图服务器][22:26:26] [INFO] 已执行 pkill chrome
+[截图服务器][22:26:26] [INFO] 启动时主动清理内存...
+[截图服务器][22:26:26] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:26:26] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:26:26] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:26:26] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:26:26] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:26:26] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:26:26] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:26:26] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:26:31] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:26:31] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:26:31] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:26:32] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x5d876c23d71a <unknown>
+#1 0x5d876bce00a0 <unknown>
+#2 0x5d876bcd7177 <unknown>
+#3 0x5d876bcc8199 <unknown>
+#4 0x5d876bcc9e8d <unknown>
+#5 0x5d876bcc852e <unknown>
+#6 0x5d876bcc7ece <unknown>
+#7 0x5d876bcc7ba2 <unknown>
+#8 0x5d876bcc59ef <unknown>
+#9 0x5d876bcc61aa <unknown>
+#10 0x5d876bce35d9 <unknown>
+#11 0x5d876bd7deb5 <unknown>
+#12 0x5d876bd573a2 <unknown>
+#13 0x5d876bd7d2a0 <unknown>
+#14 0x5d876bd57173 <unknown>
+#15 0x5d876bd23d4b <unknown>
+#16 0x5d876bd249b1 <unknown>
+#17 0x5d876c2028cb <unknown>
+#18 0x5d876c2067ca <unknown>
+#19 0x5d876c1ea622 <unknown>
+#20 0x5d876c207354 <unknown>
+#21 0x5d876c1cf45f <unknown>
+#22 0x5d876c22b4f8 <unknown>
+#23 0x5d876c22b6d6 <unknown>
+#24 0x5d876c23c586 <unknown>
+#25 0x7f6b6709caa4 <unknown>
+#26 0x7f6b67129c3c <unknown>
+
+[截图服务器][22:26:32] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][22:26:57] [INFO] 截图服务器正在启动...
+[截图服务器][22:26:57] [INFO] 已执行 pkill chrome
+[截图服务器][22:26:57] [INFO] 启动时主动清理内存...
+[截图服务器][22:26:57] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:26:57] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:26:57] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:26:57] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:26:57] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:26:57] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:26:57] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:26:57] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:26:59] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:27:01] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:27:01] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:27:01] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:27:01] [INFO] 浏览器初始化成功。
+[截图服务器][22:27:01] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][22:27:01] [INFO] [33mPress CTRL+C to quit[0m
+[截图服务器][22:27:15] [INFO] 截图服务器正在启动...
+[截图服务器][22:27:15] [INFO] 已执行 pkill chrome
+[截图服务器][22:27:15] [INFO] 启动时主动清理内存...
+[截图服务器][22:27:15] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:27:15] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:27:15] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:27:15] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:27:15] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:27:15] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:27:15] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:27:15] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:27:18] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:27:18] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:27:18] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:27:18] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x5f3c0712d71a <unknown>
+#1 0x5f3c06bd00a0 <unknown>
+#2 0x5f3c06bc7177 <unknown>
+#3 0x5f3c06bb8199 <unknown>
+#4 0x5f3c06bb9e8d <unknown>
+#5 0x5f3c06bb852e <unknown>
+#6 0x5f3c06bb7ece <unknown>
+#7 0x5f3c06bb7ba2 <unknown>
+#8 0x5f3c06bb59ef <unknown>
+#9 0x5f3c06bb61aa <unknown>
+#10 0x5f3c06bd35d9 <unknown>
+#11 0x5f3c06c6deb5 <unknown>
+#12 0x5f3c06c473a2 <unknown>
+#13 0x5f3c06c6d2a0 <unknown>
+#14 0x5f3c06c47173 <unknown>
+#15 0x5f3c06c13d4b <unknown>
+#16 0x5f3c06c149b1 <unknown>
+#17 0x5f3c070f28cb <unknown>
+#18 0x5f3c070f67ca <unknown>
+#19 0x5f3c070da622 <unknown>
+#20 0x5f3c070f7354 <unknown>
+#21 0x5f3c070bf45f <unknown>
+#22 0x5f3c0711b4f8 <unknown>
+#23 0x5f3c0711b6d6 <unknown>
+#24 0x5f3c0712c586 <unknown>
+#25 0x71077689caa4 <unknown>
+#26 0x710776929c3c <unknown>
+
+[截图服务器][22:27:18] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][22:27:20] [INFO] 截图服务器正在启动...
+[截图服务器][22:27:20] [INFO] 已执行 pkill chrome
+[截图服务器][22:27:20] [INFO] 启动时主动清理内存...
+[截图服务器][22:27:20] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:27:21] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:27:21] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:27:21] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:27:21] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:27:21] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:27:21] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:27:21] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:27:22] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:27:22] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:27:22] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:27:22] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x5832b8fd171a <unknown>
+#1 0x5832b8a740a0 <unknown>
+#2 0x5832b8a6b177 <unknown>
+#3 0x5832b8a5c199 <unknown>
+#4 0x5832b8a5de8d <unknown>
+#5 0x5832b8a5c52e <unknown>
+#6 0x5832b8a5bece <unknown>
+#7 0x5832b8a5bba2 <unknown>
+#8 0x5832b8a599ef <unknown>
+#9 0x5832b8a5a1aa <unknown>
+#10 0x5832b8a775d9 <unknown>
+#11 0x5832b8b11eb5 <unknown>
+#12 0x5832b8aeb3a2 <unknown>
+#13 0x5832b8b112a0 <unknown>
+#14 0x5832b8aeb173 <unknown>
+#15 0x5832b8ab7d4b <unknown>
+#16 0x5832b8ab89b1 <unknown>
+#17 0x5832b8f968cb <unknown>
+#18 0x5832b8f9a7ca <unknown>
+#19 0x5832b8f7e622 <unknown>
+#20 0x5832b8f9b354 <unknown>
+#21 0x5832b8f6345f <unknown>
+#22 0x5832b8fbf4f8 <unknown>
+#23 0x5832b8fbf6d6 <unknown>
+#24 0x5832b8fd0586 <unknown>
+#25 0x7b02bc49caa4 <unknown>
+#26 0x7b02bc529c3c <unknown>
+
+[截图服务器][22:27:22] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][22:27:24] [INFO] 截图服务器正在启动...
+[截图服务器][22:27:24] [INFO] 已执行 pkill chrome
+[截图服务器][22:27:24] [INFO] 启动时主动清理内存...
+[截图服务器][22:27:24] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:27:24] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:27:24] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:27:24] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:27:24] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:27:24] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:27:24] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:27:24] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:27:26] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:27:27] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:27:27] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:27:27] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=137.0.7151.68)
+Stacktrace:
+#0 0x59a0f59fe71a <unknown>
+#1 0x59a0f54a10a0 <unknown>
+#2 0x59a0f5498177 <unknown>
+#3 0x59a0f5489199 <unknown>
+#4 0x59a0f548ae8d <unknown>
+#5 0x59a0f548952e <unknown>
+#6 0x59a0f5488ece <unknown>
+#7 0x59a0f5488ba2 <unknown>
+#8 0x59a0f54869ef <unknown>
+#9 0x59a0f54871aa <unknown>
+#10 0x59a0f54a45d9 <unknown>
+#11 0x59a0f553eeb5 <unknown>
+#12 0x59a0f55183a2 <unknown>
+#13 0x59a0f553e2a0 <unknown>
+#14 0x59a0f5518173 <unknown>
+#15 0x59a0f54e4d4b <unknown>
+#16 0x59a0f54e59b1 <unknown>
+#17 0x59a0f59c38cb <unknown>
+#18 0x59a0f59c77ca <unknown>
+#19 0x59a0f59ab622 <unknown>
+#20 0x59a0f59c8354 <unknown>
+#21 0x59a0f599045f <unknown>
+#22 0x59a0f59ec4f8 <unknown>
+#23 0x59a0f59ec6d6 <unknown>
+#24 0x59a0f59fd586 <unknown>
+#25 0x78bee489caa4 <unknown>
+#26 0x78bee4929c3c <unknown>
+
+[截图服务器][22:27:27] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][22:28:48] [INFO] 截图服务器正在启动...
+[截图服务器][22:28:48] [INFO] 已执行 pkill chrome
+[截图服务器][22:28:48] [INFO] 启动时主动清理内存...
+[截图服务器][22:28:48] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:28:48] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:28:48] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:28:48] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:28:48] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:28:48] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:28:48] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:28:48] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:28:50] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:28:50] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:28:50] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:28:50] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x615dfd97c71a <unknown>
+#1 0x615dfd41f0a0 <unknown>
+#2 0x615dfd416177 <unknown>
+#3 0x615dfd407199 <unknown>
+#4 0x615dfd408e8d <unknown>
+#5 0x615dfd40752e <unknown>
+#6 0x615dfd406ece <unknown>
+#7 0x615dfd406ba2 <unknown>
+#8 0x615dfd4049ef <unknown>
+#9 0x615dfd4051aa <unknown>
+#10 0x615dfd4225d9 <unknown>
+#11 0x615dfd4bceb5 <unknown>
+#12 0x615dfd4963a2 <unknown>
+#13 0x615dfd4bc2a0 <unknown>
+#14 0x615dfd496173 <unknown>
+#15 0x615dfd462d4b <unknown>
+#16 0x615dfd4639b1 <unknown>
+#17 0x615dfd9418cb <unknown>
+#18 0x615dfd9457ca <unknown>
+#19 0x615dfd929622 <unknown>
+#20 0x615dfd946354 <unknown>
+#21 0x615dfd90e45f <unknown>
+#22 0x615dfd96a4f8 <unknown>
+#23 0x615dfd96a6d6 <unknown>
+#24 0x615dfd97b586 <unknown>
+#25 0x7ed23d49caa4 <unknown>
+#26 0x7ed23d529c3c <unknown>
+
+[截图服务器][22:28:50] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][22:28:52] [INFO] 截图服务器正在启动...
+[截图服务器][22:28:52] [INFO] 已执行 pkill chrome
+[截图服务器][22:28:52] [INFO] 启动时主动清理内存...
+[截图服务器][22:28:52] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:28:52] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:28:52] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:28:52] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:28:52] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:28:52] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:28:52] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][22:28:52] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][22:28:54] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:28:54] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:28:54] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:28:54] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_PROXY_CONNECTION_FAILED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x5b4d53f2d71a <unknown>
+#1 0x5b4d539d00a0 <unknown>
+#2 0x5b4d539c7177 <unknown>
+#3 0x5b4d539b8199 <unknown>
+#4 0x5b4d539b9e8d <unknown>
+#5 0x5b4d539b852e <unknown>
+#6 0x5b4d539b7ece <unknown>
+#7 0x5b4d539b7ba2 <unknown>
+#8 0x5b4d539b59ef <unknown>
+#9 0x5b4d539b61aa <unknown>
+#10 0x5b4d539d35d9 <unknown>
+#11 0x5b4d53a6deb5 <unknown>
+#12 0x5b4d53a473a2 <unknown>
+#13 0x5b4d53a6d2a0 <unknown>
+#14 0x5b4d53a47173 <unknown>
+#15 0x5b4d53a13d4b <unknown>
+#16 0x5b4d53a149b1 <unknown>
+#17 0x5b4d53ef28cb <unknown>
+#18 0x5b4d53ef67ca <unknown>
+#19 0x5b4d53eda622 <unknown>
+#20 0x5b4d53ef7354 <unknown>
+#21 0x5b4d53ebf45f <unknown>
+#22 0x5b4d53f1b4f8 <unknown>
+#23 0x5b4d53f1b6d6 <unknown>
+#24 0x5b4d53f2c586 <unknown>
+#25 0x71028f09caa4 <unknown>
+#26 0x71028f129c3c <unknown>
+
+[截图服务器][22:28:54] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][22:30:43] [INFO] 截图服务器正在启动...
+[截图服务器][22:30:43] [INFO] 已执行 pkill chrome
+[截图服务器][22:30:43] [INFO] 启动时主动清理内存...
+[截图服务器][22:30:43] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:30:43] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:30:43] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:30:43] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:30:43] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:30:43] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:30:43] [INFO] 已设置代理: http://127.0.0.1:1080
+[截图服务器][22:30:43] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:1080']
+[截图服务器][22:30:45] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:30:46] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:30:46] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:31:03] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:31:03] [INFO] 浏览器初始化成功。
+[截图服务器][22:31:03] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][22:31:03] [INFO] [33mPress CTRL+C to quit[0m
+[技术指标模块][22:31:40] [INFO] 截图模块运行中...
+[技术指标模块][22:31:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:31:40] [INFO] 收到截图请求。
+[截图服务器][22:31:40] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:31:40] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:31:40] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:31:40] [INFO] 快捷键已发送
+[截图服务器][22:31:41] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223141.png
+[截图服务器][22:31:41] [INFO] 127.0.0.1 - - [05/Jun/2025 22:31:41] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][22:31:41] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223141.png
+[技术指标模块][22:31:41] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223141.png
+[技术指标模块][22:31:41] [INFO] 技术指标模块运行中...
+[技术指标模块][22:31:41] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:31:41] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:31:41] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:31:42] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:31:42] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:31:43] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:31:43] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:31:43] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:31:51] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:31:51] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:31:51] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:31:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][22:31:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:31:51] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][22:31:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:31:52] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][22:31:52] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][22:31:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][22:31:52] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][22:31:52] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:31:53] [INFO] 总运行时间: 0:00:12.951407
+[技术指标模块][22:31:53] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223141.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2619.17,
+        "volume": 471618.35,
+        "RSI": 39.066810109089,
+        "MACD_macd": -2.6450495355752537,
+        "MACD_signal": 2.9664865042163138,
+        "ATR": 18.770443161124376,
+        "ADX": 40.901844633433214,
+        "Stoch_K": 30.50827698764282,
+        "Stoch_D": 23.206652677391826,
+        "StochRSI_K": 26.568197239264542,
+        "StochRSI_D": 14.338308673003077,
+        "BB_upper": 2676.228714394858,
+        "BB_lower": 2602.664285605142,
+        "BB_middle": 2639.4465,
+        "EMA5": 2618.9232410121203,
+        "EMA21": 2631.480287711979,
+        "EMA55": 2625.837795673314,
+        "EMA144": 2611.5982222395887,
+        "EMA200": 2606.1246237527503,
+        "VWAP": 2617.890629471473
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2492.64,
+        "volume": 925585.22,
+        "RSI": 36.53988228326044,
+        "MACD_macd": -10.482641307251015,
+        "MACD_signal": -8.66608065312304,
+        "ATR": 24.35656055121376,
+        "ADX": 46.881266444939854,
+        "Stoch_K": 32.905138339920775,
+        "Stoch_D": 30.508893280632353,
+        "StochRSI_K": 23.771314430099384,
+        "StochRSI_D": 17.308717561332955,
+        "BB_upper": 2553.398057529781,
+        "BB_lower": 2476.033942470219,
+        "BB_middle": 2514.716,
+        "EMA5": 2497.806962268599,
+        "EMA21": 2514.2258684124386,
+        "EMA55": 2540.325030085696,
+        "EMA144": 2569.4332306437627,
+        "EMA200": 2575.529339634785,
+        "VWAP": 2582.916517779724
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0203%",
+      "FGI": "57/100",
+      "open_interest": "$3466908821700.0093 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2581.02",
+        "lastSz": "0.95",
+        "askPx": "2581.03",
+        "askSz": "406.72",
+        "bidPx": "2581.02",
+        "bidSz": "1382.29",
+        "open24h": "2611.52",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4300667.796",
+        "vol24h": "43006677.96",
+        "ts": "1749133912407",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T22:31:53+08:00"
+}
+[技术指标模块][22:31:53] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][22:31:53] [INFO] 截图模块运行时间: 0:00:01.088595
+[技术指标模块][22:31:53] [INFO] 技术指标模块运行时间: 0:00:01.973484
+[技术指标模块][22:31:53] [INFO] 宏观因子模块运行时间: 0:00:07.971148
+[技术指标模块][22:31:53] [INFO] OKX 持仓模块运行时间: 0:00:01.416986
+[技术指标模块][22:31:53] [INFO] --------------------------
+[截图服务器][22:33:24] [INFO] 截图服务器正在启动...
+[截图服务器][22:33:24] [INFO] 已执行 pkill chrome
+[截图服务器][22:33:24] [INFO] 启动时主动清理内存...
+[截图服务器][22:33:24] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][22:33:24] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:33:24] [INFO] 启动新的Chrome浏览器...
+[截图服务器][22:33:24] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][22:33:24] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][22:33:24] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[截图服务器][22:33:24] [INFO] 已设置代理: http://127.0.0.1:1080
+[截图服务器][22:33:24] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:1080']
+[截图服务器][22:33:27] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][22:33:28] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][22:33:28] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:33:45] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][22:33:45] [INFO] 浏览器初始化成功。
+[截图服务器][22:33:45] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][22:33:45] [INFO] [33mPress CTRL+C to quit[0m
+[技术指标模块][22:34:38] [INFO] 截图模块运行中...
+[技术指标模块][22:34:38] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:34:38] [INFO] 收到截图请求。
+[截图服务器][22:34:38] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:34:38] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:34:38] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:34:38] [INFO] 快捷键已发送
+[截图服务器][22:34:39] [WARNING] 第1次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][22:34:39] [WARNING] 第2次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][22:34:40] [WARNING] 第3次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][22:34:40] [WARNING] 第4次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][22:34:41] [WARNING] 第5次未检测到刚刚下载的K线图片，0秒后重试...
+[截图服务器][22:34:41] [ERROR] 连续多次未检测到刚刚下载的K线图片（请检查下载权限或快捷键是否生效）
+[截图服务器][22:34:41] [INFO] 127.0.0.1 - - [05/Jun/2025 22:34:41] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][22:34:41] [ERROR] 请求截图服务器异常: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:34:41] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][22:34:41] [INFO] 技术指标模块运行中...
+[技术指标模块][22:34:41] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:34:41] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:34:41] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:34:42] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:34:42] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:34:43] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:34:43] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:34:43] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:34:50] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:34:50] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:34:50] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:34:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][22:34:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:34:50] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][22:34:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:34:51] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][22:34:51] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][22:34:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][22:34:51] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][22:34:51] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:34:52] [INFO] 总运行时间: 0:00:14.410019
+[技术指标模块][22:34:52] [INFO] merged: {
+  "clipboard_image_path": "",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2619.17,
+        "volume": 471618.35,
+        "RSI": 39.066810109089,
+        "MACD_macd": -2.6450495355752537,
+        "MACD_signal": 2.9664865042163138,
+        "ATR": 18.770443161124376,
+        "ADX": 40.901844633433214,
+        "Stoch_K": 30.50827698764282,
+        "Stoch_D": 23.206652677391826,
+        "StochRSI_K": 26.568197239264542,
+        "StochRSI_D": 14.338308673003077,
+        "BB_upper": 2676.228714394858,
+        "BB_lower": 2602.664285605142,
+        "BB_middle": 2639.4465,
+        "EMA5": 2618.9232410121203,
+        "EMA21": 2631.480287711979,
+        "EMA55": 2625.837795673314,
+        "EMA144": 2611.5982222395887,
+        "EMA200": 2606.1246237527503,
+        "VWAP": 2617.890629471473
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2492.64,
+        "volume": 925585.22,
+        "RSI": 36.53988228326044,
+        "MACD_macd": -10.482641307251015,
+        "MACD_signal": -8.66608065312304,
+        "ATR": 24.35656055121376,
+        "ADX": 46.881266444939854,
+        "Stoch_K": 32.905138339920775,
+        "Stoch_D": 30.508893280632353,
+        "StochRSI_K": 23.771314430099384,
+        "StochRSI_D": 17.308717561332955,
+        "BB_upper": 2553.398057529781,
+        "BB_lower": 2476.033942470219,
+        "BB_middle": 2514.716,
+        "EMA5": 2497.806962268599,
+        "EMA21": 2514.2258684124386,
+        "EMA55": 2540.325030085696,
+        "EMA144": 2569.4332306437627,
+        "EMA200": 2575.529339634785,
+        "VWAP": 2582.916517779724
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.02%",
+      "FGI": "57/100",
+      "open_interest": "$3466929419010.0127 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2576.53",
+        "lastSz": "9.31",
+        "askPx": "2576.53",
+        "askSz": "655.99",
+        "bidPx": "2576.52",
+        "bidSz": "3211.19",
+        "open24h": "2613.54",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4302112.125",
+        "vol24h": "43021121.25",
+        "ts": "1749134091316",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T22:34:52+08:00"
+}
+[技术指标模块][22:34:52] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][22:34:52] [INFO] 截图模块运行时间: 0:00:03.116360
+[技术指标模块][22:34:52] [INFO] 技术指标模块运行时间: 0:00:01.775448
+[技术指标模块][22:34:52] [INFO] 宏观因子模块运行时间: 0:00:06.948515
+[技术指标模块][22:34:52] [INFO] OKX 持仓模块运行时间: 0:00:01.485652
+[技术指标模块][22:34:52] [INFO] --------------------------
+[技术指标模块][22:35:17] [INFO] 截图模块运行中...
+[技术指标模块][22:35:17] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:35:17] [INFO] 收到截图请求。
+[截图服务器][22:35:17] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:35:17] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:35:18] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:35:18] [INFO] 快捷键已发送
+[截图服务器][22:35:18] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223518.png
+[截图服务器][22:35:18] [INFO] 127.0.0.1 - - [05/Jun/2025 22:35:18] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][22:35:18] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223518.png
+[技术指标模块][22:35:18] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223518.png
+[技术指标模块][22:35:18] [INFO] 技术指标模块运行中...
+[技术指标模块][22:35:18] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:35:19] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:35:19] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:35:20] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:35:20] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:35:20] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:35:20] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:35:20] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:35:27] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:35:27] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:35:27] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:35:27] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][22:35:28] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:35:28] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][22:35:28] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:35:28] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][22:35:28] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][22:35:28] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][22:35:28] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][22:35:28] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:35:29] [INFO] 总运行时间: 0:00:11.633563
+[技术指标模块][22:35:29] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223518.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2619.17,
+        "volume": 471618.35,
+        "RSI": 39.066810109089,
+        "MACD_macd": -2.6450495355752537,
+        "MACD_signal": 2.9664865042163138,
+        "ATR": 18.770443161124376,
+        "ADX": 40.901844633433214,
+        "Stoch_K": 30.50827698764282,
+        "Stoch_D": 23.206652677391826,
+        "StochRSI_K": 26.568197239264542,
+        "StochRSI_D": 14.338308673003077,
+        "BB_upper": 2676.228714394858,
+        "BB_lower": 2602.664285605142,
+        "BB_middle": 2639.4465,
+        "EMA5": 2618.9232410121203,
+        "EMA21": 2631.480287711979,
+        "EMA55": 2625.837795673314,
+        "EMA144": 2611.5982222395887,
+        "EMA200": 2606.1246237527503,
+        "VWAP": 2617.890629471473
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2492.64,
+        "volume": 925585.22,
+        "RSI": 36.53988228326044,
+        "MACD_macd": -10.482641307251015,
+        "MACD_signal": -8.66608065312304,
+        "ATR": 24.35656055121376,
+        "ADX": 46.881266444939854,
+        "Stoch_K": 32.905138339920775,
+        "Stoch_D": 30.508893280632353,
+        "StochRSI_K": 23.771314430099384,
+        "StochRSI_D": 17.308717561332955,
+        "BB_upper": 2553.398057529781,
+        "BB_lower": 2476.033942470219,
+        "BB_middle": 2514.716,
+        "EMA5": 2497.806962268599,
+        "EMA21": 2514.2258684124386,
+        "EMA55": 2540.325030085696,
+        "EMA144": 2569.4332306437627,
+        "EMA200": 2575.529339634785,
+        "VWAP": 2582.916517779724
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.02%",
+      "FGI": "57/100",
+      "open_interest": "$3466935189362.0127 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2577.54",
+        "lastSz": "53.56",
+        "askPx": "2577.54",
+        "askSz": "2188.25",
+        "bidPx": "2577.53",
+        "bidSz": "1095.77",
+        "open24h": "2613.99",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4301306.552",
+        "vol24h": "43013065.52",
+        "ts": "1749134128426",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T22:35:29+08:00"
+}
+[技术指标模块][22:35:29] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][22:35:29] [INFO] 截图模块运行时间: 0:00:01.124183
+[技术指标模块][22:35:29] [INFO] 技术指标模块运行时间: 0:00:01.580200
+[技术指标模块][22:35:29] [INFO] 宏观因子模块运行时间: 0:00:06.840595
+[技术指标模块][22:35:29] [INFO] OKX 持仓模块运行时间: 0:00:01.374994
+[技术指标模块][22:35:29] [INFO] --------------------------
+[技术指标模块][22:36:13] [INFO] 截图模块运行中...
+[技术指标模块][22:36:13] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:36:13] [INFO] 收到截图请求。
+[截图服务器][22:36:13] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:36:13] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:36:14] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:36:14] [INFO] 快捷键已发送
+[截图服务器][22:36:15] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223615.png
+[截图服务器][22:36:15] [INFO] 127.0.0.1 - - [05/Jun/2025 22:36:15] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][22:36:15] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223615.png
+[技术指标模块][22:36:15] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223615.png
+[技术指标模块][22:36:15] [INFO] 技术指标模块运行中...
+[技术指标模块][22:36:15] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:36:15] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:36:15] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:36:16] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:36:16] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:36:16] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:36:16] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:36:16] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:36:23] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:36:23] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:36:23] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:36:24] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][22:36:24] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:36:24] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][22:36:25] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][22:36:25] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][22:36:25] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][22:36:25] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][22:36:25] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][22:36:25] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:36:25] [INFO] 总运行时间: 0:00:11.713471
+[技术指标模块][22:36:25] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_223615.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2619.17,
+        "volume": 471618.35,
+        "RSI": 39.066810109089,
+        "MACD_macd": -2.6450495355752537,
+        "MACD_signal": 2.9664865042163138,
+        "ATR": 18.770443161124376,
+        "ADX": 40.901844633433214,
+        "Stoch_K": 30.50827698764282,
+        "Stoch_D": 23.206652677391826,
+        "StochRSI_K": 26.568197239264542,
+        "StochRSI_D": 14.338308673003077,
+        "BB_upper": 2676.228714394858,
+        "BB_lower": 2602.664285605142,
+        "BB_middle": 2639.4465,
+        "EMA5": 2618.9232410121203,
+        "EMA21": 2631.480287711979,
+        "EMA55": 2625.837795673314,
+        "EMA144": 2611.5982222395887,
+        "EMA200": 2606.1246237527503,
+        "VWAP": 2617.890629471473
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2492.64,
+        "volume": 925585.22,
+        "RSI": 36.53988228326044,
+        "MACD_macd": -10.482641307251015,
+        "MACD_signal": -8.66608065312304,
+        "ATR": 24.35656055121376,
+        "ADX": 46.881266444939854,
+        "Stoch_K": 32.905138339920775,
+        "Stoch_D": 30.508893280632353,
+        "StochRSI_K": 23.771314430099384,
+        "StochRSI_D": 17.308717561332955,
+        "BB_upper": 2553.398057529781,
+        "BB_lower": 2476.033942470219,
+        "BB_middle": 2514.716,
+        "EMA5": 2497.806962268599,
+        "EMA21": 2514.2258684124386,
+        "EMA55": 2540.325030085696,
+        "EMA144": 2569.4332306437627,
+        "EMA200": 2575.529339634785,
+        "VWAP": 2582.916517779724
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.02%",
+      "FGI": "57/100",
+      "open_interest": "$3466952250471.0127 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2572.77",
+        "lastSz": "0.03",
+        "askPx": "2572.77",
+        "askSz": "1176.95",
+        "bidPx": "2572.76",
+        "bidSz": "2310.01",
+        "open24h": "2613.42",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4312276.517",
+        "vol24h": "43122765.17",
+        "ts": "1749134184817",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T22:36:25+08:00"
+}
+[技术指标模块][22:36:25] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][22:36:25] [INFO] 截图模块运行时间: 0:00:01.096937
+[技术指标模块][22:36:25] [INFO] 技术指标模块运行时间: 0:00:01.577763
+[技术指标模块][22:36:25] [INFO] 宏观因子模块运行时间: 0:00:06.811597
+[技术指标模块][22:36:25] [INFO] OKX 持仓模块运行时间: 0:00:01.752529
+[技术指标模块][22:36:25] [INFO] --------------------------
+[技术指标模块][22:52:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:52:40] [ERROR] 无法连接到截图服务器，请确保服务器正在运行: 
+[技术指标模块][22:52:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:52:40] [ERROR] 请求截图服务器异常: 
+[技术指标模块][22:52:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:52:40] [ERROR] 截图服务器返回非JSON响应: invalid json
+[技术指标模块][22:52:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:52:40] [INFO] 截图服务器返回成功，图片路径: /path/to/screenshot.png
+[技术指标模块][22:52:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:52:40] [ERROR] 请求截图服务器超时。
+[技术指标模块][22:55:47] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:55:47] [ERROR] 无法连接到截图服务器，请确保服务器正在运行: 
+[技术指标模块][22:55:47] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:55:47] [ERROR] 请求截图服务器异常: 
+[技术指标模块][22:55:47] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:55:47] [ERROR] 截图服务器返回非JSON响应: invalid json
+[技术指标模块][22:55:47] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:55:47] [INFO] 截图服务器返回成功，图片路径: /path/to/screenshot.png
+[技术指标模块][22:55:47] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:55:47] [ERROR] 请求截图服务器超时。
+[技术指标模块][22:57:31] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:57:31] [ERROR] 无法连接到截图服务器，请确保服务器正在运行: 
+[技术指标模块][22:57:31] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:57:31] [ERROR] 请求截图服务器异常: 
+[技术指标模块][22:57:31] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:57:31] [ERROR] 截图服务器返回非JSON响应: invalid json
+[技术指标模块][22:57:31] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:57:31] [INFO] 截图服务器返回成功，图片路径: /path/to/screenshot.png
+[技术指标模块][22:57:31] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][22:57:31] [ERROR] 请求截图服务器超时。
+[技术指标模块][22:57:33] [INFO] 截图模块运行中...
+[技术指标模块][22:57:33] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:57:33] [INFO] 收到截图请求。
+[截图服务器][22:57:33] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:57:33] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:57:33] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:57:33] [INFO] 快捷键已发送
+[截图服务器][22:57:34] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225734.png
+[截图服务器][22:57:34] [INFO] 127.0.0.1 - - [05/Jun/2025 22:57:34] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][22:57:34] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225734.png
+[技术指标模块][22:57:34] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225734.png
+[技术指标模块][22:57:34] [INFO] 技术指标模块运行中...
+[技术指标模块][22:57:34] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:57:34] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:57:34] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:57:35] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:57:35] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:57:35] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:57:35] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:57:35] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:57:43] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:57:43] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:57:43] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:57:51] [INFO] 截图模块运行中...
+[技术指标模块][22:57:51] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:57:51] [INFO] 收到截图请求。
+[截图服务器][22:57:51] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:57:51] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:57:52] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:57:52] [INFO] 快捷键已发送
+[截图服务器][22:57:52] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225752.png
+[截图服务器][22:57:52] [INFO] 127.0.0.1 - - [05/Jun/2025 22:57:52] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][22:57:52] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225752.png
+[技术指标模块][22:57:52] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225752.png
+[技术指标模块][22:57:52] [INFO] 技术指标模块运行中...
+[技术指标模块][22:57:52] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:57:53] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:57:53] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:57:53] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:57:53] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:57:54] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:57:54] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:57:54] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:58:01] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:58:01] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:58:01] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][22:59:05] [INFO] 截图模块运行中...
+[技术指标模块][22:59:05] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][22:59:05] [INFO] 收到截图请求。
+[截图服务器][22:59:05] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][22:59:05] [INFO] 等待0.5秒加载页面...
+[截图服务器][22:59:05] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][22:59:05] [INFO] 快捷键已发送
+[截图服务器][22:59:06] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225906.png
+[截图服务器][22:59:06] [INFO] 127.0.0.1 - - [05/Jun/2025 22:59:06] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][22:59:06] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225906.png
+[技术指标模块][22:59:06] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_225906.png
+[技术指标模块][22:59:06] [INFO] 技术指标模块运行中...
+[技术指标模块][22:59:06] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][22:59:06] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][22:59:06] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][22:59:07] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][22:59:07] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][22:59:07] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][22:59:07] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:59:07] [INFO] 宏观因子模块运行中...
+[技术指标模块][22:59:15] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][22:59:15] [INFO] OKX 持仓模块运行中...
+[技术指标模块][22:59:15] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:00:52] [INFO] 截图模块运行中...
+[技术指标模块][23:00:52] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:00:52] [INFO] 收到截图请求。
+[截图服务器][23:00:52] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:00:52] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:00:52] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:00:52] [INFO] 快捷键已发送
+[截图服务器][23:00:53] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230053.png
+[截图服务器][23:00:53] [INFO] 127.0.0.1 - - [05/Jun/2025 23:00:53] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:00:53] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230053.png
+[技术指标模块][23:00:53] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230053.png
+[技术指标模块][23:00:53] [INFO] 技术指标模块运行中...
+[技术指标模块][23:00:53] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:00:53] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:00:53] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:00:54] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:00:54] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:00:54] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:00:54] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:00:54] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:01:01] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:01:01] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:01:01] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:01:25] [INFO] 截图模块运行中...
+[技术指标模块][23:01:25] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:01:25] [INFO] 收到截图请求。
+[截图服务器][23:01:25] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:01:25] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:01:26] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:01:26] [INFO] 快捷键已发送
+[截图服务器][23:01:26] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230126.png
+[截图服务器][23:01:26] [INFO] 127.0.0.1 - - [05/Jun/2025 23:01:26] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:01:26] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230126.png
+[技术指标模块][23:01:26] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230126.png
+[技术指标模块][23:01:26] [INFO] 技术指标模块运行中...
+[技术指标模块][23:01:26] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:01:27] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:01:27] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:01:27] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:01:27] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:01:28] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:01:28] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:01:28] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:01:35] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:01:35] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:01:35] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:01:58] [INFO] 截图模块运行中...
+[技术指标模块][23:01:58] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:01:58] [INFO] 收到截图请求。
+[截图服务器][23:01:58] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:01:58] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:01:58] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:01:58] [INFO] 快捷键已发送
+[截图服务器][23:01:59] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230159.png
+[截图服务器][23:01:59] [INFO] 127.0.0.1 - - [05/Jun/2025 23:01:59] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:01:59] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230159.png
+[技术指标模块][23:01:59] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230159.png
+[技术指标模块][23:01:59] [INFO] 技术指标模块运行中...
+[技术指标模块][23:01:59] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:02:00] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:02:00] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:02:00] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:02:00] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:02:02] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:02:02] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:02:02] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:02:09] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:02:09] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:02:09] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:07:05] [INFO] 截图模块运行中...
+[技术指标模块][23:07:05] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:07:05] [INFO] 收到截图请求。
+[截图服务器][23:07:05] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:07:05] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:07:06] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:07:06] [INFO] 快捷键已发送
+[截图服务器][23:07:06] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230706.png
+[截图服务器][23:07:06] [INFO] 127.0.0.1 - - [05/Jun/2025 23:07:06] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:07:06] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230706.png
+[技术指标模块][23:07:06] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_230706.png
+[技术指标模块][23:07:06] [INFO] 技术指标模块运行中...
+[技术指标模块][23:07:06] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:07:09] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:07:09] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:07:10] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:07:10] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:07:10] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:07:10] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:07:10] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:07:17] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:07:17] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:07:17] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:07:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 401 Unauthorized"
+[get_positions.py][23:08:44] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][23:08:45] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 401 Unauthorized"
+[get_positions.py][23:12:30] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][23:12:31] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 401 Unauthorized"
+[get_positions.py][23:13:13] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][23:13:14] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 401 Unauthorized"
+[get_positions.py][23:13:14] [INFO] res: {
+    "msg": "Invalid OK-ACCESS-KEY",
+    "code": "50111"
+}
+[get_positions.py][23:14:04] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][23:14:04] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[get_positions.py][23:14:04] [INFO] res: {
+    "code": "0",
+    "data": [
+        {
+            "adjEq": "",
+            "availEq": "",
+            "borrowFroz": "",
+            "details": [
+                {
+                    "accAvgPx": "",
+                    "availBal": "116495.16027564518",
+                    "availEq": "116495.16027564518",
+                    "borrowFroz": "",
+                    "cashBal": "116495.16027564518",
+                    "ccy": "USDT",
+                    "clSpotInUseAmt": "",
+                    "colBorrAutoConversion": "0",
+                    "collateralEnabled": false,
+                    "collateralRestrict": false,
+                    "crossLiab": "",
+                    "disEq": "0",
+                    "eq": "116495.16027564518",
+                    "eqUsd": "116539.42843654993",
+                    "fixedBal": "0",
+                    "frozenBal": "0",
+                    "imr": "0",
+                    "interest": "",
+                    "isoEq": "0",
+                    "isoLiab": "",
+                    "isoUpl": "0",
+                    "liab": "",
+                    "maxLoan": "",
+                    "maxSpotInUse": "",
+                    "mgnRatio": "",
+                    "mmr": "0",
+                    "notionalLever": "0",
+                    "openAvgPx": "",
+                    "ordFrozen": "0",
+                    "rewardBal": "0",
+                    "smtSyncEq": "0",
+                    "spotBal": "",
+                    "spotCopyTradingEq": "0",
+                    "spotInUseAmt": "",
+                    "spotIsoBal": "0",
+                    "spotUpl": "",
+                    "spotUplRatio": "",
+                    "stgyEq": "0",
+                    "totalPnl": "",
+                    "totalPnlRatio": "",
+                    "twap": "0",
+                    "uTime": "1748842207592",
+                    "upl": "0",
+                    "uplLiab": ""
+                }
+            ],
+            "imr": "",
+            "isoEq": "0",
+            "mgnRatio": "",
+            "mmr": "",
+            "notionalUsd": "",
+            "notionalUsdForBorrow": "",
+            "notionalUsdForFutures": "",
+            "notionalUsdForOption": "",
+            "notionalUsdForSwap": "",
+            "ordFroz": "",
+            "totalEq": "116539.42843654993",
+            "uTime": "1749136444585",
+            "upl": ""
+        }
+    ],
+    "msg": ""
+}
+[_client.py][23:14:04] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][23:14:04] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][23:14:05] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][23:14:05] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[get_positions.py][23:14:05] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[_client.py][23:14:05] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[get_positions.py][23:14:05] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[get_positions.py][23:14:17] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][23:14:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][23:14:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][23:14:18] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][23:14:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][23:14:19] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[get_positions.py][23:14:19] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[_client.py][23:14:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[get_positions.py][23:14:19] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[get_positions.py][23:14:42] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][23:14:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][23:14:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][23:14:44] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][23:14:45] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][23:14:45] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[get_positions.py][23:14:45] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[_client.py][23:14:45] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[get_positions.py][23:14:45] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][23:14:56] [INFO] 截图模块运行中...
+[技术指标模块][23:14:56] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:14:56] [INFO] 收到截图请求。
+[截图服务器][23:14:56] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:14:56] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:14:56] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:14:56] [INFO] 快捷键已发送
+[截图服务器][23:14:57] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231457.png
+[截图服务器][23:14:57] [INFO] 127.0.0.1 - - [05/Jun/2025 23:14:57] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:14:57] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231457.png
+[技术指标模块][23:14:57] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231457.png
+[技术指标模块][23:14:57] [INFO] 技术指标模块运行中...
+[技术指标模块][23:14:57] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:14:57] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:14:57] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:14:58] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:14:58] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:14:59] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:14:59] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:14:59] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:15:09] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:15:09] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:15:09] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:15:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][23:15:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][23:15:10] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][23:15:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][23:15:10] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][23:15:10] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][23:15:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][23:15:11] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][23:15:11] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:15:11] [INFO] 总运行时间: 0:00:15.603567
+[技术指标模块][23:15:11] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231457.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2605.8,
+        "volume": 1724630.88,
+        "RSI": 22.112104491101164,
+        "MACD_macd": -0.3657343332847631,
+        "MACD_signal": 5.931483829039748,
+        "ATR": 19.433792777102845,
+        "ADX": 44.95156133923023,
+        "Stoch_K": 14.921893215201857,
+        "Stoch_D": 12.421176612641572,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 0.0,
+        "BB_upper": 2674.907213461778,
+        "BB_lower": 2607.2337865382224,
+        "BB_middle": 2641.0705000000003,
+        "EMA5": 2621.32479227727,
+        "EMA21": 2634.607960670403,
+        "EMA55": 2626.697519916701,
+        "EMA144": 2612.83823299196,
+        "EMA200": 2607.9234204516524,
+        "VWAP": 2615.9081428910217
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2496.11,
+        "volume": 735865.31,
+        "RSI": 38.41739839701278,
+        "MACD_macd": -9.794114104971868,
+        "MACD_signal": -8.210417569260986,
+        "ATR": 26.505260084634266,
+        "ADX": 43.846937178946156,
+        "Stoch_K": 37.19120553359698,
+        "Stoch_D": 26.095293773592967,
+        "StochRSI_K": 28.154835234758025,
+        "StochRSI_D": 9.384945078252684,
+        "BB_upper": 2553.3368724156967,
+        "BB_lower": 2476.1851275843032,
+        "BB_middle": 2514.761,
+        "EMA5": 2500.390443402898,
+        "EMA21": 2516.384286828655,
+        "EMA55": 2542.033512127362,
+        "EMA144": 2569.973782086546,
+        "EMA200": 2575.5783779748167,
+        "VWAP": 2583.6484047988333
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0177%",
+      "FGI": "57/100",
+      "open_interest": "$3467045530071.007 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2580.96",
+        "lastSz": "0.09",
+        "askPx": "2580.96",
+        "askSz": "1328.75",
+        "bidPx": "2580.95",
+        "bidSz": "1794.97",
+        "open24h": "2647.39",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4440216.78",
+        "vol24h": "44402167.8",
+        "ts": "1749136510866",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T23:15:11+08:00"
+}
+[技术指标模块][23:15:11] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][23:15:11] [INFO] 截图模块运行时间: 0:00:01.134109
+[技术指标模块][23:15:11] [INFO] 技术指标模块运行时间: 0:00:01.877058
+[技术指标模块][23:15:11] [INFO] 宏观因子模块运行时间: 0:00:10.647605
+[技术指标模块][23:15:11] [INFO] OKX 持仓模块运行时间: 0:00:01.464854
+[技术指标模块][23:15:11] [INFO] --------------------------
+[技术指标模块][23:16:16] [INFO] 截图模块运行中...
+[技术指标模块][23:16:16] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:16:16] [INFO] 收到截图请求。
+[截图服务器][23:16:16] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:16:16] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:16:17] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:16:17] [INFO] 快捷键已发送
+[截图服务器][23:16:17] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231617.png
+[截图服务器][23:16:17] [INFO] 127.0.0.1 - - [05/Jun/2025 23:16:17] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:16:17] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231617.png
+[技术指标模块][23:16:17] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231617.png
+[技术指标模块][23:16:17] [INFO] 技术指标模块运行中...
+[技术指标模块][23:16:17] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:16:18] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:16:18] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:16:19] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:16:19] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:16:19] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:16:19] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:16:19] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:16:20] [INFO] Funding rate collection took 0.6017 seconds.
+[技术指标模块][23:16:27] [INFO] Fear & greed index collection took 6.8911 seconds.
+[技术指标模块][23:16:28] [INFO] Open interest collection took 1.4989 seconds.
+[技术指标模块][23:16:28] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:16:28] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:16:28] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:16:29] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][23:16:29] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][23:16:29] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][23:16:30] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][23:16:30] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][23:16:30] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][23:16:30] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][23:16:30] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][23:16:30] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:16:30] [INFO] 总运行时间: 0:00:14.306089
+[技术指标模块][23:16:30] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_231617.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2611.82,
+        "volume": 660786.8,
+        "RSI": 24.62939504725756,
+        "MACD_macd": 2.4092174043030354,
+        "MACD_signal": 7.508985780552341,
+        "ATR": 19.23281949666531,
+        "ADX": 42.473709011555734,
+        "Stoch_K": 10.898203592814431,
+        "Stoch_D": 19.307266773454526,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 0.0,
+        "BB_upper": 2672.4766810883975,
+        "BB_lower": 2611.757318911602,
+        "BB_middle": 2642.1169999999997,
+        "EMA5": 2629.0871884159046,
+        "EMA21": 2637.488403124709,
+        "EMA55": 2627.3505060628872,
+        "EMA144": 2611.8166151654646,
+        "EMA200": 2606.298690199832,
+        "VWAP": 2616.0169984449344
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2496.11,
+        "volume": 735865.31,
+        "RSI": 38.41739839701278,
+        "MACD_macd": -9.794114104971868,
+        "MACD_signal": -8.210417569260986,
+        "ATR": 26.505260084634266,
+        "ADX": 43.846937178946156,
+        "Stoch_K": 37.19120553359698,
+        "Stoch_D": 26.095293773592967,
+        "StochRSI_K": 28.154835234758025,
+        "StochRSI_D": 9.384945078252684,
+        "BB_upper": 2553.3368724156967,
+        "BB_lower": 2476.1851275843032,
+        "BB_middle": 2514.761,
+        "EMA5": 2500.390443402898,
+        "EMA21": 2516.384286828655,
+        "EMA55": 2542.033512127362,
+        "EMA144": 2569.973782086546,
+        "EMA200": 2575.5783779748167,
+        "VWAP": 2583.6484047988333
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0175%",
+      "FGI": "57/100",
+      "open_interest": "$3467050314612.008 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2583.55",
+        "lastSz": "29.03",
+        "askPx": "2583.55",
+        "askSz": "20.59",
+        "bidPx": "2583.54",
+        "bidSz": "3668.69",
+        "open24h": "2652.48",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4426768.039",
+        "vol24h": "44267680.39",
+        "ts": "1749136590360",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T23:16:30+08:00"
+}
+[技术指标模块][23:16:30] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][23:16:30] [INFO] 截图模块运行时间: 0:00:01.124614
+[技术指标模块][23:16:30] [INFO] 技术指标模块运行时间: 0:00:01.953019
+[技术指标模块][23:16:30] [INFO] 宏观因子模块运行时间: 0:00:08.992242
+[技术指标模块][23:16:30] [INFO] OKX 持仓模块运行时间: 0:00:01.756384
+[技术指标模块][23:16:30] [INFO] --------------------------
+[宏观因子模块][23:16:42] [INFO] Funding rate collection took 0.5593 seconds.
+[宏观因子模块][23:16:48] [INFO] Fear & greed index collection took 5.8824 seconds.
+[宏观因子模块][23:16:48] [INFO] Open interest collection took 0.6849 seconds.
+[宏观因子模块][23:20:34] [INFO] Funding rate collection took 0.5815 seconds.
+[宏观因子模块][23:20:41] [INFO] Fear & greed index collection took 6.6601 seconds.
+[宏观因子模块][23:20:41] [INFO] Open interest collection took 0.4570 seconds.
+[宏观因子模块][23:20:49] [INFO] Funding rate collection took 0.4393 seconds.
+[宏观因子模块][23:20:55] [INFO] Fear & greed index collection took 6.2399 seconds.
+[宏观因子模块][23:20:55] [INFO] Open interest collection took 0.4833 seconds.
+[宏观因子模块][23:23:28] [INFO] Funding rate collection took 0.4693 seconds.
+[宏观因子模块][23:23:34] [INFO] Fear & greed index collection took 6.1940 seconds.
+[宏观因子模块][23:23:34] [INFO] Open interest collection took 0.4500 seconds.
+[宏观因子模块][23:23:40] [INFO] Funding rate collection took 0.4439 seconds.
+[宏观因子模块][23:23:47] [INFO] Fear & greed index collection took 6.8219 seconds.
+[宏观因子模块][23:23:47] [INFO] Open interest collection took 0.5030 seconds.
+[宏观因子模块][23:24:12] [INFO] Funding rate collection took 0.5099 seconds.
+[宏观因子模块][23:24:18] [INFO] Fear & greed index collection took 5.8157 seconds.
+[宏观因子模块][23:24:19] [INFO] Open interest collection took 0.5951 seconds.
+[宏观因子模块][23:24:37] [INFO] Funding rate collection took 0.6896 seconds.
+[宏观因子模块][23:24:47] [INFO] Funding rate collection took 0.7595 seconds.
+[宏观因子模块][23:25:08] [INFO] Funding rate collection took 0.7729 seconds.
+[宏观因子模块][23:25:57] [INFO] Funding rate collection took 0.4498 seconds.
+[宏观因子模块][23:26:07] [INFO] Funding rate collection took 0.4463 seconds.
+[宏观因子模块][23:26:54] [INFO] Funding rate collection took 0.4943 seconds.
+[宏观因子模块][23:27:00] [INFO] Fear & greed index collection took 5.9416 seconds.
+[宏观因子模块][23:27:00] [INFO] Open interest collection took 0.4774 seconds.
+[技术指标模块][23:28:28] [INFO] 截图模块运行中...
+[技术指标模块][23:28:28] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][23:28:28] [INFO] 收到截图请求。
+[截图服务器][23:28:28] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][23:28:28] [INFO] 等待0.5秒加载页面...
+[截图服务器][23:28:29] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][23:28:29] [INFO] 快捷键已发送
+[截图服务器][23:28:30] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_232830.png
+[截图服务器][23:28:30] [INFO] 127.0.0.1 - - [05/Jun/2025 23:28:30] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][23:28:30] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_232830.png
+[技术指标模块][23:28:30] [INFO] 截图模块完成，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_232830.png
+[技术指标模块][23:28:30] [INFO] 技术指标模块运行中...
+[技术指标模块][23:28:30] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][23:28:30] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][23:28:30] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][23:28:31] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][23:28:31] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][23:28:31] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][23:28:31] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:28:31] [INFO] 宏观因子模块运行中...
+[技术指标模块][23:28:32] [INFO] Funding rate collection took 0.5582 seconds.
+[技术指标模块][23:28:37] [INFO] Fear & greed index collection took 5.8086 seconds.
+[技术指标模块][23:28:38] [INFO] Open interest collection took 0.5535 seconds.
+[技术指标模块][23:28:38] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:28:38] [INFO] OKX 持仓模块运行中...
+[技术指标模块][23:28:38] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][23:28:38] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][23:28:39] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][23:28:39] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][23:28:39] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][23:28:39] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][23:28:39] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][23:28:39] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][23:28:39] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][23:28:39] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][23:28:40] [INFO] 总运行时间: 0:00:11.658283
+[技术指标模块][23:28:40] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_232830.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2611.82,
+        "volume": 660786.8,
+        "RSI": 24.62939504725756,
+        "MACD_macd": 2.4092174043030354,
+        "MACD_signal": 7.508985780552341,
+        "ATR": 19.23281949666531,
+        "ADX": 42.473709011555734,
+        "Stoch_K": 10.898203592814431,
+        "Stoch_D": 19.307266773454526,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 0.0,
+        "BB_upper": 2672.4766810883975,
+        "BB_lower": 2611.757318911602,
+        "BB_middle": 2642.1169999999997,
+        "EMA5": 2629.0871884159046,
+        "EMA21": 2637.488403124709,
+        "EMA55": 2627.3505060628872,
+        "EMA144": 2611.8166151654646,
+        "EMA200": 2606.298690199832,
+        "VWAP": 2616.0169984449344
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2496.11,
+        "volume": 735865.31,
+        "RSI": 38.41739839701278,
+        "MACD_macd": -9.794114104971868,
+        "MACD_signal": -8.210417569260986,
+        "ATR": 26.505260084634266,
+        "ADX": 43.846937178946156,
+        "Stoch_K": 37.19120553359698,
+        "Stoch_D": 26.095293773592967,
+        "StochRSI_K": 28.154835234758025,
+        "StochRSI_D": 9.384945078252684,
+        "BB_upper": 2553.3368724156967,
+        "BB_lower": 2476.1851275843032,
+        "BB_middle": 2514.761,
+        "EMA5": 2500.390443402898,
+        "EMA21": 2516.384286828655,
+        "EMA55": 2542.033512127362,
+        "EMA144": 2569.973782086546,
+        "EMA200": 2575.5783779748167,
+        "VWAP": 2583.6484047988333
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2526.99,
+        "volume": 5486383.43,
+        "RSI": 45.49050912747175,
+        "MACD_macd": -17.482463648981593,
+        "MACD_signal": -13.960224045966084,
+        "ATR": 70.6927461189806,
+        "ADX": 25.259678951905325,
+        "Stoch_K": 41.95773832497092,
+        "Stoch_D": 44.139888953632884,
+        "StochRSI_K": 68.04023604457316,
+        "StochRSI_D": 72.38412141018212,
+        "BB_upper": 2708.7170576965773,
+        "BB_lower": 2439.5949423034226,
+        "BB_middle": 2574.156,
+        "EMA5": 2529.144174479765,
+        "EMA21": 2551.051388773033,
+        "EMA55": 2570.0232267035262,
+        "EMA144": 2584.6824792601587,
+        "EMA200": 2588.99486184913,
+        "VWAP": 2586.3200859507983
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0165%",
+      "FGI": "57/100",
+      "open_interest": "$3467052562178.009 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2599.43",
+        "lastSz": "0.03",
+        "askPx": "2599.39",
+        "askSz": "1299.71",
+        "bidPx": "2599.38",
+        "bidSz": "1457.57",
+        "open24h": "2648.48",
+        "high24h": "2678.78",
+        "low24h": "2561",
+        "volCcy24h": "4379109.797",
+        "vol24h": "43791097.97",
+        "ts": "1749137320109",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T23:28:40+08:00"
+}
+[技术指标模块][23:28:40] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][23:28:40] [INFO] 截图模块运行时间: 0:00:01.150850
+[技术指标模块][23:28:40] [INFO] 技术指标模块运行时间: 0:00:01.456110
+[技术指标模块][23:28:40] [INFO] 宏观因子模块运行时间: 0:00:06.920659
+[技术指标模块][23:28:40] [INFO] OKX 持仓模块运行时间: 0:00:01.411737
+[技术指标模块][23:28:40] [INFO] --------------------------

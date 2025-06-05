@@ -5,7 +5,7 @@ import sys
 import os
 import logging
 
-config = json.load(open("/root/codespace/taishang/config/config.json", "r"))
+config = json.load(open("config/config.json", "r"))
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["main_log_path"]
@@ -34,6 +34,7 @@ accountAPI= Account.AccountAPI(apikey, secretkey, passphrase, False, flag);#账�
 
 def get_balance():
     res = accountAPI.get_account_balance()
+    # logger.info(f"res: {json.dumps(res,indent=4,ensure_ascii=False)}")
     avail_eq_value = res['data'][0]['details'][0]['availEq']
     #保留两位小数,防止TypeError: type str doesn't define __round__ method
     avail_eq_value = round(float(avail_eq_value), 2)
