@@ -1944,3 +1944,14 @@ Stacktrace:
 [截图服务器][20:37:55] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
 [截图服务器][20:38:02] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
 [截图服务器][20:38:02] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][21:03:17] [INFO] 截图服务器正在启动...
+[截图服务器][21:03:17] [INFO] 已执行 pkill chrome
+[截图服务器][21:03:17] [INFO] 启动时主动清理内存...
+[截图服务器][21:03:18] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][21:03:20] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][21:03:20] [INFO] 启动新的Chrome浏览器...
+[截图服务器][21:03:20] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][21:03:20] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][21:03:20] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][21:03:20] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][21:03:20] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
