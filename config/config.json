@@ -23,5 +23,14 @@
         "gemini_api_key_1":"AIzaSyBTjjV4f9jeWWcATQWtIydkqSkOff4XGjs",
         "gemini_api_key_2":"AIzaSyB0000000000000000000000000000000",
         "gemini_api_key_3":"AIzaSyB0000000000000000000000000000000"
+    },
+    "MODEL_CONFIG":{
+        "MODEL_NAME": "gemini-2.5-flash-preview-05-20",
+        "SYSTEM_PROMPT_PATH": "config/system_prompt_config.md",
+        "default_temperature": 0.0,
+        "default_top_p": 0.9,
+        "default_max_output_tokens": 24576,
+        "default_thinking_budget": 8192,
+        "default_include_thoughts": "True"
     }
 }

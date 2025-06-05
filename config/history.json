@@ -1,0 +1,67 @@
+{
+    "python_path": {
+        "global":"/usr/local/bin/python3.10",
+        "venv_selenium":"/root/codespace/Qwen_quant_v1/venv_selenium/bin/python",
+        "venv_okx":"/root/codespace/Qwen_quant_v1/venv_okx/bin/python",
+        "venv_gemini":"/root/codespace/Qwen_quant_v1/venv_gemini/bin/python"
+    },
+    "MODEL_NAME": "gemini-2.5-flash-preview-05-20",
+    "GEMINI_API_KEY": "AIzaSyBTjjV4f9jeWWcATQWtIydkqSkOff4XGjs",
+    "BTC_data_path": "/root/codespace/Qwen_quant_v1/BTC_code/data.json",
+    "ETH_data_path": "/root/codespace/Qwen_quant_v1/ETH_code/data.json",
+    "BTC_log_path": "/root/codespace/Qwen_quant_v1/log/nohup.out",
+    "ETH_log_path": "/root/codespace/Qwen_quant_v1/log/trade_gemini.log",
+    "trade_log_path": "/root/codespace/Qwen_quant_v1/log/trade_gemini.log",
+    "effective_log_path": "/root/codespace/Qwen_quant_v1/log/effective_communication.log",
+    "SYSTEM_PROMPT_PATH": "/root/codespace/Qwen_quant_v1/config/system_prompt_config.md",
+    "bot_system_prompt_path": "/root/codespace/Qwen_quant_v1/config/bot_system_prompt.md",
+    "MODEL_CONFIG":{
+        "default_temperature": 0.0,
+        "default_top_p": 0.9,
+        "default_max_output_tokens": 24576,
+        "default_thinking_budget": 8192,
+        "default_include_thoughts": "True"
+    },
+    "ETH_gemini_answer_path": "/root/codespace/Qwen_quant_v1/ETH_code/reply_cache/gemini.json",
+    "BTC_gemini_answer_path": "/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json",
+    "BTC_cache_screenshot_path": "/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot",
+    "ETH_cache_screenshot_path": "/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot",
+    "okx":{
+        "api_key":"e4690480-5f46-4f5c-9046-bced6c333bf9",
+        "secret_key":"7C676520EDE0CF56479E0A13CB110BF8",
+        "passphrase":"1528895030qQ@",
+        "flag":"1",
+        "lever":100
+    },
+    "proxy":{
+        "http_proxy":"http://127.0.0.1:7890",
+        "https_proxy":"http://127.0.0.1:7890"
+    },
+    "schema_path": "/root/codespace/Qwen_quant_v1/config/schema.json",
+    "path":{
+        "BTC_code":"/root/codespace/Qwen_quant_v1/BTC_code",
+        "ETH_code":"/root/codespace/Qwen_quant_v1/ETH_code",
+        "main_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/main.py",
+        "main_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/main.py",
+        "data_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/data.json",
+        "data_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/data.json",
+        "gemini_api_caller_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/gemini_api_caller.py",
+        "gemini_api_caller_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/gemini_api_caller.py",
+        "reply_cache_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/reply_cache/gemini.json",
+        "reply_cache_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/reply_cache/gemini.json",
+        "cache_screenshot_ETH":"/root/codespace/Qwen_quant_v1/ETH_code/cache_screenshot",
+        "cache_screenshot_BTC":"/root/codespace/Qwen_quant_v1/BTC_code/cache_screenshot",
+        "get_positions_path_ETH":"/root/codespace/Qwen_quant_v1/code/get_positions.py",
+        "trade_api_eth_path":"/root/codespace/Qwen_quant_v1/function/trade_api_eth.py",
+        "log_file":"/root/codespace/Qwen_quant_v1/log/nohup.out",
+        "trade_log_path":"/root/codespace/Qwen_quant_v1/trade_bot/trade_log.json",
+        "function_path":
+        {
+            "base_path":"/root/codespace/Qwen_quant_v1/function",
+            "tools_list":"/root/codespace/Qwen_quant_v1/function/tools_list.txt",
+            "get_transaction_history":"/root/codespace/Qwen_quant_v1/function/get_transaction_history.py",
+            "get_time":"/root/codespace/Qwen_quant_v1/function/get_time.py",
+            "place_order":"/root/codespace/Qwen_quant_v1/function/place_order.py"
+        }
+    }
+}
