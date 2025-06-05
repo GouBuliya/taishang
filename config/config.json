@@ -20,9 +20,13 @@
     },
     "gemini_api_key_set":
     {
-        "gemini_api_key_1":"AIzaSyBTjjV4f9jeWWcATQWtIydkqSkOff4XGjs",
-        "gemini_api_key_2":"AIzaSyB0000000000000000000000000000000",
-        "gemini_api_key_3":"AIzaSyB0000000000000000000000000000000"
+        "gemini_api_key_1":"AIzaSyB361a49nhFFaN7hmhUtZv4DcBT7cCA8ZA",
+        "gemini_api_key_2":"AIzaSyDIqd7Q_0E7VHFACNeuYh_9jA3LRC1yYeA",
+        "gemini_api_key_3":"AIzaSyBf46_ULMaV5Q0ng83zGMMV-A4o5-PCurY",
+        "gemini_api_key_4":"AIzaSyCW9HnqIIRjAym3j8i9zfH_-l8gZTp6OQc",
+        "gemini_api_key_5":"AIzaSyCiXMSCaDILDQuOKhgIJ5TEOPoUwXmS3JM",
+        "gemini_api_key_7":"AIzaSyCw9GaJtGXFV-YPYh_mZ5X28cLfbAX5Y-w",
+        "gemini_api_key_8":"AIzaSyAX9mR6lZxvFKGcpiO8WfSm0BYsHmVynHc"
     },
     "MODEL_CONFIG":{
         "MODEL_NAME": "gemini-2.5-flash-preview-05-20",
@@ -33,5 +37,11 @@
         "default_thinking_budget": 8192,
         "default_include_thoughts": "True"
     },
-    "gemini_answer_path": "data/gemini_answer.json"
+    "gemini_answer_path": "data/gemini_answer.json",
+    "logs":{
+        "trade_log_path": "logs/trade_log.json",
+        "main_log_path": "logs/main.log",
+        "gemini_answer_path": "data/gemini_answer.json",
+        "effective_log_path": "logs/think_log.md"
+    }
 }

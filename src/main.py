@@ -10,6 +10,7 @@ from okx.api import Market  # type: ignore
 import logging
 import threading
 import requests
+import concurrent.futures # 新增导入
 
 # 导入子模块
 from technical_indicator_collector import collect_technical_indicators
@@ -99,60 +100,68 @@ if __name__ == "__main__":
     begin_time = datetime.now()
     module_timings = {} # 用于存储每个模块的运行时间
 
-    logging.info("截图模块运行中...")
-    module_timings["screenshot_start"] = datetime.now()
-    #重试3次
-    for i in range(3):
-        screenshot_path = run_tradingview_screenshot()
-        if screenshot_path:
-            break
-        else:
-            logging.error(f"截图模块第{i+1}次运行失败")
-    
-    module_timings["screenshot_end"] = datetime.now()
-    logging.info(f"截图模块完成，截图路径: {screenshot_path}")
+    def _run_task_with_timing(task_name, func, *args, **kwargs):
+        start_time_key = f"{task_name}_start"
+        end_time_key = f"{task_name}_end"
+        module_timings[start_time_key] = datetime.now()
+        
+        result = None
+        try:
+            logging.info(f"{task_name} 模块运行中...")
+            result = func(*args, **kwargs)
+            logging.info(f"{task_name} 模块完成。")
+        except Exception as e:
+            logging.error(f"{task_name} 模块运行失败: {e}")
+        finally:
+            module_timings[end_time_key] = datetime.now()
+        return task_name, result
 
-    logging.info("技术指标模块运行中...")
-    module_timings["indicators_start"] = datetime.now()
-    indicators_output = collect_technical_indicators()
-    module_timings["indicators_end"] = datetime.now()
-    logging.info(f"技术指标模块完成，结果类型: {type(indicators_output)}")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor: # 设置最大线程数
+        future_to_task = {
+            executor.submit(_run_task_with_timing, "screenshot", run_tradingview_screenshot): "screenshot",
+            executor.submit(_run_task_with_timing, "indicators", collect_technical_indicators): "indicators",
+            executor.submit(_run_task_with_timing, "factors", collect_macro_factors): "factors",
+            executor.submit(_run_task_with_timing, "okx_positions", collect_positions_data): "okx_positions",
+            executor.submit(_run_task_with_timing, "market_data", marketDataAPI.get_ticker, instId="ETH-USDT-SWAP"): "market_data"
+        }
 
-    logging.info("宏观因子模块运行中...")
-    module_timings["factors_start"] = datetime.now()
-    factors_output = collect_macro_factors()
-    module_timings["factors_end"] = datetime.now()
-    logging.info(f"宏观因子模块完成，结果类型: {type(factors_output)}")
+        results = {
+            "screenshot": None,
+            "indicators": None,
+            "factors": None,
+            "okx_positions": {}, # 默认空字典
+            "market_data": None
+        }
 
-    logging.info("OKX 持仓模块运行中...")
-    module_timings["okx_positions_start"] = datetime.now()
-    okx_positions = collect_positions_data()
-    module_timings["okx_positions_end"] = datetime.now()
-    # 尝试解析 OKX 持仓脚本的输出，确保结果是字典类型
-    if not isinstance(okx_positions, dict):
-        # 如果解析失败或结果不是字典，记录警告并使用空字典
-        logging.warning(f"OKX 持仓脚本输出非 JSON 字典格式或解析失败: {okx_positions}")
-        okx_positions = {}
-    logging.info(f"OKX 持仓模块完成，结果类型: {type(okx_positions)}")
-    
-    data = marketDataAPI.get_ticker(
-        instId="ETH-USDT-SWAP"
-    )
-    
-    
+        for future in concurrent.futures.as_completed(future_to_task):
+            task_name, result = future.result()
+            results[task_name] = result
+            if task_name == "screenshot" and not result:
+                logging.error(f"截图模块运行失败，尝试重试3次...")
+                for i in range(3):
+                    screenshot_path_retry = run_tradingview_screenshot()
+                    if screenshot_path_retry:
+                        results["screenshot"] = screenshot_path_retry
+                        logging.info(f"截图模块第{i+1}次重试成功，截图路径: {screenshot_path_retry}")
+                        break
+                    else:
+                        logging.error(f"截图模块第{i+1}次重试失败")
+
+    # 处理 OKX 持仓数据，确保其为字典类型
+    if not isinstance(results["okx_positions"], dict):
+        logging.warning(f"OKX 持仓脚本输出非 JSON 字典格式或解析失败: {results['okx_positions']}")
+        results["okx_positions"] = {}
+
     merged = {
-        "clipboard_image_path": screenshot_path if screenshot_path else "",
-        "indicators_main": indicators_output if isinstance(indicators_output, dict) else {},
-        "factors_main": factors_output if isinstance(factors_output, dict) else {},
-        "data_summary": data,
-        "okx_positions": okx_positions ,
+        "clipboard_image_path": results["screenshot"] if results["screenshot"] else "",
+        "indicators_main": results["indicators"] if isinstance(results["indicators"], dict) else {},
+        "factors_main": results["factors"] if isinstance(results["factors"], dict) else {},
+        "data_summary": results["market_data"],
+        "okx_positions": results["okx_positions"],
         "timestamp": datetime.now(timezone.utc).replace(microsecond=0).astimezone(timezone(timedelta(hours=8))).isoformat() # 东八区时间
-
     }
     # 写入 data.json
-    end_time = datetime.now()
-    duration = end_time - begin_time
-    logging.info(f"总运行时间: {duration}")
+    
     data_path = config["data_path"]
     tmp_path = data_path + ".tmp"
     try:
@@ -178,6 +187,9 @@ if __name__ == "__main__":
             logging.info(f"OKX 持仓模块运行时间: {duration_okx_positions}")
         logging.info("--------------------------")
         print("完成")  # 只输出完成
+        end_time = datetime.now()
+        duration = end_time - begin_time
+        logging.info(f"总运行时间: {duration}")
     except Exception as e:
         logging.error(f"写入data.json失败: {e}")
         if os.path.exists(tmp_path):

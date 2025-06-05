@@ -6,6 +6,7 @@ from okx.api import Public  # type: ignore
 import logging
 from datetime import datetime, timezone, timedelta
 import time
+import concurrent.futures # 新增导入
 
 config= json.load(open("config/config.json", "r"))
 
@@ -28,6 +29,10 @@ if not logging.getLogger("GeminiQuant").handlers:
 
 logger = logging.getLogger("GeminiQuant")
 
+# 恐惧贪婪指数缓存
+FGI_CACHE = {"value": None, "timestamp": None}
+FGI_CACHE_DURATION = 300 # 缓存有效期 300 秒 (5 分钟)
+
 def get_okx_funding_rate():
     publicDataAPI = Public(flag=flag)
     result = publicDataAPI.get_funding_rate(
@@ -44,14 +49,36 @@ def get_okx_funding_rate():
         return None
 
 def get_fear_greed_index():
+    global FGI_CACHE
+    current_time = time.time()
+
+    # 检查缓存是否有效
+    if FGI_CACHE["value"] is not None and FGI_CACHE["timestamp"] is not None and \
+       (current_time - FGI_CACHE["timestamp"] < FGI_CACHE_DURATION):
+        logger.info(f"从缓存中获取恐惧贪婪指数: {FGI_CACHE['value']}")
+        return FGI_CACHE["value"]
+
     url = "https://api.alternative.me/fng/"
-    r = requests.get(url)
-    data = r.json()
     try:
-        return int(data['data'][0]['value'])
+        logger.info("从外部 API 获取恐惧贪婪指数...")
+        r = requests.get(url, timeout=10) # 增加超时时间，例如10秒
+        r.raise_for_status() # 检查HTTP请求是否成功
+        data = r.json()
+        value = int(data['data'][0]['value'])
+        
+        # 更新缓存
+        FGI_CACHE["value"] = value
+        FGI_CACHE["timestamp"] = current_time
+
+        return value
+    except requests.exceptions.Timeout:
+        logger.error("请求恐惧贪婪指数 API 超时。")
+        return None
+    except requests.exceptions.RequestException as e:
+        logger.error(f"请求恐惧贪婪指数 API 异常: {e}")
+        return None
     except Exception as e:
-        # print("Error fetching fear & greed index:", e)
-        logger.error(f"Error fetching fear & greed index: {e}")
+        logger.error(f"获取恐惧贪婪指数异常: {e}")
         return None
 
 def get_okx_open_interest():
@@ -68,39 +95,41 @@ def get_okx_open_interest():
         logger.error(f"Error fetching open interest: {e}")
         return None
 
+def _run_factor_task(task_name, func):
+    start_time = time.time()
+    result = func()
+    end_time = time.time()
+    logger.info(f"{task_name} collection took {end_time - start_time:.4f} seconds.")
+    return task_name, result
+
 def collect_macro_factors():
     # 北京时间（东八区）
     beijing_tz = timezone(timedelta(hours=8))
     now = datetime.now(beijing_tz).replace(microsecond=0).isoformat()
     
-    start_time = time.time()
-    funding_rate = get_okx_funding_rate()
-    end_time = time.time()
-    logger.info(f"Funding rate collection took {end_time - start_time:.4f} seconds.")
+    # 使用 ThreadPoolExecutor 并行收集数据
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+        future_to_factor = {
+            executor.submit(_run_factor_task, "Funding rate", get_okx_funding_rate): "funding_rate",
+            executor.submit(_run_factor_task, "Fear & greed index", get_fear_greed_index): "FGI",
+            executor.submit(_run_factor_task, "Open interest", get_okx_open_interest): "open_interest"
+        }
 
-    start_time = time.time()
-    fear_greed = get_fear_greed_index()
-    end_time = time.time()
-    logger.info(f"Fear & greed index collection took {end_time - start_time:.4f} seconds.")
-
-    start_time = time.time()
-    open_interest = get_okx_open_interest()
-    end_time = time.time()
-    logger.info(f"Open interest collection took {end_time - start_time:.4f} seconds.")
-
-    # 只有在funding_rate为None时不加百分号
-    funding_rate_str = f"{funding_rate}%" if funding_rate is not None else None
-
-
-
+        collected_factors = {}
+        for future in concurrent.futures.as_completed(future_to_factor):
+            task_name, result = future.result()
+            # 根据 task_name 映射到最终字典的键
+            if task_name == "Funding rate":
+                # 只有在funding_rate为None时不加百分号
+                collected_factors["funding_rate"] = f"{result}%" if result is not None else None
+            elif task_name == "Fear & greed index":
+                # 恐惧贪婪指数，字符串格式如"71/100"
+                collected_factors["FGI"] = f"{result}/100" if result is not None else None
+            elif task_name == "Open interest":
+                collected_factors["open_interest"] = f"${result*100} million" if result is not None else None
 
     return {
-        "factors": {
-            "funding_rate": funding_rate_str,
-            # 恐惧贪婪指数，字符串格式如"71/100"
-            "FGI": f"{fear_greed}/100" if fear_greed is not None else None,
-            "open_interest": f"${open_interest*100} million" if open_interest is not None else None
-        }
+        "factors": collected_factors
     }
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ def get_latest_transactions(config):
     logger = logging.getLogger("GeminiQuant")
 
     # 获取 trade_log_path
-    trade_log_path = config['path']['trade_log_path']
+    trade_log_path = config['logs']['trade_log_path']
     
     # 确保 trade_log_path 存在且可读
     if not os.path.exists(trade_log_path):

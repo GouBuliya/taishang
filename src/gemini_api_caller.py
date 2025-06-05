@@ -14,7 +14,7 @@ print(f"DEBUG: sys.path: {sys.path}") # Add this line for debugging
 
 # Import the newly modularized functions
 import get_transaction_history
-
+cnt=0
 # ===================== 全局配置与初始化 =====================
 # 从config.json中读取配置
 with open("config/config.json", "r", encoding="utf-8") as f:
@@ -22,7 +22,7 @@ with open("config/config.json", "r", encoding="utf-8") as f:
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["main_log_path"]
-EFFECTIVE_LOG_FILE = config["main_log_path"]
+EFFECTIVE_LOG_FILE = config["logs"]["effective_log_path"]
 
 # 定义一个过滤器来忽略特定模块的警告
 class NoGenaiTypesWarningFilter(logging.Filter):
@@ -74,7 +74,10 @@ timing_data = {
 }
 
 # 推荐用 GEMINI_API_KEY 作为环境变量名
-API_KEY = config["gemini_api_key_set"]["gemini_api_key_1"]
+api_key_index = 1
+api_key_list = config["gemini_api_key_set"]
+api_key_str="gemini_api_key_"+str(api_key_index)
+API_KEY = api_key_list[api_key_str]
 # 推荐Gemini模型名
 DEFAULT_MODEL_NAME = config["MODEL_CONFIG"]["MODEL_NAME"]
 SYSTEM_PROMPT_PATH = config["MODEL_CONFIG"]["SYSTEM_PROMPT_PATH"]
@@ -105,7 +108,7 @@ def gettransactionhistory(target: str) -> dict:
     global timing_data
     get_transaction_history_call_count += 1
 
-    if get_transaction_history_call_count > 1:
+    if get_transaction_history_call_count > 2:
         logger.warning(f"{MODULE_TAG}gettransactionhistory 调用次数超限，已达到 {get_transaction_history_call_count} 次。")
         return {"error": "获取交易历史工具调用次数超限，请尝试其他方式获取。"}
 
@@ -152,17 +155,32 @@ def gettime(target: str) -> dict:
     Returns:
         当前时间 (JSON 格式)
     """
+
+    import datetime
+
+    def get_beijing_time_offset():
+    # 定义 UTC+8 小时偏移量
+        utc_plus_8 = datetime.timezone(datetime.timedelta(hours=8))
+
+    # 获取当前 UTC 时间
+        utc_now = datetime.datetime.now(datetime.timezone.utc)
+
+    # 将 UTC 时间转换为 UTC+8 时间
+        beijing_now = utc_now.astimezone(utc_plus_8)
+
+        return beijing_now
+    
     global get_time_call_count
     global timing_data
     get_time_call_count += 1
 
-    if get_time_call_count > 1:
+    if get_time_call_count > 2:
         logger.warning(f"{MODULE_TAG}gettime 调用次数超限，已达到 {get_time_call_count} 次。")
         return {"error": "获取时间工具调用次数超限，请尝试其他方式获取。"}
 
     start_time = time.time() # Start timing
     try:
-        current_time =  start_time
+        current_time =  get_beijing_time_offset() #北京时间
         logger.info(f"{MODULE_TAG}模块获取当前时间完成")
         res =  str(current_time)
         return {"time":res, "source": "local_module"}
@@ -205,7 +223,7 @@ def executepythoncode(code: str) -> dict:
     global timing_data
     execute_python_code_call_count += 1
 
-    if execute_python_code_call_count > 2:
+    if execute_python_code_call_count > 5:
         logger.warning(f"{MODULE_TAG}executepythoncode 调用次数超限，已达到 {execute_python_code_call_count} 次。")
         return {
             "stdout": "",
@@ -246,7 +264,7 @@ def executepythoncode(code: str) -> dict:
 
 executepythoncode_declaration = {
     "name": "executepythoncode",
-    "description": "Executes arbitrary Python code provided as a string. This tool is useful for performing calculations, processing data, or running any standard Python logic. It returns a dictionary containing the standard output (stdout), standard error (stderr), and the return code of the execution. The code should be provided as a single string in the 'code' parameter.",
+    "description": "Executes arbitrary Python code provided as a string. This tool is useful for performing calculations, processing data, or running any standard Python logic. It returns a dictionary containing the standard output (stdout), standard error (stderr), and the return code of the execution. The code should be provided as a single string in the 'code' parameter.如果tools list存在你需要的工具你不能使用code来解决",
     "parameters": {
         "type": "object",
         "properties": {
@@ -290,6 +308,7 @@ def call_gemini_api_stream(
     支持多轮对话（通过 history 全局变量）。
     注意：此函数在接收到文本或函数调用请求后会返回，需要外部循环处理多轮。
     """
+    global cnt
     system_prompt_content = ""
     if system_prompt_path and os.path.exists(system_prompt_path):
         with open(system_prompt_path, "r", encoding="utf-8") as f:
@@ -375,7 +394,8 @@ def call_gemini_api_stream(
 
         # 迭代 chunk 处理流式输出和函数调用
         for chunk in response:
-            # 检查是否有函数调用请求
+            # time.sleep(0.1)
+            cnt+=1
             if chunk.function_calls: # 使用 if chunk.function_calls 更加 Pythonic
                 # 遍历 chunk.function_calls 列表，收集所有 FunctionCall 对象
                 for func_call_obj in chunk.function_calls:
@@ -431,10 +451,7 @@ def call_gemini_api_stream(
 
     except Exception as e:
         tb = traceback.format_exc()#获取异常信息
-        logger.error(f"{MODULE_TAG}Gemini API调用异常: {e}\n{tb}")
-        return {"error": f"""[Gemini API调用异常] {e}
-Traceback:
-{tb}"""}
+        return {"error": f"{e},tb:{tb}"}
 
 
 # 模拟执行函数并返回结果的辅助函数
@@ -487,18 +504,23 @@ def tool_self_check():
     logger.info(f"{MODULE_TAG}开始工具自检...")
     # 检查 get_time 工具
     try:
-        get_time_result = get_time()
+        get_time_result = gettime("gettime")
         logger.info(f"{MODULE_TAG}get_time 工具自检结果: {get_time_result}")
     except Exception as e:
         logger.error(f"{MODULE_TAG}get_time 工具自检失败: {e}")
     # 检查 get_transaction_history 工具
     try:
-        get_transaction_history_result = get_transaction_history()
-        logger.info(f"{MODULE_TAG}get_transaction_history 工具自检结果: {get_transaction_history_result}")
+        get_transaction_history_result = gettransactionhistory("gettransactionhistory")
     except Exception as e:
         logger.error(f"{MODULE_TAG}get_transaction_history 工具自检失败: {e}")
     
-    
+    # 检查 executepythoncode 工具
+    try:
+        executepythoncode_result = executepythoncode("print('Hello, world!')")
+        logger.info(f"{MODULE_TAG}executepythoncode 工具自检结果: {executepythoncode_result}")
+    except Exception as e:
+        logger.error(f"{MODULE_TAG}executepythoncode 工具自检失败: {e}")
+    logger.info(f"{MODULE_TAG}工具自检完成")
 
 
 
@@ -511,7 +533,10 @@ if __name__ == "__main__":
     SYSTEM_JSON_PATH = config["data_path"] # Moved here as it's only used in __main__
     SYSTEM_PROMPT_PATH = config["MODEL_CONFIG"]["SYSTEM_PROMPT_PATH"] # Ensure this is available
 
-
+    tool_self_check()
+    #清空logs/think_log.md
+    with open(EFFECTIVE_LOG_FILE, "w", encoding="utf-8") as f:
+        f.truncate(0)
     data_json_path = SYSTEM_JSON_PATH
 
     with open(data_json_path, "r", encoding="utf-8") as f:
@@ -543,11 +568,11 @@ if __name__ == "__main__":
         tools_to_remove_names = []
         if len(current_all_function_declarations)==0:
             logger.info(f"{MODULE_TAG}本轮可用工具列表为空。")
-        if get_time_call_count >= 1:
+        if get_time_call_count >= 2:
             tools_to_remove_names.append("gettime")
-        if get_transaction_history_call_count >= 1:
+        if get_transaction_history_call_count >= 2:
             tools_to_remove_names.append("gettransactionhistory")
-        if execute_python_code_call_count >= 2:
+        if execute_python_code_call_count >= 3:
             tools_to_remove_names.append("executepythoncode")
 
         if tools_to_remove_names:
@@ -619,11 +644,9 @@ if __name__ == "__main__":
         elif "error" in result:
             # API 调用发生错误
             logger.error(f"""{MODULE_TAG}API 调用发生错误:
-{result['error']}""")
-            print(f"""{MODULE_TAG}API 调用发生错误:
-{result['error']}""")
-            break # Exit the loop on error
-
+{result}""")
+            #如果code为429就换api-key
+             # Go to the next iteration of the loop
     else:
         logger.warning(f"{MODULE_TAG}达到最大交互轮数 ({max_turns})，交互结束。可能未收到最终响应。")
         print(f"{MODULE_TAG}警告：达到最大交互轮数 ({max_turns})，交互结束。可能未收到最终响应。请检查模型行为或增加最大轮数。")
@@ -638,5 +661,6 @@ if __name__ == "__main__":
     print(f"gettransactionhistory 函数总耗时: {timing_data['gettransactionhistory_exec_time']:.4f} 秒")
     print(f"executepythoncode 函数每次耗时: {[f'{t:.4f}秒' for t in timing_data['executepythoncode_exec_times']]}")
     print(f"Gemini API 调用每次耗时: {[f'{t:.4f}秒' for t in timing_data['gemini_api_call_times']]}")
-    print(f"总程序运行时间: {end_time - start_time:.4f} 秒")
+    print(f"总程序运行时间: {round((end_time - start_time)/60,2)} 分钟{round((end_time - start_time)%60,2)} 秒")
+    print(f"总请求次数: {cnt}")
     print("--------------------\n")
