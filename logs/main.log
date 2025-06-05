@@ -1,0 +1,1946 @@
+[截图服务器][16:11:32] [INFO] 截图服务器正在启动...
+[截图服务器][16:11:32] [INFO] 已执行 pkill chrome
+[截图服务器][16:11:32] [INFO] 启动时主动清理内存...
+[截图服务器][16:11:33] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:11:37] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][16:11:37] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:11:37] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][16:11:37] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][16:11:37] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][16:11:37] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:11:37] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:11:38] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][16:11:42] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][16:11:42] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:13:49] [INFO] 截图服务器正在启动...
+[截图服务器][16:13:49] [INFO] 已执行 pkill chrome
+[截图服务器][16:13:49] [INFO] 启动时主动清理内存...
+[截图服务器][16:13:50] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:13:53] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][16:13:53] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:13:53] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][16:13:53] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][16:13:53] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][16:13:53] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:13:53] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:13:54] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][16:13:56] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][16:13:56] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:14:29] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:14:29] [INFO] 浏览器初始化成功。
+[截图服务器][16:14:29] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][16:14:29] [INFO] [33mPress CTRL+C to quit[0m
+[截图客户端][16:26:22] [INFO] __main__ 入口被执行 (客户端模式)
+[截图客户端][16:26:22] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][16:26:22] [INFO] 收到截图请求。
+[截图服务器][16:26:22] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][16:26:22] [INFO] 等待0.5秒加载页面...
+[截图服务器][16:26:22] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][16:26:23] [INFO] 快捷键已发送
+[截图服务器][16:26:23] [WARNING] 第1次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][16:26:24] [WARNING] 第2次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][16:26:24] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_162624.png
+[截图服务器][16:26:24] [INFO] 127.0.0.1 - - [05/Jun/2025 16:26:24] "GET /screenshot HTTP/1.1" 200 -
+[截图客户端][16:26:24] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_162624.png
+[截图服务器][16:27:32] [INFO] 收到截图请求。
+[截图服务器][16:27:32] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][16:27:32] [INFO] 等待0.5秒加载页面...
+[截图服务器][16:27:33] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][16:27:34] [INFO] 快捷键已发送
+[截图服务器][16:27:34] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_162734.png
+[截图服务器][16:27:34] [INFO] 127.0.0.1 - - [05/Jun/2025 16:27:34] "GET /screenshot HTTP/1.1" 200 -
+[截图服务器][16:33:10] [INFO] 收到截图请求。
+[截图服务器][16:33:10] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][16:33:10] [INFO] 等待0.5秒加载页面...
+[截图服务器][16:33:10] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][16:33:12] [INFO] 快捷键已发送
+[截图服务器][16:33:12] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_163312.png
+[截图服务器][16:33:12] [INFO] 127.0.0.1 - - [05/Jun/2025 16:33:12] "GET /screenshot HTTP/1.1" 200 -
+[get_positions.py][16:37:24] [INFO] instrument_id: ETH-USDT-SWAP
+[_client.py][16:37:25] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[_client.py][16:37:25] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][16:37:25] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[_client.py][16:37:25] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[get_positions.py][16:37:25] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[get_positions.py][16:37:25] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[_client.py][16:37:26] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[get_positions.py][16:37:26] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][16:40:42] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][16:40:42] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][16:40:42] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][16:40:42] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][16:40:42] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][16:40:43] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][16:40:49] [INFO] 截图模块运行中...
+[技术指标模块][16:40:49] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][16:40:49] [INFO] 收到截图请求。
+[截图服务器][16:40:49] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][16:40:49] [INFO] 等待0.5秒加载页面...
+[截图服务器][16:40:49] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][16:40:51] [INFO] 快捷键已发送
+[截图服务器][16:40:51] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164051.png
+[截图服务器][16:40:51] [INFO] 127.0.0.1 - - [05/Jun/2025 16:40:51] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][16:40:51] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164051.png
+[技术指标模块][16:40:51] [INFO] 截图模块完成，截图路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164051.png
+[技术指标模块][16:40:51] [INFO] 技术指标模块运行中...
+[技术指标模块][16:40:51] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][16:40:51] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][16:40:51] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][16:40:52] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][16:40:52] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][16:40:52] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][16:40:52] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][16:40:52] [INFO] 宏观因子模块运行中...
+[技术指标模块][16:40:54] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][16:40:54] [INFO] OKX 持仓模块运行中...
+[技术指标模块][16:40:54] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][16:40:54] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][16:40:54] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][16:40:54] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][16:40:55] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][16:40:55] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][16:40:55] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][16:40:55] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][16:40:55] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][16:40:55] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][16:40:56] [INFO] 总运行时间: 0:00:06.783384
+[技术指标模块][16:40:56] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164051.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2623.97,
+        "volume": 111055.72,
+        "RSI": 31.246002752731442,
+        "MACD_macd": 0.33337099495520306,
+        "MACD_signal": 1.6341120761694685,
+        "ATR": 9.34850045108815,
+        "ADX": 28.727721578460674,
+        "Stoch_K": 5.229007633587315,
+        "Stoch_D": 19.118233023611314,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 0.0,
+        "BB_upper": 2648.0259110725847,
+        "BB_lower": 2620.254088927416,
+        "BB_middle": 2634.1400000000003,
+        "EMA5": 2630.3017668517796,
+        "EMA21": 2633.0890970018695,
+        "EMA55": 2629.8828428311344,
+        "EMA144": 2621.95756310649,
+        "EMA200": 2619.11210724279,
+        "VWAP": 2627.3413991861
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2520.82,
+        "volume": 812029.36,
+        "RSI": 61.786549322418516,
+        "MACD_macd": -5.12888905351474,
+        "MACD_signal": -7.907322635338929,
+        "ATR": 19.777929574522396,
+        "ADX": 29.351534765143647,
+        "Stoch_K": 67.95586959216575,
+        "Stoch_D": 62.50568158340557,
+        "StochRSI_K": 98.37532922277956,
+        "StochRSI_D": 88.48042800481261,
+        "BB_upper": 2550.32581669132,
+        "BB_lower": 2479.9371833086807,
+        "BB_middle": 2515.1315000000004,
+        "EMA5": 2512.941022750604,
+        "EMA21": 2512.5271607342306,
+        "EMA55": 2534.564634795931,
+        "EMA144": 2567.9277484047493,
+        "EMA200": 2576.693131608186,
+        "VWAP": 2577.5055675668045
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.81,
+        "volume": 15598213.76,
+        "RSI": 43.06504270565647,
+        "MACD_macd": -17.81791994290279,
+        "MACD_signal": -14.729776933055355,
+        "ATR": 74.27504549606635,
+        "ADX": 26.480514450143648,
+        "Stoch_K": 44.4565093153503,
+        "Stoch_D": 46.865665204692164,
+        "StochRSI_K": 57.81841666488315,
+        "StochRSI_D": 72.5672035067361,
+        "BB_upper": 2681.510030919283,
+        "BB_lower": 2446.493969080717,
+        "BB_middle": 2564.002,
+        "EMA5": 2525.366116319843,
+        "EMA21": 2548.0291947130586,
+        "EMA55": 2568.067867871276,
+        "EMA144": 2582.902347789093,
+        "EMA200": 2587.021060034416,
+        "VWAP": 2584.4931665761324
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "57/100",
+      "open_interest": "$3467501997058.9995 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2602.77",
+        "lastSz": "11.02",
+        "askPx": "2602.78",
+        "askSz": "113.41",
+        "bidPx": "2602.77",
+        "bidSz": "834.29",
+        "open24h": "2640.75",
+        "high24h": "2678.78",
+        "low24h": "2593",
+        "volCcy24h": "3672360.437",
+        "vol24h": "36723604.37",
+        "ts": "1749112855113",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T16:40:56+08:00"
+}
+[技术指标模块][16:40:56] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][16:40:56] [INFO] 截图模块运行时间: 0:00:02.178702
+[技术指标模块][16:40:56] [INFO] 技术指标模块运行时间: 0:00:01.324403
+[技术指标模块][16:40:56] [INFO] 宏观因子模块运行时间: 0:00:01.555046
+[技术指标模块][16:40:56] [INFO] OKX 持仓模块运行时间: 0:00:01.370536
+[技术指标模块][16:40:56] [INFO] --------------------------
+[截图服务器][16:44:32] [INFO] 截图服务器正在启动...
+[截图服务器][16:44:32] [INFO] 已执行 pkill chrome
+[截图服务器][16:44:32] [INFO] 启动时主动清理内存...
+[截图服务器][16:44:32] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:44:32] [WARNING] chrome_profile_copy 不存在，跳过更新用户配置。请确保该目录存在，以便初始化。
+[截图服务器][16:44:32] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:44:32] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:44:32] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:44:32] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:44:32] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:44:32] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:44:36] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][16:44:41] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][16:44:41] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:45:15] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:45:15] [INFO] 浏览器初始化成功。
+[截图服务器][16:45:16] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][16:45:16] [INFO] [33mPress CTRL+C to quit[0m
+[截图服务器][16:45:28] [INFO] 截图服务器正在启动...
+[截图服务器][16:45:28] [INFO] 已执行 pkill chrome
+[截图服务器][16:45:28] [INFO] 启动时主动清理内存...
+[截图服务器][16:45:28] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:46:45] [INFO] 截图服务器正在启动...
+[截图服务器][16:46:45] [INFO] 已执行 pkill chrome
+[截图服务器][16:46:45] [INFO] 启动时主动清理内存...
+[截图服务器][16:46:45] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:47:30] [INFO] 截图服务器正在启动...
+[截图服务器][16:47:30] [INFO] 已执行 pkill chrome
+[截图服务器][16:47:30] [INFO] 启动时主动清理内存...
+[截图服务器][16:47:30] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:47:34] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:47:34] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:47:34] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:47:34] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:47:34] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:47:34] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:47:34] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:47:35] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][16:47:37] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][16:47:37] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:48:11] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:48:11] [INFO] 浏览器初始化成功。
+[截图服务器][16:48:11] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][16:48:11] [INFO] [33mPress CTRL+C to quit[0m
+[技术指标模块][16:48:27] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][16:48:28] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][16:48:28] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][16:48:28] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][16:48:28] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][16:48:28] [INFO] 成功获取并处理 4h 周期的数据。
+[截图客户端][16:48:34] [INFO] __main__ 入口被执行 (客户端模式)
+[截图客户端][16:48:34] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][16:48:34] [INFO] 收到截图请求。
+[截图服务器][16:48:34] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][16:48:34] [INFO] 等待0.5秒加载页面...
+[截图服务器][16:48:34] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][16:48:35] [INFO] 快捷键已发送
+[截图服务器][16:48:35] [WARNING] 第1次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][16:48:36] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164836.png
+[截图服务器][16:48:36] [INFO] 127.0.0.1 - - [05/Jun/2025 16:48:36] "GET /screenshot HTTP/1.1" 200 -
+[截图客户端][16:48:36] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164836.png
+[截图服务器][16:49:02] [INFO] 截图服务器正在启动...
+[截图服务器][16:49:02] [INFO] 已执行 pkill chrome
+[截图服务器][16:49:02] [INFO] 启动时主动清理内存...
+[截图服务器][16:49:02] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:49:05] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:49:05] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:49:05] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:49:05] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:49:05] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:49:05] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:49:05] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:49:06] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][16:49:08] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][16:49:08] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:49:42] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:49:42] [INFO] 浏览器初始化成功。
+[截图服务器][16:49:42] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][16:49:42] [INFO] [33mPress CTRL+C to quit[0m
+[截图客户端][16:49:48] [INFO] __main__ 入口被执行 (客户端模式)
+[截图客户端][16:49:48] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][16:49:48] [INFO] 收到截图请求。
+[截图服务器][16:49:48] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][16:49:48] [INFO] 等待0.5秒加载页面...
+[截图服务器][16:49:49] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][16:49:49] [INFO] 快捷键已发送
+[截图服务器][16:49:50] [WARNING] 第1次未检测到刚刚下载的K线图片，2秒后重试...
+[截图服务器][16:49:50] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164950.png
+[截图服务器][16:49:50] [INFO] 127.0.0.1 - - [05/Jun/2025 16:49:50] "GET /screenshot HTTP/1.1" 200 -
+[截图客户端][16:49:50] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_164950.png
+[技术指标模块][16:50:48] [INFO] 截图模块运行中...
+[技术指标模块][16:50:48] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][16:50:48] [INFO] 收到截图请求。
+[截图服务器][16:50:48] [ERROR] 保存K线图片失败: [Errno 2] No such file or directory: '/root/codespace/taishang/src/downloads'
+[截图服务器][16:50:48] [INFO] 127.0.0.1 - - [05/Jun/2025 16:50:48] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][16:50:48] [ERROR] 请求截图服务器异常: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][16:50:48] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][16:50:48] [INFO] 技术指标模块运行中...
+[技术指标模块][16:50:48] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][16:50:48] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][16:50:48] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][16:50:49] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][16:50:49] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][16:50:49] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][16:50:49] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][16:50:49] [INFO] 宏观因子模块运行中...
+[技术指标模块][16:50:51] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][16:50:51] [INFO] OKX 持仓模块运行中...
+[技术指标模块][16:50:51] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][16:50:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][16:50:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][16:50:51] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][16:50:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][16:50:52] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][16:50:52] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][16:50:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][16:50:52] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][16:50:52] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][16:50:52] [INFO] 总运行时间: 0:00:04.489896
+[技术指标模块][16:50:52] [INFO] merged: {
+  "clipboard_image_path": "",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2626.6,
+        "volume": 101711.79,
+        "RSI": 34.42296896588418,
+        "MACD_macd": 1.2944473311540605,
+        "MACD_signal": 1.9623576223970725,
+        "ATR": 10.032881687981645,
+        "ADX": 29.124366934317596,
+        "Stoch_K": 14.975105323630162,
+        "Stoch_D": 35.80308305626168,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 6.78277951673688,
+        "BB_upper": 2648.085122667576,
+        "BB_lower": 2620.1398773324245,
+        "BB_middle": 2634.1125,
+        "EMA5": 2633.4676502776692,
+        "EMA21": 2634.0006682555577,
+        "EMA55": 2629.9860303849364,
+        "EMA144": 2620.857400945745,
+        "EMA200": 2617.4878120279654,
+        "VWAP": 2627.2233430561146
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2520.82,
+        "volume": 812029.36,
+        "RSI": 61.786549322418516,
+        "MACD_macd": -5.12888905351474,
+        "MACD_signal": -7.907322635338929,
+        "ATR": 19.777929574522396,
+        "ADX": 29.351534765143647,
+        "Stoch_K": 67.95586959216575,
+        "Stoch_D": 62.50568158340557,
+        "StochRSI_K": 98.37532922277956,
+        "StochRSI_D": 88.48042800481261,
+        "BB_upper": 2550.32581669132,
+        "BB_lower": 2479.9371833086807,
+        "BB_middle": 2515.1315000000004,
+        "EMA5": 2512.941022750604,
+        "EMA21": 2512.5271607342306,
+        "EMA55": 2534.564634795931,
+        "EMA144": 2567.9277484047493,
+        "EMA200": 2576.693131608186,
+        "VWAP": 2577.5055675668045
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.81,
+        "volume": 15598213.76,
+        "RSI": 43.06504270565647,
+        "MACD_macd": -17.81791994290279,
+        "MACD_signal": -14.729776933055355,
+        "ATR": 74.27504549606635,
+        "ADX": 26.480514450143648,
+        "Stoch_K": 44.4565093153503,
+        "Stoch_D": 46.865665204692164,
+        "StochRSI_K": 57.81841666488315,
+        "StochRSI_D": 72.5672035067361,
+        "BB_upper": 2681.510030919283,
+        "BB_lower": 2446.493969080717,
+        "BB_middle": 2564.002,
+        "EMA5": 2525.366116319843,
+        "EMA21": 2548.0291947130586,
+        "EMA55": 2568.067867871276,
+        "EMA144": 2582.902347789093,
+        "EMA200": 2587.021060034416,
+        "VWAP": 2584.4931665761324
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "57/100",
+      "open_interest": "$3467517460138.0005 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2606.26",
+        "lastSz": "0.03",
+        "askPx": "2606.27",
+        "askSz": "2305.73",
+        "bidPx": "2606.26",
+        "bidSz": "508.47",
+        "open24h": "2638.25",
+        "high24h": "2678.78",
+        "low24h": "2593",
+        "volCcy24h": "3673871.095",
+        "vol24h": "36738710.95",
+        "ts": "1749113452009",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T16:50:52+08:00"
+}
+[技术指标模块][16:50:52] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][16:50:52] [INFO] 截图模块运行时间: 0:00:00.007691
+[技术指标模块][16:50:52] [INFO] 技术指标模块运行时间: 0:00:01.253202
+[技术指标模块][16:50:52] [INFO] 宏观因子模块运行时间: 0:00:01.583381
+[技术指标模块][16:50:52] [INFO] OKX 持仓模块运行时间: 0:00:01.274167
+[技术指标模块][16:50:52] [INFO] --------------------------
+[截图服务器][16:53:40] [INFO] 截图服务器正在启动...
+[截图服务器][16:53:40] [INFO] 已执行 pkill chrome
+[截图服务器][16:53:40] [INFO] 启动时主动清理内存...
+[截图服务器][16:53:40] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:53:43] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:53:43] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:53:43] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:53:43] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:53:43] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:53:43] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:53:43] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:53:48] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][16:53:49] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][16:53:49] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][16:54:27] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_CONNECTION_CLOSED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x558fdda5471a <unknown>
+#1 0x558fdd4f70a0 <unknown>
+#2 0x558fdd4ee177 <unknown>
+#3 0x558fdd4df199 <unknown>
+#4 0x558fdd4e0e8d <unknown>
+#5 0x558fdd4df52e <unknown>
+#6 0x558fdd4deece <unknown>
+#7 0x558fdd4deba2 <unknown>
+#8 0x558fdd4dc9ef <unknown>
+#9 0x558fdd4dd1aa <unknown>
+#10 0x558fdd4fa5d9 <unknown>
+#11 0x558fdd594eb5 <unknown>
+#12 0x558fdd56e3a2 <unknown>
+#13 0x558fdd5942a0 <unknown>
+#14 0x558fdd56e173 <unknown>
+#15 0x558fdd53ad4b <unknown>
+#16 0x558fdd53b9b1 <unknown>
+#17 0x558fdda198cb <unknown>
+#18 0x558fdda1d7ca <unknown>
+#19 0x558fdda01622 <unknown>
+#20 0x558fdda1e354 <unknown>
+#21 0x558fdd9e645f <unknown>
+#22 0x558fdda424f8 <unknown>
+#23 0x558fdda426d6 <unknown>
+#24 0x558fdda53586 <unknown>
+#25 0x7f5e005573fb start_thread
+
+[截图服务器][16:54:27] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][16:57:26] [INFO] 截图服务器正在启动...
+[截图服务器][16:57:26] [INFO] 已执行 pkill chrome
+[截图服务器][16:57:26] [INFO] 启动时主动清理内存...
+[截图服务器][16:57:27] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:57:29] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:57:29] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:57:29] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:57:29] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:57:29] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:57:29] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:57:29] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:57:29] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:57:35] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][16:57:35] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][16:57:42] [INFO] 截图服务器正在启动...
+[截图服务器][16:57:42] [INFO] 已执行 pkill chrome
+[截图服务器][16:57:42] [INFO] 启动时主动清理内存...
+[截图服务器][16:57:42] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:57:45] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:57:45] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:57:45] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:57:45] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:57:45] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:57:45] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:57:45] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:57:45] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:57:51] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][16:57:51] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][16:58:08] [INFO] 截图服务器正在启动...
+[截图服务器][16:58:08] [INFO] 已执行 pkill chrome
+[截图服务器][16:58:08] [INFO] 启动时主动清理内存...
+[截图服务器][16:58:08] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:58:11] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:58:11] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:58:11] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:58:11] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:58:11] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:58:11] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:58:11] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:58:11] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:58:17] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][16:58:17] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][16:59:28] [INFO] 截图服务器正在启动...
+[截图服务器][16:59:28] [INFO] 已执行 pkill chrome
+[截图服务器][16:59:28] [INFO] 启动时主动清理内存...
+[截图服务器][16:59:28] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][16:59:30] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:59:30] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:59:30] [INFO] 启动新的Chrome浏览器...
+[截图服务器][16:59:30] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][16:59:30] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][16:59:30] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][16:59:30] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][16:59:30] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][16:59:35] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][16:59:35] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:05:11] [INFO] 截图服务器正在启动...
+[截图服务器][17:05:11] [INFO] 已执行 pkill chrome
+[截图服务器][17:05:11] [INFO] 启动时主动清理内存...
+[截图服务器][17:05:11] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:05:14] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:05:14] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:05:14] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:05:14] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:05:14] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:05:14] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:05:14] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][17:05:14] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][17:05:21] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][17:05:21] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:06:21] [INFO] 截图服务器正在启动...
+[截图服务器][17:06:21] [INFO] 已执行 pkill chrome
+[截图服务器][17:06:21] [INFO] 启动时主动清理内存...
+[截图服务器][17:06:21] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:06:31] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:06:31] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:06:31] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:06:31] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:06:31] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:06:31] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:06:31] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][17:06:31] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][17:06:37] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][17:06:37] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:07:22] [INFO] 截图服务器正在启动...
+[截图服务器][17:07:22] [INFO] 已执行 pkill chrome
+[截图服务器][17:07:22] [INFO] 启动时主动清理内存...
+[截图服务器][17:07:23] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:07:26] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:07:26] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:07:26] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:07:26] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:07:26] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:07:26] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:07:26] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking']
+[截图服务器][17:07:27] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][17:07:29] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][17:07:29] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][17:08:05] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_CONNECTION_CLOSED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x55882785471a <unknown>
+#1 0x5588272f70a0 <unknown>
+#2 0x5588272ee177 <unknown>
+#3 0x5588272df199 <unknown>
+#4 0x5588272e0e8d <unknown>
+#5 0x5588272df52e <unknown>
+#6 0x5588272deece <unknown>
+#7 0x5588272deba2 <unknown>
+#8 0x5588272dc9ef <unknown>
+#9 0x5588272dd1aa <unknown>
+#10 0x5588272fa5d9 <unknown>
+#11 0x558827394eb5 <unknown>
+#12 0x55882736e3a2 <unknown>
+#13 0x5588273942a0 <unknown>
+#14 0x55882736e173 <unknown>
+#15 0x55882733ad4b <unknown>
+#16 0x55882733b9b1 <unknown>
+#17 0x5588278198cb <unknown>
+#18 0x55882781d7ca <unknown>
+#19 0x558827801622 <unknown>
+#20 0x55882781e354 <unknown>
+#21 0x5588277e645f <unknown>
+#22 0x5588278424f8 <unknown>
+#23 0x5588278426d6 <unknown>
+#24 0x558827853586 <unknown>
+#25 0x7fb28975e3fb start_thread
+
+[截图服务器][17:08:05] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:08:42] [INFO] 截图服务器正在启动...
+[截图服务器][17:08:42] [INFO] 已执行 pkill chrome
+[截图服务器][17:08:42] [INFO] 启动时主动清理内存...
+[截图服务器][17:08:42] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:08:44] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:08:44] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:08:44] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:08:44] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:08:44] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:08:44] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:08:44] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][17:08:44] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][17:08:51] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][17:08:51] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:12:42] [INFO] 截图服务器正在启动...
+[截图服务器][17:12:42] [INFO] 已执行 pkill chrome
+[截图服务器][17:12:42] [INFO] 启动时主动清理内存...
+[截图服务器][17:12:43] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:12:46] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:12:46] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:12:46] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:12:46] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:12:46] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:12:46] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:12:54] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][17:12:54] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:13:37] [INFO] 截图服务器正在启动...
+[截图服务器][17:13:37] [INFO] 已执行 pkill chrome
+[截图服务器][17:13:37] [INFO] 启动时主动清理内存...
+[截图服务器][17:13:37] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:13:39] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:13:39] [INFO] 更新用户配置: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:13:39] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:13:39] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:13:39] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:13:39] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:13:46] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][17:13:46] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:18:30] [INFO] 截图服务器正在启动...
+[截图服务器][17:18:30] [INFO] 已执行 pkill chrome
+[截图服务器][17:18:30] [INFO] 启动时主动清理内存...
+[截图服务器][17:18:30] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:18:32] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:18:32] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:18:32] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:18:32] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:18:32] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:18:32] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][17:18:32] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][17:18:38] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][17:18:38] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][17:19:29] [INFO] 截图服务器正在启动...
+[截图服务器][17:19:29] [INFO] 已执行 pkill chrome
+[截图服务器][17:19:29] [INFO] 启动时主动清理内存...
+[截图服务器][17:19:29] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:19:31] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:19:31] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:19:31] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:19:31] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:19:31] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:19:31] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][17:19:31] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][17:19:33] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][17:19:35] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][17:19:35] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][17:20:09] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][17:20:09] [INFO] 浏览器初始化成功。
+[截图服务器][17:20:09] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][17:20:09] [INFO] [33mPress CTRL+C to quit[0m
+[截图服务器][17:21:05] [INFO] 截图服务器正在启动...
+[截图服务器][17:21:05] [INFO] 已执行 pkill chrome
+[截图服务器][17:21:05] [INFO] 启动时主动清理内存...
+[截图服务器][17:21:05] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][17:21:08] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:21:08] [INFO] 启动新的Chrome浏览器...
+[截图服务器][17:21:08] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][17:21:08] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][17:21:08] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][17:21:08] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][17:21:08] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][17:21:09] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][17:21:11] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][17:21:11] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][17:21:45] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][17:21:45] [INFO] 浏览器初始化成功。
+[截图服务器][17:21:45] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][17:21:45] [INFO] [33mPress CTRL+C to quit[0m
+[技术指标模块][17:22:13] [INFO] 截图模块运行中...
+[技术指标模块][17:22:13] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][17:22:13] [INFO] 收到截图请求。
+[截图服务器][17:22:13] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][17:22:13] [INFO] 等待0.5秒加载页面...
+[截图服务器][17:22:13] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][17:22:14] [INFO] 快捷键已发送
+[截图服务器][17:22:15] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172215.png
+[截图服务器][17:22:15] [INFO] 127.0.0.1 - - [05/Jun/2025 17:22:15] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][17:22:15] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172215.png
+[技术指标模块][17:22:15] [INFO] 截图模块完成，截图路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172215.png
+[技术指标模块][17:22:15] [INFO] 技术指标模块运行中...
+[技术指标模块][17:22:15] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][17:22:15] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][17:22:15] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][17:22:16] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][17:22:16] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][17:22:16] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][17:22:16] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:22:16] [INFO] 宏观因子模块运行中...
+[截图服务器][17:26:40] [ERROR] 172.26.10.66 - - [05/Jun/2025 17:26:40] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[截图服务器][17:26:40] [INFO] 172.26.10.66 - - [05/Jun/2025 17:26:40] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+[技术指标模块][17:27:48] [INFO] 截图模块运行中...
+[技术指标模块][17:27:48] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][17:27:48] [INFO] 收到截图请求。
+[截图服务器][17:27:48] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][17:27:48] [INFO] 等待0.5秒加载页面...
+[截图服务器][17:27:48] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][17:27:49] [INFO] 快捷键已发送
+[截图服务器][17:27:50] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172750.png
+[截图服务器][17:27:50] [INFO] 127.0.0.1 - - [05/Jun/2025 17:27:50] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][17:27:50] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172750.png
+[技术指标模块][17:27:50] [INFO] 截图模块完成，截图路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172750.png
+[技术指标模块][17:27:50] [INFO] 技术指标模块运行中...
+[技术指标模块][17:27:50] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][17:28:05] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][17:28:05] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][17:28:08] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][17:28:08] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][17:28:16] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][17:28:16] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:28:16] [INFO] 宏观因子模块运行中...
+[技术指标模块][17:28:27] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:28:27] [INFO] OKX 持仓模块运行中...
+[技术指标模块][17:28:27] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][17:28:28] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][17:28:28] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][17:28:28] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][17:29:08] [INFO] 截图模块运行中...
+[技术指标模块][17:29:08] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][17:29:08] [INFO] 收到截图请求。
+[截图服务器][17:29:08] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][17:29:08] [INFO] 等待0.5秒加载页面...
+[截图服务器][17:29:09] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][17:29:09] [INFO] 快捷键已发送
+[截图服务器][17:29:10] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172910.png
+[截图服务器][17:29:10] [INFO] 127.0.0.1 - - [05/Jun/2025 17:29:10] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][17:29:10] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172910.png
+[技术指标模块][17:29:10] [INFO] 截图模块完成，截图路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172910.png
+[技术指标模块][17:29:10] [INFO] 技术指标模块运行中...
+[技术指标模块][17:29:10] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][17:29:17] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][17:29:17] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][17:29:22] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][17:29:22] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][17:29:26] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][17:29:26] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:29:26] [INFO] 宏观因子模块运行中...
+[技术指标模块][17:30:11] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:30:11] [INFO] OKX 持仓模块运行中...
+[技术指标模块][17:30:11] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][17:30:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][17:30:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][17:30:11] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][17:30:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][17:30:15] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][17:30:15] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][17:30:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][17:30:15] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][17:30:15] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:30:31] [INFO] 总运行时间: 0:01:23.376350
+[技术指标模块][17:30:31] [INFO] merged: {
+  "clipboard_image_path": "/root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_172910.png",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2637.84,
+        "volume": 606109.96,
+        "RSI": 54.0635234489774,
+        "MACD_macd": 2.5533848023160317,
+        "MACD_signal": 2.1008223581729175,
+        "ATR": 9.446259662164277,
+        "ADX": 32.02892446008979,
+        "Stoch_K": 55.2835577315384,
+        "Stoch_D": 60.17396696647307,
+        "StochRSI_K": 20.348351449381717,
+        "StochRSI_D": 29.380507861813925,
+        "BB_upper": 2651.2268496287916,
+        "BB_lower": 2613.508150371208,
+        "BB_middle": 2632.3675,
+        "EMA5": 2637.922213124755,
+        "EMA21": 2634.729124206549,
+        "EMA55": 2630.0409130874514,
+        "EMA144": 2621.5463359097635,
+        "EMA200": 2618.6384477611796,
+        "VWAP": 2626.9847859734987
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.23,
+        "volume": 576373.35,
+        "RSI": 58.93461479935683,
+        "MACD_macd": -6.641168885919342,
+        "MACD_signal": -8.60286932294196,
+        "ATR": 20.36222599587768,
+        "ADX": 32.71010237847112,
+        "Stoch_K": 63.50564026279903,
+        "Stoch_D": 57.13813478781852,
+        "StochRSI_K": 90.4562387940881,
+        "StochRSI_D": 78.53527802417051,
+        "BB_upper": 2551.8341235954385,
+        "BB_lower": 2479.694876404562,
+        "BB_middle": 2515.7645,
+        "EMA5": 2509.001534125906,
+        "EMA21": 2511.6979805766273,
+        "EMA55": 2535.1092020922,
+        "EMA144": 2568.9152822420506,
+        "EMA200": 2577.73771633245,
+        "VWAP": 2578.0097316595557
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.81,
+        "volume": 15598213.76,
+        "RSI": 43.06504270565647,
+        "MACD_macd": -17.81791994290279,
+        "MACD_signal": -14.729776933055355,
+        "ATR": 74.27504549606635,
+        "ADX": 26.480514450143648,
+        "Stoch_K": 44.4565093153503,
+        "Stoch_D": 46.865665204692164,
+        "StochRSI_K": 57.81841666488315,
+        "StochRSI_D": 72.5672035067361,
+        "BB_upper": 2681.510030919283,
+        "BB_lower": 2446.493969080717,
+        "BB_middle": 2564.002,
+        "EMA5": 2525.366116319843,
+        "EMA21": 2548.0291947130586,
+        "EMA55": 2568.067867871276,
+        "EMA144": 2582.902347789093,
+        "EMA200": 2587.021060034416,
+        "VWAP": 2584.4931665761324
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "57/100",
+      "open_interest": "$3467587488582.998 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2604.36",
+        "lastSz": "15.17",
+        "askPx": "2604.37",
+        "askSz": "1292.77",
+        "bidPx": "2604.36",
+        "bidSz": "1644.1",
+        "open24h": "2633",
+        "high24h": "2678.78",
+        "low24h": "2593",
+        "volCcy24h": "3654020.404",
+        "vol24h": "36540204.04",
+        "ts": "1749115831412",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T17:30:31+08:00"
+}
+[技术指标模块][17:30:31] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][17:30:31] [INFO] 截图模块运行时间: 0:00:01.773526
+[技术指标模块][17:30:31] [INFO] 技术指标模块运行时间: 0:00:15.725742
+[技术指标模块][17:30:31] [INFO] 宏观因子模块运行时间: 0:00:44.956958
+[技术指标模块][17:30:31] [INFO] OKX 持仓模块运行时间: 0:00:04.273575
+[技术指标模块][17:30:31] [INFO] --------------------------
+[技术指标模块][17:30:55] [INFO] 截图模块运行中...
+[技术指标模块][17:30:55] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][17:30:55] [INFO] 收到截图请求。
+[截图服务器][17:30:55] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][17:30:55] [INFO] 等待0.5秒加载页面...
+[截图服务器][17:30:56] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[截图服务器][17:30:57] [INFO] 快捷键已发送
+[截图服务器][17:30:57] [INFO] K线图片已保存: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_173057.png
+[截图服务器][17:30:57] [INFO] 127.0.0.1 - - [05/Jun/2025 17:30:57] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][17:30:57] [INFO] 截图服务器返回成功，图片路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_173057.png
+[技术指标模块][17:30:57] [INFO] 截图模块完成，截图路径: /root/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250605_173057.png
+[技术指标模块][17:30:57] [INFO] 技术指标模块运行中...
+[技术指标模块][17:30:57] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][17:31:04] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][17:31:04] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][17:31:05] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][17:31:05] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][17:31:05] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][17:31:05] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:31:05] [INFO] 宏观因子模块运行中...
+[技术指标模块][17:31:34] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:31:34] [INFO] OKX 持仓模块运行中...
+[技术指标模块][17:31:34] [INFO] instrument_id: ETH-USDT-SWAP
+[截图服务器][17:34:18] [INFO] 收到截图请求。
+[截图服务器][17:34:18] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][17:34:19] [ERROR] 保存K线图片失败: Message: tab crashed
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x56098d05471a <unknown>
+#1 0x56098caf6ef3 <unknown>
+#2 0x56098cadeb4f <unknown>
+#3 0x56098cadc9ef <unknown>
+#4 0x56098cadd31f <unknown>
+#5 0x56098caebf83 <unknown>
+#6 0x56098cb055ee <unknown>
+#7 0x56098cb0be1b <unknown>
+#8 0x56098cadda30 <unknown>
+#9 0x56098cb04df5 <unknown>
+#10 0x56098cb9417a <unknown>
+#11 0x56098cb6e173 <unknown>
+#12 0x56098cb3ad4b <unknown>
+#13 0x56098cb3b9b1 <unknown>
+#14 0x56098d0198cb <unknown>
+#15 0x56098d01d7ca <unknown>
+#16 0x56098d001622 <unknown>
+#17 0x56098d01e354 <unknown>
+#18 0x56098cfe645f <unknown>
+#19 0x56098d0424f8 <unknown>
+#20 0x56098d0426d6 <unknown>
+#21 0x56098d053586 <unknown>
+#22 0x7f97f8f463fb start_thread
+
+[截图服务器][17:34:19] [INFO] 127.0.0.1 - - [05/Jun/2025 17:34:19] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][17:36:40] [INFO] 截图模块运行中...
+[技术指标模块][17:36:40] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][17:36:40] [INFO] 收到截图请求。
+[截图服务器][17:36:40] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][17:36:40] [ERROR] 保存K线图片失败: Message: tab crashed
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x56098d05471a <unknown>
+#1 0x56098caf6ef3 <unknown>
+#2 0x56098cadeb4f <unknown>
+#3 0x56098cadc9ef <unknown>
+#4 0x56098cadd31f <unknown>
+#5 0x56098caebf83 <unknown>
+#6 0x56098cb055ee <unknown>
+#7 0x56098cb0be1b <unknown>
+#8 0x56098cadda30 <unknown>
+#9 0x56098cb04df5 <unknown>
+#10 0x56098cb9417a <unknown>
+#11 0x56098cb6e173 <unknown>
+#12 0x56098cb3ad4b <unknown>
+#13 0x56098cb3b9b1 <unknown>
+#14 0x56098d0198cb <unknown>
+#15 0x56098d01d7ca <unknown>
+#16 0x56098d001622 <unknown>
+#17 0x56098d01e354 <unknown>
+#18 0x56098cfe645f <unknown>
+#19 0x56098d0424f8 <unknown>
+#20 0x56098d0426d6 <unknown>
+#21 0x56098d053586 <unknown>
+#22 0x7f97f8f463fb start_thread
+
+[截图服务器][17:36:40] [INFO] 127.0.0.1 - - [05/Jun/2025 17:36:40] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][17:36:40] [ERROR] 请求截图服务器异常: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][17:36:40] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][17:36:40] [INFO] 技术指标模块运行中...
+[技术指标模块][17:36:40] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][17:36:41] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][17:36:41] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][17:36:51] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][17:36:51] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][17:37:00] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][17:37:00] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:37:00] [INFO] 宏观因子模块运行中...
+[技术指标模块][17:37:02] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:37:02] [INFO] OKX 持仓模块运行中...
+[技术指标模块][17:37:02] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][17:37:02] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][17:37:02] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][17:37:02] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][17:37:03] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][17:37:03] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][17:37:03] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][17:37:03] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][17:37:03] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][17:37:03] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][17:37:03] [INFO] 总运行时间: 0:00:23.188614
+[技术指标模块][17:37:03] [INFO] merged: {
+  "clipboard_image_path": "",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2638.58,
+        "volume": 228627.75,
+        "RSI": 55.692453722366025,
+        "MACD_macd": 2.6264617177243963,
+        "MACD_signal": 1.9894933727438977,
+        "ATR": 9.22722417073338,
+        "ADX": 34.230223672324065,
+        "Stoch_K": 60.38759689922409,
+        "Stoch_D": 61.8523863316031,
+        "StochRSI_K": 30.16117140680281,
+        "StochRSI_D": 30.22292562349912,
+        "BB_upper": 2651.6226250383243,
+        "BB_lower": 2610.659374961676,
+        "BB_middle": 2631.141,
+        "EMA5": 2637.9633196871323,
+        "EMA21": 2634.4178362732628,
+        "EMA55": 2629.6835026795725,
+        "EMA144": 2620.683839138035,
+        "EMA200": 2617.512817536711,
+        "VWAP": 2626.667190343176
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.23,
+        "volume": 576373.35,
+        "RSI": 58.93461479935683,
+        "MACD_macd": -6.641168885919342,
+        "MACD_signal": -8.60286932294196,
+        "ATR": 20.36222599587768,
+        "ADX": 32.71010237847112,
+        "Stoch_K": 63.50564026279903,
+        "Stoch_D": 57.13813478781852,
+        "StochRSI_K": 90.4562387940881,
+        "StochRSI_D": 78.53527802417051,
+        "BB_upper": 2551.8341235954385,
+        "BB_lower": 2479.694876404562,
+        "BB_middle": 2515.7645,
+        "EMA5": 2509.001534125906,
+        "EMA21": 2511.6979805766273,
+        "EMA55": 2535.1092020922,
+        "EMA144": 2568.9152822420506,
+        "EMA200": 2577.73771633245,
+        "VWAP": 2578.0097316595557
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.81,
+        "volume": 15598213.76,
+        "RSI": 43.06504270565647,
+        "MACD_macd": -17.81791994290279,
+        "MACD_signal": -14.729776933055355,
+        "ATR": 74.27504549606635,
+        "ADX": 26.480514450143648,
+        "Stoch_K": 44.4565093153503,
+        "Stoch_D": 46.865665204692164,
+        "StochRSI_K": 57.81841666488315,
+        "StochRSI_D": 72.5672035067361,
+        "BB_upper": 2681.510030919283,
+        "BB_lower": 2446.493969080717,
+        "BB_middle": 2564.002,
+        "EMA5": 2525.366116319843,
+        "EMA21": 2548.0291947130586,
+        "EMA55": 2568.067867871276,
+        "EMA144": 2582.902347789093,
+        "EMA200": 2587.021060034416,
+        "VWAP": 2584.4931665761324
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "0.01%",
+      "FGI": "57/100",
+      "open_interest": "$3467593757869.999 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2604.13",
+        "lastSz": "0.01",
+        "askPx": "2604.14",
+        "askSz": "1790.1",
+        "bidPx": "2604.13",
+        "bidSz": "42.18",
+        "open24h": "2632.2",
+        "high24h": "2678.78",
+        "low24h": "2593",
+        "volCcy24h": "3648333.626",
+        "vol24h": "36483336.26",
+        "ts": "1749116223606",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T17:37:03+08:00"
+}
+[技术指标模块][17:37:03] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][17:37:03] [INFO] 截图模块运行时间: 0:00:00.068085
+[技术指标模块][17:37:03] [INFO] 技术指标模块运行时间: 0:00:20.095641
+[技术指标模块][17:37:03] [INFO] 宏观因子模块运行时间: 0:00:01.567108
+[技术指标模块][17:37:03] [INFO] OKX 持仓模块运行时间: 0:00:01.110947
+[技术指标模块][17:37:03] [INFO] --------------------------
+[截图服务器][18:00:41] [INFO] 收到截图请求。
+[截图服务器][18:00:41] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][18:00:41] [ERROR] 保存K线图片失败: Message: tab crashed
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x56098d05471a <unknown>
+#1 0x56098caf6ef3 <unknown>
+#2 0x56098cadeb4f <unknown>
+#3 0x56098cadc9ef <unknown>
+#4 0x56098cadd31f <unknown>
+#5 0x56098caebf83 <unknown>
+#6 0x56098cb055ee <unknown>
+#7 0x56098cb0be1b <unknown>
+#8 0x56098cadda30 <unknown>
+#9 0x56098cb04df5 <unknown>
+#10 0x56098cb9417a <unknown>
+#11 0x56098cb6e173 <unknown>
+#12 0x56098cb3ad4b <unknown>
+#13 0x56098cb3b9b1 <unknown>
+#14 0x56098d0198cb <unknown>
+#15 0x56098d01d7ca <unknown>
+#16 0x56098d001622 <unknown>
+#17 0x56098d01e354 <unknown>
+#18 0x56098cfe645f <unknown>
+#19 0x56098d0424f8 <unknown>
+#20 0x56098d0426d6 <unknown>
+#21 0x56098d053586 <unknown>
+#22 0x7f97f8f463fb start_thread
+
+[截图服务器][18:00:41] [INFO] 127.0.0.1 - - [05/Jun/2025 18:00:41] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][18:54:17] [INFO] 截图模块运行中...
+[技术指标模块][18:54:17] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][18:54:17] [INFO] 收到截图请求。
+[截图服务器][18:54:17] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][18:54:17] [ERROR] 保存K线图片失败: Message: tab crashed
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x56098d05471a <unknown>
+#1 0x56098caf6ef3 <unknown>
+#2 0x56098cadeb4f <unknown>
+#3 0x56098cadc9ef <unknown>
+#4 0x56098cadd31f <unknown>
+#5 0x56098caebf83 <unknown>
+#6 0x56098cb055ee <unknown>
+#7 0x56098cb0be1b <unknown>
+#8 0x56098cadda30 <unknown>
+#9 0x56098cb04df5 <unknown>
+#10 0x56098cb9417a <unknown>
+#11 0x56098cb6e173 <unknown>
+#12 0x56098cb3ad4b <unknown>
+#13 0x56098cb3b9b1 <unknown>
+#14 0x56098d0198cb <unknown>
+#15 0x56098d01d7ca <unknown>
+#16 0x56098d001622 <unknown>
+#17 0x56098d01e354 <unknown>
+#18 0x56098cfe645f <unknown>
+#19 0x56098d0424f8 <unknown>
+#20 0x56098d0426d6 <unknown>
+#21 0x56098d053586 <unknown>
+#22 0x7f97f8f463fb start_thread
+
+[截图服务器][18:54:17] [INFO] 127.0.0.1 - - [05/Jun/2025 18:54:17] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][18:54:17] [ERROR] 请求截图服务器异常: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][18:54:17] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][18:54:17] [INFO] 技术指标模块运行中...
+[技术指标模块][18:54:17] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][18:54:28] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][18:54:28] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][18:54:32] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][18:54:32] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][18:54:32] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][18:54:32] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][18:54:32] [INFO] 宏观因子模块运行中...
+[技术指标模块][18:55:12] [INFO] 截图模块运行中...
+[技术指标模块][18:55:12] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[截图服务器][18:55:12] [INFO] 收到截图请求。
+[截图服务器][18:55:12] [INFO] 旧截图已清理，开始截图流程...
+[截图服务器][18:55:12] [ERROR] 保存K线图片失败: Message: tab crashed
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x56098d05471a <unknown>
+#1 0x56098caf6ef3 <unknown>
+#2 0x56098cadeb4f <unknown>
+#3 0x56098cadc9ef <unknown>
+#4 0x56098cadd31f <unknown>
+#5 0x56098caebf83 <unknown>
+#6 0x56098cb055ee <unknown>
+#7 0x56098cb0be1b <unknown>
+#8 0x56098cadda30 <unknown>
+#9 0x56098cb04df5 <unknown>
+#10 0x56098cb9417a <unknown>
+#11 0x56098cb6e173 <unknown>
+#12 0x56098cb3ad4b <unknown>
+#13 0x56098cb3b9b1 <unknown>
+#14 0x56098d0198cb <unknown>
+#15 0x56098d01d7ca <unknown>
+#16 0x56098d001622 <unknown>
+#17 0x56098d01e354 <unknown>
+#18 0x56098cfe645f <unknown>
+#19 0x56098d0424f8 <unknown>
+#20 0x56098d0426d6 <unknown>
+#21 0x56098d053586 <unknown>
+#22 0x7f97f8f463fb start_thread
+
+[截图服务器][18:55:12] [INFO] 127.0.0.1 - - [05/Jun/2025 18:55:12] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][18:55:12] [ERROR] 请求截图服务器异常: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][18:55:12] [INFO] 截图模块完成，截图路径: None
+[技术指标模块][18:55:12] [INFO] 技术指标模块运行中...
+[技术指标模块][18:55:12] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][18:55:29] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][18:55:29] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][18:55:36] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][18:55:36] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][18:55:36] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][18:55:36] [INFO] 技术指标模块完成，结果类型: <class 'dict'>
+[技术指标模块][18:55:36] [INFO] 宏观因子模块运行中...
+[技术指标模块][18:55:39] [INFO] 宏观因子模块完成，结果类型: <class 'dict'>
+[技术指标模块][18:55:39] [INFO] OKX 持仓模块运行中...
+[技术指标模块][18:55:39] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][18:55:39] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][18:55:39] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][18:55:39] [INFO] 未获取到 ETH-USDT-SWAP 的持仓信息或持仓列表为空。
+[技术指标模块][18:55:40] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][18:55:40] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][18:55:40] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][18:55:40] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][18:55:40] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][18:55:40] [INFO] OKX 持仓模块完成，结果类型: <class 'dict'>
+[技术指标模块][18:55:40] [INFO] 总运行时间: 0:00:28.712982
+[技术指标模块][18:55:40] [INFO] merged: {
+  "clipboard_image_path": "",
+  "indicators_main": {
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2642.31,
+        "volume": 380469.23,
+        "RSI": 61.96226471238385,
+        "MACD_macd": 3.038698285075043,
+        "MACD_signal": 0.6572284402334667,
+        "ATR": 11.555994410826406,
+        "ADX": 40.9320085596146,
+        "Stoch_K": 84.03051181102316,
+        "Stoch_D": 84.97804875492217,
+        "StochRSI_K": 76.48345332050955,
+        "StochRSI_D": 91.94725042636703,
+        "BB_upper": 2649.4605150072034,
+        "BB_lower": 2601.1494849927963,
+        "BB_middle": 2625.305,
+        "EMA5": 2640.347083874158,
+        "EMA21": 2632.7824455058726,
+        "EMA55": 2627.8595185136915,
+        "EMA144": 2616.0661270370097,
+        "EMA200": 2611.432435885772,
+        "VWAP": 2624.519205719838
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2511.22,
+        "volume": 618387.51,
+        "RSI": 53.94802365380756,
+        "MACD_macd": -8.110623339315225,
+        "MACD_signal": -9.09640523154508,
+        "ATR": 21.221026272930317,
+        "ADX": 37.613984538212854,
+        "Stoch_K": 56.05553489525197,
+        "Stoch_D": 51.97305896450544,
+        "StochRSI_K": 76.60976396763877,
+        "StochRSI_D": 66.45552058828089,
+        "BB_upper": 2552.494599373718,
+        "BB_lower": 2479.849400626282,
+        "BB_middle": 2516.172,
+        "EMA5": 2504.887301188859,
+        "EMA21": 2511.14512266835,
+        "EMA55": 2535.889113289238,
+        "EMA144": 2570.7278678930616,
+        "EMA200": 2579.9473164103574,
+        "VWAP": 2578.3938011298296
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2517.81,
+        "volume": 15598213.76,
+        "RSI": 43.06504270565647,
+        "MACD_macd": -17.81791994290279,
+        "MACD_signal": -14.729776933055355,
+        "ATR": 74.27504549606635,
+        "ADX": 26.480514450143648,
+        "Stoch_K": 44.4565093153503,
+        "Stoch_D": 46.865665204692164,
+        "StochRSI_K": 57.81841666488315,
+        "StochRSI_D": 72.5672035067361,
+        "BB_upper": 2681.510030919283,
+        "BB_lower": 2446.493969080717,
+        "BB_middle": 2564.002,
+        "EMA5": 2525.366116319843,
+        "EMA21": 2548.0291947130586,
+        "EMA55": 2568.067867871276,
+        "EMA144": 2582.902347789093,
+        "EMA200": 2587.021060034416,
+        "VWAP": 2584.4931665761324
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "funding_rate": "-0.0527%",
+      "FGI": "57/100",
+      "open_interest": "$3466638300803.004 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2594.99",
+        "lastSz": "0.03",
+        "askPx": "2595",
+        "askSz": "457.96",
+        "bidPx": "2594.99",
+        "bidSz": "3192.1",
+        "open24h": "2636.32",
+        "high24h": "2678.78",
+        "low24h": "2578.15",
+        "volCcy24h": "3773142.679",
+        "vol24h": "37731426.79",
+        "ts": "1749120939724",
+        "sodUtc0": "2606.76",
+        "sodUtc8": "2666.81"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116495.16 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "N/A",
+      "Position direction": "N/A",
+      "pos": "0",
+      "avgPrice": "N/A",
+      "Unrealized Gains": "N/A",
+      "liqPrice": "N/A",
+      "lever": "N/A"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-05T18:55:40+08:00"
+}
+[技术指标模块][18:55:40] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][18:55:40] [INFO] 截图模块运行时间: 0:00:00.017423
+[技术指标模块][18:55:40] [INFO] 技术指标模块运行时间: 0:00:24.797291
+[技术指标模块][18:55:40] [INFO] 宏观因子模块运行时间: 0:00:02.485537
+[技术指标模块][18:55:40] [INFO] OKX 持仓模块运行时间: 0:00:01.076605
+[技术指标模块][18:55:40] [INFO] --------------------------
+[技术指标模块][18:55:59] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][18:56:16] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][18:56:16] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][18:56:26] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][18:56:26] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[技术指标模块][18:56:32] [INFO] 成功获取并处理 4h 周期的数据。
+[截图服务器][18:57:02] [INFO] 截图服务器正在启动...
+[截图服务器][18:57:02] [INFO] 已执行 pkill chrome
+[截图服务器][18:57:02] [INFO] 启动时主动清理内存...
+[截图服务器][18:57:02] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][18:57:06] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][18:57:06] [INFO] 启动新的Chrome浏览器...
+[截图服务器][18:57:06] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][18:57:06] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][18:57:06] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][18:57:06] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][18:57:06] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][18:57:13] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][18:57:13] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][18:57:37] [INFO] 截图服务器正在启动...
+[截图服务器][18:57:37] [INFO] 已执行 pkill chrome
+[截图服务器][18:57:37] [INFO] 启动时主动清理内存...
+[截图服务器][18:57:37] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][18:57:37] [WARNING] chrome_profile_copy 不存在，跳过更新用户配置。请确保该目录存在，以便初始化。
+[截图服务器][18:57:37] [INFO] 启动新的Chrome浏览器...
+[截图服务器][18:57:37] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][18:57:37] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][18:57:37] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][18:57:43] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][18:57:43] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][18:57:57] [INFO] 截图服务器正在启动...
+[截图服务器][18:57:57] [INFO] 已执行 pkill chrome
+[截图服务器][18:57:57] [INFO] 启动时主动清理内存...
+[截图服务器][18:57:57] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][18:57:57] [WARNING] chrome_profile_copy 不存在，跳过更新用户配置。请确保该目录存在，以便初始化。
+[截图服务器][18:57:57] [INFO] 启动新的Chrome浏览器...
+[截图服务器][18:57:57] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][18:57:57] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][18:57:57] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][18:58:03] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][18:58:03] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][18:59:15] [INFO] 截图服务器正在启动...
+[截图服务器][18:59:15] [INFO] 已执行 pkill chrome
+[截图服务器][18:59:15] [INFO] 启动时主动清理内存...
+[截图服务器][18:59:15] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][18:59:15] [WARNING] chrome_profile_copy 不存在，跳过更新用户配置。请确保该目录存在，以便初始化。
+[截图服务器][18:59:15] [INFO] 启动新的Chrome浏览器...
+[截图服务器][18:59:15] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][18:59:15] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][18:59:15] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][18:59:19] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][18:59:22] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][18:59:22] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][19:00:00] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_CONNECTION_CLOSED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x55debee5471a <unknown>
+#1 0x55debe8f70a0 <unknown>
+#2 0x55debe8ee177 <unknown>
+#3 0x55debe8df199 <unknown>
+#4 0x55debe8e0e8d <unknown>
+#5 0x55debe8df52e <unknown>
+#6 0x55debe8deece <unknown>
+#7 0x55debe8deba2 <unknown>
+#8 0x55debe8dc9ef <unknown>
+#9 0x55debe8dd1aa <unknown>
+#10 0x55debe8fa5d9 <unknown>
+#11 0x55debe994eb5 <unknown>
+#12 0x55debe96e3a2 <unknown>
+#13 0x55debe9942a0 <unknown>
+#14 0x55debe96e173 <unknown>
+#15 0x55debe93ad4b <unknown>
+#16 0x55debe93b9b1 <unknown>
+#17 0x55debee198cb <unknown>
+#18 0x55debee1d7ca <unknown>
+#19 0x55debee01622 <unknown>
+#20 0x55debee1e354 <unknown>
+#21 0x55debede645f <unknown>
+#22 0x55debee424f8 <unknown>
+#23 0x55debee426d6 <unknown>
+#24 0x55debee53586 <unknown>
+#25 0x7fefa982e3fb start_thread
+
+[截图服务器][19:00:00] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:00:05] [INFO] 截图服务器正在启动...
+[截图服务器][19:00:05] [INFO] 已执行 pkill chrome
+[截图服务器][19:00:05] [INFO] 启动时主动清理内存...
+[截图服务器][19:00:05] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:00:08] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:00:08] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:00:08] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:00:08] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:00:08] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:00:08] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:00:08] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:00:14] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][19:00:14] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:03:35] [INFO] 截图服务器正在启动...
+[截图服务器][19:03:35] [INFO] 已执行 pkill chrome
+[截图服务器][19:03:35] [INFO] 启动时主动清理内存...
+[截图服务器][19:03:36] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:03:38] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:03:38] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:03:38] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:03:38] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:03:38] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:03:38] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:03:38] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:03:39] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][19:03:41] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][19:03:41] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][19:04:14] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][19:04:14] [INFO] 浏览器初始化成功。
+[截图服务器][19:04:14] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[截图服务器][19:04:14] [INFO] [33mPress CTRL+C to quit[0m
+[截图服务器][19:35:16] [INFO] 截图服务器正在启动...
+[截图服务器][19:35:16] [INFO] 已执行 pkill chrome
+[截图服务器][19:35:16] [INFO] 启动时主动清理内存...
+[截图服务器][19:35:16] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:35:18] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:35:18] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:35:18] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:35:18] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:35:18] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:35:18] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:35:18] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:35:20] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][19:35:22] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][19:35:22] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][19:35:35] [INFO] 截图服务器正在启动...
+[截图服务器][19:35:35] [INFO] 已执行 pkill chrome
+[截图服务器][19:35:35] [INFO] 启动时主动清理内存...
+[截图服务器][19:35:35] [ERROR] 启动Chrome失败: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: Unable to receive message from renderer
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x55d211e5471a <unknown>
+#1 0x55d2118f70a0 <unknown>
+#2 0x55d2118deea0 <unknown>
+#3 0x55d2118deba2 <unknown>
+#4 0x55d2118dc9ef <unknown>
+#5 0x55d2118dd1aa <unknown>
+#6 0x55d2118fa5d9 <unknown>
+#7 0x55d211994eb5 <unknown>
+#8 0x55d21196e3a2 <unknown>
+#9 0x55d2119942a0 <unknown>
+#10 0x55d21196e173 <unknown>
+#11 0x55d21193ad4b <unknown>
+#12 0x55d21193b9b1 <unknown>
+#13 0x55d211e198cb <unknown>
+#14 0x55d211e1d7ca <unknown>
+#15 0x55d211e01622 <unknown>
+#16 0x55d211e1e354 <unknown>
+#17 0x55d211de645f <unknown>
+#18 0x55d211e424f8 <unknown>
+#19 0x55d211e426d6 <unknown>
+#20 0x55d211e53586 <unknown>
+#21 0x7f5760fc43fb start_thread
+
+[截图服务器][19:35:35] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:35:35] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:35:38] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:35:38] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:35:38] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:35:38] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:35:38] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:35:38] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:35:38] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:35:44] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][19:35:44] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:35:47] [INFO] 截图服务器正在启动...
+[截图服务器][19:35:47] [INFO] 已执行 pkill chrome
+[截图服务器][19:35:47] [INFO] 启动时主动清理内存...
+[截图服务器][19:35:47] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:35:50] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:35:50] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:35:50] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:35:50] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:35:50] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:35:50] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:35:50] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:35:58] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][19:35:58] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:36:31] [INFO] 截图服务器正在启动...
+[截图服务器][19:36:31] [INFO] 已执行 pkill chrome
+[截图服务器][19:36:31] [INFO] 启动时主动清理内存...
+[截图服务器][19:36:31] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:36:33] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:36:33] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:36:33] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:36:33] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:36:33] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:36:33] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:36:33] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:36:39] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][19:36:39] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:52:11] [INFO] 截图服务器正在启动...
+[截图服务器][19:52:11] [INFO] 已执行 pkill chrome
+[截图服务器][19:52:11] [INFO] 启动时主动清理内存...
+[截图服务器][19:52:11] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:52:13] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:52:13] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:52:13] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:52:13] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:52:13] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:52:13] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:52:13] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:52:20] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][19:52:20] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][19:54:29] [INFO] 截图服务器正在启动...
+[截图服务器][19:54:29] [INFO] 已执行 pkill chrome
+[截图服务器][19:54:29] [INFO] 启动时主动清理内存...
+[截图服务器][19:54:30] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][19:54:32] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:54:32] [INFO] 启动新的Chrome浏览器...
+[截图服务器][19:54:32] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][19:54:32] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][19:54:32] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][19:54:32] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][19:54:32] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][19:54:38] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][19:54:38] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:05:14] [INFO] 截图服务器正在启动...
+[截图服务器][20:05:14] [INFO] 已执行 pkill chrome
+[截图服务器][20:05:14] [INFO] 启动时主动清理内存...
+[截图服务器][20:05:15] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:05:17] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:05:17] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:05:17] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][20:05:17] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][20:05:17] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:05:17] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:05:17] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:05:27] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][20:05:27] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:06:39] [INFO] 截图服务器正在启动...
+[截图服务器][20:06:39] [INFO] 已执行 pkill chrome
+[截图服务器][20:06:39] [INFO] 启动时主动清理内存...
+[截图服务器][20:06:39] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:06:41] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:06:41] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:06:41] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][20:06:41] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][20:06:41] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:06:41] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:06:41] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:06:48] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][20:06:48] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:13:09] [INFO] 截图服务器正在启动...
+[截图服务器][20:13:09] [INFO] 已执行 pkill chrome
+[截图服务器][20:13:09] [INFO] 启动时主动清理内存...
+[截图服务器][20:13:10] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:13:12] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:13:12] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:13:12] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][20:13:12] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][20:13:12] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:13:12] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:13:12] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:13:18] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][20:13:18] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:13:22] [INFO] 截图服务器正在启动...
+[截图服务器][20:13:22] [INFO] 已执行 pkill chrome
+[截图服务器][20:13:22] [INFO] 启动时主动清理内存...
+[截图服务器][20:13:22] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:13:24] [INFO] 已用 /root/codespace/taishang/data/chrome_profile_copy 覆盖 /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:13:24] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:13:24] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/ShaderCache
+[截图服务器][20:13:24] [INFO] 已清理缓存目录: /root/codespace/taishang/data/chrome_profile/GrShaderCache
+[截图服务器][20:13:24] [INFO] 用户数据目录设置为: /root/codespace/taishang/data/chrome_profile
+[截图服务器][20:13:24] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:13:24] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/data/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:13:30] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][20:13:31] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][20:13:31] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][20:14:01] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][20:14:01] [INFO] 浏览器初始化成功。
+[截图服务器][20:14:01] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://172.26.10.66:5002
+[截图服务器][20:14:01] [INFO] [33mPress CTRL+C to quit[0m
+[截图服务器][20:17:20] [INFO] 截图服务器正在启动...
+[截图服务器][20:17:20] [INFO] 已执行 pkill chrome
+[截图服务器][20:17:20] [INFO] 启动时主动清理内存...
+[截图服务器][20:17:20] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:17:22] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:17:22] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:17:22] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][20:17:22] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][20:17:22] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:17:22] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:17:22] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:17:30] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][20:17:30] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:17:38] [INFO] 截图服务器正在启动...
+[截图服务器][20:17:38] [INFO] 已执行 pkill chrome
+[截图服务器][20:17:38] [INFO] 启动时主动清理内存...
+[截图服务器][20:17:38] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:17:43] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:17:43] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:17:43] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][20:17:43] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][20:17:43] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:17:43] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:17:43] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:17:51] [INFO] patching driver executable /root/.local/share/undetected_chromedriver/undetected_chromedriver
+[截图服务器][20:17:54] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[截图服务器][20:17:54] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[截图服务器][20:18:30] [ERROR] 启动Chrome失败: Message: unknown error: net::ERR_CONNECTION_CLOSED
+  (Session info: chrome=136.0.7103.113)
+Stacktrace:
+#0 0x558075e5471a <unknown>
+#1 0x5580758f70a0 <unknown>
+#2 0x5580758ee177 <unknown>
+#3 0x5580758df199 <unknown>
+#4 0x5580758e0e8d <unknown>
+#5 0x5580758df52e <unknown>
+#6 0x5580758deece <unknown>
+#7 0x5580758deba2 <unknown>
+#8 0x5580758dc9ef <unknown>
+#9 0x5580758dd1aa <unknown>
+#10 0x5580758fa5d9 <unknown>
+#11 0x558075994eb5 <unknown>
+#12 0x55807596e3a2 <unknown>
+#13 0x5580759942a0 <unknown>
+#14 0x55807596e173 <unknown>
+#15 0x55807593ad4b <unknown>
+#16 0x55807593b9b1 <unknown>
+#17 0x558075e198cb <unknown>
+#18 0x558075e1d7ca <unknown>
+#19 0x558075e01622 <unknown>
+#20 0x558075e1e354 <unknown>
+#21 0x558075de645f <unknown>
+#22 0x558075e424f8 <unknown>
+#23 0x558075e426d6 <unknown>
+#24 0x558075e53586 <unknown>
+#25 0x7fb6172833fb start_thread
+
+[截图服务器][20:18:30] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:18:35] [INFO] 截图服务器正在启动...
+[截图服务器][20:18:35] [INFO] 已执行 pkill chrome
+[截图服务器][20:18:35] [INFO] 启动时主动清理内存...
+[截图服务器][20:18:36] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:18:39] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:18:39] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:18:39] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][20:18:39] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][20:18:39] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:18:39] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:18:39] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:18:46] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][20:18:46] [CRITICAL] 浏览器初始化失败，服务器无法启动。
+[截图服务器][20:37:50] [INFO] 截图服务器正在启动...
+[截图服务器][20:37:50] [INFO] 已执行 pkill chrome
+[截图服务器][20:37:50] [INFO] 启动时主动清理内存...
+[截图服务器][20:37:51] [INFO] 已尝试释放 Linux 系统缓存
+[截图服务器][20:37:55] [INFO] 已用 /root/codespace/taishang/src/chrome_profile_copy 覆盖 /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:37:55] [INFO] 启动新的Chrome浏览器...
+[截图服务器][20:37:55] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/ShaderCache
+[截图服务器][20:37:55] [INFO] 已清理缓存目录: /root/codespace/taishang/src/chrome_profile/GrShaderCache
+[截图服务器][20:37:55] [INFO] 用户数据目录设置为: /root/codespace/taishang/src/chrome_profile
+[截图服务器][20:37:55] [INFO] 已设置代理: http://127.0.0.1:7890
+[截图服务器][20:37:55] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/root/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:7890']
+[截图服务器][20:38:02] [ERROR] 启动Chrome失败: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)>
+[截图服务器][20:38:02] [CRITICAL] 浏览器初始化失败，服务器无法启动。
