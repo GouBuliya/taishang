@@ -18,12 +18,12 @@ import get_transaction_history
 
 # ===================== 全局配置与初始化 =====================
 # 从config.json中读取配置
-with open("/root/codespace/Qwen_quant_v1/config/config.json", "r", encoding="utf-8") as f:
+with open("config/config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-LOG_FILE = config["ETH_log_path"]
-EFFECTIVE_LOG_FILE = config["effective_log_path"]
+LOG_FILE = config["main_log_path"]
+EFFECTIVE_LOG_FILE = config["main_log_path"]
 
 # 定义一个过滤器来忽略特定模块的警告
 class NoGenaiTypesWarningFilter(logging.Filter):
