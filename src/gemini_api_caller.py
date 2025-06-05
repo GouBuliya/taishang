@@ -13,7 +13,6 @@ if FUNCTION_DIR not in sys.path:
 print(f"DEBUG: sys.path: {sys.path}") # Add this line for debugging
 
 # Import the newly modularized functions
-import get_time
 import get_transaction_history
 
 # ===================== 全局配置与初始化 =====================
@@ -75,10 +74,10 @@ timing_data = {
 }
 
 # 推荐用 GEMINI_API_KEY 作为环境变量名
-API_KEY = config["GEMINI_API_KEY"]
+API_KEY = config["gemini_api_key_set"]["gemini_api_key_1"]
 # 推荐Gemini模型名
-DEFAULT_MODEL_NAME = config["MODEL_NAME"]
-SYSTEM_PROMPT_PATH = config["SYSTEM_PROMPT_PATH"]
+DEFAULT_MODEL_NAME = config["MODEL_CONFIG"]["MODEL_NAME"]
+SYSTEM_PROMPT_PATH = config["MODEL_CONFIG"]["SYSTEM_PROMPT_PATH"]
 
 # ===================== 全局配置与初始化 END =====================
 
@@ -163,9 +162,9 @@ def gettime(target: str) -> dict:
 
     start_time = time.time() # Start timing
     try:
-        current_time = get_time.get_current_time()
+        current_time =  start_time
         logger.info(f"{MODULE_TAG}模块获取当前时间完成")
-        res =  current_time
+        res =  str(current_time)
         return {"time":res, "source": "local_module"}
     except ImportError as e:
         logger.error(f"{MODULE_TAG}导入 get_time 模块失败: {e}")
@@ -478,14 +477,39 @@ def execute_function_call(function_call: types.FunctionCall):
 
 __all__ = ["call_gemini_api_stream"]
 
+
+
+#工具自检
+def tool_self_check():
+    """
+    工具自检函数，检查所有工具是否正常工作。
+    """
+    logger.info(f"{MODULE_TAG}开始工具自检...")
+    # 检查 get_time 工具
+    try:
+        get_time_result = get_time()
+        logger.info(f"{MODULE_TAG}get_time 工具自检结果: {get_time_result}")
+    except Exception as e:
+        logger.error(f"{MODULE_TAG}get_time 工具自检失败: {e}")
+    # 检查 get_transaction_history 工具
+    try:
+        get_transaction_history_result = get_transaction_history()
+        logger.info(f"{MODULE_TAG}get_transaction_history 工具自检结果: {get_transaction_history_result}")
+    except Exception as e:
+        logger.error(f"{MODULE_TAG}get_transaction_history 工具自检失败: {e}")
+    
+    
+
+
+
 if __name__ == "__main__":
 
     os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
     os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 
     start_time = time.time()
-    SYSTEM_JSON_PATH = config["ETH_data_path"] # Moved here as it's only used in __main__
-    SYSTEM_PROMPT_PATH = config["SYSTEM_PROMPT_PATH"] # Ensure this is available
+    SYSTEM_JSON_PATH = config["data_path"] # Moved here as it's only used in __main__
+    SYSTEM_PROMPT_PATH = config["MODEL_CONFIG"]["SYSTEM_PROMPT_PATH"] # Ensure this is available
 
 
     data_json_path = SYSTEM_JSON_PATH
@@ -580,7 +604,7 @@ if __name__ == "__main__":
             try:
                 json_response = final_response.replace("```json", "").replace("```", "")
                 output_data = json.loads(json_response)
-                output_file_path = config["ETH_gemini_answer_path"]
+                output_file_path = config["gemini_answer_path"]
                 with open(output_file_path, "w", encoding="utf-8") as f:
                     json.dump(output_data, f, indent=4, ensure_ascii=False)
                 print(f"{MODULE_TAG}已将解析后的输出内容保存到 {output_file_path}")

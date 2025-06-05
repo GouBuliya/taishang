@@ -32,5 +32,6 @@
         "default_max_output_tokens": 24576,
         "default_thinking_budget": 8192,
         "default_include_thoughts": "True"
-    }
+    },
+    "gemini_answer_path": "data/gemini_answer.json"
 }
