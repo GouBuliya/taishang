@@ -1036,3 +1036,489 @@
 [place_order.py][00:52:25] [ERROR] 当前没有持仓
 [auto_trader.py][00:52:25] [INFO] 交易结果: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749313935705', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049377713', 'uTime': '1749314075121', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}, {'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749310074715', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'isolated', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2577237898328674304', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049355448', 'uTime': '1749311617743', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
 [auto_trader.py][00:52:25] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][01:11:25] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:11:25] [INFO] 执行加仓操作
+[_client.py][01:11:25] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:11:25] [INFO] 设置杠杆成功：100倍
+[_client.py][01:11:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:11:26] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[auto_trader.py][01:11:26] [INFO] 交易结果: {'success': True, 'order_id': '2577446321280389120', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577446321280389120', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749316286203'}], 'inTime': '1749316286201940', 'msg': '', 'outTime': '1749316286205102'}}
+[auto_trader.py][01:11:26] [INFO] 订单2577446321280389120已提交成功
+[_client.py][01:11:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][01:11:26] [INFO] OCO订单设置成功: 止盈价格=2480.0, 止损价格=2525.0, 数量=77.10000000000001 (771 lots)
+[_client.py][01:11:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][01:11:26] [INFO] 条件订单设置成功: 止盈价格=2450.0, 数量=77.10000000000001 (771 lots)
+[_client.py][01:11:27] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][01:11:27] [INFO] 条件订单设置成功: 止盈价格=2420.0, 数量=77.10000000000001 (771 lots)
+[auto_trader.py][01:11:27] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2480.0, 'stop_loss_price': 2525.0, 'size': 77.10000000000001, 'lots': 771, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2577446337397686272', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2450.0, 'stop_loss_price': None, 'size': 77.10000000000001, 'lots': 771, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2577446342632177664', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2420.0, 'stop_loss_price': None, 'size': 77.10000000000001, 'lots': 771, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2577446348000886784', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][01:16:21] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:16:21] [INFO] 执行加仓操作
+[_client.py][01:16:21] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:16:21] [INFO] 设置杠杆成功：100倍
+[_client.py][01:16:22] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:16:22] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:16:22] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:16:22] [ERROR] 交易失败: 未知错误
+[auto_trader.py][01:19:03] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:19:03] [INFO] 执行加仓操作
+[_client.py][01:19:03] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:19:03] [INFO] 设置杠杆成功：100倍
+[_client.py][01:19:04] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:19:04] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:19:04] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:19:04] [ERROR] 交易失败: 未知错误
+[auto_trader.py][01:19:04] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577461684747505664', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577461684747505664', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749316744070'}], 'inTime': '1749316744069134', 'msg': '', 'outTime': '1749316744072318'}}, 'tp_sl_orders': {'success': False, 'error': '未找到有效持仓', 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:20:40] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:20:40] [INFO] 执行加仓操作
+[_client.py][01:20:41] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:20:41] [INFO] 设置杠杆成功：100倍
+[_client.py][01:20:41] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:20:41] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:20:41] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:20:41] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:20:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:20:44] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:20:46] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:20:46] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:20:48] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:20:48] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:20:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:20:50] [ERROR] 交易失败: 未知错误
+[auto_trader.py][01:20:50] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577464960767365120', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577464960767365120', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749316841703'}], 'inTime': '1749316841701967', 'msg': '', 'outTime': '1749316841705071'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}
+[auto_trader.py][01:23:13] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:23:13] [INFO] 执行加仓操作
+[_client.py][01:23:14] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:23:14] [INFO] 设置杠杆成功：100倍
+[_client.py][01:23:14] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:23:14] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:23:14] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577470091139354624 "HTTP/2 200 OK"
+[place_order.py][01:23:14] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:23:17] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577470091139354624 "HTTP/2 200 OK"
+[place_order.py][01:23:17] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:23:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577470091139354624 "HTTP/2 200 OK"
+[place_order.py][01:23:19] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:23:21] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577470091139354624 "HTTP/2 200 OK"
+[place_order.py][01:23:21] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:23:23] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577470091139354624 "HTTP/2 200 OK"
+[place_order.py][01:23:23] [WARNING] 订单未完全成交，继续设置止盈止损
+[_client.py][01:23:23] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:23:23] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:23:26] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:23:26] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:23:28] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:23:28] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:23:30] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:23:30] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:23:32] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:23:32] [ERROR] 交易失败: 未知错误
+[auto_trader.py][01:23:32] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577470091139354624', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577470091139354624', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749316994600'}], 'inTime': '1749316994599348', 'msg': '', 'outTime': '1749316994610479'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}
+[auto_trader.py][01:24:56] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:24:56] [INFO] 执行加仓操作
+[_client.py][01:24:56] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:24:56] [INFO] 设置杠杆成功：100倍
+[_client.py][01:24:57] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:24:57] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:24:57] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577473525368360960 "HTTP/2 200 OK"
+[place_order.py][01:24:57] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:24:59] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577473525368360960 "HTTP/2 200 OK"
+[place_order.py][01:24:59] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:25:01] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577473525368360960 "HTTP/2 200 OK"
+[place_order.py][01:25:01] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:25:03] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577473525368360960 "HTTP/2 200 OK"
+[place_order.py][01:25:03] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:25:05] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577473525368360960 "HTTP/2 200 OK"
+[place_order.py][01:25:05] [WARNING] 订单未完全成交，继续设置止盈止损
+[_client.py][01:25:06] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:25:06] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:25:08] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:25:08] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:25:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:25:10] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:25:13] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:25:13] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:25:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:25:15] [ERROR] 交易失败: 未知错误
+[auto_trader.py][01:25:15] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577473525368360960', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577473525368360960', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749317096948'}], 'inTime': '1749317096947481', 'msg': '', 'outTime': '1749317096950511'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}
+[auto_trader.py][01:31:38] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:31:38] [INFO] 执行加仓操作
+[_client.py][01:31:39] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:31:39] [INFO] 设置杠杆成功：100倍
+[_client.py][01:31:39] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:31:39] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:31:39] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577487031664775168 "HTTP/2 200 OK"
+[place_order.py][01:31:39] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:31:41] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577487031664775168 "HTTP/2 200 OK"
+[place_order.py][01:31:41] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:31:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577487031664775168 "HTTP/2 200 OK"
+[place_order.py][01:31:44] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:31:46] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577487031664775168 "HTTP/2 200 OK"
+[place_order.py][01:31:46] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:31:48] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577487031664775168 "HTTP/2 200 OK"
+[place_order.py][01:31:48] [WARNING] 订单未完全成交，继续设置止盈止损
+[_client.py][01:31:48] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:31:48] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:31:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:31:50] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:31:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:31:53] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:31:55] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:31:55] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:31:57] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:31:57] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][01:31:57] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577487031664775168', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577487031664775168', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749317499467'}], 'inTime': '1749317499465664', 'msg': '', 'outTime': '1749317499468943'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}
+[auto_trader.py][01:36:08] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:36:08] [INFO] 执行加仓操作
+[_client.py][01:36:09] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:36:09] [INFO] 设置杠杆成功：100倍
+[_client.py][01:36:09] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:36:09] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:36:09] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577496098273628160 "HTTP/2 200 OK"
+[place_order.py][01:36:09] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:36:12] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577496098273628160 "HTTP/2 200 OK"
+[place_order.py][01:36:12] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:36:14] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577496098273628160 "HTTP/2 200 OK"
+[place_order.py][01:36:14] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:36:16] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577496098273628160 "HTTP/2 200 OK"
+[place_order.py][01:36:16] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:36:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577496098273628160 "HTTP/2 200 OK"
+[place_order.py][01:36:18] [WARNING] 订单未完全成交，继续设置止盈止损
+[_client.py][01:36:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:36:19] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:36:21] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:36:21] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:36:23] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:36:23] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:36:25] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:36:25] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:36:27] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:36:27] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][01:36:27] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577496098273628160', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577496098273628160', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749317769673'}], 'inTime': '1749317769671974', 'msg': '', 'outTime': '1749317769675169'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}
+[auto_trader.py][01:36:47] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:36:47] [INFO] 执行加仓操作
+[_client.py][01:36:47] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:36:47] [INFO] 设置杠杆成功：100倍
+[_client.py][01:36:48] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:36:48] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:36:48] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:36:48] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][01:36:48] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:36:48] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'
+[auto_trader.py][01:36:48] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][01:36:48] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577497389280399360', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577497389280399360', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749317808148'}], 'inTime': '1749317808147352', 'msg': '', 'outTime': '1749317808150402'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:38:09] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:38:09] [INFO] 执行加仓操作
+[_client.py][01:38:09] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:38:09] [INFO] 设置杠杆成功：100倍
+[_client.py][01:38:10] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:38:10] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:38:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:38:10] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][01:38:10] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:38:10] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'tpTriggerPx'
+[auto_trader.py][01:38:10] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][01:38:10] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577500145340780544', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577500145340780544', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749317890285'}], 'inTime': '1749317890284650', 'msg': '', 'outTime': '1749317890287733'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'tpTriggerPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:39:26] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:39:26] [INFO] 执行加仓操作
+[_client.py][01:39:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:39:26] [INFO] 设置杠杆成功：100倍
+[_client.py][01:39:27] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:39:27] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:39:27] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:39:27] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][01:39:27] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:39:27] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'tpOrdPx'
+[auto_trader.py][01:39:27] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][01:39:27] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577502720609882112', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577502720609882112', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749317967034'}], 'inTime': '1749317967033230', 'msg': '', 'outTime': '1749317967036314'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'tpOrdPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:40:19] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 'N/A', 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:40:19] [INFO] 执行加仓操作
+[_client.py][01:40:20] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:40:20] [INFO] 设置杠杆成功：100倍
+[_client.py][01:40:20] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:40:20] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:40:20] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:40:20] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][01:40:21] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:40:21] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'tpTriggerPx'
+[auto_trader.py][01:40:21] [ERROR] 保存交易记录失败: could not convert string to float: 'N/A'
+[auto_trader.py][01:40:21] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577504522919088128', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577504522919088128', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749318020747'}], 'inTime': '1749318020746818', 'msg': '', 'outTime': '1749318020750053'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'tpTriggerPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:44:54] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 'N/A', 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:44:54] [INFO] 执行加仓操作
+[_client.py][01:44:54] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:44:54] [INFO] 设置杠杆成功：100倍
+[_client.py][01:44:55] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:44:55] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:44:55] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:44:55] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][01:44:55] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:44:55] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'
+[auto_trader.py][01:44:55] [ERROR] 保存交易记录失败: could not convert string to float: 'N/A'
+[auto_trader.py][01:44:55] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577513729215041536', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577513729215041536', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749318295116'}], 'inTime': '1749318295115480', 'msg': '', 'outTime': '1749318295118494'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:46:01] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 'N/A', 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:46:01] [INFO] 执行加仓操作
+[_client.py][01:46:02] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:46:02] [INFO] 设置杠杆成功：100倍
+[_client.py][01:46:02] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:46:02] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:46:02] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:46:02] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][01:46:03] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:46:03] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'
+[auto_trader.py][01:46:03] [ERROR] 保存交易记录失败: could not convert string to float: 'N/A'
+[auto_trader.py][01:46:03] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577515996957773824', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577515996957773824', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749318362700'}], 'inTime': '1749318362699337', 'msg': '', 'outTime': '1749318362702450'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][01:46:41] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:46:41] [INFO] 执行加仓操作
+[_client.py][01:46:41] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][01:46:41] [INFO] 设置杠杆成功：100倍
+[_client.py][01:46:42] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][01:46:42] [INFO] 下单成功：方向=sell, 价格=2515.0, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][01:46:42] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577517316284485632 "HTTP/2 200 OK"
+[place_order.py][01:46:42] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:46:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577517316284485632 "HTTP/2 200 OK"
+[place_order.py][01:46:44] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:46:46] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577517316284485632 "HTTP/2 200 OK"
+[place_order.py][01:46:46] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:46:48] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577517316284485632 "HTTP/2 200 OK"
+[place_order.py][01:46:48] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][01:46:50] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577517316284485632 "HTTP/2 200 OK"
+[place_order.py][01:46:50] [WARNING] 订单未完全成交，继续设置止盈止损
+[_client.py][01:46:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:46:51] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:46:53] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:46:53] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:46:55] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:46:55] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:46:57] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:46:57] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][01:46:59] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][01:46:59] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][01:46:59] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577517316284485632', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577517316284485632', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749318402019'}], 'inTime': '1749318402018468', 'msg': '', 'outTime': '1749318402021644'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}
+[auto_trader.py][01:47:26] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:47:26] [INFO] 执行平仓操作
+[_client.py][01:47:27] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:47:27] [ERROR] 当前没有持仓
+[auto_trader.py][01:47:27] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][01:47:27] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749317890286', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049393107', 'uTime': '1749318372212', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][01:59:05] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][01:59:05] [INFO] 执行平仓操作
+[_client.py][01:59:06] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][01:59:06] [ERROR] 当前没有持仓
+[auto_trader.py][01:59:06] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][01:59:06] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749317890286', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049393107', 'uTime': '1749318372212', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:01:18] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:01:18] [INFO] 执行平仓操作
+[_client.py][02:01:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:01:19] [INFO] {'code': '0', 'data': [{'accFillSz': '0', 'algoClOrdId': '', 'algoId': '', 'attachAlgoClOrdId': '', 'attachAlgoOrds': [], 'avgPx': '', 'cTime': '1749318402019', 'cancelSource': '', 'cancelSourceReason': '', 'category': 'normal', 'ccy': '', 'clOrdId': '', 'fee': '0', 'feeCcy': 'USDT', 'fillPx': '', 'fillSz': '0', 'fillTime': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'isTpLimit': 'false', 'lever': '100', 'linkedAlgoOrd': {'algoId': ''}, 'ordId': '2577517316284485632', 'ordType': 'limit', 'pnl': '0', 'posSide': 'net', 'px': '2515', 'pxType': '', 'pxUsd': '', 'pxVol': '', 'quickMgnType': '', 'rebate': '0', 'rebateCcy': 'USDT', 'reduceOnly': 'false', 'side': 'sell', 'slOrdPx': '', 'slTriggerPx': '', 'slTriggerPxType': '', 'source': '', 'state': 'live', 'stpId': '', 'stpMode': 'cancel_maker', 'sz': '231.34', 'tag': '', 'tdMode': 'cross', 'tgtCcy': '', 'tpOrdPx': '', 'tpTriggerPx': '', 'tpTriggerPxType': '', 'tradeId': '', 'uTime': '1749318402019'}], 'msg': ''}
+[_client.py][02:01:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:01:19] [ERROR] 当前没有持仓
+[auto_trader.py][02:01:19] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:01:19] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749317890286', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049393107', 'uTime': '1749318372212', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:01:44] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:01:44] [INFO] 执行平仓操作
+[_client.py][02:01:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:01:44] [INFO] !!!!{'code': '0', 'data': [{'accFillSz': '0', 'algoClOrdId': '', 'algoId': '', 'attachAlgoClOrdId': '', 'attachAlgoOrds': [], 'avgPx': '', 'cTime': '1749318402019', 'cancelSource': '', 'cancelSourceReason': '', 'category': 'normal', 'ccy': '', 'clOrdId': '', 'fee': '0', 'feeCcy': 'USDT', 'fillPx': '', 'fillSz': '0', 'fillTime': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'isTpLimit': 'false', 'lever': '100', 'linkedAlgoOrd': {'algoId': ''}, 'ordId': '2577517316284485632', 'ordType': 'limit', 'pnl': '0', 'posSide': 'net', 'px': '2515', 'pxType': '', 'pxUsd': '', 'pxVol': '', 'quickMgnType': '', 'rebate': '0', 'rebateCcy': 'USDT', 'reduceOnly': 'false', 'side': 'sell', 'slOrdPx': '', 'slTriggerPx': '', 'slTriggerPxType': '', 'source': '', 'state': 'live', 'stpId': '', 'stpMode': 'cancel_maker', 'sz': '231.34', 'tag': '', 'tdMode': 'cross', 'tgtCcy': '', 'tpOrdPx': '', 'tpTriggerPx': '', 'tpTriggerPxType': '', 'tradeId': '', 'uTime': '1749318402019'}], 'msg': ''}
+[_client.py][02:01:44] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:01:44] [ERROR] 当前没有持仓
+[auto_trader.py][02:01:44] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:01:44] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749317890286', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049393107', 'uTime': '1749318372212', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:03:07] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:03:07] [INFO] 执行平仓操作
+[_client.py][02:03:08] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:03:08] [INFO] !!!!2577517316284485632
+[_client.py][02:03:09] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:03:09] [ERROR] 当前没有持仓
+[auto_trader.py][02:03:09] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:03:09] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749317890286', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049393107', 'uTime': '1749318372212', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:04:33] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': False, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:04:33] [INFO] 执行平仓操作
+[_client.py][02:04:34] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[_client.py][02:04:34] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/cancel-order "HTTP/2 200 OK"
+[place_order.py][02:04:34] [INFO] 成功撤销限价订单 2577517316284485632
+[_client.py][02:04:34] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:04:34] [ERROR] 当前没有持仓
+[auto_trader.py][02:04:34] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:04:34] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749317890286', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049393107', 'uTime': '1749318372212', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:05:12] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'sell', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:05:12] [INFO] 执行加仓操作
+[_client.py][02:05:13] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][02:05:13] [INFO] 设置杠杆成功：100倍
+[_client.py][02:05:13] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][02:05:13] [INFO] 下单成功：方向=sell, 价格=market, 数量=231.34, 交易模式=cross, 杠杆=100倍
+[_client.py][02:05:14] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:05:14] [INFO] 已确认持仓建立，开始设置止盈止损
+[_client.py][02:05:14] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:05:14] [ERROR] 设置止盈止损时发生异常: TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'
+[auto_trader.py][02:05:14] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][02:05:14] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577554622068428800', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577554622068428800', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749319513818'}], 'inTime': '1749319513817323', 'msg': '', 'outTime': '1749319513820229'}}, 'tp_sl_orders': {'success': False, 'error': "TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'", 'response': None}, 'message': '主订单：成功, 止盈止损：失败'}
+[auto_trader.py][02:05:46] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:05:46] [INFO] 执行平仓操作
+[_client.py][02:05:46] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:05:46] [ERROR] 平仓过程发生异常: list index out of range
+[auto_trader.py][02:05:46] [ERROR] 交易失败: list index out of range
+[auto_trader.py][02:05:46] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': 'list index out of range', 'response': None}
+[auto_trader.py][02:06:51] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:06:51] [INFO] 执行平仓操作
+[_client.py][02:06:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:06:52] [ERROR] 平仓过程发生异常: list index out of range
+[auto_trader.py][02:06:52] [ERROR] 交易失败: list index out of range
+[auto_trader.py][02:06:52] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': 'list index out of range', 'response': None}
+[auto_trader.py][02:07:17] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:07:17] [INFO] 执行平仓操作
+[place_order.py][02:07:17] [ERROR] 平仓过程发生异常: name 'position_result' is not defined
+[auto_trader.py][02:07:17] [ERROR] 交易失败: name 'position_result' is not defined
+[auto_trader.py][02:07:17] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': "name 'position_result' is not defined", 'response': None}
+[auto_trader.py][02:07:31] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:07:31] [INFO] 执行平仓操作
+[_client.py][02:07:31] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:07:31] [INFO] 当前持仓:-231.34, 平仓方向:buy, 平仓数量:231.34
+[_client.py][02:07:32] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&state=live "HTTP/2 200 OK"
+[place_order.py][02:07:32] [INFO] 执行平仓: {'instId': 'ETH-USDT-SWAP', 'tdMode': 'cross', 'side': 'buy', 'ordType': 'market', 'sz': '231.34'}
+[_client.py][02:07:32] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][02:07:32] [INFO] 平仓成功: {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577559267545321472', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749319652264'}], 'inTime': '1749319652263479', 'msg': '', 'outTime': '1749319652266565'}
+[auto_trader.py][02:07:32] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][02:07:32] [ERROR] 交易执行失败或返回结果格式不正确: {'success': True, 'order_id': '2577559267545321472', 'message': '平仓订单已提交', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577559267545321472', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749319652264'}], 'inTime': '1749319652263479', 'msg': '', 'outTime': '1749319652266565'}}
+[auto_trader.py][02:08:06] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:08:06] [INFO] 执行平仓操作
+[_client.py][02:08:06] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:08:06] [ERROR] 获取订单列表过程中发生异常: list index out of range
+[auto_trader.py][02:08:06] [ERROR] 交易失败: list index out of range
+[auto_trader.py][02:08:06] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': 'list index out of range', 'response': None}
+[auto_trader.py][02:08:18] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:08:18] [INFO] 执行平仓操作
+[_client.py][02:08:19] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:08:19] [ERROR] 获取订单列表过程中发生异常: list index out of range
+[_client.py][02:08:20] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:08:20] [ERROR] 当前没有持仓
+[auto_trader.py][02:08:20] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:08:20] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749319513819', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049399960', 'uTime': '1749319652265', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:14:11] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:14:11] [INFO] 执行平仓操作
+[_client.py][02:14:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:14:11] [ERROR] 获取订单列表过程中发生异常: list index out of range
+[_client.py][02:14:12] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:14:12] [ERROR] 当前没有持仓
+[auto_trader.py][02:14:12] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:14:12] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749319513819', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049399960', 'uTime': '1749319652265', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:15:32] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。', 'type': 'close', 'price': 2515.0, 'stop_loss': 2525.0, 'take_profit': [{'price': 2480.0, 'size': 77.11}, {'price': 2450.0, 'size': 77.11}, {'price': 2420.0, 'size': 77.12}], 'size': 231.34, 'market': True, 'expected_winrate': 0.6308, 'expected_return': 0.00731, 'trade_RR_ratio': 3.5, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[auto_trader.py][02:15:32] [INFO] 执行平仓操作
+[_client.py][02:15:32] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:15:32] [ERROR] 获取订单列表过程中发生异常: list index out of range
+[_client.py][02:15:32] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:15:32] [ERROR] 当前没有持仓
+[auto_trader.py][02:15:32] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:15:32] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749319513819', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049399960', 'uTime': '1749319652265', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:21:40] [ERROR] 第1条交易指令的size字段格式错误: 231.34
+[auto_trader.py][02:21:40] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][02:30:15] [ERROR] 第1条交易指令的size字段格式错误: 231.34
+[auto_trader.py][02:30:15] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][02:31:15] [ERROR] 第1条交易指令的size字段格式错误: 231.34
+[auto_trader.py][02:31:15] [ERROR] 第2条交易指令的size字段格式错误: 42.61
+[auto_trader.py][02:31:15] [INFO] 执行第1条交易指令: {'operation_comment': '检测到存在与当前看涨判断冲突的未成交空头限价订单，为避免潜在风险并确保交易方向一致性，优先撤销该订单。', 'type': 'close', 'price': 2515.0, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': '231.34', 'market': True, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'modify_order', 'risk_assessment': '撤销订单操作风险低，旨在规避潜在冲突。'}
+[auto_trader.py][02:31:15] [INFO] 执行平仓操作
+[okx_client.py][02:31:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending
+[okx_client.py][02:31:15] [INFO] 401 Unauthorized
+[okx_client.py][02:31:15] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[okx_client.py][02:31:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending
+[okx_client.py][02:31:16] [INFO] 401 Unauthorized
+[okx_client.py][02:31:16] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[place_order.py][02:31:16] [INFO] 已取消 0 个限价单和 0 个止盈止损单
+[okx_client.py][02:31:16] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions
+[okx_client.py][02:31:16] [INFO] 401 Unauthorized
+[okx_client.py][02:31:16] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[place_order.py][02:31:16] [ERROR] 获取持仓信息失败: {"msg":"Invalid Sign","code":"50113"}
+[auto_trader.py][02:31:16] [ERROR] 交易失败: {"msg":"Invalid Sign","code":"50113"}
+[auto_trader.py][02:31:16] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '{"msg":"Invalid Sign","code":"50113"}', 'response': {'code': '401', 'msg': '{"msg":"Invalid Sign","code":"50113"}'}}
+[auto_trader.py][02:31:16] [INFO] 执行第2条交易指令: {'operation_comment': '在撤销冲突订单后，根据H4和H1的强劲看涨趋势，在回调至关键支撑位附近建立多头头寸，以获取更好的风险回报比。', 'type': 'buy', 'price': 2505.0, 'stop_loss': 2450.0, 'take_profit': [{'price': 2575.0, 'size': 0.33}, {'price': 2650.0, 'size': 0.33}, {'price': 2700.0, 'size': 0.34}], 'size': '42.61', 'market': False, 'expected_winrate': 0.8858, 'expected_return': 0.0222, 'trade_RR_ratio': 1.27, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易最大亏损不超过可用保证金的2%。如果价格突破关键阻力（如2525 USDT）并伴随放量，则将止损上移至新的支撑位（如2510 USDT），并考虑小幅加仓。如果价格回调至2500-2505 USDT区域并获得支撑（如出现看涨K线或缩量），则视为入场机会，止损保持不变。如果价格跌破止损位（2450 USDT），或出现放量滞涨并迅速回落，则立即止损，并考虑反手做空或离场观望。在美联储会议纪要公布前，考虑减半仓位或将止损上移至盈亏平衡点，以规避突发消息面的影响。如果出现交易所大规模资金外流或链上数据急剧恶化等黑天鹅事件，将立即平仓所有头寸并暂停交易。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期回调风险，但整体趋势偏多。需警惕价格未能有效突破2525 USDT阻力。严格执行止损，并关注资金费率和持仓量变化。'}
+[auto_trader.py][02:31:16] [INFO] 执行加仓操作
+[okx_client.py][02:31:16] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage
+[okx_client.py][02:31:17] [INFO] 401 Unauthorized
+[okx_client.py][02:31:17] [ERROR] API请求失败: {"msg":"APIKey does not match current environment.","code":"50101"}
+[place_order.py][02:31:17] [ERROR] 设置杠杆失败，错误信息：{"msg":"APIKey does not match current environment.","code":"50101"}
+[auto_trader.py][02:31:17] [ERROR] 交易失败: {"msg":"APIKey does not match current environment.","code":"50101"}
+[auto_trader.py][02:31:17] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '{"msg":"APIKey does not match current environment.","code":"50101"}', 'response': {'code': '401', 'msg': '{"msg":"APIKey does not match current environment.","code":"50101"}'}}
+[auto_trader.py][02:32:42] [ERROR] 第1条交易指令的size字段格式错误: 231.34
+[auto_trader.py][02:32:42] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][02:33:58] [INFO] 执行第1条交易指令: {'operation_comment': '检测到存在与当前看涨判断冲突的未成交空头限价订单，为避免潜在风险并确保交易方向一致性，优先撤销该订单。', 'type': 'close', 'price': 2515.0, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 231.34, 'market': True, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'modify_order', 'risk_assessment': '撤销订单操作风险低，旨在规避潜在冲突。'}
+[auto_trader.py][02:33:58] [INFO] 执行平仓操作
+[okx_client.py][02:33:58] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending
+[okx_client.py][02:33:59] [INFO] 401 Unauthorized
+[okx_client.py][02:33:59] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[okx_client.py][02:33:59] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending
+[okx_client.py][02:33:59] [INFO] 401 Unauthorized
+[okx_client.py][02:33:59] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[place_order.py][02:33:59] [INFO] 已取消 0 个限价单和 0 个止盈止损单
+[okx_client.py][02:33:59] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions
+[okx_client.py][02:34:00] [INFO] 401 Unauthorized
+[okx_client.py][02:34:00] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[place_order.py][02:34:00] [ERROR] 获取持仓信息失败: {"msg":"Invalid Sign","code":"50113"}
+[auto_trader.py][02:34:00] [ERROR] 交易失败: {"msg":"Invalid Sign","code":"50113"}
+[auto_trader.py][02:34:00] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '{"msg":"Invalid Sign","code":"50113"}', 'response': {'code': '401', 'msg': '{"msg":"Invalid Sign","code":"50113"}'}}
+[auto_trader.py][02:34:00] [INFO] 执行第2条交易指令: {'operation_comment': '在撤销冲突订单后，根据H4和H1的强劲看涨趋势，在回调至关键支撑位附近建立多头头寸，以获取更好的风险回报比。', 'type': 'buy', 'price': 2505.0, 'stop_loss': 2450.0, 'take_profit': [{'price': 2575.0, 'size': 0.33}, {'price': 2650.0, 'size': 0.33}, {'price': 2700.0, 'size': 0.34}], 'size': 42.61, 'market': False, 'expected_winrate': 0.8858, 'expected_return': 0.0222, 'trade_RR_ratio': 1.27, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易最大亏损不超过可用保证金的2%。如果价格突破关键阻力（如2525 USDT）并伴随放量，则将止损上移至新的支撑位（如2510 USDT），并考虑小幅加仓。如果价格回调至2500-2505 USDT区域并获得支撑（如出现看涨K线或缩量），则视为入场机会，止损保持不变。如果价格跌破止损位（2450 USDT），或出现放量滞涨并迅速回落，则立即止损，并考虑反手做空或离场观望。在美联储会议纪要公布前，考虑减半仓位或将止损上移至盈亏平衡点，以规避突发消息面的影响。如果出现交易所大规模资金外流或链上数据急剧恶化等黑天鹅事件，将立即平仓所有头寸并暂停交易。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期回调风险，但整体趋势偏多。需警惕价格未能有效突破2525 USDT阻力。严格执行止损，并关注资金费率和持仓量变化。'}
+[auto_trader.py][02:34:00] [INFO] 执行加仓操作
+[okx_client.py][02:34:00] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage
+[okx_client.py][02:34:01] [INFO] 401 Unauthorized
+[okx_client.py][02:34:01] [ERROR] API请求失败: {"msg":"APIKey does not match current environment.","code":"50101"}
+[place_order.py][02:34:01] [ERROR] 设置杠杆失败，错误信息：{"msg":"APIKey does not match current environment.","code":"50101"}
+[auto_trader.py][02:34:01] [ERROR] 交易失败: {"msg":"APIKey does not match current environment.","code":"50101"}
+[auto_trader.py][02:34:01] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '{"msg":"APIKey does not match current environment.","code":"50101"}', 'response': {'code': '401', 'msg': '{"msg":"APIKey does not match current environment.","code":"50101"}'}}
+[auto_trader.py][02:35:59] [INFO] 执行第1条交易指令: {'operation_comment': '检测到存在与当前看涨判断冲突的未成交空头限价订单，为避免潜在风险并确保交易方向一致性，优先撤销该订单。', 'type': 'close', 'price': 2515.0, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 231.34, 'market': True, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'modify_order', 'risk_assessment': '撤销订单操作风险低，旨在规避潜在冲突。'}
+[auto_trader.py][02:35:59] [INFO] 执行平仓操作
+[okx_client.py][02:35:59] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending
+[okx_client.py][02:36:00] [INFO] 401 Unauthorized
+[okx_client.py][02:36:00] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[okx_client.py][02:36:00] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending
+[okx_client.py][02:36:00] [INFO] 401 Unauthorized
+[okx_client.py][02:36:00] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[place_order.py][02:36:00] [INFO] 已取消 0 个限价单和 0 个止盈止损单
+[okx_client.py][02:36:00] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions
+[okx_client.py][02:36:01] [INFO] 401 Unauthorized
+[okx_client.py][02:36:01] [ERROR] API请求失败: {"msg":"Invalid Sign","code":"50113"}
+[place_order.py][02:36:01] [ERROR] 获取持仓信息失败: {"msg":"Invalid Sign","code":"50113"}
+[auto_trader.py][02:36:01] [ERROR] 交易失败: {"msg":"Invalid Sign","code":"50113"}
+[auto_trader.py][02:36:01] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '{"msg":"Invalid Sign","code":"50113"}', 'response': {'code': '401', 'msg': '{"msg":"Invalid Sign","code":"50113"}'}}
+[auto_trader.py][02:36:01] [INFO] 执行第2条交易指令: {'operation_comment': '在撤销冲突订单后，根据H4和H1的强劲看涨趋势，在回调至关键支撑位附近建立多头头寸，以获取更好的风险回报比。', 'type': 'buy', 'price': 2505.0, 'stop_loss': 2450.0, 'take_profit': [{'price': 2575.0, 'size': 0.33}, {'price': 2650.0, 'size': 0.33}, {'price': 2700.0, 'size': 0.34}], 'size': 42.61, 'market': False, 'expected_winrate': 0.8858, 'expected_return': 0.0222, 'trade_RR_ratio': 1.27, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易最大亏损不超过可用保证金的2%。如果价格突破关键阻力（如2525 USDT）并伴随放量，则将止损上移至新的支撑位（如2510 USDT），并考虑小幅加仓。如果价格回调至2500-2505 USDT区域并获得支撑（如出现看涨K线或缩量），则视为入场机会，止损保持不变。如果价格跌破止损位（2450 USDT），或出现放量滞涨并迅速回落，则立即止损，并考虑反手做空或离场观望。在美联储会议纪要公布前，考虑减半仓位或将止损上移至盈亏平衡点，以规避突发消息面的影响。如果出现交易所大规模资金外流或链上数据急剧恶化等黑天鹅事件，将立即平仓所有头寸并暂停交易。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期回调风险，但整体趋势偏多。需警惕价格未能有效突破2525 USDT阻力。严格执行止损，并关注资金费率和持仓量变化。'}
+[auto_trader.py][02:36:01] [INFO] 执行加仓操作
+[okx_client.py][02:36:01] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage
+[okx_client.py][02:36:01] [INFO] 401 Unauthorized
+[okx_client.py][02:36:01] [ERROR] API请求失败: {"msg":"APIKey does not match current environment.","code":"50101"}
+[place_order.py][02:36:01] [ERROR] 设置杠杆失败，错误信息：{"msg":"APIKey does not match current environment.","code":"50101"}
+[auto_trader.py][02:36:01] [ERROR] 交易失败: {"msg":"APIKey does not match current environment.","code":"50101"}
+[auto_trader.py][02:36:01] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '{"msg":"APIKey does not match current environment.","code":"50101"}', 'response': {'code': '401', 'msg': '{"msg":"APIKey does not match current environment.","code":"50101"}'}}
+[auto_trader.py][02:36:36] [ERROR] 第1条交易指令的size字段格式错误: 231.34
+[auto_trader.py][02:36:36] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][02:36:47] [ERROR] 第1条交易指令的size字段格式错误: 231.34
+[auto_trader.py][02:36:47] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][02:36:58] [INFO] 执行第1条交易指令: {'operation_comment': '检测到存在与当前看涨判断冲突的未成交空头限价订单，为避免潜在风险并确保交易方向一致性，优先撤销该订单。', 'type': 'close', 'price': 2515.0, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 231.34, 'market': True, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'modify_order', 'risk_assessment': '撤销订单操作风险低，旨在规避潜在冲突。'}
+[auto_trader.py][02:36:58] [INFO] 执行平仓操作
+[_client.py][02:36:58] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:36:58] [ERROR] 获取订单列表过程中发生异常: list index out of range
+[_client.py][02:36:59] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:36:59] [ERROR] 当前没有持仓
+[auto_trader.py][02:36:59] [ERROR] 交易失败: 当前没有持仓
+[auto_trader.py][02:36:59] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'error': '当前没有持仓', 'response': {'code': '0', 'data': [{'adl': '', 'availPos': '', 'avgPx': '', 'baseBal': '', 'baseBorrowed': '', 'baseInterest': '', 'bePx': '', 'bizRefId': '', 'bizRefType': '', 'cTime': '1749319513819', 'ccy': 'USDT', 'clSpotInUseAmt': '', 'closeOrderAlgo': [], 'deltaBS': '', 'deltaPA': '', 'fee': '', 'fundingFee': '', 'gammaBS': '', 'gammaPA': '', 'idxPx': '', 'imr': '', 'instId': 'ETH-USDT-SWAP', 'instType': 'SWAP', 'interest': '', 'last': '', 'lever': '', 'liab': '', 'liabCcy': '', 'liqPenalty': '', 'liqPx': '', 'margin': '', 'markPx': '', 'maxSpotInUseAmt': '', 'mgnMode': 'cross', 'mgnRatio': '', 'mmr': '0', 'nonSettleAvgPx': '', 'notionalUsd': '', 'optVal': '', 'pendingCloseOrdLiabVal': '', 'pnl': '', 'pos': '0', 'posCcy': '', 'posId': '2576652912609333248', 'posSide': 'net', 'quoteBal': '', 'quoteBorrowed': '', 'quoteInterest': '', 'realizedPnl': '', 'settledPnl': '', 'spotInUseAmt': '', 'spotInUseCcy': '', 'thetaBS': '', 'thetaPA': '', 'tradeId': '1049399960', 'uTime': '1749319652265', 'upl': '', 'uplLastPx': '', 'uplRatio': '', 'uplRatioLastPx': '', 'usdPx': '', 'vegaBS': '', 'vegaPA': ''}], 'msg': ''}}
+[auto_trader.py][02:36:59] [INFO] 执行第2条交易指令: {'operation_comment': '在撤销冲突订单后，根据H4和H1的强劲看涨趋势，在回调至关键支撑位附近建立多头头寸，以获取更好的风险回报比。', 'type': 'buy', 'price': 2505.0, 'stop_loss': 2450.0, 'take_profit': [{'price': 2575.0, 'size': 0.33}, {'price': 2650.0, 'size': 0.33}, {'price': 2700.0, 'size': 0.34}], 'size': 42.61, 'market': False, 'expected_winrate': 0.8858, 'expected_return': 0.0222, 'trade_RR_ratio': 1.27, 'signal_strength': 0.75, 'risk_management_strategy': '单笔交易最大亏损不超过可用保证金的2%。如果价格突破关键阻力（如2525 USDT）并伴随放量，则将止损上移至新的支撑位（如2510 USDT），并考虑小幅加仓。如果价格回调至2500-2505 USDT区域并获得支撑（如出现看涨K线或缩量），则视为入场机会，止损保持不变。如果价格跌破止损位（2450 USDT），或出现放量滞涨并迅速回落，则立即止损，并考虑反手做空或离场观望。在美联储会议纪要公布前，考虑减半仓位或将止损上移至盈亏平衡点，以规避突发消息面的影响。如果出现交易所大规模资金外流或链上数据急剧恶化等黑天鹅事件，将立即平仓所有头寸并暂停交易。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期回调风险，但整体趋势偏多。需警惕价格未能有效突破2525 USDT阻力。严格执行止损，并关注资金费率和持仓量变化。'}
+[auto_trader.py][02:36:59] [INFO] 执行加仓操作
+[_client.py][02:36:59] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][02:36:59] [INFO] 设置杠杆成功：100倍
+[_client.py][02:36:59] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][02:36:59] [INFO] 下单成功：方向=buy, 价格=2505.0, 数量=42.61, 交易模式=cross, 杠杆=100倍
+[_client.py][02:37:00] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577618566212620288 "HTTP/2 200 OK"
+[place_order.py][02:37:00] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][02:37:02] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577618566212620288 "HTTP/2 200 OK"
+[place_order.py][02:37:02] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][02:37:04] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577618566212620288 "HTTP/2 200 OK"
+[place_order.py][02:37:04] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][02:37:06] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577618566212620288 "HTTP/2 200 OK"
+[place_order.py][02:37:06] [INFO] 等待订单成交，2.0秒后重试...
+[_client.py][02:37:09] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/order?instId=ETH-USDT-SWAP&ordId=2577618566212620288 "HTTP/2 200 OK"
+[place_order.py][02:37:09] [WARNING] 订单未完全成交，继续设置止盈止损
+[_client.py][02:37:09] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:37:09] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][02:37:11] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:37:11] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][02:37:13] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:37:13] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][02:37:15] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[place_order.py][02:37:15] [INFO] 等待持仓确认，2.0秒后重试...
+[_client.py][02:37:18] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instType=SWAP&instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[auto_trader.py][02:37:18] [INFO] 交易记录已保存，止盈止损状态: 未设置
+[auto_trader.py][02:37:18] [ERROR] 交易执行失败或返回结果格式不正确: {'success': False, 'main_order': {'success': True, 'order_id': '2577618566212620288', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2577618566212620288', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749321419502'}], 'inTime': '1749321419501735', 'msg': '', 'outTime': '1749321419505003'}}, 'tp_sl_orders': {'success': False, 'error': '等待持仓确认超时', 'response': None}, 'message': '主订单：成功, 止盈止损：失败（等待持仓确认超时）'}

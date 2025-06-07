@@ -389,7 +389,7 @@ $$
     - 如果持有未成交订单
       - 如果需要撤单，则 type 为 close
       - 如果需要继续持单，则 type 为 wait
-      - 注意：如果你需要更改订单，则 type 为 buy 或 sell，且交易系统会先撤掉原来所有的订单，然后重新下新的订单，也就是说如果你要加仓，你的`size`需要重新计算。
+      - 注意：如果你需要更改订单，你需要先撤单再重新下单。
     
     
 
@@ -562,7 +562,7 @@ $$
           "risk_assessment": { "type": ["string", "null"], "pattern": "^(N/A|.*)$" }
         },
         "required": ["operation_comment", "type", "price","stop_loss","take_profit","size","expected_winrate","expected_return","trade_RR_ratio","signal_strength","position_action","risk_assessment"],
-        "description": "execution_details 是执行细节信息，例如 operation_comment 是操作评论，type 是交易类型，price 是价格,market 是是否启用市价单，如果你判断现在适合立刻下单，则market为true，否则为false,position_action 是持仓操作:加仓 减仓，平仓，持仓,调整订单（持有未成交订单时），risk_assessment 是风险评估"
+        "description": "需要注意的是受交易系统限制，你不能真实的使用止盈止损，所以输出的只能作为参考execution_details 是执行细节信息，例如 operation_comment 是操作评论，type 是交易类型，price 是价格,market 是是否启用市价单，如果你判断现在适合立刻下单，则market为true，否则为false,position_action 是持仓操作:加仓 减仓，平仓，持仓,调整订单（持有未成交订单时），risk_assessment 是风险评估，重要你最大只能加仓2次"
         },
       ],
       "description": "execution_details为array，包含多个执行细节信息，交易程序将按照顺序执行"

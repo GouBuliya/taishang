@@ -6,14 +6,15 @@ import time
 from typing import Dict, Any, List, Optional, Literal
 from datetime import datetime
 
-# 添加项目根目录到 Python 路径
+# 添加项目根目录到 Python 跻
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from function.trade.place_order import (
     place_order,
     get_order_info,
-    close_position
+    close_position,
+    place_order_with_tp_sl
 )
 from function.trade.tp_sl import set_take_profit_stop_loss
 from function.trade.trade_history import TradeHistory
@@ -62,7 +63,7 @@ def load_gemini_answer():
             logger.error("execution_details必须是数组")
             return None
             
-        # 验证每个交易指令
+        # 骮证每个交易指令
         required_fields = [
             "operation_comment", "type", "price", "stop_loss", "take_profit", 
             "size", "expected_winrate", "expected_return", "trade_RR_ratio", 
@@ -113,10 +114,22 @@ def load_gemini_answer():
                 
             # 验证size字段
             size = detail.get("size")
+            # 将size字段由字符串转化为数字
+            if isinstance(size, str):
+                try:
+                    if size not in ["N/A", "dynamic_calculation_needed"]:
+                        size = float(size)
+                except ValueError:
+                    logger.error(f"第{idx+1}条交易指令的size字段无法转换为数字: {size}")
+                    return None
+                    
             if not (isinstance(size, (int, float)) or size in ["N/A", "dynamic_calculation_needed"]):
                 logger.error(f"第{idx+1}条交易指令的size字段格式错误: {size}")
                 return None
                 
+            # 更新size字段
+            detail["size"] = size
+
             # 验证take_profit字段
             take_profit = detail.get("take_profit")
             if not (take_profit == "N/A" or isinstance(take_profit, list)):
@@ -168,7 +181,7 @@ def execute_trades(execution_details):
         
         try:
             result = None
-            side = None
+            take_profits = []  # 初始化止盈列表
             
             if position_action == "close_position" or trade_type == "close":
                 # 执行平仓操作
@@ -180,84 +193,142 @@ def execute_trades(execution_details):
                     size=float(detail["size"]),
                     price=price
                 )
+                trade_history.add_trade(
+                    instrument_id=instrument_id,
+                    side="close",
+                    size=float(detail["size"]),
+                    price=price if price is not None else -9999.0,  # 保证为float类型
+                    order_type="market" if detail.get("market", False) else "limit",
+                    order_id=result.get("order_id", "N/A"),
+                    stop_loss=None,  # 平仓操作通常不需要止损
+                    take_profits=[],
+                    extra_info={
+                        "operation_comment": detail.get("operation_comment"),
+                        "expected_winrate": detail.get("expected_winrate"),
+                        "expected_return": detail.get("expected_return"),
+                        "trade_RR_ratio": detail.get("trade_RR_ratio"),
+                        "signal_strength": detail.get("signal_strength"),
+                        "risk_assessment": detail.get("risk_assessment"),
+                        "position_action": position_action
+                    }
+                )
+
             
-            elif position_action in ["add_position", "reduce_position"]:
-                # 开仓或减仓操作
+            elif position_action == "add_position":
+                # 执行加仓操作
+                logger.info(f"执行加仓操作")
                 side = "long" if trade_type == "buy" else "short"
                 leverage = int(float(detail.get("lever", "100")))
                 
-                # 如果是减仓，检查size是否合理
-                if position_action == "reduce_position":
-                    logger.info(f"执行减仓操作")
-                    if not isinstance(detail["size"], (int, float)):
-                        logger.error("减仓操作必须指定具体的size")
-                        continue
-                else:
-                    logger.info(f"执行加仓操作")
+                # 准备止盈止损信息
+                if isinstance(detail.get("take_profit"), list):
+                    take_profits = detail["take_profit"]
+                elif isinstance(detail.get("take_profit"), (int, float)):
+                    # 如果是单个数值，转换为列表格式
+                    take_profits = [{"price": float(detail["take_profit"]), "size": float(detail["size"])}]
                 
-                # 处理价格参数
-                price = None if detail.get("market", False) else float(detail["price"])
-                order_args = {
-                    "instrument_id": instrument_id,
-                    "side": side,
-                    "size": detail["size"],
-                    "price": price,
-                    "order_type": "market" if detail.get("market", False) else "limit",
-                    "tdMode": detail.get("tdMode", "cross"),
-                    "leverage": leverage
-                }
-                result = place_order(**order_args)
+                # 使用新的整合函数下单
+                result = place_order_with_tp_sl(
+                    instrument_id=instrument_id,
+                    side=side,
+                    size=float(detail["size"]),
+                    price=None if detail.get("market", False) else float(detail["price"]),
+                    leverage=leverage,
+                    order_type="market" if detail.get("market", False) else "limit",
+                    tdMode=detail.get("tdMode", "cross"),
+                    stop_loss=detail.get("stop_loss"),
+                    take_profits=take_profits
+                )
             
-            else:
-                logger.warning(f"未知的position_action: {position_action}，跳过交易")
-                continue
-
-            if not result:
-                logger.error("交易结果为空")
-                continue
-
-            logger.info(f"交易结果: {result}")
-
-            # 处理交易成功的情况
-            if result["success"]:
-                order_id = result["order_id"]
-                logger.info(f"订单{order_id}已提交成功")
+            elif position_action == "reduce_position":
+                # 执行减仓操作
+                logger.info(f"执行减仓操作")
+                if not isinstance(detail["size"], (int, float)):
+                    logger.error("减仓操作必须指定具体的size")
+                    continue
                 
-                # 只有开仓操作才需要记录交易和设置止盈止损
-                if trade_type != "close" and position_action == "add_position" and side:
-                    # 记录交易
-                    trade_history.add_trade(
-                        instrument_id=instrument_id,
-                        side=side,  # 这里使用已确定的side
-                        size=float(detail["size"]),
-                        price=float(detail["price"]),
-                        order_type=detail.get("market", "limit"),
-                        order_id=order_id,
-                        stop_loss=detail.get("stop_loss"),
-                        take_profits=detail.get("take_profit"),
-                        extra_info={
-                            "operation_comment": detail.get("operation_comment"),
-                            "expected_winrate": detail.get("expected_winrate"),
-                            "expected_return": detail.get("expected_return"),
-                            "trade_RR_ratio": detail.get("trade_RR_ratio"),
-                            "signal_strength": detail.get("signal_strength"),
-                            "risk_assessment": detail.get("risk_assessment"),
-                            "position_action": position_action
-                        }
-                    )
-                    
-                    # 设置止盈止损（只对新增仓位设置）
-                    if detail.get("stop_loss") or detail.get("take_profit"):
-                        tp_sl_result = set_take_profit_stop_loss(
-                            instrument_id=instrument_id,
-                            pos_side=side,  # 这里使用已确定的side
-                            size=float(detail["size"]),
-                            stop_loss=detail.get("stop_loss"),
-                            take_profits=detail.get("take_profit")
-                        )
-                        logger.info(f"止盈止损设置结果: {tp_sl_result}")
-            else:
-                logger.error(f"交易失败: {result.get('error', '未知错误')}")
+                side = "long" if trade_type == "buy" else "short"
+                leverage = int(float(detail.get("lever", "100")))
+                # 减仓使用常规下单函数，不需要设置止盈止损
+                result = place_order(
+                    instrument_id=instrument_id,
+                    side=side,
+                    size=float(detail["size"]),
+                    price=None if detail.get("market", False) else float(detail["price"]),
+                    leverage=leverage,
+                    order_type="market" if detail.get("market", False) else "limit",
+                    tdMode=detail.get("tdMode", "cross")
+                )
+            
+            # 处理下单结果
+            if isinstance(result, dict):
+                # 获取主订单结果
+                main_order_success = False
+                main_order = None
+                if result.get("main_order"):
+                    main_order = result["main_order"]
+                    main_order_success = main_order.get("success", False)
+                else:
+                    main_order_success = result.get("success", False)
+                    main_order = result
+                
+                # 获取订单ID
+                order_id = None
+                if main_order and main_order.get("order_id"):
+                    order_id = str(main_order["order_id"])
+                
+                if main_order_success and order_id:
+                    # 记录交易历史
+                    if position_action == "add_position":
+                        try:
+                            # 计算实际价格：市价单使用当前价，限价单使用指定价
+                            trade_price = float(detail["price"])
+                            if detail.get("market", False) and main_order.get("response", {}).get("data"):
+                                fill_px = main_order["response"]["data"][0].get("fillPx")
+                                if fill_px:
+                                    trade_price = float(fill_px)
+                            
+                            # 检查止盈止损的设置结果
+                            tp_sl_success = (result.get("tp_sl_orders", {}) or {}).get("success", False)
+                            
+                            # 根据止盈止损设置结果决定记录内容
+                            final_stop_loss = (
+                                float(detail["stop_loss"]) if tp_sl_success and detail.get("stop_loss") 
+                                else None
+                            )
+                            final_take_profits = take_profits if tp_sl_success else []
+                            
+                            trade_history.add_trade(
+                                instrument_id=instrument_id,
+                                side="long" if trade_type == "buy" else "short",
+                                size=float(detail["size"]),
+                                price=trade_price,
+                                order_type="market" if detail.get("market", False) else "limit",
+                                order_id=order_id,
+                                stop_loss=final_stop_loss,
+                                take_profits=final_take_profits,
+                                extra_info={
+                                    "operation_comment": detail.get("operation_comment"),
+                                    "expected_winrate": detail.get("expected_winrate"),
+                                    "expected_return": detail.get("expected_return"),
+                                    "trade_RR_ratio": detail.get("trade_RR_ratio"),
+                                    "signal_strength": detail.get("signal_strength"),
+                                    "risk_assessment": detail.get("risk_assessment"),
+                                    "position_action": position_action,
+                                    "tp_sl_status": "已设置" if tp_sl_success else "未设置",
+                                    "tp_sl_error": result.get("tp_sl_orders", {}).get("error") if not tp_sl_success else None
+                                }
+                            )
+                            logger.info(f"交易记录已保存，止盈止损状态: {'已设置' if tp_sl_success else '未设置'}")
+                        except Exception as e:
+                            logger.error(f"保存交易记录失败: {e}")
+                    else:
+                        logger.info("非加仓操作，跳过交易记录")
+                else:
+                    error_msg = result.get("error", "未知错误")
+                    logger.error(f"交易失败: {error_msg}")
+            
+                logger.error(f"交易执行失败或返回结果格式不正确: {result}")
                 
         except Exception as e:
             logger.error(f"执行交易指令失败: {e}")
