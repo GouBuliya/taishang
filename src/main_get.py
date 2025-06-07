@@ -33,7 +33,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = config["main_log_path"]
 MODULE_TAG = "[macro_factor_collector] "
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.WARNING,
     format='[数据收集总模块][%(asctime)s] [%(levelname)s] %(message)s',
     datefmt='%H:%M:%S',
     handlers=[logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8'), logging.StreamHandler()]
@@ -47,14 +47,14 @@ def extract_first_json(text):
     idx = 0
     while idx < len(text):
         try:
-            logging.debug(f"尝试解码从索引 {idx} 开始的文本: {text[idx:]}")
+            logger.debug(f"尝试解码从索引 {idx} 开始的文本: {text[idx:]}")
             obj, end = decoder.raw_decode(text[idx:])
-            logging.debug(f"成功解码: {obj}, 结束位置: {end}")
+            logger.debug(f"成功解码: {obj}, 结束位置: {end}")
             return obj
         except json.JSONDecodeError as e:
-            logging.debug(f"解码失败 (索引 {idx}): {e}")
+            logger.debug(f"解码失败 (索引 {idx}): {e}")
             idx += 1
-    logging.debug("未找到有效JSON，返回None")
+    logger.debug("未找到有效JSON，返回None")
     return None
 
 def run_tradingview_screenshot():
@@ -63,32 +63,32 @@ def run_tradingview_screenshot():
     """
     screenshot_server_url = "http://127.0.0.1:5002/screenshot"
     try:
-        logging.info(f"正在请求截图服务器: {screenshot_server_url}")
+        logger.info(f"正在请求截图服务器: {screenshot_server_url}")
         response = requests.get(screenshot_server_url, timeout=60) # Increased timeout
         response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
         
         data = response.json()
         if data.get("status") == "success" and "filepath" in data:
             filepath = data["filepath"]
-            logging.info(f"截图服务器返回成功，图片路径: {filepath}")
+            logger.info(f"截图服务器返回成功，图片路径: {filepath}")
             return filepath
         else:
-            logging.error(f"截图服务器返回错误或非预期响应: {data}")
+            logger.error(f"截图服务器返回错误或非预期响应: {data}")
             return None
     except requests.exceptions.Timeout:
-        logging.error("请求截图服务器超时。")
+        logger.error("请求截图服务器超时。")
         return None
     except requests.exceptions.ConnectionError as e:
-        logging.error(f"无法连接到截图服务器，请确保服务器正在运行: {e}")
+        logger.error(f"无法连接到截图服务器，请确保服务器正在运行: {e}")
         return None
     except requests.exceptions.RequestException as e:
-        logging.error(f"请求截图服务器异常: {e}")
+        logger.error(f"请求截图服务器异常: {e}")
         return None
     except json.JSONDecodeError:
-        logging.error(f"截图服务器返回非JSON响应: {response.text}")
+        logger.error(f"截图服务器返回非JSON响应: {response.text}")
         return None
     except Exception as e:
-        logging.error(f"调用截图服务器异常: {e}")
+        logger.error(f"调用截图服务器异常: {e}")
         return None
 
 if __name__ == "__main__":
@@ -107,11 +107,11 @@ if __name__ == "__main__":
         
         result = None
         try:
-            logging.info(f"{task_name} 模块运行中...")
+            logger.info(f"{task_name} 模块运行中...")
             result = func(*args, **kwargs)
-            logging.info(f"{task_name} 模块完成。")
+            logger.info(f"{task_name} 模块完成。")
         except Exception as e:
-            logging.error(f"{task_name} 模块运行失败: {e}")
+            logger.error(f"{task_name} 模块运行失败: {e}")
         finally:
             module_timings[end_time_key] = datetime.now()
         return task_name, result
@@ -137,19 +137,19 @@ if __name__ == "__main__":
             task_name, result = future.result()
             results[task_name] = result
             if task_name == "screenshot" and not result:
-                logging.error(f"截图模块运行失败，尝试重试3次...")
+                logger.error(f"截图模块运行失败，尝试重试3次...")
                 for i in range(3):
                     screenshot_path_retry = run_tradingview_screenshot()
                     if screenshot_path_retry:
                         results["screenshot"] = screenshot_path_retry
-                        logging.info(f"截图模块第{i+1}次重试成功，截图路径: {screenshot_path_retry}")
+                        logger.info(f"截图模块第{i+1}次重试成功，截图路径: {screenshot_path_retry}")
                         break
                     else:
-                        logging.error(f"截图模块第{i+1}次重试失败")
+                        logger.error(f"截图模块第{i+1}次重试失败")
 
     # 处理 OKX 持仓数据，确保其为字典类型
     if not isinstance(results["okx_positions"], dict):
-        logging.warning(f"OKX 持仓脚本输出非 JSON 字典格式或解析失败: {results['okx_positions']}")
+        logger.warning(f"OKX 持仓脚本输出非 JSON 字典格式或解析失败: {results['okx_positions']}")
         results["okx_positions"] = {}
 
     merged = {
@@ -167,30 +167,30 @@ if __name__ == "__main__":
     try:
         # 先序列化，确保合法
         json_str = json.dumps(merged, ensure_ascii=False, indent=2)
-        logging.info(f"merged: {json_str}")
+        logger.info(f"merged: {json_str}")
         with open(tmp_path, "w", encoding="utf-8") as f:
             f.write(json_str)
         os.replace(tmp_path, data_path)  # 原子性替换
         # 统一输出所有模块的运行时间
-        logging.info("\n--- 模块运行时间统计 ---")
+        logger.info("\n--- 模块运行时间统计 ---")
         if "screenshot_start" in module_timings and "screenshot_end" in module_timings:
             duration_screenshot = module_timings["screenshot_end"] - module_timings["screenshot_start"]
-            logging.info(f"截图模块运行时间: {duration_screenshot}")
+            print(f"截图模块运行时间: {duration_screenshot}")
         if "indicators_start" in module_timings and "indicators_end" in module_timings:
             duration_indicators = module_timings["indicators_end"] - module_timings["indicators_start"]
-            logging.info(f"技术指标模块运行时间: {duration_indicators}")
+            print(f"技术指标模块运行时间: {duration_indicators}")
         if "factors_start" in module_timings and "factors_end" in module_timings:
             duration_factors = module_timings["factors_end"] - module_timings["factors_start"]
-            logging.info(f"宏观因子模块运行时间: {duration_factors}")
+            print(f"宏观因子模块运行时间: {duration_factors}")
         if "okx_positions_start" in module_timings and "okx_positions_end" in module_timings:
             duration_okx_positions = module_timings["okx_positions_end"] - module_timings["okx_positions_start"]
-            logging.info(f"OKX 持仓模块运行时间: {duration_okx_positions}")
-        logging.info("--------------------------")
+            print(f"OKX 持仓模块运行时间: {duration_okx_positions}")
+        print("--------------------------")
         print("完成")  # 只输出完成
         end_time = datetime.now()
         duration = end_time - begin_time
-        logging.info(f"总运行时间: {duration}")
+        print(f"总运行时间: {duration}")
     except Exception as e:
-        logging.error(f"写入data.json失败: {e}")
+        logger.error(f"写入data.json失败: {e}")
         if os.path.exists(tmp_path):
             os.remove(tmp_path)

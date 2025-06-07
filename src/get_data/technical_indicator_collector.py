@@ -7,7 +7,7 @@ import logging
 import os
 from okx.api import Market  # type: ignore
 import numpy as np # 用于处理NaN值和数值运算
-
+import concurrent.futures # Import concurrent.futures
 
 config = json.load(open("config/config.json", "r"))
 
@@ -154,105 +154,127 @@ flag="0" # 实盘: "0" , 模拟盘: "1"
 
 marketDataAPI = Market(flag=flag)
 
+def _collect_indicators_for_period(label, okx_bar_string):
+    """
+    为单个时间周期获取数据并计算技术指标。
+    """
+    logger.info(f"正在获取 {TARGET_SYMBOL_INST} 在 {label} ({okx_bar_string}) 周期的数据...")
+    try:
+        # --- 核心修正：使用 get_history_candles 获取交易价格K线 ---
+        # 这个接口通常有更长的历史数据
+        # 注意：如果 limit=300 仍然不够，则需要在这里实现分页逻辑
+        result = marketDataAPI.get_history_candles(
+            instId=TARGET_SYMBOL_INST,
+            bar=okx_bar_string,
+            limit=str(KLINES_LIMIT), # Convert KLINES_LIMIT to string
+        )
+        ohlcv_raw = result['data'] if isinstance(result, dict) and 'data' in result else result
+
+        # --- 新增：K线数据有效性检查 ---
+        if not ohlcv_raw or len(ohlcv_raw) == 0:
+            logger.warning(f"{label} 周期未获取到任何K线数据，跳过。返回内容: {ohlcv_raw}")
+            return label, None
+
+        # 按官方文档顺序映射字段
+        df = pd.DataFrame(ohlcv_raw, columns=[
+            'timestamp', 'open', 'high', 'low', 'close', 'volume', 'volCcy', 'volCcyQuote', 'confirm'
+        ])
+        # --- FutureWarning优化：确保类型安全 ---
+        df['timestamp'] = pd.to_numeric(df['timestamp'], errors='coerce').astype(np.int64)
+        df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms', utc=True)
+        df = df.set_index('timestamp')
+        df = df[['open', 'high', 'low', 'close', 'volume']].astype(float) # 确保所需列为浮点数
+
+        # --- 手动计算技术指标 ---
+        df['EMA5'] = _calculate_ema(df['close'], 5)
+        df['EMA21'] = _calculate_ema(df['close'], 21)
+        df['EMA55'] = _calculate_ema(df['close'], 55)
+        df['EMA144'] = _calculate_ema(df['close'], 144)
+        df['EMA200'] = _calculate_ema(df['close'], 200)
+
+        df['RSI'] = _calculate_rsi(df, 14)
+        df['MACD_macd'], df['MACD_signal'] = _calculate_macd(df)
+        df['ATR'] = _calculate_atr(df, 14)
+        df['ADX'] = _calculate_adx(df, 14)
+        df['Stoch_K'], df['Stoch_D'] = _calculate_stoch(df)
+        df['StochRSI_K'], df['StochRSI_D'] = _calculate_stoch_rsi(df)
+        df['BB_upper'], df['BB_middle'], df['BB_lower'] = _calculate_bbands(df)
+        df['VWAP'] = _calculate_vwap(df)
+
+        # 处理NaN
+        # 在计算指标后，DataFrame的开头可能会有NaN值。确保提取最新K线时，这些值是有效的。
+        # fillna(method='ffill') 填充前向NaN
+        # fillna(0) 填充开头的NaN
+        df = df.ffill().fillna(0)  # FutureWarning优化
+
+        # --- 新增：异常保护，防止df为空时报错 ---
+        if df.shape[0] == 0:
+            logger.error(f"{label} 周期DataFrame为空，无法提取最新K线。原始K线长度: {len(ohlcv_raw)}，内容片段: {ohlcv_raw[:3]}")
+            return label, None
+
+        latest_kline = df.iloc[-1]  # 获取最新一根K线
+
+        # 组装输出JSON结构
+        period_data = {
+            "indicators": {
+                "ticker": TARGET_SYMBOL_INST,
+                "name": TARGET_SYMBOL_JSON.split(':')[-1],
+                "close": float(latest_kline["close"]),
+                "volume": float(latest_kline["volume"]),
+                "RSI": float(latest_kline.get("RSI", 0)),
+                "MACD_macd": float(latest_kline.get("MACD_macd", 0)),
+                "MACD_signal": float(latest_kline.get("MACD_signal", 0)),
+                "ATR": float(latest_kline.get("ATR", 0)),
+                "ADX": float(latest_kline.get("ADX", 0)),
+                "Stoch_K": float(latest_kline.get("Stoch_K", 0)),
+                "Stoch_D": float(latest_kline.get("Stoch_D", 0)),
+                "StochRSI_K": float(latest_kline.get("StochRSI_K", 0)),
+                "StochRSI_D": float(latest_kline.get("StochRSI_D", 0)),
+                "BB_upper": float(latest_kline.get("BB_upper", 0)),
+                "BB_lower": float(latest_kline.get("BB_lower", 0)),
+                "BB_middle": float(latest_kline.get("BB_middle", 0)),
+                "EMA5": float(latest_kline.get("EMA5", 0)),
+                "EMA21": float(latest_kline.get("EMA21", 0)),
+                "EMA55": float(latest_kline.get("EMA55", 0)),
+                "EMA144": float(latest_kline.get("EMA144", 0)),
+                "EMA200": float(latest_kline.get("EMA200", 0)),
+                "VWAP": float(latest_kline.get("VWAP", 0)),
+            }
+        }
+        logger.info(f"成功获取并处理 {label} 周期的数据。")
+        return label, period_data
+    except Exception as e:
+        logger.error(f"获取或处理 {label} 周期数据失败: {e}")
+        return label, None
 
 def collect_technical_indicators():
     all_periods_data = {}  # 存放所有周期的结果数据
-    for label, okx_bar_string in period_map.items():
-        logger.info(f"正在获取 {TARGET_SYMBOL_INST} 在 {label} ({okx_bar_string}) 周期的数据...")
-        try:
-            # --- 核心修正：使用 get_history_candles 获取交易价格K线 ---
-            # 这个接口通常有更长的历史数据
-            # 注意：如果 limit=300 仍然不够，则需要在这里实现分页逻辑
-            result = marketDataAPI.get_history_candles(
-                instId=TARGET_SYMBOL_INST,
-                bar=okx_bar_string,
-                limit=KLINES_LIMIT,
-            )
-            ohlcv_raw = result['data'] if isinstance(result, dict) and 'data' in result else result
+    # 使用 ThreadPoolExecutor 并行处理不同周期
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(period_map)) as executor:
+        future_to_period = {
+            executor.submit(_collect_indicators_for_period, label, okx_bar_string): label
+            for label, okx_bar_string in period_map.items()
+        }
 
-            # --- 新增：K线数据有效性检查 ---
-            if not ohlcv_raw or len(ohlcv_raw) == 0:
-                logger.warning(f"{label} 周期未获取到任何K线数据，跳过。返回内容: {ohlcv_raw}")
-                all_periods_data[label] = None
-                continue
-            
-            # 按官方文档顺序映射字段
-            df = pd.DataFrame(ohlcv_raw, columns=[
-                'timestamp', 'open', 'high', 'low', 'close', 'volume', 'volCcy', 'volCcyQuote', 'confirm'
-            ])
-            # --- FutureWarning优化：确保类型安全 ---
-            df['timestamp'] = pd.to_numeric(df['timestamp'], errors='coerce').astype(np.int64)
-            df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms', utc=True)
-            df = df.set_index('timestamp')
-            df = df[['open', 'high', 'low', 'close', 'volume']].astype(float) # 确保所需列为浮点数
+        for future in concurrent.futures.as_completed(future_to_period):
+            period_label = future_to_period[future]
+            try:
+                label, period_data = future.result()
+                all_periods_data[label] = period_data
+            except Exception as exc:
+                logger.error(f'{period_label} 周期数据采集生成异常: {exc}')
+                all_periods_data[period_label] = None
 
-            # --- 手动计算技术指标 ---
-            df['EMA5'] = _calculate_ema(df['close'], 5)
-            df['EMA21'] = _calculate_ema(df['close'], 21)
-            df['EMA55'] = _calculate_ema(df['close'], 55)
-            df['EMA144'] = _calculate_ema(df['close'], 144)
-            df['EMA200'] = _calculate_ema(df['close'], 200)
-
-            df['RSI'] = _calculate_rsi(df, 14)
-            df['MACD_macd'], df['MACD_signal'] = _calculate_macd(df)
-            df['ATR'] = _calculate_atr(df, 14)
-            df['ADX'] = _calculate_adx(df, 14)
-            df['Stoch_K'], df['Stoch_D'] = _calculate_stoch(df)
-            df['StochRSI_K'], df['StochRSI_D'] = _calculate_stoch_rsi(df)
-            df['BB_upper'], df['BB_middle'], df['BB_lower'] = _calculate_bbands(df)
-            df['VWAP'] = _calculate_vwap(df)
-            
-            # 处理NaN
-            # 在计算指标后，DataFrame的开头可能会有NaN值。确保提取最新K线时，这些值是有效的。
-            # fillna(method='ffill') 填充前向NaN
-            # fillna(0) 填充开头的NaN
-            df = df.ffill().fillna(0)  # FutureWarning优化
-            
-            # --- 新增：异常保护，防止df为空时报错 ---
-            if df.shape[0] == 0:
-                logger.error(f"{label} 周期DataFrame为空，无法提取最新K线。原始K线长度: {len(ohlcv_raw)}，内容片段: {ohlcv_raw[:3]}")
-                all_periods_data[label] = None
-                continue
-
-            latest_kline = df.iloc[-1]  # 获取最新一根K线
-
-            # 组装输出JSON结构
-            all_periods_data[label] = {
-                "indicators": {
-                    "ticker": TARGET_SYMBOL_INST,
-                    "name": TARGET_SYMBOL_JSON.split(':')[-1],
-                    "close": float(latest_kline["close"]),
-                    "volume": float(latest_kline["volume"]),
-                    "RSI": float(latest_kline.get("RSI", 0)),
-                    "MACD_macd": float(latest_kline.get("MACD_macd", 0)),
-                    "MACD_signal": float(latest_kline.get("MACD_signal", 0)),
-                    "ATR": float(latest_kline.get("ATR", 0)),
-                    "ADX": float(latest_kline.get("ADX", 0)),
-                    "Stoch_K": float(latest_kline.get("Stoch_K", 0)),
-                    "Stoch_D": float(latest_kline.get("Stoch_D", 0)),
-                    "StochRSI_K": float(latest_kline.get("StochRSI_K", 0)),
-                    "StochRSI_D": float(latest_kline.get("StochRSI_D", 0)),
-                    "BB_upper": float(latest_kline.get("BB_upper", 0)),
-                    "BB_lower": float(latest_kline.get("BB_lower", 0)),
-                    "BB_middle": float(latest_kline.get("BB_middle", 0)),
-                    "EMA5": float(latest_kline.get("EMA5", 0)),
-                    "EMA21": float(latest_kline.get("EMA21", 0)),
-                    "EMA55": float(latest_kline.get("EMA55", 0)),
-                    "EMA144": float(latest_kline.get("EMA144", 0)),
-                    "EMA200": float(latest_kline.get("EMA200", 0)),
-                    "VWAP": float(latest_kline.get("VWAP", 0)),
-                }
-            }
-            logger.info(f"成功获取并处理 {label} 周期的数据。")
-        except Exception as e:
-            logger.error(f"获取或处理 {label} 周期数据失败: {e}")
-            all_periods_data[label] = None
     return all_periods_data
 
 if __name__ == "__main__":
     try:
+        import time
+        start_time = time.time()
         result = collect_technical_indicators()
-        print(json.dumps(result, indent=2, ensure_ascii=False))
+        print(json.dumps(result, indent=2, ensure_ascii=False)) 
+        end_time = time.time()
+        logger.info(f"数据采集与处理耗时: {end_time - start_time:.2f}秒")
     except Exception as e:
         logger.error(f"最终JSON序列化异常: {str(e)}")
         print(json.dumps({"error": f"最终JSON输出异常: {str(e)}"}, ensure_ascii=False))

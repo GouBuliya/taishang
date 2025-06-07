@@ -22,3 +22,44 @@
 2025/06/07-16:04:05.952 3d46 Level-0 table #34: started
 2025/06/07-16:04:05.954 3d46 Level-0 table #34: 844581 bytes OK
 2025/06/07-16:04:05.955 3d46 Delete type=0 #31
+2025/06/07-16:05:50.536 3d46 Level-0 table #36: started
+2025/06/07-16:05:50.539 3d46 Level-0 table #36: 843537 bytes OK
+2025/06/07-16:05:50.540 3d46 Delete type=0 #33
+2025/06/07-16:06:50.369 3d46 Level-0 table #38: started
+2025/06/07-16:06:50.373 3d46 Level-0 table #38: 842876 bytes OK
+2025/06/07-16:06:50.374 3d46 Delete type=0 #35
+2025/06/07-16:06:50.374 3d46 Compacting 4@0 + 1@1 files
+2025/06/07-16:06:50.378 3d46 Generated table #39@0: 48 keys, 1685600 bytes
+2025/06/07-16:06:50.378 3d46 Compacted 4@0 + 1@1 files => 1685600 bytes
+2025/06/07-16:06:50.378 3d46 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/06/07-16:06:50.378 3d46 Delete type=2 #32
+2025/06/07-16:06:50.378 3d46 Delete type=2 #34
+2025/06/07-16:06:50.378 3d46 Delete type=2 #36
+2025/06/07-16:06:50.378 3d46 Delete type=2 #30
+2025/06/07-16:06:50.379 3d46 Delete type=2 #38
+2025/06/07-16:06:50.379 3d46 Level-0 table #41: started
+2025/06/07-16:06:50.380 3d46 Level-0 table #41: 847635 bytes OK
+2025/06/07-16:06:50.381 3d46 Delete type=0 #37
+2025/06/07-16:08:14.750 3d45 Level-0 table #43: started
+2025/06/07-16:08:14.752 3d45 Level-0 table #43: 846961 bytes OK
+2025/06/07-16:08:14.753 3d45 Delete type=0 #40
+2025/06/07-16:08:56.027 3d46 Level-0 table #45: started
+2025/06/07-16:08:56.030 3d46 Level-0 table #45: 846580 bytes OK
+2025/06/07-16:08:56.031 3d46 Delete type=0 #42
+2025/06/07-16:08:56.037 3d46 Level-0 table #47: started
+2025/06/07-16:08:56.039 3d46 Level-0 table #47: 843563 bytes OK
+2025/06/07-16:08:56.040 3d46 Delete type=0 #44
+2025/06/07-16:08:56.040 3d46 Expanding@0 1+1 (843563+1685600 bytes) to 4+1 (3384739+1685600 bytes)
+2025/06/07-16:08:56.040 3d46 Compacting 4@0 + 1@1 files
+2025/06/07-16:08:56.044 3d46 Generated table #48@0: 11 keys, 2103660 bytes
+2025/06/07-16:08:56.046 3d46 Generated table #49@0: 40 keys, 850982 bytes
+2025/06/07-16:08:56.046 3d46 Compacted 4@0 + 1@1 files => 2954642 bytes
+2025/06/07-16:08:56.047 3d46 compacted to: files[ 0 2 1 0 0 0 0 ]
+2025/06/07-16:08:56.047 3d46 Delete type=2 #45
+2025/06/07-16:08:56.047 3d46 Delete type=2 #47
+2025/06/07-16:08:56.047 3d46 Delete type=2 #43
+2025/06/07-16:08:56.047 3d46 Delete type=2 #41
+2025/06/07-16:08:56.047 3d46 Delete type=2 #39
+2025/06/07-16:12:21.900 3d46 Level-0 table #51: started
+2025/06/07-16:12:21.902 3d46 Level-0 table #51: 845229 bytes OK
+2025/06/07-16:12:21.903 3d46 Delete type=0 #46
