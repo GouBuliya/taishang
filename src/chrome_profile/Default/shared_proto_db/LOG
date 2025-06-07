@@ -1,18 +1,18 @@
-2025/06/07-20:04:36.777 12277 Reusing MANIFEST /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/MANIFEST-000001
-2025/06/07-20:04:36.777 12277 Recovering log #23
-2025/06/07-20:04:36.777 12277 Reusing old log /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/000023.log 
-2025/06/07-20:04:56.466 12278 Level-0 table #27: started
-2025/06/07-20:04:56.470 12278 Level-0 table #27: 424116 bytes OK
-2025/06/07-20:04:56.471 12278 Delete type=0 #23
-2025/06/07-20:04:56.474 12277 Level-0 table #29: started
-2025/06/07-20:04:56.476 12277 Level-0 table #29: 821761 bytes OK
-2025/06/07-20:04:56.477 12277 Delete type=0 #26
-2025/06/07-20:04:56.477 12277 Compacting 4@0 + 1@1 files
-2025/06/07-20:04:56.480 12277 Generated table #30@0: 42 keys, 555014 bytes
-2025/06/07-20:04:56.480 12277 Compacted 4@0 + 1@1 files => 555014 bytes
-2025/06/07-20:04:56.480 12277 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/06/07-20:04:56.480 12277 Delete type=2 #27
-2025/06/07-20:04:56.480 12277 Delete type=2 #22
-2025/06/07-20:04:56.481 12277 Delete type=2 #29
-2025/06/07-20:04:56.481 12277 Delete type=2 #24
-2025/06/07-20:04:56.481 12277 Delete type=2 #19
+2025/06/07-20:05:59.301 1256a Reusing MANIFEST /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/MANIFEST-000001
+2025/06/07-20:05:59.301 1256a Recovering log #23
+2025/06/07-20:05:59.301 1256a Reusing old log /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/000023.log 
+2025/06/07-20:06:18.091 1256c Level-0 table #27: started
+2025/06/07-20:06:18.095 1256c Level-0 table #27: 429228 bytes OK
+2025/06/07-20:06:18.096 1256c Delete type=0 #23
+2025/06/07-20:06:18.098 1256b Level-0 table #29: started
+2025/06/07-20:06:18.100 1256b Level-0 table #29: 821081 bytes OK
+2025/06/07-20:06:18.100 1256b Delete type=0 #26
+2025/06/07-20:06:18.101 1256b Compacting 4@0 + 1@1 files
+2025/06/07-20:06:18.102 1256b Generated table #30@0: 37 keys, 587531 bytes
+2025/06/07-20:06:18.102 1256b Compacted 4@0 + 1@1 files => 587531 bytes
+2025/06/07-20:06:18.103 1256b compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/06/07-20:06:18.103 1256b Delete type=2 #27
+2025/06/07-20:06:18.103 1256b Delete type=2 #22
+2025/06/07-20:06:18.103 1256b Delete type=2 #29
+2025/06/07-20:06:18.103 1256b Delete type=2 #24
+2025/06/07-20:06:18.103 1256b Delete type=2 #19
