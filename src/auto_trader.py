@@ -83,40 +83,11 @@ def execute_trades(execution_details):
     for idx, detail in enumerate(execution_details):
         logger.info(f"执行第{idx+1}条交易指令: {detail}")
         try:
-            # 检查是否为等待指令
-            if detail.get("type") == "wait":
-                logger.info("收到等待指令，跳过交易执行")
-                # 记录等待指令到交易历史
-                trade_history.add_trade(
-                    instrument_id=detail.get("symbol", "ETH-USDT-SWAP"),
-                    side="wait",
-                    size=0,
-                    price=0,
-                    order_type="wait",
-                    order_id="wait",
-                    stop_loss=None,
-                    take_profits=None,
-                    extra_info={
-                        "operation_comment": detail.get("operation_comment"),
-                        "expected_winrate": detail.get("expected_winrate"),
-                        "expected_return": detail.get("expected_return"),
-                        "trade_RR_ratio": detail.get("trade_RR_ratio"),
-                        "signal_strength": detail.get("signal_strength"),
-                        "risk_assessment": detail.get("risk_assessment"),
-                        "position_action": detail.get("position_action")
-                    }
-                )
-                continue
-
             # 获取交易对名称，默认使用ETH-USDT-SWAP
             instrument_id = detail.get("symbol", "ETH-USDT-SWAP")
             
-            # 处理订单类型和方向
-            order_type = "market" if detail.get("market") or detail.get("type") == "close" else "limit"
-            if detail.get("type") == "close":
-                pos_side = "close"
-            else:
-                pos_side = "long" if detail["type"] == "buy" else "short"
+            # 确定持仓方向
+            pos_side = "long" if detail["type"] == "buy" else "short"
             
             # 兼容place_order参数
             order_args = {
@@ -124,7 +95,7 @@ def execute_trades(execution_details):
                 "side": pos_side,
                 "size": detail["size"],
                 "price": detail["price"],
-                "order_type": order_type
+                "order_type": "market" if detail.get("market") else "limit"
             }
 
             # 执行下单
@@ -133,28 +104,13 @@ def execute_trades(execution_details):
             
             if result["success"]:
                 # 记录交易
-                size = 0
-                price = 0
-                
-                try:
-                    if str(detail["size"]).upper() != "N/A":
-                        size = float(detail["size"])
-                except (TypeError, ValueError):
-                    logger.warning(f"无效的订单数量: {detail['size']}")
-                    
-                try:
-                    if str(detail["price"]).upper() != "N/A":
-                        price = float(detail["price"])
-                except (TypeError, ValueError):
-                    logger.warning(f"无效的订单价格: {detail['price']}")
-                
                 trade_history.add_trade(
                     instrument_id=instrument_id,
                     side=pos_side,
-                    size=size,
-                    price=price,
-                    order_type=order_type,
-                    order_id=result["order_id"] or "no_order",
+                    size=float(detail["size"]),
+                    price=float(detail["price"]),
+                    order_type=order_args["order_type"],
+                    order_id=result["order_id"],
                     stop_loss=detail.get("stop_loss"),
                     take_profits=detail.get("take_profit"),
                     extra_info={
@@ -163,27 +119,25 @@ def execute_trades(execution_details):
                         "expected_return": detail.get("expected_return"),
                         "trade_RR_ratio": detail.get("trade_RR_ratio"),
                         "signal_strength": detail.get("signal_strength"),
-                        "risk_assessment": detail.get("risk_assessment"),
-                        "position_action": detail.get("position_action")
+                        "risk_assessment": detail.get("risk_assessment")
                     }
                 )
                 
-                # 设置止盈止损（仅对开仓订单）
-                if pos_side != "close" and (detail.get("stop_loss") or detail.get("take_profit")):
+                # 设置止盈止损
+                if detail.get("stop_loss") or detail.get("take_profit"):
                     tp_sl_result = set_take_profit_stop_loss(
                         instrument_id=instrument_id,
                         pos_side=pos_side,
-                        size=size,  # 使用已经转换的size
+                        size=float(detail["size"]),  # 传递持仓数量
                         stop_loss=detail.get("stop_loss"),
                         take_profits=detail.get("take_profit")
                     )
                     logger.info(f"止盈止损设置结果: {tp_sl_result}")
             else:
-                logger.error(f"下单失败: {result.get('error', '未知错误')}")
+                logger.error(f"下单失败，跳过止盈止损设置")
                 
         except Exception as e:
             logger.error(f"执行交易指令失败: {e}")
-            logger.exception(e)  # 打印详细的异常堆栈
 
 def main():
     """主函数"""

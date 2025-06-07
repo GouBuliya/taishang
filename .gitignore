@@ -9,3 +9,6 @@ wheels/
 # Virtual environments
 .venv/
 logs/
+/home/li-xufeng/codespace/taishang/src/chrome_profile
+/home/li-xufeng/codespace/taishang/src/downloads
+/home/li-xufeng/codespace/taishang/data

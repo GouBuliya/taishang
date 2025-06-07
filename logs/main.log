@@ -40378,6 +40378,7 @@ I've finalized my analysis and determined a short trade entry at 2495.0, TP leve
 [gemini_api_caller.py][18:21:08] [INFO] [gemini_api_caller] 收到最终模型响应，交互结束。
 [gemini_api_caller.py][18:21:08] [INFO] 总运行时间: 3.29 分钟
 [技术指标模块][18:21:08] [INFO] Gemini API 调用脚本运行完成，返回码: 0
+<<<<<<< HEAD
 [技术指标模块][18:24:05] [INFO] screenshot 模块运行中...
 [技术指标模块][18:24:05] [INFO] indicators 模块运行中...
 [技术指标模块][18:24:05] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
@@ -49054,3 +49055,662 @@ I've integrated a refined bias mitigation model based on a temporal-sentiment-mo
 [技术指标模块][19:13:51] [INFO] 条件订单设置成功: 止盈价格=2420.0, 数量=0.2 (0.2 lots)
 [技术指标模块][19:13:51] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2470.0, 'stop_loss_price': 2505.0, 'size': 0.5, 'lots': 0.5, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576726425951830016', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2450.0, 'stop_loss_price': None, 'size': 0.2, 'lots': 0.2, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576726429944807424', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2420.0, 'stop_loss_price': None, 'size': 0.2, 'lots': 0.2, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576726434072002560', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
 [技术指标模块][19:13:51] [INFO] 自动交易系统运行完成
+=======
+>>>>>>> parent of 30590396 (fix(trade):修复了side为wait和close时无法正常下单的bug)
+[技术指标模块][20:04:33] [INFO] 正在重启数据服务器...
+[技术指标模块][20:04:33] [INFO] 已尝试杀死现有数据服务器进程。
+[技术指标模块][20:04:33] [INFO] 已启动新的数据服务器进程，PID: 74314
+[宏观因子模块][20:04:34] [INFO] 截图服务器正在启动...
+[宏观因子模块][20:04:34] [INFO] 已执行 pkill chrome
+[宏观因子模块][20:04:34] [INFO] 启动 FGI 缓存预加载线程...
+[宏观因子模块][20:04:34] [INFO] 已启动 FGI 缓存预加载线程。
+[宏观因子模块][20:04:34] [INFO] 从外部 API 获取恐惧贪婪指数...
+[宏观因子模块][20:04:34] [INFO] 启动时主动清理内存...
+[宏观因子模块][20:04:34] [INFO] 已尝试释放 Linux 系统缓存
+[宏观因子模块][20:04:34] [INFO] 已用 /home/li-xufeng/codespace/taishang/src/chrome_profile_copy 覆盖 /home/li-xufeng/codespace/taishang/src/chrome_profile
+[宏观因子模块][20:04:34] [INFO] 尝试启动新的Chrome浏览器 (第 1/9999999 次)...
+[宏观因子模块][20:04:34] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/ShaderCache
+[宏观因子模块][20:04:34] [INFO] 已清理缓存目录: /home/li-xufeng/codespace/taishang/src/chrome_profile/GrShaderCache
+[宏观因子模块][20:04:34] [INFO] 用户数据目录设置为: /home/li-xufeng/codespace/taishang/src/chrome_profile
+[宏观因子模块][20:04:34] [INFO] 已设置代理: http://127.0.0.1:1080
+[宏观因子模块][20:04:34] [INFO] Chrome选项: ['--window-size=800,600', '--no-sandbox', '--disable-extensions', '--disable-gpu', '--disable-application-cache', '--disable-dev-shm-usage', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--user-data-dir=/home/li-xufeng/codespace/taishang/src/chrome_profile', '--disable-popup-blocking', '--proxy-server=http://127.0.0.1:1080']
+[宏观因子模块][20:04:36] [INFO] patching driver executable /home/li-xufeng/.local/share/undetected_chromedriver/undetected_chromedriver
+[宏观因子模块][20:04:36] [INFO] 已启动新的Chrome浏览器 (headless=True)
+[宏观因子模块][20:04:36] [INFO] 跳转到目标页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[宏观因子模块][20:04:40] [INFO] FGI 缓存预加载成功，值: 52
+[宏观因子模块][20:04:40] [INFO] FGI 缓存预加载线程完成。
+[技术指标模块][20:04:48] [INFO] 正在等待服务器启动并响应健康检查: http://127.0.0.1:5002/health
+[宏观因子模块][20:04:49] [INFO] 当前页面: https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P
+[宏观因子模块][20:04:49] [INFO] 浏览器初始化成功。
+[宏观因子模块][20:04:49] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://198.18.0.1:5002
+[宏观因子模块][20:04:49] [INFO] [33mPress CTRL+C to quit[0m
+[宏观因子模块][20:04:50] [INFO] 127.0.0.1 - - [07/Jun/2025 20:04:50] "GET /health HTTP/1.1" 200 -
+[技术指标模块][20:04:50] [INFO] 服务器健康检查通过。
+[技术指标模块][20:04:50] [INFO] 服务器自检：运行数据收集模块 (main_get.py)...
+[技术指标模块][20:04:50] [INFO] screenshot 模块运行中...
+[技术指标模块][20:04:50] [INFO] indicators 模块运行中...
+[技术指标模块][20:04:50] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][20:04:50] [INFO] factors 模块运行中...
+[技术指标模块][20:04:50] [INFO] okx_positions 模块运行中...
+[技术指标模块][20:04:50] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][20:04:50] [INFO] market_data 模块运行中...
+[技术指标模块][20:04:50] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[宏观因子模块][20:04:50] [INFO] 收到截图请求。
+[宏观因子模块][20:04:50] [INFO] 旧截图已清理，开始截图流程...
+[技术指标模块][20:04:50] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][20:04:50] [INFO] 正在请求截图服务器的 FGI 接口: http://127.0.0.1:5002/fgi
+[宏观因子模块][20:04:50] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[技术指标模块][20:04:50] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[宏观因子模块][20:04:50] [INFO] 从服务器缓存中获取恐惧贪婪指数: 52
+[宏观因子模块][20:04:50] [INFO] 127.0.0.1 - - [07/Jun/2025 20:04:50] "GET /fgi HTTP/1.1" 200 -
+[技术指标模块][20:04:50] [INFO] 从服务器获取 FGI 成功: 52
+[技术指标模块][20:04:50] [INFO] Fear & greed index collection took 0.0048 seconds.
+[宏观因子模块][20:04:50] [INFO] 快捷键已发送
+[技术指标模块][20:04:50] [INFO] 成功获取并处理 1h 周期的数据。
+[宏观因子模块][20:04:50] [WARNING] 第1次未检测到刚刚下载的K线图片，0.5秒后重试...
+[技术指标模块][20:04:50] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][20:04:51] [INFO] Funding rate collection took 0.6082 seconds.
+[技术指标模块][20:04:51] [INFO] market_data 模块完成。
+[技术指标模块][20:04:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][20:04:51] [WARNING] balance collection took 0.7350 seconds.
+[技术指标模块][20:04:51] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][20:04:51] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[技术指标模块][20:04:51] [WARNING] positions collection took 0.9904 seconds.
+[技术指标模块][20:04:51] [INFO] 成功获取并处理 4h 周期的数据。
+[技术指标模块][20:04:51] [INFO] indicators 模块完成。
+[技术指标模块][20:04:51] [INFO] Open interest collection took 1.1317 seconds.
+[技术指标模块][20:04:51] [INFO] factors 模块完成。
+[宏观因子模块][20:04:51] [WARNING] 第2次未检测到刚刚下载的K线图片，0.5秒后重试...
+[技术指标模块][20:04:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][20:04:52] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][20:04:52] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][20:04:52] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][20:04:52] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][20:04:52] [WARNING] orders collection took 2.4529 seconds.
+[技术指标模块][20:04:52] [INFO] okx_positions 模块完成。
+[宏观因子模块][20:04:52] [WARNING] 第3次未检测到刚刚下载的K线图片，0.5秒后重试...
+[宏观因子模块][20:04:53] [WARNING] 第4次未检测到刚刚下载的K线图片，0.5秒后重试...
+[宏观因子模块][20:04:54] [WARNING] 第5次未检测到刚刚下载的K线图片，0秒后重试...
+[宏观因子模块][20:04:55] [ERROR] 连续多次未检测到刚刚下载的K线图片（请检查下载权限或快捷键是否生效）
+[宏观因子模块][20:04:55] [INFO] 127.0.0.1 - - [07/Jun/2025 20:04:55] "[35m[1mGET /screenshot HTTP/1.1[0m" 500 -
+[技术指标模块][20:04:55] [ERROR] 请求截图服务器异常: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:5002/screenshot
+[技术指标模块][20:04:55] [INFO] screenshot 模块完成。
+[技术指标模块][20:04:55] [ERROR] 截图模块运行失败，尝试重试3次...
+[技术指标模块][20:04:55] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[宏观因子模块][20:04:55] [INFO] 收到截图请求。
+[宏观因子模块][20:04:55] [INFO] 旧截图已清理，开始截图流程...
+[宏观因子模块][20:04:55] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[宏观因子模块][20:04:55] [INFO] 快捷键已发送
+[宏观因子模块][20:04:56] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[宏观因子模块][20:04:56] [INFO] 127.0.0.1 - - [07/Jun/2025 20:04:56] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][20:04:56] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[技术指标模块][20:04:56] [INFO] 截图模块第1次重试成功，截图路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[技术指标模块][20:04:56] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png",
+  "indicators_main": {
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2605.81,
+        "volume": 1647440.55,
+        "RSI": 44.69024345858788,
+        "MACD_macd": -0.6527120556711452,
+        "MACD_signal": 0.9012263799407152,
+        "ATR": 25.19322055635072,
+        "ADX": 17.62465153852856,
+        "Stoch_K": 38.50481310163747,
+        "Stoch_D": 43.14706004917272,
+        "StochRSI_K": 36.86062415395784,
+        "StochRSI_D": 44.6810320204466,
+        "BB_upper": 2638.7649773950357,
+        "BB_lower": 2585.170022604964,
+        "BB_middle": 2611.9674999999997,
+        "EMA5": 2610.174604475289,
+        "EMA21": 2614.2092165330037,
+        "EMA55": 2599.2052639484396,
+        "EMA144": 2557.3720753196444,
+        "EMA200": 2543.760099129556,
+        "VWAP": 2549.9707695278744
+      }
+    },
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2483.76,
+        "volume": 221322.62,
+        "RSI": 46.80682793058797,
+        "MACD_macd": -4.909109565686322,
+        "MACD_signal": -3.2882536080967553,
+        "ATR": 13.962477715538855,
+        "ADX": 22.761190951268446,
+        "Stoch_K": 34.04371584699486,
+        "Stoch_D": 30.467515661084843,
+        "StochRSI_K": 79.63298487903697,
+        "StochRSI_D": 55.913302728574614,
+        "BB_upper": 2527.196911857068,
+        "BB_lower": 2460.784088142932,
+        "BB_middle": 2493.9905,
+        "EMA5": 2481.3131211013238,
+        "EMA21": 2488.376619085844,
+        "EMA55": 2490.4930312503216,
+        "EMA144": 2490.552829942572,
+        "EMA200": 2490.960107876289,
+        "VWAP": 2490.983885953305
+      }
+    },
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2549.9,
+        "volume": 7826988.99,
+        "RSI": 35.60978740091177,
+        "MACD_macd": 13.519570441028463,
+        "MACD_signal": 13.693260691710472,
+        "ATR": 83.89867190541709,
+        "ADX": 27.01518918673894,
+        "Stoch_K": 26.141378480301796,
+        "Stoch_D": 46.58888054606553,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 20.500587336788865,
+        "BB_upper": 2708.9922335605474,
+        "BB_lower": 2473.5887664394527,
+        "BB_middle": 2591.2905,
+        "EMA5": 2609.222519458104,
+        "EMA21": 2602.544607082269,
+        "EMA55": 2588.5848801961,
+        "EMA144": 2561.5278177556593,
+        "EMA200": 2549.7680220636425,
+        "VWAP": 2583.5386586351083
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "FGI": "52/100",
+      "funding_rate": "0.0019%",
+      "open_interest": "$3467424375448.998 million"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2495.14",
+        "lastSz": "30",
+        "askPx": "2495.14",
+        "askSz": "1534.42",
+        "bidPx": "2495.13",
+        "bidSz": "1082.35",
+        "open24h": "2478.49",
+        "high24h": "2529.99",
+        "low24h": "2455.92",
+        "volCcy24h": "3156343.822",
+        "vol24h": "31563438.22",
+        "ts": "1749297890009",
+        "sodUtc0": "2475.34",
+        "sodUtc8": "2508.33"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116291.63 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-07T20:04:56+08:00"
+}
+[技术指标模块][20:04:56] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][20:04:56] [INFO] 服务器自检：数据收集模块运行完成。
+[技术指标模块][20:04:56] [INFO] 开始循环运行数据收集、Gemini API调用和自动交易系统...
+[技术指标模块][20:04:56] [INFO] 正在运行数据收集模块 (main_get.py)...
+[技术指标模块][20:04:56] [INFO] screenshot 模块运行中...
+[技术指标模块][20:04:56] [INFO] indicators 模块运行中...
+[技术指标模块][20:04:56] [INFO] 正在请求截图服务器: http://127.0.0.1:5002/screenshot
+[技术指标模块][20:04:56] [INFO] factors 模块运行中...
+[技术指标模块][20:04:56] [INFO] okx_positions 模块运行中...
+[技术指标模块][20:04:56] [INFO] market_data 模块运行中...
+[技术指标模块][20:04:56] [INFO] 正在获取 ETH-USDT-SWAP 在 15m (15m) 周期的数据...
+[技术指标模块][20:04:56] [INFO] instrument_id: ETH-USDT-SWAP
+[技术指标模块][20:04:56] [INFO] 正在获取 ETH-USDT-SWAP 在 1h (1H) 周期的数据...
+[技术指标模块][20:04:56] [INFO] 正在请求截图服务器的 FGI 接口: http://127.0.0.1:5002/fgi
+[宏观因子模块][20:04:56] [INFO] 收到截图请求。
+[宏观因子模块][20:04:56] [INFO] 旧截图已清理，开始截图流程...
+[技术指标模块][20:04:56] [INFO] 正在获取 ETH-USDT-SWAP 在 4h (4H) 周期的数据...
+[宏观因子模块][20:04:56] [INFO] 从服务器缓存中获取恐惧贪婪指数: 52
+[宏观因子模块][20:04:56] [INFO] 127.0.0.1 - - [07/Jun/2025 20:04:56] "GET /fgi HTTP/1.1" 200 -
+[技术指标模块][20:04:56] [INFO] 从服务器获取 FGI 成功: 52
+[宏观因子模块][20:04:56] [INFO] 发送快捷键 Ctrl+Alt+S 触发下载图片...
+[技术指标模块][20:04:56] [INFO] Fear & greed index collection took 0.0048 seconds.
+[宏观因子模块][20:04:56] [INFO] 快捷键已发送
+[技术指标模块][20:04:56] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/positions?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][20:04:56] [INFO] 成功获取到 ETH-USDT-SWAP 的持仓信息。
+[技术指标模块][20:04:56] [INFO] HTTP Request: GET https://www.okx.com/api/v5/account/balance "HTTP/2 200 OK"
+[技术指标模块][20:04:56] [WARNING] positions collection took 0.2974 seconds.
+[技术指标模块][20:04:56] [WARNING] balance collection took 0.3021 seconds.
+[技术指标模块][20:04:56] [INFO] 成功获取并处理 4h 周期的数据。
+[宏观因子模块][20:04:56] [INFO] K线图片已保存: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[宏观因子模块][20:04:56] [INFO] 127.0.0.1 - - [07/Jun/2025 20:04:56] "GET /screenshot HTTP/1.1" 200 -
+[技术指标模块][20:04:56] [INFO] 截图服务器返回成功，图片路径: /home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[技术指标模块][20:04:56] [INFO] screenshot 模块完成。
+[技术指标模块][20:04:57] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP "HTTP/2 200 OK"
+[技术指标模块][20:04:57] [INFO] res: {
+    "code": "0",
+    "data": [],
+    "msg": ""
+}
+[技术指标模块][20:04:57] [INFO] 未获取到 ETH-USDT-SWAP 的挂单信息或挂单列表为空。
+[技术指标模块][20:04:57] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-algo-pending?instId=ETH-USDT-SWAP "HTTP/2 400 Bad Request"
+[技术指标模块][20:04:57] [INFO] 未获取到 ETH-USDT-SWAP 的策略挂单信息或策略挂单列表为空。
+[技术指标模块][20:04:57] [WARNING] orders collection took 0.8741 seconds.
+[技术指标模块][20:04:57] [INFO] okx_positions 模块完成。
+[技术指标模块][20:04:57] [INFO] Open interest collection took 0.9709 seconds.
+[技术指标模块][20:04:57] [INFO] 成功获取并处理 1h 周期的数据。
+[技术指标模块][20:04:57] [INFO] market_data 模块完成。
+[技术指标模块][20:04:57] [INFO] 成功获取并处理 15m 周期的数据。
+[技术指标模块][20:04:57] [INFO] indicators 模块完成。
+[技术指标模块][20:04:57] [INFO] Funding rate collection took 1.3440 seconds.
+[技术指标模块][20:04:57] [INFO] factors 模块完成。
+[技术指标模块][20:04:57] [INFO] merged: {
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png",
+  "indicators_main": {
+    "4h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2549.9,
+        "volume": 7826988.99,
+        "RSI": 35.60978740091177,
+        "MACD_macd": 13.519570441028463,
+        "MACD_signal": 13.693260691710472,
+        "ATR": 83.89867190541709,
+        "ADX": 27.01518918673894,
+        "Stoch_K": 26.141378480301796,
+        "Stoch_D": 46.58888054606553,
+        "StochRSI_K": 0.0,
+        "StochRSI_D": 20.500587336788865,
+        "BB_upper": 2708.9922335605474,
+        "BB_lower": 2473.5887664394527,
+        "BB_middle": 2591.2905,
+        "EMA5": 2609.222519458104,
+        "EMA21": 2602.544607082269,
+        "EMA55": 2588.5848801961,
+        "EMA144": 2561.5278177556593,
+        "EMA200": 2549.7680220636425,
+        "VWAP": 2583.5386586351083
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2605.81,
+        "volume": 1647440.55,
+        "RSI": 44.69024345858788,
+        "MACD_macd": -0.6527120556711452,
+        "MACD_signal": 0.9012263799407152,
+        "ATR": 25.19322055635072,
+        "ADX": 17.62465153852856,
+        "Stoch_K": 38.50481310163747,
+        "Stoch_D": 43.14706004917272,
+        "StochRSI_K": 36.86062415395784,
+        "StochRSI_D": 44.6810320204466,
+        "BB_upper": 2638.7649773950357,
+        "BB_lower": 2585.170022604964,
+        "BB_middle": 2611.9674999999997,
+        "EMA5": 2610.174604475289,
+        "EMA21": 2614.2092165330037,
+        "EMA55": 2599.2052639484396,
+        "EMA144": 2557.3720753196444,
+        "EMA200": 2543.760099129556,
+        "VWAP": 2549.9707695278744
+      }
+    },
+    "15m": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2483.76,
+        "volume": 221322.62,
+        "RSI": 46.80682793058797,
+        "MACD_macd": -4.909109565686322,
+        "MACD_signal": -3.2882536080967553,
+        "ATR": 13.962477715538855,
+        "ADX": 22.761190951268446,
+        "Stoch_K": 34.04371584699486,
+        "Stoch_D": 30.467515661084843,
+        "StochRSI_K": 79.63298487903697,
+        "StochRSI_D": 55.913302728574614,
+        "BB_upper": 2527.196911857068,
+        "BB_lower": 2460.784088142932,
+        "BB_middle": 2493.9905,
+        "EMA5": 2481.3131211013238,
+        "EMA21": 2488.376619085844,
+        "EMA55": 2490.4930312503216,
+        "EMA144": 2490.552829942572,
+        "EMA200": 2490.960107876289,
+        "VWAP": 2490.983885953305
+      }
+    }
+  },
+  "factors_main": {
+    "factors": {
+      "FGI": "52/100",
+      "open_interest": "$3467424470763.9976 million",
+      "funding_rate": "0.0019%"
+    }
+  },
+  "data_summary": {
+    "code": "0",
+    "msg": "",
+    "data": [
+      {
+        "instType": "SWAP",
+        "instId": "ETH-USDT-SWAP",
+        "last": "2495.13",
+        "lastSz": "11.13",
+        "askPx": "2495.14",
+        "askSz": "814.87",
+        "bidPx": "2495.13",
+        "bidSz": "1661.11",
+        "open24h": "2478.49",
+        "high24h": "2529.99",
+        "low24h": "2455.92",
+        "volCcy24h": "3156430.968",
+        "vol24h": "31564309.68",
+        "ts": "1749297896612",
+        "sodUtc0": "2475.34",
+        "sodUtc8": "2508.33"
+      }
+    ]
+  },
+  "okx_positions": {
+    "instrument_id": "ETH-USDT-SWAP",
+    "balance": {
+      "Available_Margin": "116291.63 USDT"
+    },
+    "positions": {
+      "instrument_id": "ETH-USDT-SWAP",
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
+    },
+    "orders": {
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
+      "algo_orders": {}
+    }
+  },
+  "timestamp": "2025-06-07T20:04:57+08:00"
+}
+[技术指标模块][20:04:57] [INFO] 
+--- 模块运行时间统计 ---
+[技术指标模块][20:04:57] [INFO] 数据收集模块运行完成。
+[技术指标模块][20:04:57] [INFO] 正在运行 Gemini API 调用脚本...
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] 开始工具自检...
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] 模块获取当前时间完成
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] get_time 工具自检结果: {'time': '2025-06-07 20:04:58.359254+08:00', 'source': 'local_module'}
+[get_transaction_history.py][20:04:58] [INFO] 成功获取最后3条交易纪录: [
+    {
+        "timestamp": "2025-06-02 12:02:22",
+        "execution_details": [
+            {
+                "operation_comment": "市场处于明显下跌趋势，短期动量强劲，MACD和EMA均显示空头主导。价格跌破关键支撑，预计将继续下行。等待价格反弹至阻力位附近入场做空。",
+                "type": "sell",
+                "price": 2505.0,
+                "stop_loss": 2530.0,
+                "take_profit": 2466.0,
+                "size": 93.15,
+                "market": false,
+                "expected_winrate": 0.9986,
+                "expected_return": 0.015532,
+                "trade_RR_ratio": 1.56,
+                "signal_strength": 0.9,
+                "risk_management_strategy": "严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。",
+                "position_action": "开空仓",
+                "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:17:17",
+        "execution_details": [
+            {
+                "operation_comment": "当前市场处于强劲下跌趋势，为追求利益最大化，取消现有挂单，并以市价开空，以确保及时入场。止损设置在近期阻力位上方，止盈设置在关键支撑位。",
+                "type": "sell",
+                "price": 2499.9,
+                "stop_loss": 2520.0,
+                "take_profit": 2466.0,
+                "size": 115.61,
+                "market": true,
+                "expected_winrate": 0.5886,
+                "expected_return": 0.004671,
+                "trade_RR_ratio": 1.686,
+                "signal_strength": 0.85,
+                "risk_management_strategy": "基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。",
+                "position_action": "开空",
+                "risk_assessment": "当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:47:26",
+        "execution_details": [
+            {
+                "operation_comment": "市场整体趋势看跌，当前持仓为短仓且盈利，为最大化收益，在当前价格附近加仓做空，并设置止损止盈。",
+                "type": "sell",
+                "price": 2498.2,
+                "stop_loss": 2530.0,
+                "take_profit": 2480.0,
+                "size": 73.06,
+                "market": true,
+                "expected_winrate": 0.8116,
+                "expected_return": 0.008198,
+                "trade_RR_ratio": 1.5,
+                "signal_strength": 0.85,
+                "risk_management_strategy": "基于可用保证金2%的风险控制，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。",
+                "position_action": "加仓",
+                "risk_assessment": "市场风险中等，但趋势明确，需警惕短期反弹和潜在的空头强平风险。严格执行止损，并关注资金费率和持仓量变化。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    }
+]
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] 模块获取最后3条交易纪录完成
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] Executing Python code:
+print('Hello, world!')
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] executepythoncode 工具自检结果: {'stdout': 'Hello, world!\n', 'stderr': '', 'returncode': 0, 'source': 'local_execution'}
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] 工具自检完成
+[gemini_api_caller.py][20:04:58] [INFO] 初始 prompt_text 导入完成
+[gemini_api_caller.py][20:04:58] [INFO] screenshot_path 导入完成, path:/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[gemini_api_caller.py][20:04:58] [INFO] 开始与 Gemini API 进行多轮交互...
+[gemini_api_caller.py][20:04:58] [INFO] --- 第 1 轮 API 调用 ---
+
+[gemini_api_caller.py][20:04:58] [INFO] [gemini_api_caller] 图片导入开始:/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_200456.png
+[_client.py][20:05:00] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files "HTTP/1.1 200 OK"
+[_client.py][20:05:02] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/upload/v1beta/files?upload_id=ABgVH8_pooEnQL3cAM0bhbAhRaW2Con_2EfEJw7v0qBZaqLbONdg5CKGavoOHBNlRg0gm_3K_WDhus9MNgMUGWdm78q2FWcW_Yp2H3WYMwTRbw&upload_protocol=resumable "HTTP/1.1 200 OK"
+[gemini_api_caller.py][20:05:02] [INFO] [gemini_api_caller] 图片导入完成
+[models.py][20:05:02] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][20:05:02] [INFO] AFC remote call 1 is done.
+[_client.py][20:05:06] [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:streamGenerateContent?alt=sse "HTTP/1.1 200 OK"
+[types.py][20:05:08] [WARNING] Warning: there are non-text parts in the response: ['function_call', 'function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] Captured full thought summary for this turn: **Analyzing Market Data**
+
+I've been poring over the ETH-USDT-SWAP K-line chart, focusing on the Bollinger Bands, RSI, and EMA indicators across different timeframes. The JSON object is proving fruitful, particularly the market factors like FGI and open interest, which are starting to suggest some interesting correlations with price action. I'm currently cross-referencing these signals to formulate a hypothesis.
+
+
+**Examining Data for Signals**
+
+I've been meticulously analyzing the image of the ETH-USDT-SWAP chart, focusing on the interactions between Bollinger Bands, RSI, and EMAs across 15m, 1h, and 4h timeframes. I'm actively correlating these indicators with the JSON data, looking for strong divergences or confluences that might signal a potential market state. My goal is to synthesize these observations with market factors like funding rates to strengthen my entry signal hypothesis.
+
+
+**Initializing Data Analysis**
+
+I've begun by utilizing the `get_time` and `get_transaction_history` tools to gather the necessary contextual information. Next, I plan to analyze the K-line data in the image, the JSON object, and the OKX position information. My focus is on synthesizing these elements to define the prevailing market state and then move into the two-phase reasoning process.
+
+
+
+[gemini_api_caller.py][20:05:08] [INFO] [Thought Summary]: **Analyzing Market Data**
+
+I've been poring over the ETH-USDT-SWAP K-line chart, focusing on the Bollinger Bands, RSI, and EMA indicators across different timeframes. The JSON object is proving fruitful, particularly the market factors like FGI and open interest, which are starting to suggest some interesting correlations with price action. I'm currently cross-referencing these signals to formulate a hypothesis.
+
+
+**Examining Data for Signals**
+
+I've been meticulously analyzing the image of the ETH-USDT-SWAP chart, focusing on the interactions between Bollinger Bands, RSI, and EMAs across 15m, 1h, and 4h timeframes. I'm actively correlating these indicators with the JSON data, looking for strong divergences or confluences that might signal a potential market state. My goal is to synthesize these observations with market factors like funding rates to strengthen my entry signal hypothesis.
+
+
+**Initializing Data Analysis**
+
+I've begun by utilizing the `get_time` and `get_transaction_history` tools to gather the necessary contextual information. Next, I plan to analyze the K-line data in the image, the JSON object, and the OKX position information. My focus is on synthesizing these elements to define the prevailing market state and then move into the two-phase reasoning process.
+
+
+
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 模型请求调用多个函数: 2 个
+[gemini_api_caller.py][20:05:08] [INFO] [Function Calls]: [{'name': 'gettime', 'args': {'target': '当前时间'}}, {'name': 'gettransactionhistory', 'args': {'target': 'ETH-USDT'}}]
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 接收到 2 个函数调用请求。
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 模拟执行函数: gettime 参数: {'target': '当前时间'}
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 调用 function: id=None args={'target': '当前时间'} name='gettime'
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] Executing function: gettime with args {'target': '当前时间'}
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 模块获取当前时间完成
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] Function gettime executed successfully. Result: {'time': '2025-06-07 20:05:08.536903+08:00', 'source': 'local_module'}
+[gemini_api_caller.py][20:05:08] [INFO] [Function Response] from gettime: {'time': '2025-06-07 20:05:08.536903+08:00', 'source': 'local_module'}
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 模拟执行函数: gettransactionhistory 参数: {'target': 'ETH-USDT'}
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 调用 function: id=None args={'target': 'ETH-USDT'} name='gettransactionhistory'
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] Executing function: gettransactionhistory with args {'target': 'ETH-USDT'}
+[get_transaction_history.py][20:05:08] [INFO] 成功获取最后3条交易纪录: [
+    {
+        "timestamp": "2025-06-02 12:02:22",
+        "execution_details": [
+            {
+                "operation_comment": "市场处于明显下跌趋势，短期动量强劲，MACD和EMA均显示空头主导。价格跌破关键支撑，预计将继续下行。等待价格反弹至阻力位附近入场做空。",
+                "type": "sell",
+                "price": 2505.0,
+                "stop_loss": 2530.0,
+                "take_profit": 2466.0,
+                "size": 93.15,
+                "market": false,
+                "expected_winrate": 0.9986,
+                "expected_return": 0.015532,
+                "trade_RR_ratio": 1.56,
+                "signal_strength": 0.9,
+                "risk_management_strategy": "严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。",
+                "position_action": "开空仓",
+                "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:17:17",
+        "execution_details": [
+            {
+                "operation_comment": "当前市场处于强劲下跌趋势，为追求利益最大化，取消现有挂单，并以市价开空，以确保及时入场。止损设置在近期阻力位上方，止盈设置在关键支撑位。",
+                "type": "sell",
+                "price": 2499.9,
+                "stop_loss": 2520.0,
+                "take_profit": 2466.0,
+                "size": 115.61,
+                "market": true,
+                "expected_winrate": 0.5886,
+                "expected_return": 0.004671,
+                "trade_RR_ratio": 1.686,
+                "signal_strength": 0.85,
+                "risk_management_strategy": "基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。",
+                "position_action": "开空",
+                "risk_assessment": "当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:47:26",
+        "execution_details": [
+            {
+                "operation_comment": "市场整体趋势看跌，当前持仓为短仓且盈利，为最大化收益，在当前价格附近加仓做空，并设置止损止盈。",
+                "type": "sell",
+                "price": 2498.2,
+                "stop_loss": 2530.0,
+                "take_profit": 2480.0,
+                "size": 73.06,
+                "market": true,
+                "expected_winrate": 0.8116,
+                "expected_return": 0.008198,
+                "trade_RR_ratio": 1.5,
+                "signal_strength": 0.85,
+                "risk_management_strategy": "基于可用保证金2%的风险控制，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。",
+                "position_action": "加仓",
+                "risk_assessment": "市场风险中等，但趋势明确，需警惕短期反弹和潜在的空头强平风险。严格执行止损，并关注资金费率和持仓量变化。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    }
+]
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 模块获取最后3条交易纪录完成
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] Function gettransactionhistory executed successfully. Result: {'transaction_history': [{'timestamp': '2025-06-02 12:02:22', 'execution_details': [{'operation_comment': '市场处于明显下跌趋势，短期动量强劲，MACD和EMA均显示空头主导。价格跌破关键支撑，预计将继续下行。等待价格反弹至阻力位附近入场做空。', 'type': 'sell', 'price': 2505.0, 'stop_loss': 2530.0, 'take_profit': 2466.0, 'size': 93.15, 'market': False, 'expected_winrate': 0.9986, 'expected_return': 0.015532, 'trade_RR_ratio': 1.56, 'signal_strength': 0.9, 'risk_management_strategy': '严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。', 'position_action': '开空仓', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。'}], 'trade_api_result': {'status': 'success', 'message': '下单成功'}}, {'timestamp': '2025-06-02 12:17:17', 'execution_details': [{'operation_comment': '当前市场处于强劲下跌趋势，为追求利益最大化，取消现有挂单，并以市价开空，以确保及时入场。止损设置在近期阻力位上方，止盈设置在关键支撑位。', 'type': 'sell', 'price': 2499.9, 'stop_loss': 2520.0, 'take_profit': 2466.0, 'size': 115.61, 'market': True, 'expected_winrate': 0.5886, 'expected_return': 0.004671, 'trade_RR_ratio': 1.686, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': '开空', 'risk_assessment': '当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。'}], 'trade_api_result': {'status': 'success', 'message': '下单成功'}}, {'timestamp': '2025-06-02 12:47:26', 'execution_details': [{'operation_comment': '市场整体趋势看跌，当前持仓为短仓且盈利，为最大化收益，在当前价格附近加仓做空，并设置止损止盈。', 'type': 'sell', 'price': 2498.2, 'stop_loss': 2530.0, 'take_profit': 2480.0, 'size': 73.06, 'market': True, 'expected_winrate': 0.8116, 'expected_return': 0.008198, 'trade_RR_ratio': 1.5, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的风险控制，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'position_action': '加仓', 'risk_assessment': '市场风险中等，但趋势明确，需警惕短期反弹和潜在的空头强平风险。严格执行止损，并关注资金费率和持仓量变化。'}], 'trade_api_result': {'status': 'success', 'message': '下单成功'}}], 'source': 'local_module'}
+[gemini_api_caller.py][20:05:08] [INFO] [Function Response] from gettransactionhistory: {'transaction_history': [{'timestamp': '2025-06-02 12:02:22', 'execution_details': [{'operation_comment': '市场处于明显下跌趋势，短期动量强劲，MACD和EMA均显示空头主导。价格跌破关键支撑，预计将继续下行。等待价格反弹至阻力位附近入场做空。', 'type': 'sell', 'price': 2505.0, 'stop_loss': 2530.0, 'take_profit': 2466.0, 'size': 93.15, 'market': False, 'expected_winrate': 0.9986, 'expected_return': 0.015532, 'trade_RR_ratio': 1.56, 'signal_strength': 0.9, 'risk_management_strategy': '严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。', 'position_action': '开空仓', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。'}], 'trade_api_result': {'status': 'success', 'message': '下单成功'}}, {'timestamp': '2025-06-02 12:17:17', 'execution_details': [{'operation_comment': '当前市场处于强劲下跌趋势，为追求利益最大化，取消现有挂单，并以市价开空，以确保及时入场。止损设置在近期阻力位上方，止盈设置在关键支撑位。', 'type': 'sell', 'price': 2499.9, 'stop_loss': 2520.0, 'take_profit': 2466.0, 'size': 115.61, 'market': True, 'expected_winrate': 0.5886, 'expected_return': 0.004671, 'trade_RR_ratio': 1.686, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': '开空', 'risk_assessment': '当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。'}], 'trade_api_result': {'status': 'success', 'message': '下单成功'}}, {'timestamp': '2025-06-02 12:47:26', 'execution_details': [{'operation_comment': '市场整体趋势看跌，当前持仓为短仓且盈利，为最大化收益，在当前价格附近加仓做空，并设置止损止盈。', 'type': 'sell', 'price': 2498.2, 'stop_loss': 2530.0, 'take_profit': 2480.0, 'size': 73.06, 'market': True, 'expected_winrate': 0.8116, 'expected_return': 0.008198, 'trade_RR_ratio': 1.5, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的风险控制，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'position_action': '加仓', 'risk_assessment': '市场风险中等，但趋势明确，需警惕短期反弹和潜在的空头强平风险。严格执行止损，并关注资金费率和持仓量变化。'}], 'trade_api_result': {'status': 'success', 'message': '下单成功'}}], 'source': 'local_module'}
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 所有函数执行结果已添加到历史，准备下一轮调用。
+[gemini_api_caller.py][20:05:08] [INFO] --- 第 2 轮 API 调用 ---
+
+[gemini_api_caller.py][20:05:08] [INFO] [gemini_api_caller] 已从本轮可用工具中移除: ['gettime', 'gettransactionhistory']
+[models.py][20:05:08] [INFO] AFC is enabled with max remote calls: 10.
+[models.py][20:05:08] [INFO] AFC remote call 1 is done.
