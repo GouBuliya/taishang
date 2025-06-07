@@ -1,3 +1,3 @@
-2025/06/07-18:24:23.237 be42 Reusing MANIFEST /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/Sync Data/LevelDB/MANIFEST-000001
-2025/06/07-18:24:23.241 be42 Recovering log #3
-2025/06/07-18:24:23.241 be42 Reusing old log /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/Sync Data/LevelDB/000003.log 
+2025/06/07-19:09:31.216 e297 Reusing MANIFEST /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/Sync Data/LevelDB/MANIFEST-000001
+2025/06/07-19:09:31.219 e297 Recovering log #3
+2025/06/07-19:09:31.219 e297 Reusing old log /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/Sync Data/LevelDB/000003.log 

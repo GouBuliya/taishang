@@ -1,32 +1,6 @@
 {
-  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_182448.png",
+  "clipboard_image_path": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_clipboard_20250607_190959.png",
   "indicators_main": {
-    "1h": {
-      "indicators": {
-        "ticker": "ETH-USDT-SWAP",
-        "name": "ETHUSDT.P",
-        "close": 2617.3,
-        "volume": 806138.26,
-        "RSI": 53.007225989118915,
-        "MACD_macd": -0.47313846941960946,
-        "MACD_signal": 0.3374401506611296,
-        "ATR": 22.43152862913457,
-        "ADX": 13.952294325215274,
-        "Stoch_K": 38.858254946480855,
-        "Stoch_D": 34.618871973768776,
-        "StochRSI_K": 46.256067972998366,
-        "StochRSI_D": 35.086141195074696,
-        "BB_upper": 2637.4833171848113,
-        "BB_lower": 2585.312682815189,
-        "BB_middle": 2611.398,
-        "EMA5": 2612.2576019890175,
-        "EMA21": 2614.0474417362584,
-        "EMA55": 2599.939759834211,
-        "EMA144": 2556.5842018551266,
-        "EMA200": 2541.717266553282,
-        "VWAP": 2551.0443940445793
-      }
-    },
     "4h": {
       "indicators": {
         "ticker": "ETH-USDT-SWAP",
@@ -57,34 +31,60 @@
       "indicators": {
         "ticker": "ETH-USDT-SWAP",
         "name": "ETHUSDT.P",
-        "close": 2472.49,
-        "volume": 1172548.28,
-        "RSI": 37.33927150166026,
-        "MACD_macd": -5.824539229690345,
-        "MACD_signal": -4.933040895595694,
-        "ATR": 12.409314074408758,
-        "ADX": 16.2187090639465,
-        "Stoch_K": 26.62043211522972,
-        "Stoch_D": 18.1110000361195,
-        "StochRSI_K": 55.098784700155676,
-        "StochRSI_D": 36.74171293112381,
-        "BB_upper": 2502.1458618091287,
-        "BB_lower": 2460.862138190871,
-        "BB_middle": 2481.504,
-        "EMA5": 2473.8111246003523,
-        "EMA21": 2481.91926660875,
-        "EMA55": 2486.986633125719,
-        "EMA144": 2487.7810663579135,
-        "EMA200": 2487.867474785449,
-        "VWAP": 2489.4028590253756
+        "close": 2477.69,
+        "volume": 264713.65,
+        "RSI": 38.00269613641291,
+        "MACD_macd": -4.778216958773555,
+        "MACD_signal": -4.165822914914603,
+        "ATR": 12.04184855435453,
+        "ADX": 19.445044286430914,
+        "Stoch_K": 36.12940166046364,
+        "Stoch_D": 33.14976909619601,
+        "StochRSI_K": 58.245198416197574,
+        "StochRSI_D": 71.2357134364901,
+        "BB_upper": 2517.0547446137834,
+        "BB_lower": 2458.8292553862166,
+        "BB_middle": 2487.942,
+        "EMA5": 2479.5362955261876,
+        "EMA21": 2485.5571256538587,
+        "EMA55": 2488.9973057180678,
+        "EMA144": 2489.835700550848,
+        "EMA200": 2490.33471505505,
+        "VWAP": 2490.375239185546
+      }
+    },
+    "1h": {
+      "indicators": {
+        "ticker": "ETH-USDT-SWAP",
+        "name": "ETHUSDT.P",
+        "close": 2608.86,
+        "volume": 825190.43,
+        "RSI": 46.930318065551965,
+        "MACD_macd": -0.9376753804508553,
+        "MACD_signal": 0.5337116367155809,
+        "ATR": 23.699459852338723,
+        "ADX": 15.932995904139839,
+        "Stoch_K": 26.49354787318801,
+        "Stoch_D": 37.39725338324082,
+        "StochRSI_K": 22.141785466510232,
+        "StochRSI_D": 35.867093736723255,
+        "BB_upper": 2637.02493209145,
+        "BB_lower": 2585.1510679085495,
+        "BB_middle": 2611.0879999999997,
+        "EMA5": 2609.736402983526,
+        "EMA21": 2613.722890740683,
+        "EMA55": 2599.5379607356226,
+        "EMA144": 2557.967554136004,
+        "EMA200": 2544.2386362045036,
+        "VWAP": 2550.519298399476
       }
     }
   },
   "factors_main": {
     "factors": {
       "FGI": "52/100",
-      "open_interest": "$3467318920986.997 million",
-      "funding_rate": "0.0035%"
+      "funding_rate": "0.0033%",
+      "open_interest": "$3467386258929.998 million"
     }
   },
   "data_summary": {
@@ -94,18 +94,18 @@
       {
         "instType": "SWAP",
         "instId": "ETH-USDT-SWAP",
-        "last": "2492.96",
-        "lastSz": "1",
-        "askPx": "2492.97",
-        "askSz": "2116.61",
-        "bidPx": "2492.96",
-        "bidSz": "784.08",
-        "open24h": "2483.26",
+        "last": "2494.74",
+        "lastSz": "25.96",
+        "askPx": "2494.74",
+        "askSz": "2234.95",
+        "bidPx": "2494.73",
+        "bidSz": "1531.34",
+        "open24h": "2485.4",
         "high24h": "2529.99",
         "low24h": "2455.92",
-        "volCcy24h": "3281803.093",
-        "vol24h": "32818030.93",
-        "ts": "1749291888052",
+        "volCcy24h": "3249217.005",
+        "vol24h": "32492170.05",
+        "ts": "1749294598714",
         "sodUtc0": "2475.34",
         "sodUtc8": "2508.33"
       }
@@ -114,26 +114,26 @@
   "okx_positions": {
     "instrument_id": "ETH-USDT-SWAP",
     "balance": {
-      "Available_Margin": "116088.23 USDT"
+      "Available_Margin": "116291.63 USDT"
     },
     "positions": {
       "instrument_id": "ETH-USDT-SWAP",
-      "Margin_Model": "N/A",
-      "Position direction": "N/A",
-      "pos": "0",
-      "avgPrice": "N/A",
-      "Unrealized Gains": "N/A",
-      "liqPrice": "N/A",
-      "lever": "N/A"
+      "Margin_Model": "cross",
+      "Position direction": "net",
+      "pos": "0 piece",
+      "avgPrice": " USDT",
+      "Unrealized Gains": " USDT",
+      "liqPrice": " USDT",
+      "lever": " x"
     },
     "orders": {
-      "size": "155.33",
-      "price": "2495",
-      "lever": "100",
-      "direction": "buy",
-      "status": "live",
+      "size": "N/A",
+      "price": "N/A",
+      "lever": "N/A",
+      "direction": "N/A",
+      "status": "N/A",
       "algo_orders": {}
     }
   },
-  "timestamp": "2025-06-07T18:24:49+08:00"
+  "timestamp": "2025-06-07T19:09:59+08:00"
 }

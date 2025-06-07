@@ -7,7 +7,8 @@ import time
 import requests
 import logging
 import json
-from src.main_get import main as get_main # Import the main function from main_get.py
+from src.main_get import main as get_main
+from src.auto_trader import main as auto_trade_main  # 添加自动交易模块导入
 
 # Configure logging (similar to other scripts for consistency)
 config = json.load(open("config/config.json", "r"))
@@ -99,6 +100,20 @@ def run_gemini_api_caller():
         logger.error(f"运行 Gemini API 调用脚本时发生未知错误: {e}")
         return False
 
+def run_auto_trader():
+    """
+    运行自动交易系统。
+    """
+    logger.info("正在运行自动交易系统...")
+    try:
+        auto_trade_main()  # 直接调用auto_trader.py中的main函数
+        logger.info("自动交易系统运行完成")
+        return True
+    except Exception as e:
+        logger.error(f"运行自动交易系统时发生错误: {e}")
+        logger.exception(e)  # 打印详细的异常堆栈
+        return False
+
 if __name__ == "__main__":
     # 1. 重启数据服务器
     server_process = restart_data_server()
@@ -120,13 +135,25 @@ if __name__ == "__main__":
     get_main()
     logger.info("服务器自检：数据收集模块运行完成。")
 
-    # 3. 循环运行数据收集和 Gemini API 调用脚本
-    logger.info("开始循环运行数据收集和 Gemini API 调用脚本...")
+    # 3. 循环运行数据收集、Gemini API调用和自动交易系统
+    logger.info("开始循环运行数据收集、Gemini API调用和自动交易系统...")
     while True:
-        logger.info("正在运行数据收集模块 (main_get.py)...")
-        get_main() # Call the main function from main_get.py
-        logger.info("数据收集模块运行完成。")
+        try:
+            # 运行数据收集
+            logger.info("正在运行数据收集模块 (main_get.py)...")
+            get_main()
+            logger.info("数据收集模块运行完成。")
 
-        run_gemini_api_caller()
-        # Add a delay before the next run
-        time.sleep(60) # Run approximately every minute (adjust as needed)
+            # 运行Gemini API调用
+            if run_gemini_api_caller():
+                # 只有在Gemini API调用成功时才运行自动交易
+                run_auto_trader()
+            else:
+                logger.error("由于Gemini API调用失败，跳过自动交易")
+
+        except Exception as e:
+            logger.error(f"主循环执行过程中发生错误: {e}")
+            logger.exception(e)
+
+        # 添加延迟避免过于频繁的请求
+        time.sleep(60)  # 每分钟运行一次
