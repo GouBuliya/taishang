@@ -1,9 +1,19 @@
 [project]
 name = "taishang"
 version = "0.1.0"
-description = "Add your description here"
+description = "Automated trading system"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-   
+requires-python = ">=3.8"
+authors = [
+    {name = "li-xufeng"}
 ]
+dependencies = [
+    "okx",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["function*", "src*"]

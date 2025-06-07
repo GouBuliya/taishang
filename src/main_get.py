@@ -91,8 +91,7 @@ def run_tradingview_screenshot():
         logger.error(f"调用截图服务器异常: {e}")
         return None
 
-if __name__ == "__main__":
-    # 将所有print输出（除最后"完成"）改为logging，stdout只输出"完成"
+def main():
     proxies = {
         "http": config["proxy"]["http_proxy"],
         "https": config["proxy"]["https_proxy"]
@@ -104,7 +103,6 @@ if __name__ == "__main__":
         start_time_key = f"{task_name}_start"
         end_time_key = f"{task_name}_end"
         module_timings[start_time_key] = datetime.now()
-        
         result = None
         try:
             logger.info(f"{task_name} 模块运行中...")
@@ -161,7 +159,6 @@ if __name__ == "__main__":
         "timestamp": datetime.now(timezone.utc).replace(microsecond=0).astimezone(timezone(timedelta(hours=8))).isoformat() # 东八区时间
     }
     # 写入 data.json
-    
     data_path = config["data_path"]
     tmp_path = data_path + ".tmp"
     try:
@@ -194,3 +191,6 @@ if __name__ == "__main__":
         logger.error(f"写入data.json失败: {e}")
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
+
+if __name__ == "__main__":
+    main()
