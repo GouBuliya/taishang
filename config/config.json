@@ -39,7 +39,7 @@
     },
     "gemini_answer_path": "data/gemini_answer.json",
     "logs":{
-        "trade_log_path": "logs/trade_log.json",
+        "trade_log_path": "logs/trade_history.json",
         "main_log_path": "logs/main.log",
         "gemini_answer_path": "data/gemini_answer.json",
         "effective_log_path": "logs/think_log.md"

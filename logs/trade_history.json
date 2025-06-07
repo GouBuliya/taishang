@@ -856,5 +856,249 @@
       "risk_assessment": "市场波动性较高，H4 RSI超卖可能引发短期反弹，但整体趋势偏空。严格控制仓位大小以符合风险管理规定，并警惕短期反弹风险。",
       "position_action": "开空仓"
     }
+  },
+  {
+    "timestamp": "2025-06-07T20:34:32.103441",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 186.07,
+    "price": 2497.5,
+    "order_type": "market",
+    "order_id": "2576888841236254720",
+    "stop_loss": 2510.0,
+    "take_profits": [
+      {
+        "price": 2470.0,
+        "size": 62.02
+      },
+      {
+        "price": 2450.0,
+        "size": 62.02
+      },
+      {
+        "price": 2430.0,
+        "size": 62.03
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "市场整体处于下跌趋势，M15和H1时间框架的EMA和MACD均显示强劲的空头动能。价格受阻于布林带中轨，预计将继续下行。选择市价开空，并严格设置止损止盈，以控制风险并最大化收益。",
+      "expected_winrate": 0.5894,
+      "expected_return": 0.00443489,
+      "trade_RR_ratio": 2.2,
+      "signal_strength": "0.75",
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空，风险可控。考虑到当前市场情绪中性（FGI=52），建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T20:49:54.120341",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 433.93,
+    "price": 2502.45,
+    "order_type": "market",
+    "order_id": "2576919780234498048",
+    "stop_loss": "N/A",
+    "take_profits": [
+      "N/A",
+      "N/A",
+      "N/A"
+    ],
+    "extra_info": {
+      "operation_comment": "平仓现有亏损多头仓位，以止损并顺应市场空头趋势。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "当前持仓与市场趋势相悖，平仓可降低进一步亏损风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T20:49:54.569659",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 91.61,
+    "price": 2505.0,
+    "order_type": "limit",
+    "order_id": "2576919795333992448",
+    "stop_loss": 2530.0,
+    "take_profits": [
+      {
+        "price": 2470.0,
+        "size": 0.33
+      },
+      {
+        "price": 2450.0,
+        "size": 0.33
+      },
+      {
+        "price": 2420.0,
+        "size": 0.34
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "市场整体趋势看跌，等待价格反弹至近期阻力位附近入场做空，以获得更好的风险回报比。",
+      "expected_winrate": 0.3881,
+      "expected_return": -0.000683,
+      "trade_RR_ratio": 1.4,
+      "signal_strength": "0.75",
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕RSI超卖引发的技术性反弹，但通过止损和分级止盈控制风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T20:56:16.032911",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 433.93,
+    "price": 2502.45,
+    "order_type": "market",
+    "order_id": "2576932589873795072",
+    "stop_loss": "N/A",
+    "take_profits": [
+      "N/A",
+      "N/A",
+      "N/A"
+    ],
+    "extra_info": {
+      "operation_comment": "平仓现有亏损多头仓位，以止损并顺应市场空头趋势。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "当前持仓与市场趋势相悖，平仓可降低进一步亏损风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T20:56:16.862632",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 91.61,
+    "price": 2505.0,
+    "order_type": "limit",
+    "order_id": "2576932617623310336",
+    "stop_loss": 2530.0,
+    "take_profits": [
+      {
+        "price": 2470.0,
+        "size": 0.33
+      },
+      {
+        "price": 2450.0,
+        "size": 0.33
+      },
+      {
+        "price": 2420.0,
+        "size": 0.34
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "市场整体趋势看跌，等待价格反弹至近期阻力位附近入场做空，以获得更好的风险回报比。",
+      "expected_winrate": 0.3881,
+      "expected_return": -0.000683,
+      "trade_RR_ratio": 1.4,
+      "signal_strength": "0.75",
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕RSI超卖引发的技术性反弹，但通过止损和分级止盈控制风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:01:09.046001",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 617.15,
+    "price": 2495.95,
+    "order_type": "market",
+    "order_id": "2576942426892406784",
+    "stop_loss": 2502.0708,
+    "take_profits": [
+      {
+        "price": 2445.0,
+        "size": 205.716
+      },
+      {
+        "price": 2400.0,
+        "size": 205.716
+      },
+      {
+        "price": 2350.0,
+        "size": 205.716
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "调整现有空头仓位止损以符合风险管理规定（单笔潜在最大亏损不超过可用保证金的2%），并重新设置止盈目标。由于交易系统机制，此操作将取消现有所有挂单（包括原有的卖出限价单）并以市价重新建立总仓位。",
+      "expected_winrate": 0.3549,
+      "expected_return": 0.005663,
+      "trade_RR_ratio": 8.325,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场整体趋势偏空，但短期存在超卖反弹风险。需警惕宏观消息面突发利好导致趋势反转。通过严格止损和分级止盈控制风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:05:59.003420",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 91.61,
+    "price": 2505.0,
+    "order_type": "limit",
+    "order_id": "2576952156033519616",
+    "stop_loss": "N/A",
+    "take_profits": "N/A",
+    "extra_info": {
+      "operation_comment": "取消旧的挂单，以便重新评估和调整仓位。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "N/A"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:05:59.274335",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "long",
+    "size": 1048.9,
+    "price": 2492.65,
+    "order_type": "market",
+    "order_id": "2576952165328097280",
+    "stop_loss": "N/A",
+    "take_profits": "N/A",
+    "extra_info": {
+      "operation_comment": "根据2%风险原则，平仓部分现有空头仓位，将持仓调整至合规大小。",
+      "expected_winrate": 0.581,
+      "expected_return": 0.00669,
+      "trade_RR_ratio": 1.918,
+      "signal_strength": 0.1621,
+      "risk_assessment": "市场波动性较高，但通过减仓已大幅降低单笔风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:11:16.986594",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 153.21,
+    "price": 2505.0,
+    "order_type": "limit",
+    "order_id": "2576962825940242432",
+    "stop_loss": 2520.0,
+    "take_profits": [
+      {
+        "price": 2470.0,
+        "size": 51.07
+      },
+      {
+        "price": 2450.0,
+        "size": 51.07
+      },
+      {
+        "price": 2420.0,
+        "size": 51.07
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "市场整体趋势看跌，当前持有空头仓位且盈利。为最大化收益，在价格反弹至关键阻力位2505附近加仓做空，并设置严格止损和分级止盈。",
+      "expected_winrate": 0.7205,
+      "expected_return": 0.00641,
+      "trade_RR_ratio": 2.33,
+      "signal_strength": 0.9,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2520 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。"
+    }
   }
 ]
