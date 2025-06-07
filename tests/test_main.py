@@ -7,8 +7,8 @@ from unittest.mock import patch, MagicMock
 # Add the src directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-import main
-from main import extract_first_json
+import main_get
+from main_get import extract_first_json
 
 class TestExtractFirstJson(unittest.TestCase):
 
@@ -95,7 +95,7 @@ class TestMain(unittest.TestCase):
         # 如果 main 模块已经加载，需要重新加载
         if 'main' in sys.modules:
             import importlib
-            importlib.reload(main)
+            importlib.reload(main_get)
 
     def tearDown(self):
         # 清理模拟的 config.json 文件
@@ -111,21 +111,21 @@ class TestMain(unittest.TestCase):
         mock_response.json.return_value = {"status": "success", "filepath": "/path/to/screenshot.png"}
         mock_get.return_value = mock_response
 
-        filepath = main.run_tradingview_screenshot()
+        filepath = main_get.run_tradingview_screenshot()
         self.assertEqual(filepath, "/path/to/screenshot.png")
         mock_get.assert_called_once_with("http://127.0.0.1:5002/screenshot", timeout=60)
 
     @patch('main.requests.get')
     def test_run_tradingview_screenshot_timeout(self, mock_get):
-        mock_get.side_effect = main.requests.exceptions.Timeout
-        filepath = main.run_tradingview_screenshot()
+        mock_get.side_effect = main_get.requests.exceptions.Timeout
+        filepath = main_get.run_tradingview_screenshot()
         self.assertIsNone(filepath)
         mock_get.assert_called_once()
 
     @patch('main.requests.get')
     def test_run_tradingview_screenshot_connection_error(self, mock_get):
-        mock_get.side_effect = main.requests.exceptions.ConnectionError
-        filepath = main.run_tradingview_screenshot()
+        mock_get.side_effect = main_get.requests.exceptions.ConnectionError
+        filepath = main_get.run_tradingview_screenshot()
         self.assertIsNone(filepath)
         mock_get.assert_called_once()
 
@@ -133,10 +133,10 @@ class TestMain(unittest.TestCase):
     def test_run_tradingview_screenshot_http_error(self, mock_get):
         mock_response = MagicMock()
         mock_response.status_code = 404
-        mock_response.raise_for_status.side_effect = main.requests.exceptions.HTTPError
+        mock_response.raise_for_status.side_effect = main_get.requests.exceptions.HTTPError
         mock_get.return_value = mock_response
 
-        filepath = main.run_tradingview_screenshot()
+        filepath = main_get.run_tradingview_screenshot()
         self.assertIsNone(filepath)
         mock_get.assert_called_once()
 
@@ -148,7 +148,7 @@ class TestMain(unittest.TestCase):
         mock_response.text = "invalid json"
         mock_get.return_value = mock_response
 
-        filepath = main.run_tradingview_screenshot()
+        filepath = main_get.run_tradingview_screenshot()
         self.assertIsNone(filepath)
         mock_get.assert_called_once()
         

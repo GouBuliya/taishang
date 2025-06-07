@@ -324,8 +324,9 @@ def call_gemini_api_stream(
         if not _api_key:
             raise RuntimeError("未配置 GEMINI_API_KEY")
 
+
         # 将 tools 参数传递给 GenerateContentConfig
-        gemini_config = types.GenerateContentConfig(
+        gemini_config = types.GenerateContentConfig(    
             temperature=DEFAULT_TEMPERATURE,
             top_p=DEFAULT_TOP_P,
             max_output_tokens=DEFAULT_MAX_OUTPUT_TOKENS,
