@@ -1,0 +1,260 @@
+Metadata-Version: 2.4
+Name: taishang
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+## 目录结构及文件用途
+
+-   `data/chrome_profile_copy/`: 此目录包含一个 Chrome 浏览器的用户配置文件副本。这些文件通常是浏览器运行时生成的缓存、数据库、扩展数据等，主要用于 `tradingview_auto_screenshot.py` 等脚本进行自动化浏览器操作时保持会话和配置。
+
+-   `logs/`: 存放项目运行期间生成的日志文件，例如 `main.log` 记录了主程序的运行情况。
+
+-   `src/`: 核心源代码目录，包含以下 Python 脚本：
+    -   `src/downloads/`: 用于存放下载的文件（临时）。
+    -   `src/gemini_api_caller.py`: **与 Google Gemini API 进行交互的核心模块。**
+        该脚本封装了 Gemini API 调用、工具使用、多轮对话管理、日志记录和性能计时等关键功能。
+
+        **核心功能：**
+        1.  **Gemini API 调用 (`call_gemini_api_stream`)：**
+            *   **流式处理:** 以流（stream）的方式接收 Gemini 模型的响应，可以处理文本输出、函数调用请求和思考摘要。
+            *   **多模态输入:** 支持同时发送文本和图片给 Gemini 模型。
+            *   **系统提示词:** 从 `config.json` 指定的路径加载系统提示词，指导模型行为。
+            *   **工具集成:** 能够动态向 Gemini 模型注册可用的工具。
+            *   **对话历史管理:** 通过全局变量 `history` 维护多轮对话状态，确保模型能理解上下文。
+            *   **思考模式:** 能够捕获并记录模型的"思考摘要"，有助于理解模型决策过程。
+            *   **错误处理:** 对 API 调用过程中可能出现的错误进行捕获和日志记录。
+        2.  **函数调用工具定义与管理：**
+            *   **工具声明:** 定义了 `gettransactionhistory`（获取交易历史）、`gettime`（获取当前时间）和 `executepythoncode`（执行任意 Python 代码）三个工具的详细声明。
+            *   **本地函数映射:** 将工具名称映射到实际的 Python 函数，实现模型请求时本地代码的执行。
+            *   **调用限制:** 对 `gettransactionhistory`、`gettime` 和 `executepythoncode` 等工具设置了调用次数限制，以控制模型行为和资源消耗。特别是 `executepythoncode` 被明确限制在特定场景使用。
+        3.  **函数执行 (`execute_function_call`)：**
+            *   当 Gemini 模型请求调用函数时，此函数负责根据映射关系找到并执行对应的本地 Python 函数。
+            *   将本地函数的执行结果封装成 Gemini API 期望的格式，回传给模型。
+        4.  **日志与配置：**
+            *   使用 `logging` 模块进行详细的日志记录，包括主日志和有效通信日志。
+            *   从 `config.json` 加载 API 密钥、模型名称、系统提示词路径以及模型配置参数。
+            *   定义警告过滤器，减少日志噪音。
+        5.  **主执行逻辑 (`if __name__ == "__main__":`)：**
+            *   可能通过设置代理环境变量来访问外部网络。
+            *   加载初始数据和屏幕截图路径。
+            *   实现多轮对话循环，根据模型响应（函数调用或文本）进行处理。
+            *   记录并输出图片上传、Gemini API 调用以及各个工具函数执行的性能计时数据。
+
+        **依赖模块：**
+        *   `logging`, `os`, `sys`, `json`, `traceback`, `base64`, `time`, `subprocess` (Python 内置模块)。
+        *   `google.genai`, `google.genai.types` (Google Gemini API 客户端库)。
+        *   `get_time`, `get_transaction_history` (外部导入的本地模块，提供具体功能实现)。
+    -   `src/gemini_json_to_markdown.py`: **将 Gemini API 的 JSON 响应转换为易读的 Markdown 格式。**
+        此脚本主要用于将 Gemini 模型生成的 JSON 格式的交易分析结果，转换为结构化且便于阅读的 Markdown 文本，使其更适合在报告或日志中展示。
+
+        **核心功能：**
+        1.  **JSON 解析与格式化:**
+            *   尝试将输入的字符串解析为 JSON 对象。如果解析失败（即输入不是有效的 JSON），则直接返回原始字符串。
+            *   使用预定义的映射 (`mapping` 字典)，将 JSON 中的特定键（如 `short_term_reason`, `mid_term_reason`, `summary` 等）转换为 Markdown 的标题（如 `### 短线分析`），并附加其对应的值。
+        2.  **操作建议子字段处理:**
+            *   特别处理 JSON 中的 `operation` 字段。如果 `operation` 字段存在且为字典类型，则进一步将其内部的子字段（如 `type`, `price`, `expected_winrate` 等）格式化为 Markdown 列表项，归类到 `#### 操作建议` 标题下。
+        3.  **数据类型兼容性:**
+            *   能够处理 JSON 值是字符串、数字或列表的情况。如果值为列表，会自动将其元素用逗号连接成字符串。
+        
+        **主要用途:**
+        *   将复杂的 JSON 交易分析数据转换为清晰、易于人工审查的报告格式。
+
+        **依赖模块：**
+        *   `json` (Python 内置模块)。
+    -   `src/get_positions.py`: **与 OKX 交易所 API 交互，获取账户余额、持仓和挂单信息的模块。**
+        该脚本是交易数据收集的核心部分，它封装了对 OKX 交易平台的 API 调用，以获取实时账户和订单数据。
+
+        **核心功能：**
+        1.  **OKX API 初始化:**
+            *   从 `config/config.json` 文件中读取 OKX 交易所的 API 密钥、密钥、密码和运行模式（实盘/模拟盘）进行初始化。
+            *   使用 `okx.Account` 和 `okx.Trade` 模块来创建 API 客户端实例。
+        2.  **获取账户余额 (`get_balance`)：**
+            *   调用 OKX 账户 API 获取账户的可用保证金（Available Margin）。
+            *   对结果进行格式化，并保留两位小数。
+        3.  **获取持仓信息 (`get_positions`)：**
+            *   根据传入的 `instrument_id`（例如 'ETH-USDT-SWAP'），调用 OKX 账户 API 获取详细的持仓信息。
+            *   解析并返回包括保证金模式、持仓方向、持仓数量、平均开仓价格、未实现盈亏、强平价格和杠杆倍数等数据。
+            *   包含对无持仓信息的健壮处理，返回 'N/A' 值。
+        4.  **获取挂单信息 (`get_orders`)：**
+            *   根据传入的 `instrument_id`，调用 OKX 交易 API 获取未成交的普通挂单和策略挂单（如止盈止损单）。
+            *   解析并返回订单数量、价格、杠杆、方向和状态等信息。
+            *   特别处理了策略挂单（`algo_orders`）的策略ID、状态、类型和触发价格等信息。
+            *   对无挂单信息的健壮处理。
+        5.  **数据汇总 (`collect_positions_data`)：**
+            *   作为聚合函数，调用上述 `get_balance`、`get_positions` 和 `get_orders` 函数，将不同类型的数据整合到一个字典中返回。
+            *   默认获取 'ETH-USDT-SWAP' 的数据，但支持传入其他 `instrument_id`。
+        6.  **日志记录:**
+            *   使用 `logging` 模块记录 API 调用过程中的关键信息和潜在错误。
+        
+        **主要用途:**
+        *   为交易策略提供实时的账户状态、持仓详情和订单信息，是自动化交易决策的重要数据来源。
+        
+        **依赖模块：**
+        *   `okx.Account`, `okx.Trade` (OKX 交易所 Python SDK)。
+        *   `json`, `sys`, `os`, `logging` (Python 内置模块)。
+    -   `src/macro_factor_collector.py`: **收集宏观经济和市场情绪指标的模块。**
+        该脚本负责从不同的数据源（如 OKX 交易所和第三方 API）获取宏观经济因素，为交易决策提供更全面的市场背景信息。
+
+        **核心功能：**
+        1.  **OKX 资金费率获取 (`get_okx_funding_rate`)：**
+            *   通过 OKX 公共数据 API 获取指定交易对（如 `ETH-USDT-SWAP`）的资金费率。
+            *   将资金费率转换为百分比形式并保留四位小数。
+        2.  **恐惧与贪婪指数获取 (`get_fear_greed_index`)：**
+            *   通过 `alternative.me` API 获取加密货币市场的恐惧与贪婪指数（Fear & Greed Index, FGI）。
+            *   返回整数形式的指数值。
+        3.  **OKX 持仓量获取 (`get_okx_open_interest`)：**
+            *   通过 OKX 公共数据 API 获取指定交易对（如 `ETH-USDT-SWAP`）的持仓量（Open Interest）。
+            *   将持仓量转换为以百万美元计的格式。
+        4.  **宏观因子汇总 (`collect_macro_factors`)：**
+            *   聚合上述三个函数的结果，将资金费率、恐惧与贪婪指数和持仓量组织成一个字典返回。
+            *   对结果进行格式化，例如资金费率添加百分号，FGI 显示为分数形式，持仓量显示为百万美元。
+        5.  **日志记录:**
+            *   使用 `logging` 模块记录数据获取过程中的信息和错误。
+        
+        **主要用途:**
+        *   为交易策略提供宏观市场情绪和流动性数据，辅助判断市场趋势和风险。
+        
+        **依赖模块：**
+        *   `requests` (用于 HTTP 请求)。
+        *   `datetime`, `json`, `os`, `logging` (Python 内置模块)。
+        *   `okx.api.Public` (OKX 交易所 Python SDK)。
+    -   `src/main.py`: **项目的主入口脚本，负责协调和集成各项数据收集任务。**
+        该脚本作为核心调度器，将来自不同模块的数据（包括技术指标、宏观因子、OKX 账户信息和 TradingView 截图）进行汇总、标准化处理，并输出为统一的 JSON 格式文件 `data.json`，供后续的 AI 分析和决策使用。
+
+        **核心功能：**
+        1.  **模块集成：** 导入并调用以下模块的功能：
+            *   `technical_indicator_collector.py`: 收集各种技术指标数据。
+            *   `macro_factor_collector.py`: 获取宏观经济因素和市场情绪指标。
+            *   `get_positions.py`: 获取 OKX 账户余额、持仓详情和挂单信息。
+        2.  **截图集成 (`run_tradingview_screenshot`)：**
+            *   通过 HTTP 请求与外部截图服务（可能由 `screenshot_server.py` 提供）进行通信，获取 TradingView 页面截图。
+            *   包含健壮的错误处理机制，以应对网络问题、超时和非预期服务器响应。
+        3.  **数据聚合与标准化：**
+            *   汇总所有集成模块和截图服务返回的数据。
+            *   将这些不同类型的数据（截图路径、技术指标、宏观因子、OKX 持仓和市场行情数据）合并成一个全面的 JSON 对象。
+            *   为聚合数据添加时间戳（北京时间）。
+        4.  **配置与日志：**
+            *   从 `config.json` 文件加载代理设置、日志路径和数据输出路径等配置。
+            *   使用 `logging` 模块记录详细的操作日志，包括模块的启动/结束时间及任何错误。
+            *   计算并输出每个主要数据收集模块以及整个脚本的总运行时间。
+        5.  **原子性文件写入：**
+            *   采用先写入临时文件（`.tmp`）再进行原子性替换的方式，确保 `data.json` 文件更新的完整性和数据一致性，防止数据损坏。
+        6.  **代理支持：** 根据 `config.json` 中的设置，为外部 API 调用配置 HTTP 和 HTTPS 代理。
+
+        **主要用途：**
+        *   作为项目的数据采集和预处理中心，确保所有必要的信息（市场数据、技术分析、宏观因素、账户状态和可视化上下文）被收集、组织成一致的格式，为后续的 AI 驱动分析和交易操作提供基础数据。
+
+        **依赖模块：**
+        *   `subprocess`, `os`, `json`, `datetime`, `re`, `sys`, `logging`, `threading`, `requests` (Python 内置和标准库)。
+        *   `okx.api.Market` (OKX 交易所 Python SDK)。
+        *   `technical_indicator_collector`, `macro_factor_collector`, `get_positions` (`src` 目录下的本地模块)。
+    -   `src/position_info_widget.py`: **基于 PyQt6 实现的图形用户界面（GUI）组件，用于收集和展示用户输入的持仓信息。**
+        该模块是一个独立的 UI 组件，旨在提供一个直观的界面，让用户可以输入其当前的交易头寸详情，例如总仓位、仓位百分比、开仓均价和止损价等。这些信息随后可以被其他模块（例如用于 AI 分析的模块）使用。
+
+        **核心功能：**
+        1.  **UI 界面构建:**
+            *   使用 PyQt6 框架构建了一个包含文本输入框 (`QLineEdit`) 和复选框 (`QCheckBox`) 的用户界面。
+            *   包括输入总仓位（USDT）、当前仓位百分比、持仓方向（多仓/空仓）、开仓均价和当前止损价的字段。
+        2.  **数据输入与同步:**
+            *   提供了占位符文本 (`setPlaceholderText`)，指导用户输入示例格式。
+            *   实现了多仓和空仓复选框的互斥同步逻辑 (`_sync_dir_checkbox`)，确保用户只能选择一个方向。
+        3.  **输入状态控制 (`toggle_position_inputs`)：**
+            *   能够根据传入的状态（例如，是否为空仓），启用或禁用所有持仓相关的输入字段，并清空内容或重置默认值。
+        4.  **信息格式化输出 (`get_position_info_text`)：**
+            *   将用户输入的各个字段值格式化成一个易于阅读的文本字符串，用于显示当前持仓的概览信息。
+            *   包含了对输入数据类型转换（例如字符串转浮点数）和有效性检查的逻辑，并在无效时返回相应的提示信息。
+        5.  **JSON 数据收集 (`collect_info_as_json`)：**
+            *   将用户界面中输入的持仓信息收集到一个 Python 字典中，方便转换为 JSON 格式，供其他程序模块调用。
+            *   将持仓方向从中文标签（多仓/空仓）转换为英文标识符（`long`/`short`）。
+
+        **主要用途：**
+        *   作为用户交互界面的一部分，允许用户手动输入和管理其交易持仓信息，这些信息可以与从交易所 API 获取的实际持仓数据结合，或作为模拟交易的初始状态。
+
+        **依赖模块：**
+        *   `PyQt6.QtWidgets`, `PyQt6.QtCore` (GUI 框架)。
+        *   `datetime` (Python 内置模块)。
+    -   `src/reply_cache/`: 存储回复缓存的目录，例如 `gemini.json` 和 `gemini.txt`，可能用于缓存 Gemini API 的响应。
+    -   `src/screenshot_server.py`: 一个截图服务，可能提供 API 接口用于捕获屏幕截图。
+    -   `src/technical_indicator_collector.py`: **从 OKX 交易所获取 K 线数据并计算多种技术指标的模块。**
+        该脚本是项目进行技术分析的核心部分，它通过与 OKX 交易所 API 交互获取市场原始数据，并利用 `pandas` 和 `numpy` 对数据进行处理，计算出各种常用的技术分析指标，为交易决策提供量化依据。
+
+        **核心功能：**
+        1.  **OKX K 线数据获取 (`collect_technical_indicators`)：**
+            *   通过 `okx.api.Market` 模块获取指定交易对（例如 `ETH-USDT-SWAP`）在不同时间周期（15m, 1h, 4h）的历史 K 线数据。
+            *   支持配置 K 线数量限制，并包含数据有效性检查，以处理无数据或数据不完整的情况。
+        2.  **数据预处理：**
+            *   将原始 K 线数据转换为 `pandas.DataFrame`，并确保时间戳、开盘价、最高价、最低价、收盘价和成交量等字段的数据类型正确。
+            *   将时间戳设置为 DataFrame 的索引。
+        3.  **多种技术指标计算：**
+            *   **均线 (EMA, SMA):** 包括 EMA5, EMA21, EMA55, EMA144, EMA200。
+            *   **相对强弱指数 (RSI):** 计算 RSI(14)。
+            *   **平滑异同移动平均线 (MACD):** 计算 MACD 线和信号线。
+            *   **平均真实波幅 (ATR):** 计算 ATR(14)。
+            *   **平均趋向指数 (ADX):** 计算 ADX(14)。
+            *   **随机指标 (Stoch):** 计算 Stochastics %K 和 %D。
+            *   **随机 RSI (StochRSI):** 计算 StochRSI %K 和 %D。
+            *   **布林带 (Bollinger Bands):** 计算上轨、中轨和下轨。
+            *   **成交量加权平均价 (VWAP):** 计算 VWAP。
+            *   **NaN 值处理:** 在计算指标后，对 DataFrame 中的 NaN 值进行填充，确保数据完整性。
+        4.  **结果输出：**
+            *   提取每个时间周期的最新一根 K 线数据及其对应的所有计算出的技术指标值。
+            *   将这些数据组织成结构化的 JSON 格式，方便下游模块使用。
+        5.  **配置与日志：**
+            *   从 `config.json` 加载 API 密钥、日志路径和代理配置。
+            *   使用 `logging` 模块记录详细的数据获取和处理过程中的信息和错误。
+        
+        **主要用途：**
+        *   为交易策略提供全面的技术分析数据，是自动化交易决策和信号生成的基础。
+        
+        **依赖模块：**
+        *   `pandas`, `numpy` (数据处理和科学计算库)。
+        *   `datetime`, `json`, `logging`, `os` (Python 内置模块)。
+        *   `okx.api.Market` (OKX 交易所 Python SDK)。
+    -   `src/tradingview_auto_screenshot.py`: **作为截图服务的客户端，负责触发和接收 TradingView 截图。**
+        这个脚本是 `src/screenshot_server.py` 的配套客户端，它不直接执行截图操作，而是通过 HTTP 请求调用运行中的截图服务器，从而获取 TradingView 的图表截图。
+
+        **核心功能：**
+        1.  **客户端请求：**
+            *   向本地运行的 `screenshot_server.py` 服务（默认地址 `http://127.0.0.1:5002/screenshot`）发送 GET 请求，以触发截图操作。
+        2.  **响应处理：**
+            *   接收服务器返回的 JSON 响应。如果状态为 `success` 且包含 `filepath` 字段，则表示截图成功，并返回截图的完整路径。
+            *   包含对网络请求超时、连接错误、HTTP 错误和 JSON 解析错误等多种异常情况的健壮处理。
+        3.  **日志记录:**
+            *   使用 `logging` 模块记录客户端的请求过程、服务器响应以及任何发生的错误。
+        
+        **主要用途：**
+        *   作为 `main.py` 模块（或其他需要截图的模块）调用截图功能的接口，简化了截图操作的复杂性，将其委托给一个独立的服务进行处理。
+        
+        **依赖模块：**
+        *   `os`, `json`, `logging` (Python 内置模块)。
+        *   `requests` (用于 HTTP 请求)。
+    -   `src/__pycache__/`: Python 解释器生成的字节码缓存文件，用于提高程序运行效率，不包含源代码。
+
+-   `README.md`: 本文件，提供了整个项目的概览以及各个文件和目录的用途说明。
+
+---
+
+## 新增内容
+
+-   `src/reply_cache/`: 存储 Gemini API 交互的缓存文件，例如 `gemini.json` (JSON 格式的 Gemini 响应) 和 `gemini.txt` (文本格式的 Gemini 响应)。
+-   `config/config.json`: **项目的全局配置文件。**
+   该文件以 JSON 格式存储了整个项目运行所需的各种配置参数，包括 API 密钥、文件路径、代理设置等。
+
+   **核心配置项：**
+   *   `config_path`: 当前配置文件的路径。
+   *   `main_log_path`: 主日志文件的路径，用于记录应用程序的运行日志。
+   *   `screenshot_server_url`: 截图服务器的 URL 地址。
+   *   `cache_screenshot_path`: 截图文件缓存的目录路径。
+   *   `proxy`: 代理服务器的配置，包括 HTTP 和 HTTPS 代理地址，用于网络请求。
+   *   `data_path`: 聚合后的数据（例如 `main.py` 输出的 `data.json`）的存储路径。
+   *   `okx`: OKX 交易所的 API 配置，包括 `api_key`、`secret_key`、`passphrase` 和 `flag`（实盘/模拟盘）。
+   *   `chrome_profile`: Chrome 浏览器用户配置文件的相关设置，包括 `user_data_dir`（实际使用的浏览器数据目录）和 `copy_dir`（用于初始化或恢复的原始配置文件副本路径）。
+
+   **主要用途：**
+   *   集中管理所有可配置参数，方便项目的部署、维护和不同环境下的切换，避免硬编码。
+   *   提供敏感信息（如 API 密钥）的配置入口，尽管在生产环境中更推荐使用环境变量或其他更安全的密钥管理方式。
+
+   **依赖模块：**
+   *   无直接代码依赖，由项目中需要配置信息的各个 Python 脚本加载和使用。

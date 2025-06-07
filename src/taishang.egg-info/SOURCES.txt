@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/gemini_api_caller.py
+src/gemini_json_to_markdown.py
+src/get_positions.py
+src/macro_factor_collector.py
+src/main.py
+src/position_info_widget.py
+src/screenshot_server.py
+src/technical_indicator_collector.py
+src/tradingview_auto_screenshot.py
+src/taishang.egg-info/PKG-INFO
+src/taishang.egg-info/SOURCES.txt
+src/taishang.egg-info/dependency_links.txt
+src/taishang.egg-info/top_level.txt
+tests/test_main.py

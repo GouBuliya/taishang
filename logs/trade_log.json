@@ -1,0 +1,1415 @@
+[
+    {
+        "time": "2025-05-30 06:53:04",
+        "response": {
+            "symbol": "ETHUSDT.P",
+            "action": "sell",
+            "order_type": "limit",
+            "price": "2680.0",
+            "stop_loss": "2700.0",
+            "take_profit_targets": [
+                "2620.0",
+                "2580.0",
+                "2500.0"
+            ],
+            "size": "51.33",
+            "comment": "基于H4/H1强劲下跌趋势和FGI极度贪婪信号，建议逢高做空。M15短期反弹被视为下跌中继。入场价取推荐区间上限，止损设于2700，风险控制在可用保证金的1%。"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 12:23:03",
+        "execution_details": {
+            "operation_comment": "市场处于震荡筑底阶段，缺乏明确趋势信号。尽管15m RSI超卖且存在潜在双底，但MACD和EMA仍偏空，且缺乏放量反弹确认。建议观望，等待价格突破关键阻力或支撑位，以获得更明确的交易信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": 0.5979,
+            "expected_return": 0.00849,
+            "trade_RR_ratio": 1.5,
+            "signal_strength": 0.396675,
+            "risk_management_strategy": "当前市场处于震荡筑底阶段，多空力量胶着，缺乏明确趋势。波动率相对较低，但随时可能因突破而放大。建议等待更明确的信号再入场。避免高杠杆操作，并保持足够的现金头寸以应对市场不确定性。本次交易不建议立即执行。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场处于震荡筑底阶段，多空力量胶着，缺乏明确趋势。波动率相对较低，但随时可能因突破而放大。风险等级为中等，建议等待更明确的信号再入场。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 12:48:36",
+        "execution_details": {
+            "operation_comment": "当前市场缺乏明确趋势，多空信号冲突，风险回报比不佳，建议观望，等待更清晰的入场信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "在市场无明确趋势时，保持观望是最佳风险管理策略。避免不必要的交易，保存本金，等待高胜率机会。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于趋势不明确和多空信号冲突，可能导致频繁止损。建议规避风险，不进行操作。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:03:28",
+        "execution_details": {
+            "operation_comment": "ETHUSDT在M15和H1周期呈现明显下跌趋势，短期反弹动能不足，MACD和EMA均支持做空。在2525-2535 USDT区间做空，止损设于2545 USDT，止盈目标2500 USDT。",
+            "type": "sell",
+            "price": 2535.0,
+            "stop_loss": 2545.0,
+            "take_profit": 2500.0,
+            "size": 23.2,
+            "market": false,
+            "expected_winrate": 0.65,
+            "expected_return": 0.0065,
+            "trade_RR_ratio": 2.35,
+            "signal_strength": 0.7,
+            "risk_management_strategy": "根据ATR波动率、总账户权益和每笔交易最大亏损（可用保证金的2%）确定初始仓位。如果价格突破2540 USDT并伴随放量，则立即止损。如果价格回调至2525-2535 USDT区域并出现做空信号，则视为入场机会。如果价格跌破2500 USDT，则止盈90%仓位，剩余10%继续持有并上移止损。",
+            "position_action": "开空",
+            "risk_assessment": "当前市场处于下跌趋势，但短期存在反弹风险。高波动率可能导致止损被触发。建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:20:14",
+        "execution_details": {
+            "operation_comment": "当前市场缺乏明确趋势，多时间框架信号不一致，建议观望，等待更清晰的入场信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略，避免在不确定市场中开仓。如果市场出现明确的突破或反转信号，将重新评估并制定交易计划。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于趋势不明确导致的潜在震荡和假突破。建议保持现金头寸，规避不确定性。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:38:24",
+        "execution_details": {
+            "operation_comment": "市场处于震荡盘整，缺乏明确方向，建议观望，等待更清晰的趋势信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略，避免在无明确趋势的市场中进行交易，以保护本金。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于缺乏明确趋势和潜在的突发消息面影响。建议保持现金头寸，规避不确定性。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 13:49:52",
+        "execution_details": {
+            "operation_comment": "当前市场多时间框架信号不一致，短期和中期趋势偏弱，长期趋势不明确，市场处于盘整状态，缺乏明确的交易方向。为规避不确定性风险，建议观望，等待更清晰的趋势信号出现。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略：在市场方向不明朗时，不进行任何交易，以规避不必要的风险。等待市场形成明确的趋势或突破关键区间后再考虑入场。此策略旨在保护本金，避免在震荡市场中被反复止损。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等。主要风险来源于多时间框架信号冲突导致的趋势不确定性，以及低波动性可能带来的假突破风险。建议保持观望，避免在无明确趋势的市场中进行交易，以降低资金损失的风险。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 16:02:57",
+        "execution_details": {
+            "operation_comment": "当前M15周期呈现弱势下跌趋势，价格位于EMA均线下方且布林带收缩，RSI接近超卖区但MACD动能不足。为追求利益最大化并采取激进操作，决定取消现有挂单并立即市价开空，以抓住当前下跌机会。止损设置在M15 EMA55上方，止盈分两级，第一级在24小时低点，第二级为福根。",
+            "type": "sell",
+            "price": 2507.57,
+            "stop_loss": 2525.28,
+            "take_profit": 2489.24,
+            "size": 130.93,
+            "market": true,
+            "expected_winrate": 0.5257,
+            "expected_return": 0.0045,
+            "trade_RR_ratio": 2.12,
+            "signal_strength": 0.7,
+            "risk_management_strategy": "基于可用保证金的2%风险进行仓位计算。TP1平仓90%仓位，并将止损上移至入场价。剩余10%仓位作为福根，止损上移至TP1。如果价格突破止损位，立即止损。如果价格突破TP1并伴随放量，考虑小幅加仓。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场风险中等。M15 RSI接近超卖可能引发短期反弹，但整体趋势偏空。建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 16:17:10",
+        "execution_details": {
+            "operation_comment": "市场整体偏空或低位盘整，存在未成交的卖出限价订单。当前不具备明确的开多信号，且存在卖单，应优先等待卖单成交或继续观望。不进行新的开仓操作。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "0.4",
+            "expected_return": "-0.005",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "0.3",
+            "risk_management_strategy": "当前市场缺乏明确方向，且存在未成交卖单，优先等待或观望。不主动开仓，以规避不确定性风险。如果卖单成交，将根据市场情况重新评估。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于趋势不明确和潜在的低位震荡。建议保持观望，等待更清晰的信号或现有卖单成交。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 16:32:17",
+        "execution_details": {
+            "operation_comment": "当前市场处于震荡盘整状态，多时间框架指标存在冲突，缺乏明确趋势。存在一个未成交的卖出限价订单（2535 USDT），当前价格2503.77 USDT，处于震荡区间下沿。此时不宜追空，应等待价格反弹至订单附近或区间上沿再考虑执行卖出操作。因此，当前操作为观望，等待更明确的信号或订单成交机会。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "在市场信号不明确且存在未成交订单的情况下，保持观望是最佳风险管理策略。避免在震荡区间内盲目开仓，等待价格反弹至有利位置或趋势明确后再行动。如果现有订单成交，将根据市场情况设置止损和止盈。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等。主要风险来源于多时间框架指标冲突导致的方向不确定性，以及震荡区间内可能出现的假突破。建议保持谨慎，不进行新的开仓操作，等待现有订单成交或市场趋势明朗。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 16:47:44",
+        "execution_details": {
+            "operation_comment": "市场信号存在冲突，且当前价格低于现有卖出挂单，建议观望，等待更明确的市场方向或现有订单成交。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "观望策略，避免在不确定性高时盲目入场。现有卖出订单（23.2 pieces @ 2535 USDT）与整体偏空判断一致，但价格距离较远，暂时不进行操作。",
+            "position_action": "N/A",
+            "risk_assessment": "市场缺乏明确方向，波动性降低，但仍有下行风险。建议观望，等待更清晰的趋势信号或现有订单成交后的市场反馈。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 17:02:02",
+        "execution_details": {
+            "operation_comment": "市场整体处于下跌趋势，H1和H4周期均显示强劲空头信号。M15短期动能减弱，可能出现小幅反弹，但应视为做空入场机会。现有卖出挂单与趋势方向一致，继续等待入场。止损设置在H1 EMA55上方，止盈目标为近期低点和关键支撑位。风险管理严格控制单笔保证金使用。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "0.68",
+            "expected_return": "0.0136",
+            "trade_RR_ratio": "1.8",
+            "signal_strength": "0.75",
+            "risk_management_strategy": "本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场情绪中性，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。如果现有挂单成交，将严格执行止损和止盈策略。如果价格未触及挂单价格而直接下跌，则等待更低位的反弹做空机会。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来源于短期反弹可能导致挂单无法成交或止损被触发。流动性充足，政策风险目前较低。建议密切关注价格在2515-2525区域的反应，以及宏观经济数据发布。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 17:16:59",
+        "execution_details": {
+            "operation_comment": "当前市场处于下跌趋势，存在一个在2535的卖出限价单。鉴于当前价格2500.2低于挂单价格，且整体趋势看跌，建议继续等待价格反弹至挂单区域，或在趋势延续时寻找更优的入场点。目前不进行新的市价操作，等待现有订单成交或市场给出更明确的信号。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "0.62",
+            "expected_return": "0.015",
+            "trade_RR_ratio": "2.0",
+            "signal_strength": "0.75",
+            "risk_management_strategy": "当前策略为等待现有挂单成交，或在趋势延续时寻找更优入场点。单笔交易风险控制在可用保证金的2%以内。如果现有挂单成交，止损将设置在2545，止盈目标为2480。如果价格持续下跌且未触及挂单，将重新评估入场点。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等。主要风险在于价格可能在未触及挂单价位前继续下跌，导致错过入场机会；或价格反弹力度过大，突破止损位。建议密切关注2530-2540区域的阻力情况，以及RSI和MACD是否出现反转信号。考虑到当前市场情绪中性，避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 17:31:50",
+        "execution_details": {
+            "operation_comment": "当前市场处于M15和H1的强劲下跌趋势中，价格已跌破关键支撑位。存在一个未成交的卖出限价订单，与当前看跌方向一致。鉴于此，首要操作是等待该限价订单成交或在价格反弹至阻力位时考虑加仓空头。如果未成交订单被取消，则在反弹至2510-2520区域时重新挂单做空。止损设置在2540，止盈目标为2470和2450。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": 0.68,
+            "expected_return": 0.015,
+            "trade_RR_ratio": 2.0,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "基于ATR波动率和账户权益的固定风险仓位管理，每笔交易风险控制在可用保证金的2%。在趋势加速时考虑加仓，健康回调时视为入场机会，趋势恶化或假突破时立即止损。针对宏观事件和黑天鹅情境，考虑减仓或立即平仓。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等偏高，主要源于下跌趋势中的短期反弹可能性以及H4周期MACD的滞后性。建议严格止损，并分批止盈以锁定利润。避免过度杠杆，并密切关注市场情绪和成交量变化。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 17:49:39",
+        "execution_details": {
+            "operation_comment": "市场处于强劲下跌趋势，但短期超卖，不宜立即追空。现有卖出限价单在2535，等待价格反弹至此阻力位再入场，以获得更好的风险回报比。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "等待价格反弹至关键阻力位（2535）再入场，以优化入场点和风险回报。若价格继续下跌未触及挂单，则保持观望。",
+            "position_action": "N/A",
+            "risk_assessment": "N/A"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 18:04:51",
+        "execution_details": {
+            "operation_comment": "市场处于强劲下跌趋势，但短期超卖，不宜立即追空。现有卖出限价单在2535，等待价格反弹至此阻力位再入场，以获得更好的风险回报比。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "等待价格反弹至关键阻力位（2535）再入场，以优化入场点和风险回报。若价格继续下跌未触及挂单，则保持观望。",
+            "position_action": "N/A",
+            "risk_assessment": "N/A"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 18:19:52",
+        "execution_details": {
+            "operation_comment": "市场处于强劲下跌趋势，当前价格低于挂单价。为获取更优的风险回报比，建议等待价格反弹至2535 USDT的挂单成交。若挂单成交，将持有空头头寸。若价格继续下跌未触及挂单，则需在下一周期重新评估入场点。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "等待挂单成交，控制单笔交易风险在可用保证金的2%以内。若挂单成交，止损设于2560 USDT，止盈设于2450 USDT（90%仓位），剩余10%作为福根。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等，主要风险来自短期反弹和H4 MACD的潜在反转信号。建议保持警惕，并严格执行止损。考虑到FGI未达极度恐慌，仍有下跌空间，但需防范情绪突然转向。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 18:32:27",
+        "execution_details": {
+            "operation_comment": "当前市场处于下跌趋势中的短期盘整，存在一个在2535 USDT的卖出限价单。根据多时间框架分析，等待价格反弹至该阻力位后入场做空是最佳策略。目前无需进行新的操作，继续等待现有订单成交。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": 0.68,
+            "expected_return": 0.0159,
+            "trade_RR_ratio": 3.4,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "等待价格反弹至现有挂单位置（2535 USDT）入场做空，止损设在2560 USDT，止盈设在2450 USDT。单笔交易风险控制在可用保证金的2%以内。如果价格直接跌破2476 USDT，考虑取消现有挂单并重新评估入场点。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场风险中等。主要风险来自H4 MACD金叉可能引发的趋势反转，以及价格在未触及挂单前直接下跌导致错过入场。建议密切关注H4 MACD和价格对2476 USDT支撑位的反应。考虑到FGI处于中性，市场情绪相对稳定，但仍需警惕突发消息面影响。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 18:48:11",
+        "execution_details": {
+            "operation_comment": "市场处于强劲下跌趋势，现有2535的挂单卖出指令与看跌判断一致，等待订单成交。若价格直接跌破2470，则需重新评估入场策略。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": 0.6783,
+            "expected_return": 0.01957,
+            "trade_RR_ratio": 3.4,
+            "signal_strength": 0.6783,
+            "risk_management_strategy": "基于可用保证金的2%风险控制，并设置明确的止损和分批止盈。若订单成交，止损将上移以保护利润。若价格未触及挂单价而直接下跌，将重新评估追空机会。关注宏观事件和资金费率变化，以规避黑天鹅风险。",
+            "position_action": "Maintain existing pending short order at 2535 USDT.",
+            "risk_assessment": "Medium to High. 市场处于清晰的下跌趋势，但可能出现剧烈反弹。恐惧贪婪指数并非极端，表明情绪仍有波动空间。现有限价订单有助于管理入场风险。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:03:32",
+        "execution_details": {
+            "operation_comment": "市场处于强劲下跌趋势，现有2535的挂单卖出指令与看跌判断一致，等待订单成交。若价格直接跌破2470，则需重新评估入场策略。",
+            "type": "wait",
+            "price": "N/A",
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": "N/A",
+            "market": false,
+            "expected_winrate": 0.6783,
+            "expected_return": 0.01957,
+            "trade_RR_ratio": 3.4,
+            "signal_strength": 0.6783,
+            "risk_management_strategy": "基于可用保证金的2%风险控制，并设置明确的止损和分批止盈。若订单成交，止损将上移以保护利润。若价格未触及挂单价而直接下跌，将重新评估追空机会。关注宏观事件和资金费率变化，以规避黑天鹅风险。",
+            "position_action": "Maintain existing pending short order at 2535 USDT.",
+            "risk_assessment": "Medium to High. 市场处于清晰的下跌趋势，但可能出现剧烈反弹。恐惧贪婪指数并非极端，表明情绪仍有波动空间。现有限价订单有助于管理入场风险。"
+        },
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:17:43",
+        "execution_details": {
+            "operation_comment": "当前市场处于强劲下跌趋势，所有时间框架指标均显示看跌。现有卖出限价单2535 USDT已远高于当前市场价，为避免错过趋势，建议取消该订单。待价格反弹至M15 EMA5/21附近（2510-2520 USDT）时，重新建立空头头寸，以获得更优入场点。止损设置在2555 USDT，止盈目标2450 USDT。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2555.0,
+            "take_profit": 2450.0,
+            "size": 58.09,
+            "market": false,
+            "expected_winrate": 0.7257,
+            "expected_return": 0.01439,
+            "trade_RR_ratio": 1.625,
+            "signal_strength": 0.973,
+            "risk_management_strategy": "基于可用保证金2%风险的固定风险仓位管理，并采用限价单入场以优化成本。若趋势加速，考虑止损上移；若趋势恶化，立即止损。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场波动率较高，下跌趋势明确，但价格接近短期支撑位，存在小幅反弹风险。建议严格执行止损，并关注市场情绪变化。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:32:25",
+        "execution_details": {
+            "operation_comment": "当前市场处于强劲下跌趋势，所有时间框架指标均显示看跌。现有卖出限价单2535 USDT已远高于当前市场价，为避免错过趋势，建议取消该订单。待价格反弹至M15 EMA5/21附近（2510-2520 USDT）时，重新建立空头头寸，以获得更优入场点。止损设置在2555 USDT，止盈目标2450 USDT。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2555.0,
+            "take_profit": 2450.0,
+            "size": 58.09,
+            "market": false,
+            "expected_winrate": 0.7257,
+            "expected_return": 0.01439,
+            "trade_RR_ratio": 1.625,
+            "signal_strength": 0.973,
+            "risk_management_strategy": "基于可用保证金2%风险的固定风险仓位管理，并采用限价单入场以优化成本。若趋势加速，考虑止损上移；若趋势恶化，立即止损。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场波动率较高，下跌趋势明确，但价格接近短期支撑位，存在小幅反弹风险。建议严格执行止损，并关注市场情绪变化。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:33:55",
+        "execution_details": {
+            "operation_comment": "当前市场处于强劲下跌趋势，所有时间框架指标均显示看跌。现有卖出限价单2535 USDT已远高于当前市场价，为避免错过趋势，建议取消该订单。待价格反弹至M15 EMA5/21附近（2510-2520 USDT）时，重新建立空头头寸，以获得更优入场点。止损设置在2555 USDT，止盈目标2450 USDT。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2555.0,
+            "take_profit": 2450.0,
+            "size": 58.09,
+            "market": false,
+            "expected_winrate": 0.7257,
+            "expected_return": 0.01439,
+            "trade_RR_ratio": 1.625,
+            "signal_strength": 0.973,
+            "risk_management_strategy": "基于可用保证金2%风险的固定风险仓位管理，并采用限价单入场以优化成本。若趋势加速，考虑止损上移；若趋势恶化，立即止损。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场波动率较高，下跌趋势明确，但价格接近短期支撑位，存在小幅反弹风险。建议严格执行止损，并关注市场情绪变化。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:34:31",
+        "execution_details": {
+            "operation_comment": "当前市场处于强劲下跌趋势，所有时间框架指标均显示看跌。现有卖出限价单2535 USDT已远高于当前市场价，为避免错过趋势，建议取消该订单。待价格反弹至M15 EMA5/21附近（2510-2520 USDT）时，重新建立空头头寸，以获得更优入场点。止损设置在2555 USDT，止盈目标2450 USDT。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2555.0,
+            "take_profit": 2450.0,
+            "size": 58.09,
+            "market": false,
+            "expected_winrate": 0.7257,
+            "expected_return": 0.01439,
+            "trade_RR_ratio": 1.625,
+            "signal_strength": 0.973,
+            "risk_management_strategy": "基于可用保证金2%风险的固定风险仓位管理，并采用限价单入场以优化成本。若趋势加速，考虑止损上移；若趋势恶化，立即止损。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场波动率较高，下跌趋势明确，但价格接近短期支撑位，存在小幅反弹风险。建议严格执行止损，并关注市场情绪变化。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:42:14",
+        "execution_details": {
+            "operation_comment": "当前市场处于强劲下跌趋势，所有时间框架指标均显示看跌。现有卖出限价单2535 USDT已远高于当前市场价，为避免错过趋势，建议取消该订单。待价格反弹至M15 EMA5/21附近（2510-2520 USDT）时，重新建立空头头寸，以获得更优入场点。止损设置在2555 USDT，止盈目标2450 USDT。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2555.0,
+            "take_profit": 2450.0,
+            "size": 58.09,
+            "market": false,
+            "expected_winrate": 0.7257,
+            "expected_return": 0.01439,
+            "trade_RR_ratio": 1.625,
+            "signal_strength": 0.973,
+            "risk_management_strategy": "基于可用保证金2%风险的固定风险仓位管理，并采用限价单入场以优化成本。若趋势加速，考虑止损上移；若趋势恶化，立即止损。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场波动率较高，下跌趋势明确，但价格接近短期支撑位，存在小幅反弹风险。建议严格执行止损，并关注市场情绪变化。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 19:48:40",
+        "execution_details": {
+            "operation_comment": "当前市场处于强劲下跌趋势，所有时间框架指标均显示看跌。现有卖出限价单2535 USDT已远高于当前市场价，为避免错过趋势，建议取消该订单。待价格反弹至M15 EMA5/21附近（2510-2520 USDT）时，重新建立空头头寸，以获得更优入场点。止损设置在2555 USDT，止盈目标2450 USDT。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2555.0,
+            "take_profit": 2450.0,
+            "size": 58.09,
+            "market": false,
+            "expected_winrate": 0.7257,
+            "expected_return": 0.01439,
+            "trade_RR_ratio": 1.625,
+            "signal_strength": 0.973,
+            "risk_management_strategy": "基于可用保证金2%风险的固定风险仓位管理，并采用限价单入场以优化成本。若趋势加速，考虑止损上移；若趋势恶化，立即止损。",
+            "position_action": "cancel_existing_order_and_open_new_short",
+            "risk_assessment": "当前市场波动率较高，下跌趋势明确，但价格接近短期支撑位，存在小幅反弹风险。建议严格执行止损，并关注市场情绪变化。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 20:02:48",
+        "execution_details": {
+            "operation_comment": "市场处于明确下跌趋势，M15 RSI超卖预示短期反弹。维持在2515 USDT挂卖单，等待反弹至阻力位后入场做空，以顺应主趋势并利用短期回调。此操作将撤销现有订单并重新下达，以调整仓位大小至最大允许风险。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2530.0,
+            "take_profit": 2475.0,
+            "size": 154.77,
+            "market": false,
+            "expected_winrate": 0.6713,
+            "expected_return": 0.008721,
+            "trade_RR_ratio": 2.667,
+            "signal_strength": 0.71372,
+            "risk_management_strategy": "基于可用保证金2%的风险控制，并设置结构性止损和分级止盈。若价格未触及入场点而继续下跌，将取消当前订单并重新评估。",
+            "position_action": "重新下达卖出限价单，调整仓位大小以最大化收益，同时严格控制单笔风险。",
+            "risk_assessment": "当前市场波动性较高，短期存在超卖反弹风险。整体趋势为空头，但需警惕反弹强度。严格执行止损，避免过度杠杆。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 20:17:51",
+        "execution_details": {
+            "operation_comment": "市场整体处于下跌趋势，M15 RSI超卖可能引发短期反弹。现有挂单2515为理想做空点位，建议重新下达该限价挂单，等待反弹入场。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2535.0,
+            "take_profit": 2476.03,
+            "size": 115.83,
+            "market": false,
+            "expected_winrate": 0.5404,
+            "expected_return": 0.00472138,
+            "trade_RR_ratio": 1.949,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "每笔交易风险控制在可用保证金的2%，止损位设置在关键阻力上方，分批止盈。",
+            "position_action": "N/A",
+            "risk_assessment": "市场处于下跌趋势，短期反弹风险存在，但整体风险可控。建议严格执行止损，并关注2476.03的支撑作用。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 20:33:18",
+        "execution_details": {
+            "operation_comment": "市场整体处于下跌趋势，M15 RSI超卖可能引发短期反弹。现有挂单2515为理想做空点位，建议重新下达该限价挂单，等待反弹入场。",
+            "type": "sell",
+            "price": 2515.0,
+            "stop_loss": 2535.0,
+            "take_profit": 2476.03,
+            "size": 115.83,
+            "market": false,
+            "expected_winrate": 0.5404,
+            "expected_return": 0.00472138,
+            "trade_RR_ratio": 1.949,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "每笔交易风险控制在可用保证金的2%，止损位设置在关键阻力上方，分批止盈。",
+            "position_action": "N/A",
+            "risk_assessment": "市场处于下跌趋势，短期反弹风险存在，但整体风险可控。建议严格执行止损，并关注2476.03的支撑作用。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 20:48:00",
+        "execution_details": {
+            "operation_comment": "M15 RSI超卖，当前价格处于布林带下轨，短期存在反弹风险。现有卖出限价订单2515与当前市场价格偏离较大，且不符合当前等待反弹做空的策略。为避免不必要的风险和提高未来交易的胜率及预期收益，建议取消该订单并等待更优的入场时机。",
+            "type": "close",
+            "price": 2515.0,
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": 115.83,
+            "market": false,
+            "expected_winrate": "N/A",
+            "expected_return": "N/A",
+            "trade_RR_ratio": "N/A",
+            "signal_strength": "N/A",
+            "risk_management_strategy": "取消现有订单，等待更优入场点，避免在超卖区域追空，以提高风险回报比和胜率。",
+            "position_action": "Cancel pending order",
+            "risk_assessment": "当前市场风险中等。通过取消现有订单并等待，降低了在不利位置开仓的风险。主要风险在于市场可能不反弹直接继续下跌，从而错过潜在的做空机会，但此风险可通过等待突破确认来弥补。"
+        },
+        "trade_api_result": {
+            "status": "close",
+            "message": "Close logic not implemented"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 21:02:26",
+        "execution_details": {
+            "operation_comment": "当前市场M15和H1周期均呈现强劲下跌趋势，现有长仓与市场方向相悖，为规避风险并顺应趋势，首先平仓现有长仓。平仓后，考虑在价格反弹至2490-2500阻力区间时建立空头头寸，以捕捉下跌延续的利润。止损设置在2510，止盈目标2440，风险回报比良好。",
+            "type": "close",
+            "price": 2482.37,
+            "stop_loss": "N/A",
+            "take_profit": "N/A",
+            "size": 115.83,
+            "market": true,
+            "expected_winrate": 0.938,
+            "expected_return": 0.0153224,
+            "trade_RR_ratio": 1.53,
+            "signal_strength": 0.8,
+            "risk_management_strategy": "首先平仓现有长仓以规避风险，然后根据2%可用保证金风险控制原则，在确认反弹至阻力位后建立空头头寸。如果价格未能反弹至理想入场位，则等待更清晰的信号。若市场出现极端波动或黑天鹅事件，将立即平仓所有头寸并暂停交易。",
+            "position_action": "平仓现有长仓",
+            "risk_assessment": "当前市场波动性较高，存在快速反弹的风险，但整体趋势偏空。资金费率和FGI并非极度悲观，可能存在多头抄底盘，但技术面弱势更占主导。建议严格止损，并分批止盈。"
+        },
+        "trade_api_result": {
+            "status": "close",
+            "message": "Close logic not implemented"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 21:56:21",
+        "execution_details": {
+            "operation_comment": "市场短期和中期均呈下跌趋势，价格跌破关键支撑，MACD和EMA均线确认空头动能。尽管RSI超卖，但整体趋势强劲，等待小幅反弹后入场做空，目标测试24小时低点。",
+            "type": "sell",
+            "price": 2505.0,
+            "stop_loss": 2530.0,
+            "take_profit": 2466.0,
+            "size": 93.0,
+            "market": false,
+            "expected_winrate": 0.6064,
+            "expected_return": 0.005511,
+            "trade_RR_ratio": 1.56,
+            "signal_strength": 0.432,
+            "risk_management_strategy": "每笔交易风险控制在可用保证金的2%，采用限价单入场，设置明确止损和分批止盈。如果价格突破关键阻力（如2515 USDT）并伴随放量，则将止损上移至新的支撑位，并考虑小幅减仓。如果价格回调至2505 USDT区域并获得支撑（如出现看跌K线或缩量），则视为入场机会，止损保持不变。如果价格突破止损位（2530 USDT），或出现放量滞涨并迅速回升，则立即止损，并考虑反手做多或离场观望。在重要宏观数据公布前，考虑减半仓位或将止损上移至盈亏平衡点，以规避突发消息面的影响。如果出现交易所大规模资金外流或链上数据急剧恶化等黑天鹅事件，将立即平仓所有头寸并暂停交易。",
+            "position_action": "N/A",
+            "risk_assessment": "当前市场波动性较高，短期超卖可能引发反弹，但整体趋势明确。主要风险在于反弹幅度超预期或宏观面突发利好。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性偏贪婪情绪（FGI=56），建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+        },
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 22:17:27",
+        "execution_details": [
+            {
+                "operation_comment": "当前市场整体偏空，持有空头仓位略有浮盈，建议继续持有。等待价格反弹至上方阻力位（如2530-2540）或跌破近期支撑（2466）再考虑进一步操作。目前不进行新的开仓或平仓操作。",
+                "type": "wait",
+                "price": "N/A",
+                "stop_loss": "N/A",
+                "take_profit": "N/A",
+                "size": "N/A",
+                "market": false,
+                "expected_winrate": 0.45,
+                "expected_return": -0.001,
+                "trade_RR_ratio": "N/A",
+                "signal_strength": 0.65,
+                "risk_management_strategy": "持有现有仓位，不进行激进操作，等待市场给出更明确的方向性信号。如果价格反弹至2530-2540区域并出现看跌信号，考虑在该区域小幅加仓空头。如果价格跌破2466，则考虑追空。",
+                "position_action": "继续持有空头仓位",
+                "risk_assessment": "当前市场处于震荡盘整，波动性中等，存在双向洗盘风险。建议保持警惕，严格执行止损，避免过度杠杆。如果市场出现剧烈波动，优先保护本金。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 22:33:12",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 22:46:40",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 23:01:41",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 23:16:30",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 23:31:29",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-01 23:46:51",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 00:01:26",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 00:16:58",
+        "execution_details": [
+            {
+                "operation_comment": "基于M15超卖信号和潜在技术性反弹，在当前价格附近挂限价买单，目标为短期阻力位。",
+                "type": "buy",
+                "price": 2510.0,
+                "stop_loss": 2490.0,
+                "take_profit": 2535.0,
+                "size": 92.42,
+                "market": false,
+                "expected_winrate": 0.7201,
+                "expected_return": 0.004941,
+                "trade_RR_ratio": 1.25,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "每笔交易保证金不超过可用保证金的2%，止损设置在近期结构低点下方，TP1达成后考虑止损上移。",
+                "position_action": "open long position",
+                "risk_assessment": "中等风险。本次交易为逆势短线反弹，虽然有超卖信号支持，但整体趋势仍偏空，需严格止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 00:32:58",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 00:47:21",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 01:02:15",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 01:16:22",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 01:31:27",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 01:46:27",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 02:02:20",
+        "execution_details": [
+            {
+                "operation_comment": "根据15分钟和4小时周期的看涨信号，以及1小时周期的健康回调，建议在回调至关键支撑位时做多。取消现有订单，重新设置更优入场点。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2500.0,
+                "take_profit": 2600.0,
+                "size": 77.8,
+                "market": false,
+                "expected_winrate": 0.957,
+                "expected_return": 0.02595,
+                "trade_RR_ratio": 2.33,
+                "signal_strength": 0.957,
+                "position_action": "开多",
+                "risk_management_strategy": "使用可用保证金的2%作为单笔交易风险，止损设置在关键支撑位下方，止盈分批进行，90%在TP1平仓，10%作为福根。如果价格突破关键阻力并伴随放量，考虑上移止损并小幅加仓。如果价格跌破止损位，立即止损。",
+                "risk_assessment": "当前市场风险中等，主要不确定性来源于1小时周期的回调深度和15分钟Stochastics超买可能引发的短期波动。建议严格执行止损，并关注宏观经济事件。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 05:32:27",
+        "execution_details": [
+            {
+                "operation_comment": "基于H4看涨趋势和价格在H4 EMA21支撑位附近，尝试逢低做多。H1回调视为买入机会。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2450.0,
+                "take_profit": 2650.0,
+                "size": 29.17,
+                "market": false,
+                "expected_winrate": 0.738,
+                "expected_return": 0.0267,
+                "trade_RR_ratio": 1.5,
+                "signal_strength": 0.7,
+                "risk_management_strategy": "单笔交易风险控制在可用保证金的2%，止损设置在近期低点下方，止盈目标为1.5倍风险回报比。",
+                "position_action": "开多",
+                "risk_assessment": "市场存在H1周期的回调风险，但H4趋势仍强劲。整体风险中等，需严格执行止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 06:17:24",
+        "execution_details": [
+            {
+                "operation_comment": "市场信号不明朗，撤销现有买入限价订单，避免在不确定性市场中被动入场。",
+                "type": "close",
+                "price": 2530.0,
+                "stop_loss": "N/A",
+                "take_profit": "N/A",
+                "size": 29.17,
+                "market": false,
+                "expected_winrate": 0.73,
+                "expected_return": 0.0066,
+                "trade_RR_ratio": 0.92,
+                "signal_strength": 0.5,
+                "risk_management_strategy": "撤销订单，规避不确定性风险。",
+                "position_action": "N/A",
+                "risk_assessment": "中等风险，市场方向不明。"
+            },
+            {
+                "operation_comment": "鉴于各时间框架信号冲突且宏观因子缺失，市场方向不明朗，选择观望，等待更明确的交易机会。",
+                "type": "wait",
+                "price": "N/A",
+                "stop_loss": "N/A",
+                "take_profit": "N/A",
+                "size": "N/A",
+                "market": false,
+                "expected_winrate": 0.73,
+                "expected_return": 0.0066,
+                "trade_RR_ratio": 0.92,
+                "signal_strength": 0.5,
+                "risk_management_strategy": "资本保全，规避不确定性市场风险，等待明确信号。",
+                "position_action": "N/A",
+                "risk_assessment": "中等风险，市场方向不明，不适合开仓。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 06:32:51",
+        "execution_details": [
+            {
+                "operation_comment": "取消现有买入挂单，因市场中长期偏空，且当前价格高于挂单价，挂单存在被触发后亏损的风险。",
+                "type": "close",
+                "price": "N/A",
+                "stop_loss": "N/A",
+                "take_profit": "N/A",
+                "size": 29.17,
+                "market": true,
+                "expected_winrate": "N/A",
+                "expected_return": "N/A",
+                "trade_RR_ratio": "N/A",
+                "signal_strength": "N/A",
+                "risk_management_strategy": "取消现有不合理挂单，规避潜在风险。",
+                "position_action": "取消挂单",
+                "risk_assessment": "中等偏高"
+            },
+            {
+                "operation_comment": "等待更明确的做空信号，或价格反弹至阻力位出现受阻迹象，再考虑入场。",
+                "type": "wait",
+                "price": "N/A",
+                "stop_loss": "N/A",
+                "take_profit": "N/A",
+                "size": "N/A",
+                "market": false,
+                "expected_winrate": 0.4512,
+                "expected_return": 0.00456,
+                "trade_RR_ratio": 2.51,
+                "signal_strength": 0.65,
+                "risk_management_strategy": "等待明确信号，避免盲目交易，控制风险。",
+                "position_action": "观望",
+                "risk_assessment": "中等偏高"
+            }
+        ],
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 06:47:48",
+        "execution_details": [
+            {
+                "operation_comment": "重新确认并调整买入挂单，等待价格回调至2530 USDT入场，以捕捉潜在上涨趋势。此操作将撤销现有订单并重新下达。",
+                "type": "buy",
+                "price": 2530.0,
+                "stop_loss": 2510.0,
+                "take_profit": 2560.0,
+                "size": 116.61,
+                "market": false,
+                "expected_winrate": 0.7443,
+                "expected_return": 0.006805,
+                "trade_RR_ratio": 1.5,
+                "signal_strength": 0.8,
+                "risk_management_strategy": "基于可用保证金2%风险计算仓位，严格止损，分批止盈（TP1平仓90%，剩余10%作为福根）。",
+                "position_action": "开仓",
+                "risk_assessment": "市场存在多空分歧，1小时周期偏空，但短期和长期趋势有反弹迹象。需警惕1小时周期下跌趋势延续的风险，并严格执行止损。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 07:17:16",
+        "execution_details": [
+            {
+                "operation_comment": "当前市场显示看涨趋势，但价格接近短期阻力。已存在一个位于2530 USDT的限价买入订单，该点位接近关键支撑，是较好的入场点。因此，等待现有订单成交，以获取更优的风险回报比。",
+                "type": "wait",
+                "price": "N/A",
+                "stop_loss": 2510.0,
+                "take_profit": 2580.0,
+                "size": "N/A",
+                "market": false,
+                "expected_winrate": 0.7293,
+                "expected_return": 0.01227,
+                "trade_RR_ratio": 2.5,
+                "signal_strength": 0.7293,
+                "risk_management_strategy": "基于可用保证金2%风险的限价入场策略，并等待现有订单成交。如果订单成交，将严格执行止损和止盈。",
+                "position_action": "N/A",
+                "risk_assessment": "中等风险。市场情绪偏中性，但短期动能强劲。需关注短期阻力位（15m布林带上轨）的突破情况。若价格有效跌破2510 USDT，则趋势可能反转。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 07:32:30",
+        "execution_details": [
+            {
+                "operation_comment": "撤销现有订单，并根据最新分析市价买入开多，以捕捉短期上涨动能。",
+                "type": "buy",
+                "price": 2536.19,
+                "stop_loss": 2500.0,
+                "take_profit": 2590.5,
+                "size": 64.31,
+                "market": true,
+                "expected_winrate": 0.8876,
+                "expected_return": 0.017483,
+                "trade_RR_ratio": 1.5,
+                "signal_strength": 0.8876,
+                "risk_management_strategy": "基于可用保证金2%风险控制的趋势跟踪策略，并动态调整止损止盈。",
+                "position_action": "开多",
+                "risk_assessment": "市场风险中等，短期存在回调风险，但长期趋势偏多。严格执行止损，并关注1h周期趋势变化。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 08:02:51",
+        "execution_details": [
+            {
+                "operation_comment": "持有现有仓位，并设置止损止盈以管理风险。当前市场多空信号交织，但宏观情绪和4小时周期多头动能提供支撑，故选择继续持有。",
+                "type": "wait",
+                "price": "N/A",
+                "stop_loss": 2500.0,
+                "take_profit": 2620.0,
+                "size": "N/A",
+                "market": false,
+                "expected_winrate": 0.7389,
+                "expected_return": 0.02038,
+                "trade_RR_ratio": 2.25,
+                "signal_strength": 1.04,
+                "risk_management_strategy": "基于现有持仓的风险管理，设置止损止盈，并密切关注1小时周期趋势反转信号。如果价格跌破2500 USDT，将考虑止损。如果价格突破2540 USDT并伴随放量，则考虑将止损上移。",
+                "position_action": "hold",
+                "risk_assessment": "市场存在多时间框架信号冲突，短期和长期趋势偏多但存在超买，中期趋势偏空且RSI超卖。当前持仓略有浮亏，但整体市场情绪和资金费率支持多头。主要风险在于1小时周期的空头趋势可能延续，导致价格进一步下跌。需警惕价格跌破2500 USDT，或出现宏观利空消息。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 08:17:03",
+        "execution_details": [
+            {
+                "operation_comment": "当前持有ETH-USDT-SWAP多头仓位，平均成本2536.87 USDT，当前价格2534.43 USDT，略有浮亏。鉴于4小时图的强劲看涨信号和积极的市场情绪，以及15分钟图的健康盘整，判断当前趋势仍为看涨。1小时图的下跌趋势可能为短期回调，且RSI已超卖，存在反弹需求。因此，决定继续持有现有仓位，并等待价格上涨。不进行加仓操作，以规避短期回调风险。",
+                "type": "wait",
+                "price": "N/A",
+                "stop_loss": "N/A",
+                "take_profit": "N/A",
+                "size": "N/A",
+                "expected_winrate": 0.689,
+                "expected_return": 0.0052,
+                "trade_RR_ratio": 1.34,
+                "signal_strength": 0.75,
+                "risk_management_strategy": "继续持有现有仓位，不进行额外操作。如果价格跌破2515 USDT，则考虑止损。如果价格上涨至2560 USDT，则考虑部分止盈。",
+                "position_action": "继续持有现有仓位",
+                "risk_assessment": "当前市场存在多时间框架冲突，短期有回调风险，但高时间框架趋势偏多。整体风险中等。建议密切关注1小时图的走势，如果出现放量跌破关键支撑，则需及时调整策略。考虑到当前市场极度贪婪情绪（FGI=64），建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "wait"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:02:22",
+        "execution_details": [
+            {
+                "operation_comment": "市场处于明显下跌趋势，短期动量强劲，MACD和EMA均显示空头主导。价格跌破关键支撑，预计将继续下行。等待价格反弹至阻力位附近入场做空。",
+                "type": "sell",
+                "price": 2505.0,
+                "stop_loss": 2530.0,
+                "take_profit": 2466.0,
+                "size": 93.15,
+                "market": false,
+                "expected_winrate": 0.9986,
+                "expected_return": 0.015532,
+                "trade_RR_ratio": 1.56,
+                "signal_strength": 0.9,
+                "risk_management_strategy": "严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。",
+                "position_action": "开空仓",
+                "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:17:17",
+        "execution_details": [
+            {
+                "operation_comment": "当前市场处于强劲下跌趋势，为追求利益最大化，取消现有挂单，并以市价开空，以确保及时入场。止损设置在近期阻力位上方，止盈设置在关键支撑位。",
+                "type": "sell",
+                "price": 2499.9,
+                "stop_loss": 2520.0,
+                "take_profit": 2466.0,
+                "size": 115.61,
+                "market": true,
+                "expected_winrate": 0.5886,
+                "expected_return": 0.004671,
+                "trade_RR_ratio": 1.686,
+                "signal_strength": 0.85,
+                "risk_management_strategy": "基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。",
+                "position_action": "开空",
+                "risk_assessment": "当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    },
+    {
+        "timestamp": "2025-06-02 12:47:26",
+        "execution_details": [
+            {
+                "operation_comment": "市场整体趋势看跌，当前持仓为短仓且盈利，为最大化收益，在当前价格附近加仓做空，并设置止损止盈。",
+                "type": "sell",
+                "price": 2498.2,
+                "stop_loss": 2530.0,
+                "take_profit": 2480.0,
+                "size": 73.06,
+                "market": true,
+                "expected_winrate": 0.8116,
+                "expected_return": 0.008198,
+                "trade_RR_ratio": 1.5,
+                "signal_strength": 0.85,
+                "risk_management_strategy": "基于可用保证金2%的风险控制，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。",
+                "position_action": "加仓",
+                "risk_assessment": "市场风险中等，但趋势明确，需警惕短期反弹和潜在的空头强平风险。严格执行止损，并关注资金费率和持仓量变化。"
+            }
+        ],
+        "trade_api_result": {
+            "status": "success",
+            "message": "下单成功"
+        }
+    }
+]

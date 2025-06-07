@@ -1,0 +1,313 @@
+[auto_trader.py][17:24:08] [ERROR] 第1条交易指令缺少必要字段: symbol
+[auto_trader.py][17:24:08] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][17:27:17] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:27:18] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:27:18] [ERROR] 设置杠杆失败，错误信息：
+[auto_trader.py][17:27:18] [INFO] 下单结果: {'success': False, 'error': '', 'response': {'code': '0', 'data': [{'instId': 'ETH-USDT-SWAP', 'lever': '100', 'mgnMode': 'cross', 'posSide': ''}], 'msg': ''}}
+[auto_trader.py][17:27:18] [ERROR] 下单失败，跳过止盈止损设置
+[auto_trader.py][17:28:06] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:28:07] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:28:07] [INFO] 设置杠杆成功：100倍
+[_client.py][17:28:08] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:28:08] [ERROR] 下单失败，错误信息：All operations failed
+[auto_trader.py][17:28:08] [INFO] 下单结果: {'success': False, 'error': 'All operations failed', 'response': {'code': '1', 'data': [{'clOrdId': '', 'ordId': '', 'sCode': '51000', 'sMsg': 'Parameter posSide error ', 'tag': '', 'ts': '1749288488715'}], 'inTime': '1749288488714153', 'msg': 'All operations failed', 'outTime': '1749288488716998'}}
+[auto_trader.py][17:28:08] [ERROR] 下单失败，跳过止盈止损设置
+[auto_trader.py][17:29:30] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:29:31] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:29:31] [INFO] 设置杠杆成功：100倍
+[_client.py][17:29:31] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:29:31] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:29:31] [INFO] 下单结果: {'success': True, 'order_id': '2576516376907616256', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576516376907616256', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749288571701'}], 'inTime': '1749288571700129', 'msg': '', 'outTime': '1749288571703299'}}
+[_client.py][17:29:32] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 400 Bad Request"
+[tp_sl.py][17:29:32] [ERROR] 止损下单失败，错误信息：Either parameter sz or closeFraction is required
+[auto_trader.py][17:29:32] [INFO] 止盈止损设置结果: {'success': False, 'error': 'Either parameter sz or closeFraction is required', 'response': {'code': '50015', 'data': [], 'msg': 'Either parameter sz or closeFraction is required'}}
+[auto_trader.py][17:30:37] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:30:39] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:30:39] [INFO] 设置杠杆成功：100倍
+[_client.py][17:30:40] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:30:40] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:30:40] [INFO] 下单结果: {'success': True, 'order_id': '2576518674211803136', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576518674211803136', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749288640166'}], 'inTime': '1749288640165075', 'msg': '', 'outTime': '1749288640168079'}}
+[_client.py][17:30:40] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 400 Bad Request"
+[tp_sl.py][17:30:40] [ERROR] 止损下单失败，错误信息：Parameter tpTriggerPx error
+[auto_trader.py][17:30:40] [INFO] 止盈止损设置结果: {'success': False, 'error': 'Parameter tpTriggerPx error', 'response': {'code': '51000', 'data': [], 'msg': 'Parameter tpTriggerPx error'}}
+[auto_trader.py][17:31:43] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:31:44] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:31:44] [INFO] 设置杠杆成功：100倍
+[_client.py][17:31:45] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:31:45] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:31:45] [INFO] 下单结果: {'success': True, 'order_id': '2576520866356400128', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576520866356400128', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749288705497'}], 'inTime': '1749288705496051', 'msg': '', 'outTime': '1749288705499189'}}
+[_client.py][17:31:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[_client.py][17:31:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][17:31:46] [ERROR] 止盈下单失败，错误信息：
+[_client.py][17:31:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[auto_trader.py][17:31:46] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'stop_loss', 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576520893647323136', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'take_profit', 'price': 2400.0, 'size': 11.65, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576520901767495680', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][17:39:09] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:39:09] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:39:09] [INFO] 设置杠杆成功：100倍
+[_client.py][17:39:10] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:39:10] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:39:10] [INFO] 下单结果: {'success': True, 'order_id': '2576535795796938752', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576535795796938752', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749289150429'}], 'inTime': '1749289150429087', 'msg': '', 'outTime': '1749289150432256'}}
+[_client.py][17:39:10] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[_client.py][17:39:11] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][17:39:11] [ERROR] 止盈下单失败，错误信息：
+[_client.py][17:39:11] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[auto_trader.py][17:39:11] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'stop_loss', 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576535812182671360', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'take_profit', 'price': 2400.0, 'size': 11.65, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576535822282555392', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][17:41:34] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:41:35] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:41:35] [INFO] 设置杠杆成功：100倍
+[_client.py][17:41:36] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:41:36] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:41:36] [INFO] 下单结果: {'success': True, 'order_id': '2576540680785367040', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576540680785367040', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749289296013'}], 'inTime': '1749289296012599', 'msg': '', 'outTime': '1749289296015615'}}
+[_client.py][17:41:36] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[_client.py][17:41:36] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][17:41:36] [ERROR] 止盈下单失败，错误信息：
+[_client.py][17:41:36] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[auto_trader.py][17:41:36] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'stop_loss', 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576540701734502400', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'take_profit', 'price': 2400.0, 'size': 11.65, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576540709720457216', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][17:47:06] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:47:07] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:47:07] [INFO] 设置杠杆成功：100倍
+[_client.py][17:47:07] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:47:07] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:47:07] [INFO] 下单结果: {'success': True, 'order_id': '2576551815924289536', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576551815924289536', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749289627866'}], 'inTime': '1749289627865396', 'msg': '', 'outTime': '1749289627868632'}}
+[tp_sl.py][17:47:07] [ERROR] 设置止盈止损失败，错误信息：TradeAPI.place_algo_order() got an unexpected keyword argument 'ordPx'. Did you mean 'orderPx'?
+[auto_trader.py][17:47:07] [INFO] 止盈止损设置结果: {'success': False, 'error': "TradeAPI.place_algo_order() got an unexpected keyword argument 'ordPx'. Did you mean 'orderPx'?", 'response': None}
+[auto_trader.py][17:48:34] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:48:34] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:48:34] [INFO] 设置杠杆成功：100倍
+[_client.py][17:48:35] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:48:35] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:48:35] [INFO] 下单结果: {'success': True, 'order_id': '2576554750829793280', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576554750829793280', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749289715333'}], 'inTime': '1749289715332661', 'msg': '', 'outTime': '1749289715335743'}}
+[_client.py][17:48:36] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 400 Bad Request"
+[tp_sl.py][17:48:36] [ERROR] 止损下单失败，错误信息：Either parameter tpTriggerPx or slTriggerPx is required
+[auto_trader.py][17:48:36] [INFO] 止盈止损设置结果: {'success': False, 'error': 'Either parameter tpTriggerPx or slTriggerPx is required', 'response': {'code': '50015', 'data': [], 'msg': 'Either parameter tpTriggerPx or slTriggerPx is required'}}
+[auto_trader.py][17:50:23] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:50:23] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:50:23] [INFO] 设置杠杆成功：100倍
+[_client.py][17:50:24] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:50:24] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:50:24] [INFO] 下单结果: {'success': True, 'order_id': '2576558414839549952', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576558414839549952', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749289824529'}], 'inTime': '1749289824528193', 'msg': '', 'outTime': '1749289824531215'}}
+[_client.py][17:50:25] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 400 Bad Request"
+[tp_sl.py][17:50:25] [ERROR] 止损下单失败，错误信息：Parameter tpTriggerPx error
+[auto_trader.py][17:50:25] [INFO] 止盈止损设置结果: {'success': False, 'error': 'Parameter tpTriggerPx error', 'response': {'code': '51000', 'data': [], 'msg': 'Parameter tpTriggerPx error'}}
+[auto_trader.py][17:51:47] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:51:48] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:51:48] [INFO] 设置杠杆成功：100倍
+[_client.py][17:51:48] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:51:48] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:51:48] [INFO] 下单结果: {'success': True, 'order_id': '2576561238713438208', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576561238713438208', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749289908687'}], 'inTime': '1749289908686517', 'msg': '', 'outTime': '1749289908689728'}}
+[_client.py][17:51:49] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][17:51:49] [ERROR] OCO订单下单失败，错误信息：
+[auto_trader.py][17:51:49] [INFO] 止盈止损设置结果: {'success': False, 'error': '', 'response': {'code': '1', 'data': [{'algoClOrdId': '', 'algoId': '', 'clOrdId': '', 'sCode': '51121', 'sMsg': 'Order quantity must be a multiple of the lot size. ', 'tag': ''}], 'msg': ''}}
+[auto_trader.py][17:59:52] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][17:59:53] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][17:59:53] [INFO] 设置杠杆成功：100倍
+[_client.py][17:59:53] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][17:59:53] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][17:59:53] [INFO] 下单结果: {'success': True, 'order_id': '2576577515498639360', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576577515498639360', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749290393773'}], 'inTime': '1749290393772019', 'msg': '', 'outTime': '1749290393775076'}}
+[_client.py][17:59:54] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][17:59:54] [INFO] OCO订单设置成功: 止盈价格=2450.0, 止损价格=2510.0, 数量=104.9 (90.0%)
+[_client.py][17:59:54] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][17:59:54] [ERROR] OCO订单下单失败，错误信息：
+[auto_trader.py][17:59:54] [INFO] 止盈止损设置结果: {'success': False, 'error': '', 'response': {'code': '1', 'data': [{'algoClOrdId': '', 'algoId': '', 'clOrdId': '', 'sCode': '51121', 'sMsg': 'Order quantity must be a multiple of the lot size. ', 'tag': ''}], 'msg': ''}}
+[auto_trader.py][18:01:01] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][18:01:03] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:01:03] [INFO] 设置杠杆成功：100倍
+[_client.py][18:01:03] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:01:03] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][18:01:03] [INFO] 下单结果: {'success': True, 'order_id': '2576579861859405824', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576579861859405824', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749290463700'}], 'inTime': '1749290463699228', 'msg': '', 'outTime': '1749290463702286'}}
+[_client.py][18:01:04] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:01:04] [ERROR] OCO订单下单失败，错误信息：
+[auto_trader.py][18:01:04] [INFO] 止盈止损设置结果: {'success': False, 'error': '', 'response': {'code': '1', 'data': [{'algoClOrdId': '', 'algoId': '', 'clOrdId': '', 'sCode': '51121', 'sMsg': 'Order quantity must be a multiple of the lot size. ', 'tag': ''}], 'msg': ''}}
+[auto_trader.py][18:02:23] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][18:02:24] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:02:24] [INFO] 设置杠杆成功：100倍
+[_client.py][18:02:25] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:02:25] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][18:02:25] [INFO] 下单结果: {'success': True, 'order_id': '2576582588291223552', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576582588291223552', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749290544954'}], 'inTime': '1749290544952812', 'msg': '', 'outTime': '1749290544955985'}}
+[_client.py][18:02:25] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:02:25] [ERROR] OCO订单下单失败，错误信息：
+[auto_trader.py][18:02:25] [INFO] 止盈止损设置结果: {'success': False, 'error': '', 'response': {'code': '1', 'data': [{'algoClOrdId': '', 'algoId': '', 'clOrdId': '', 'sCode': '51121', 'sMsg': 'Order quantity must be a multiple of the lot size. ', 'tag': ''}], 'msg': ''}}
+[auto_trader.py][18:03:45] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于下跌趋势，多时间框架指标显示空头主导。短期超卖可能引发反弹，但MACD和EMA的强劲空头信号支持在反弹至阻力位时做空。风险回报比良好。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 0.9}, {'price': 2400.0, 'size': 0.1}], 'size': 116.5, 'market': False, 'expected_winrate': 0.7673, 'expected_return': 0.010457639942137576, 'trade_RR_ratio': 2.0, 'signal_strength': 0.85, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。风险等级：中等。'}
+[_client.py][18:03:45] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:03:45] [INFO] 设置杠杆成功：100倍
+[_client.py][18:03:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:03:46] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][18:03:46] [INFO] 下单结果: {'success': True, 'order_id': '2576585328480358400', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576585328480358400', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749290626618'}], 'inTime': '1749290626617283', 'msg': '', 'outTime': '1749290626620350'}}
+[_client.py][18:03:47] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:03:47] [INFO] OCO订单设置成功: 止盈价格=2450.0, 止损价格=2510.0, 数量=104.80000000000001 (1048 lots, 90.0%)
+[_client.py][18:03:47] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:03:47] [INFO] 条件订单设置成功: 止盈价格=2400.0, 数量=11.700000000000001 (117 lots, 10.0%)
+[auto_trader.py][18:03:47] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2450.0, 'stop_loss_price': 2510.0, 'size': 104.80000000000001, 'lots': 1048, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576585343658131456', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2400.0, 'stop_loss_price': None, 'size': 11.700000000000001, 'lots': 117, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576585347584000000', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][18:13:54] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体趋势看跌，当前无持仓，为最大化收益，在价格反弹至短期阻力位附近入场做空，并设置止损止盈。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 38.83}, {'price': 2420.0, 'size': 38.83}, {'price': 2380.0, 'size': 38.84}], 'size': 116.5, 'market': False, 'expected_winrate': 0.6353, 'expected_return': 0.007276, 'trade_RR_ratio': 2.0, 'signal_strength': 0.75, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'position_action': 'add_position', 'risk_assessment': '当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。考虑到当前市场情绪中性，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:13:55] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:13:55] [INFO] 设置杠杆成功：100倍
+[_client.py][18:13:56] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:13:56] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][18:13:56] [INFO] 下单结果: {'success': True, 'order_id': '2576605779067801600', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576605779067801600', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749291236093'}], 'inTime': '1749291236092609', 'msg': '', 'outTime': '1749291236095684'}}
+[tp_sl.py][18:13:56] [ERROR] 无效的止盈配置: 价格=2450.0, 比例=38.83
+[tp_sl.py][18:13:56] [ERROR] 无效的止盈配置: 价格=2420.0, 比例=38.83
+[tp_sl.py][18:13:56] [ERROR] 无效的止盈配置: 价格=2380.0, 比例=38.84
+[auto_trader.py][18:13:56] [INFO] 止盈止损设置结果: {'success': False, 'error': '未设置任何止盈止损', 'response': None}
+[auto_trader.py][18:15:44] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体趋势看跌，当前无持仓，为最大化收益，在价格反弹至短期阻力位附近入场做空，并设置止损止盈。', 'type': 'sell', 'price': 2490.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2450.0, 'size': 38.83}, {'price': 2420.0, 'size': 38.83}, {'price': 2380.0, 'size': 38.84}], 'size': 116.5, 'market': False, 'expected_winrate': 0.6353, 'expected_return': 0.007276, 'trade_RR_ratio': 2.0, 'signal_strength': 0.75, 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并根据市场情境动态调整止损和止盈。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'position_action': 'add_position', 'risk_assessment': '当前市场风险中等，主要来自短期超卖可能引发的反弹，但整体趋势强劲，风险可控。考虑到当前市场情绪中性，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:15:45] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:15:45] [INFO] 设置杠杆成功：100倍
+[_client.py][18:15:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:15:46] [INFO] 下单成功：方向=sell, 价格=2490.0, 数量=116.5
+[auto_trader.py][18:15:46] [INFO] 下单结果: {'success': True, 'order_id': '2576609468981579776', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576609468981579776', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749291346061'}], 'inTime': '1749291346060235', 'msg': '', 'outTime': '1749291346063312'}}
+[_client.py][18:15:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:15:46] [INFO] OCO订单设置成功: 止盈价格=2450.0, 止损价格=2510.0, 数量=38.800000000000004 (388 lots)
+[_client.py][18:15:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:15:46] [INFO] 条件订单设置成功: 止盈价格=2420.0, 数量=38.800000000000004 (388 lots)
+[_client.py][18:15:46] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:15:46] [INFO] 条件订单设置成功: 止盈价格=2380.0, 数量=38.800000000000004 (388 lots)
+[auto_trader.py][18:15:46] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2450.0, 'stop_loss_price': 2510.0, 'size': 38.800000000000004, 'lots': 388, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576609489326735360', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2420.0, 'stop_loss_price': None, 'size': 38.800000000000004, 'lots': 388, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576609493453930496', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2380.0, 'stop_loss_price': None, 'size': 38.800000000000004, 'lots': 388, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576609497446907904', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][18:21:25] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于强劲下跌趋势，MACD和EMA均显示空头主导。当前价格接近短期阻力位，是做空入场的良好机会。尽管RSI超卖，但预计为趋势延续中的短暂回调。', 'type': 'sell', 'price': 2495.0, 'stop_loss': 2510.0, 'take_profit': [{'price': 2470.0, 'size': 51.78}, {'price': 2440.0, 'size': 51.78}, {'price': 2420.0, 'size': 51.77}], 'size': 155.33, 'market': False, 'expected_winrate': '0.6993', 'expected_return': '0.005', 'trade_RR_ratio': '1.67', 'signal_strength': '0.75', 'risk_management_strategy': '严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。'}
+[_client.py][18:21:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:21:26] [INFO] 设置杠杆成功：100倍
+[_client.py][18:21:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:21:26] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=155.33
+[auto_trader.py][18:21:26] [INFO] 下单结果: {'success': True, 'order_id': '2576620890742460416', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576620890742460416', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749291686456'}], 'inTime': '1749291686455307', 'msg': '', 'outTime': '1749291686458392'}}
+[_client.py][18:21:26] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:21:26] [INFO] OCO订单设置成功: 止盈价格=2470.0, 止损价格=2510.0, 数量=51.800000000000004 (518 lots)
+[_client.py][18:21:27] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:21:27] [INFO] 条件订单设置成功: 止盈价格=2440.0, 数量=51.800000000000004 (518 lots)
+[_client.py][18:21:27] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:21:27] [INFO] 条件订单设置成功: 止盈价格=2420.0, 数量=51.800000000000004 (518 lots)
+[auto_trader.py][18:21:27] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2470.0, 'stop_loss_price': 2510.0, 'size': 51.800000000000004, 'lots': 518, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576620905148481536', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2440.0, 'stop_loss_price': None, 'size': 51.800000000000004, 'lots': 518, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576620908973686784', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2420.0, 'stop_loss_price': None, 'size': 51.800000000000004, 'lots': 518, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576620912698228736', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][18:28:29] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在一个未成交的卖出订单（155.33 ETH，价格2495）。根据最新分析，市场处于下跌后的盘整，倾向于下跌趋势延续，因此该卖出订单方向与判断一致。为确保最佳入场价格，维持现有挂单，等待价格触及入场点。如果价格未能触及，则等待后续信号。', 'type': 'wait', 'price': 'N/A', 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 'N/A', 'market': False, 'expected_winrate': 0.6931739493259501, 'expected_return': 0.007344036806762277, 'trade_RR_ratio': 1.5, 'signal_strength': 0.75, 'position_action': 'maintain_position', 'risk_assessment': '市场波动性较低，但布林带收缩预示即将到来的剧烈波动。维持挂单等待入场，风险中等。'}
+[place_order.py][18:28:29] [ERROR] 无效的订单数量
+[auto_trader.py][18:28:29] [INFO] 下单结果: {'success': False, 'error': '无效的订单数量', 'response': None}
+[auto_trader.py][18:28:29] [ERROR] 下单失败，跳过止盈止损设置
+[auto_trader.py][18:30:12] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在一个未成交的卖出订单（155.33 ETH，价格2495）。根据最新分析，市场处于下跌后的盘整，倾向于下跌趋势延续，因此该卖出订单方向与判断一致。为确保最佳入场价格，维持现有挂单，等待价格触及入场点。如果价格未能触及，则等待后续信号。', 'type': 'wait', 'price': 'N/A', 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 'N/A', 'market': False, 'expected_winrate': 0.6931739493259501, 'expected_return': 0.007344036806762277, 'trade_RR_ratio': 1.5, 'signal_strength': 0.75, 'position_action': 'maintain_position', 'risk_assessment': '市场波动性较低，但布林带收缩预示即将到来的剧烈波动。维持挂单等待入场，风险中等。'}
+[_client.py][18:30:13] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:30:13] [INFO] 设置杠杆成功：100倍
+[_client.py][18:30:14] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:30:14] [ERROR] 下单失败，错误信息：All operations failed
+[auto_trader.py][18:30:14] [INFO] 下单结果: {'success': False, 'error': 'All operations failed', 'response': {'code': '1', 'data': [{'clOrdId': '', 'ordId': '', 'sCode': '51000', 'sMsg': 'Parameter sz error', 'tag': '', 'ts': '1749292214295'}], 'inTime': '1749292214294996', 'msg': 'All operations failed', 'outTime': '1749292214295121'}}
+[auto_trader.py][18:30:14] [ERROR] 下单失败，跳过止盈止损设置
+[auto_trader.py][18:34:14] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在一个未成交的卖出订单（155.33 ETH，价格2495）。根据最新分析，市场处于下跌后的盘整，倾向于下跌趋势延续，因此该卖出订单方向与判断一致。为确保最佳入场价格，维持现有挂单，等待价格触及入场点。如果价格未能触及，则等待后续信号。', 'type': 'wait', 'price': 'N/A', 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 'N/A', 'market': False, 'expected_winrate': 0.6931739493259501, 'expected_return': 0.007344036806762277, 'trade_RR_ratio': 1.5, 'signal_strength': 0.75, 'position_action': 'maintain_position', 'risk_assessment': '市场波动性较低，但布林带收缩预示即将到来的剧烈波动。维持挂单等待入场，风险中等。'}
+[auto_trader.py][18:34:14] [INFO] 收到等待指令，跳过交易执行
+[auto_trader.py][18:36:26] [ERROR] 配置文件JSON格式错误
+[auto_trader.py][18:36:26] [ERROR] 加载配置文件失败，自动化交易终止。
+[auto_trader.py][18:37:19] [INFO] 执行第1条交易指令: {'operation_comment': '市场整体处于强劲下跌趋势，MACD和EMA均显示空头主导。当前价格接近短期阻力位，是做空入场的良好机会。尽管RSI超卖，但预计为趋势延续中的短暂回调。', 'type': 'close', 'price': 2495.0, 'stop_loss': 'N/A', 'take_profit': [{'price': 'N/A', 'size': 'N/A'}], 'size': 155.33, 'market': True, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'risk_management_strategy': '严格控制单笔交易风险在可用保证金的2%以内，并设置止损以限制潜在亏损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'position_action': 'add_position', 'risk_assessment': '市场波动性较高，存在短期反弹风险，但整体趋势偏空。'}
+[_client.py][18:37:20] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:37:20] [INFO] 设置杠杆成功：100倍
+[_client.py][18:37:20] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:37:20] [INFO] 下单成功：方向=sell, 价格=, 数量=155.33
+[auto_trader.py][18:37:20] [INFO] 下单结果: {'success': True, 'order_id': '2576652912575778816', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576652912575778816', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749292640781'}], 'inTime': '1749292640779615', 'msg': '', 'outTime': '1749292640782867'}}
+[tp_sl.py][18:37:20] [ERROR] 设置止盈止损失败，错误信息：could not convert string to float: 'N/A'
+[auto_trader.py][18:37:20] [INFO] 止盈止损设置结果: {'success': False, 'error': "could not convert string to float: 'N/A'", 'response': None}
+[auto_trader.py][18:52:52] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[_client.py][18:52:53] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:52:53] [INFO] 设置杠杆成功：100倍
+[_client.py][18:52:53] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:52:53] [INFO] 下单成功：方向=buy, 价格=market, 数量=155.33
+[auto_trader.py][18:52:53] [INFO] 下单结果: {'success': True, 'order_id': '2576684207989198848', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576684207989198848', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293573457'}], 'inTime': '1749293573456678', 'msg': '', 'outTime': '1749293573459743'}}
+[auto_trader.py][18:52:53] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:52:53] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:52:53] [INFO] 设置杠杆成功：100倍
+[_client.py][18:52:53] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:52:53] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][18:52:53] [INFO] 下单结果: {'success': True, 'order_id': '2576684216814014464', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576684216814014464', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293573720'}], 'inTime': '1749293573719306', 'msg': '', 'outTime': '1749293573722371'}}
+[tp_sl.py][18:52:53] [ERROR] 设置止盈止损失败: TradeAPI.place_algo_order() got an unexpected keyword argument 'px'
+[auto_trader.py][18:52:53] [INFO] 止盈止损设置结果: {'success': False, 'error': "TradeAPI.place_algo_order() got an unexpected keyword argument 'px'", 'response': None}
+[auto_trader.py][18:54:26] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[_client.py][18:54:27] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:54:27] [INFO] 设置杠杆成功：100倍
+[_client.py][18:54:27] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:54:27] [INFO] 下单成功：方向=buy, 价格=market, 数量=155.33
+[auto_trader.py][18:54:27] [INFO] 下单结果: {'success': True, 'order_id': '2576687377406627840', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576687377406627840', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293667913'}], 'inTime': '1749293667912401', 'msg': '', 'outTime': '1749293667915541'}}
+[auto_trader.py][18:54:27] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:54:28] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:54:28] [INFO] 设置杠杆成功：100倍
+[_client.py][18:54:28] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:54:28] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][18:54:28] [INFO] 下单结果: {'success': True, 'order_id': '2576687385795235840', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576687385795235840', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293668163'}], 'inTime': '1749293668162810', 'msg': '', 'outTime': '1749293668165861'}}
+[tp_sl.py][18:54:28] [ERROR] 设置止盈止损失败: TradeAPI.place_algo_order() got an unexpected keyword argument 'tpPx'
+[auto_trader.py][18:54:28] [INFO] 止盈止损设置结果: {'success': False, 'error': "TradeAPI.place_algo_order() got an unexpected keyword argument 'tpPx'", 'response': None}
+[auto_trader.py][18:55:15] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[_client.py][18:55:16] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:55:16] [INFO] 设置杠杆成功：100倍
+[_client.py][18:55:16] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:55:16] [INFO] 下单成功：方向=buy, 价格=market, 数量=155.33
+[auto_trader.py][18:55:16] [INFO] 下单结果: {'success': True, 'order_id': '2576689019963183104', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576689019963183104', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293716865'}], 'inTime': '1749293716864090', 'msg': '', 'outTime': '1749293716867037'}}
+[auto_trader.py][18:55:16] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:55:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:55:17] [INFO] 设置杠杆成功：100倍
+[_client.py][18:55:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:55:17] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][18:55:17] [INFO] 下单结果: {'success': True, 'order_id': '2576689028486008832', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576689028486008832', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293717119'}], 'inTime': '1749293717118087', 'msg': '', 'outTime': '1749293717120964'}}
+[_client.py][18:55:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:55:17] [ERROR] OCO订单下单失败，错误信息：
+[auto_trader.py][18:55:17] [INFO] 止盈止损设置结果: {'success': False, 'error': '', 'response': {'code': '1', 'data': [{'algoClOrdId': '', 'algoId': '', 'clOrdId': '', 'sCode': '51000', 'sMsg': 'Parameter posSide error ', 'tag': ''}], 'msg': ''}}
+[auto_trader.py][18:56:21] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[_client.py][18:56:22] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:56:22] [INFO] 设置杠杆成功：100倍
+[_client.py][18:56:23] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:56:23] [INFO] 下单成功：方向=buy, 价格=market, 数量=155.33
+[auto_trader.py][18:56:23] [INFO] 下单结果: {'success': True, 'order_id': '2576691248615002112', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576691248615002112', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293783284'}], 'inTime': '1749293783283136', 'msg': '', 'outTime': '1749293783286168'}}
+[auto_trader.py][18:56:23] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:56:23] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:56:23] [INFO] 设置杠杆成功：100倍
+[_client.py][18:56:23] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:56:23] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][18:56:23] [INFO] 下单结果: {'success': True, 'order_id': '2576691263882268672', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576691263882268672', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293783739'}], 'inTime': '1749293783737969', 'msg': '', 'outTime': '1749293783741095'}}
+[_client.py][18:56:24] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:56:24] [INFO] OCO订单设置成功: 止盈价格=2470.0, 止损价格=2515.0, 数量=38.7 (38.7 lots)
+[tp_sl.py][18:56:24] [ERROR] 设置止盈止损失败: TradeAPI.place_algo_order() got an unexpected keyword argument 'ordPx'. Did you mean 'orderPx'?
+[auto_trader.py][18:56:24] [INFO] 止盈止损设置结果: {'success': False, 'error': "TradeAPI.place_algo_order() got an unexpected keyword argument 'ordPx'. Did you mean 'orderPx'?", 'response': None}
+[auto_trader.py][18:57:13] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[_client.py][18:57:13] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:57:13] [INFO] 设置杠杆成功：100倍
+[_client.py][18:57:14] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:57:14] [INFO] 下单成功：方向=buy, 价格=market, 数量=155.33
+[auto_trader.py][18:57:14] [INFO] 下单结果: {'success': True, 'order_id': '2576692952005742592', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576692952005742592', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293834049'}], 'inTime': '1749293834048234', 'msg': '', 'outTime': '1749293834051143'}}
+[auto_trader.py][18:57:14] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:57:14] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:57:14] [INFO] 设置杠杆成功：100倍
+[_client.py][18:57:14] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:57:14] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][18:57:14] [INFO] 下单结果: {'success': True, 'order_id': '2576692962105626624', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576692962105626624', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293834350'}], 'inTime': '1749293834348798', 'msg': '', 'outTime': '1749293834351857'}}
+[_client.py][18:57:15] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:57:15] [INFO] OCO订单设置成功: 止盈价格=2470.0, 止损价格=2515.0, 数量=38.7 (38.7 lots)
+[_client.py][18:57:15] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 400 Bad Request"
+[tp_sl.py][18:57:15] [ERROR] 条件订单下单失败，错误信息：Either parameter tpTriggerPx or slTriggerPx is required
+[auto_trader.py][18:57:15] [INFO] 止盈止损设置结果: {'success': False, 'error': 'Either parameter tpTriggerPx or slTriggerPx is required', 'response': {'code': '50015', 'data': [], 'msg': 'Either parameter tpTriggerPx or slTriggerPx is required'}}
+[auto_trader.py][18:57:55] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[_client.py][18:57:55] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:57:55] [INFO] 设置杠杆成功：100倍
+[_client.py][18:57:56] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:57:56] [INFO] 下单成功：方向=buy, 价格=market, 数量=155.33
+[auto_trader.py][18:57:56] [INFO] 下单结果: {'success': True, 'order_id': '2576694370922008576', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576694370922008576', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293876336'}], 'inTime': '1749293876335305', 'msg': '', 'outTime': '1749293876338262'}}
+[auto_trader.py][18:57:56] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][18:57:56] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][18:57:56] [INFO] 设置杠杆成功：100倍
+[_client.py][18:57:56] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][18:57:56] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][18:57:56] [INFO] 下单结果: {'success': True, 'order_id': '2576694379344171008', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576694379344171008', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749293876587'}], 'inTime': '1749293876586514', 'msg': '', 'outTime': '1749293876589627'}}
+[_client.py][18:57:57] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:57:57] [INFO] OCO订单设置成功: 止盈价格=2470.0, 止损价格=2515.0, 数量=38.7 (38.7 lots)
+[_client.py][18:57:57] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:57:57] [INFO] 条件订单设置成功: 止盈价格=2460.0, 数量=38.7 (38.7 lots)
+[_client.py][18:57:57] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][18:57:57] [INFO] 条件订单设置成功: 止盈价格=2450.0, 数量=38.6 (38.6 lots)
+[auto_trader.py][18:57:57] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2470.0, 'stop_loss_price': 2515.0, 'size': 38.7, 'lots': 38.7, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576694398414258176', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2460.0, 'stop_loss_price': None, 'size': 38.7, 'lots': 38.7, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576694402306572288', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2450.0, 'stop_loss_price': None, 'size': 38.6, 'lots': 38.6, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576694406031114240', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}
+[auto_trader.py][19:02:15] [INFO] 执行第1条交易指令: {'operation_comment': '当前存在与做空判断冲突的未成交买单，优先取消该订单以避免方向性错误。', 'type': 'close', 'price': 2495, 'stop_loss': 'N/A', 'take_profit': 'N/A', 'size': 155.33, 'market': False, 'expected_winrate': 'N/A', 'expected_return': 'N/A', 'trade_RR_ratio': 'N/A', 'signal_strength': 'N/A', 'position_action': 'close_position', 'risk_assessment': '取消现有订单，降低潜在风险。'}
+[place_order.py][19:02:15] [INFO] 收到close指令，执行撤单操作
+[_client.py][19:02:16] [INFO] HTTP Request: GET https://www.okx.com/api/v5/trade/orders-pending?instId=ETH-USDT-SWAP&ordType=limit&state=live "HTTP/2 200 OK"
+[_client.py][19:02:16] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/cancel-order "HTTP/2 200 OK"
+[place_order.py][19:02:16] [INFO] 成功取消订单 2576702836705202176
+[auto_trader.py][19:02:16] [INFO] 下单结果: {'success': True, 'order_id': None, 'response': {'success': True, 'canceled_orders': ['2576702836705202176'], 'message': 'Successfully canceled 1 orders'}}
+[auto_trader.py][19:02:16] [INFO] 执行第2条交易指令: {'operation_comment': '市场H4趋势偏空，M15盘整可能向下突破，模型计算预期收益为正，风险回报比良好，激进做空。', 'type': 'sell', 'price': 2495, 'stop_loss': 2515, 'take_profit': [{'price': 2470, 'size': 38.7}, {'price': 2460, 'size': 38.7}, {'price': 2450, 'size': 38.69}], 'size': 116.09, 'market': False, 'expected_winrate': 0.3283, 'expected_return': 0.000537, 'trade_RR_ratio': 2.25, 'signal_strength': 0.7, 'position_action': 'add_position', 'risk_management_strategy': '基于可用保证金2%的固定风险仓位管理，并设置严格止损。如果价格突破关键阻力位，考虑止损并重新评估。如果趋势加速，考虑进一步加仓。', 'risk_assessment': '市场波动性中等，H4超卖可能引发反弹，但整体趋势偏空，风险可控。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。'}
+[_client.py][19:02:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/account/set-leverage "HTTP/2 200 OK"
+[place_order.py][19:02:17] [INFO] 设置杠杆成功：100倍
+[_client.py][19:02:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order "HTTP/2 200 OK"
+[place_order.py][19:02:17] [INFO] 下单成功：方向=sell, 价格=2495.0, 数量=116.09
+[auto_trader.py][19:02:17] [INFO] 下单结果: {'success': True, 'order_id': '2576703124233129984', 'response': {'code': '0', 'data': [{'clOrdId': '', 'ordId': '2576703124233129984', 'sCode': '0', 'sMsg': 'Order placed', 'tag': '', 'ts': '1749294137205'}], 'inTime': '1749294137204271', 'msg': '', 'outTime': '1749294137207379'}}
+[_client.py][19:02:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][19:02:17] [INFO] OCO订单设置成功: 止盈价格=2470.0, 止损价格=2515.0, 数量=38.7 (38.7 lots)
+[_client.py][19:02:17] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][19:02:17] [INFO] 条件订单设置成功: 止盈价格=2460.0, 数量=38.7 (38.7 lots)
+[_client.py][19:02:18] [INFO] HTTP Request: POST https://www.okx.com/api/v5/trade/order-algo "HTTP/2 200 OK"
+[tp_sl.py][19:02:18] [INFO] 条件订单设置成功: 止盈价格=2450.0, 数量=38.6 (38.6 lots)
+[auto_trader.py][19:02:18] [INFO] 止盈止损设置结果: {'success': True, 'results': [{'type': 'oco', 'take_profit_price': 2470.0, 'stop_loss_price': 2515.0, 'size': 38.7, 'lots': 38.7, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576703140652417024', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2460.0, 'stop_loss_price': None, 'size': 38.7, 'lots': 38.7, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576703144880275456', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}, {'type': 'conditional', 'take_profit_price': 2450.0, 'stop_loss_price': None, 'size': 38.6, 'lots': 38.6, 'result': {'code': '0', 'data': [{'algoClOrdId': '', 'algoId': '2576703149309460480', 'clOrdId': '', 'sCode': '0', 'sMsg': '', 'tag': ''}], 'msg': ''}}]}

@@ -1,0 +1,13 @@
+chrome_profile
+chrome_profile_copy
+downloads
+gemini_api_caller
+gemini_json_to_markdown
+get_positions
+macro_factor_collector
+main
+position_info_widget
+reply_cache
+screenshot_server
+technical_indicator_collector
+tradingview_auto_screenshot
