@@ -4,6 +4,8 @@ import json
 import sys
 import os
 import logging
+import time
+import concurrent.futures # Import concurrent.futures
 
 config = json.load(open("config/config.json", "r"))
 
@@ -13,7 +15,7 @@ LOG_FILE = config["main_log_path"]
 # 防止重复添加handler
 if not logging.getLogger("GeminiQuant").handlers:
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.WARNING,
         format='[%(filename)s][%(asctime)s] [%(levelname)s] %(message)s',
         datefmt='%H:%M:%S',
         handlers=[logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8'), logging.StreamHandler()]
@@ -44,7 +46,7 @@ def get_balance():
 
 
 
-def get_positions(instrument_id:str=None):#持仓
+def get_positions(instrument_id:str=""):#持仓
     res = accountAPI.get_positions(instId=instrument_id) # 显式传递 instId 参数给 API 调用
 
     ans={}
@@ -78,7 +80,7 @@ def get_positions(instrument_id:str=None):#持仓
     return ans
    
 #获取未成交订单
-def get_orders(instrument_id:str=None):
+def get_orders(instrument_id:str=""):
 
     tradeAPI = Trade.TradeAPI(apikey, secretkey, passphrase, False, flag)
 
@@ -128,13 +130,46 @@ def collect_positions_data(instrument_id="ETH-USDT-SWAP"):
     logger.info(f"instrument_id: {instrument_id}")
     res={}
     res["instrument_id"]=instrument_id
-    res["balance"]=get_balance()
-    res["positions"]=get_positions(instrument_id)
 
-    res["orders"]=get_orders(instrument_id)
+    # 使用 ThreadPoolExecutor 并行收集数据
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+        # Store futures and their corresponding task names and start times
+        futures = {}
+        start_times = {}
+
+        start_times["balance"] = time.time()
+        futures[executor.submit(get_balance)] = "balance"
+
+        start_times["positions"] = time.time()
+        futures[executor.submit(get_positions, instrument_id)] = "positions"
+
+        start_times["orders"] = time.time()
+        futures[executor.submit(get_orders, instrument_id)] = "orders"
+
+        collected_data = {}
+        for future in concurrent.futures.as_completed(futures):
+            task_name = futures[future]
+            try:
+                data = future.result()
+                collected_data[task_name] = data
+                end_time = time.time()
+                duration = end_time - start_times[task_name]
+                logger.warning(f"{task_name} collection took {duration:.4f} seconds.")
+            except Exception as exc:
+                logger.error(f'{task_name} generated an exception: {exc}')
+                collected_data[task_name] = None # 或者根据需要设置默认值
+
+    res["balance"] = collected_data.get("balance")
+    res["positions"] = collected_data.get("positions")
+    res["orders"] = collected_data.get("orders")
+
     return res
 
 if __name__ == "__main__":
     #传入instrument_id
+    import time
+    start_time=time.time()
     res=collect_positions_data()
     print(json.dumps(res,indent=4,ensure_ascii=False))
+    end_time=time.time()
+    logger.warning(f"数据收集完成，耗时: {end_time - start_time} 秒")
