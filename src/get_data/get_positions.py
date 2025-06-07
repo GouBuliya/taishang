@@ -125,7 +125,7 @@ def get_orders(instrument_id:str=""):
         
     return ans
 
-
+# def #获取算法（止盈止损订单）
 def collect_positions_data(instrument_id="ETH-USDT-SWAP"):
     logger.info(f"instrument_id: {instrument_id}")
     res={}

@@ -3,8 +3,12 @@ pyproject.toml
 function/__init__.py
 function/get_transaction_history.py
 function/list.py
+function/tp_sl.py
+function/trade_logger.py
+function/utils.py
 function/get_time_module/__init__.py
 function/trade/__init__.py
+function/trade/okx_client.py
 function/trade/place_order.py
 function/trade/tp_sl.py
 function/trade/trade_history.py

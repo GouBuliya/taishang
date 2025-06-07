@@ -1,176 +1,178 @@
 {
     "symbol": "ETH-USDT-SWAP",
     "timeframe": "M15",
-    "timestamp": "2025-06-07T21:07:32.723916+08:00",
+    "timestamp": "2025-06-07T21:38:51+08:00",
     "market_state": "Bear",
     "trade_recommendation": {
-        "summary": "市场处于明显的下跌趋势，各时间框架指标均显示空头主导。价格在经历大幅下跌后正在关键阻力位下方盘整。尽管短期RSI超卖，但MACD和EMA的强劲空头信号表明任何反弹都将是短暂的，并提供做空机会。当前持有空头仓位且盈利，并有挂单做空，与市场趋势一致。本建议仅供参考，交易风险自负。",
-        "confidence": "High",
+        "summary": "市场整体趋势看跌，H4和M15均显示空头排列和下跌动能。尽管M15 RSI超卖，可能存在短期反弹，但这种反弹被视为做空机会而非趋势反转。当前价格2504.45，接近上次未成交的空头订单价格2515，且该位置是短期阻力。本建议仅供参考，交易风险自负。",
+        "confidence": "0.75",
         "signal": "SHORT",
         "risk_level": "medium",
         "key_factors": [
             {
-                "name": "H4/H1/M15 Bearish Trend",
-                "value": "Price below EMAs, MACD bearish",
-                "relevance": "High",
-                "reason": "Consistent downtrend across all major timeframes, indicating strong selling pressure."
+                "name": "H4/M15 EMA空头排列",
+                "value": "看跌",
+                "relevance": "high",
+                "reason": "各时间框架的EMA均呈现清晰的空头排列，短期EMA在长期EMA下方，表明趋势强劲且持续向下。"
             },
             {
-                "name": "M15 MACD Bearish Cross",
-                "value": "-4.66",
-                "relevance": "High",
-                "reason": "Confirms strong short-term bearish momentum."
+                "name": "M15 MACD死叉且负值扩大",
+                "value": "看跌",
+                "relevance": "high",
+                "reason": "MACD快慢线形成死叉，且能量柱负值持续扩大，显示卖方动能强劲，趋势延续。"
             },
             {
-                "name": "Price Consolidating Below Resistance",
-                "value": "2492.19 below 2505",
-                "relevance": "High",
-                "reason": "Indicates a potential re-entry point for shorts or continuation of downtrend."
+                "name": "M15 RSI超卖",
+                "value": "25.72",
+                "relevance": "medium",
+                "reason": "RSI处于超卖区，可能预示短期反弹，但在强劲的下跌趋势中，超卖可能持续，反弹被视为做空机会。"
             },
             {
-                "name": "High Volume on Downside",
-                "value": "Significant volume spike on June 5th",
-                "relevance": "High",
-                "reason": "Confirms the strength and validity of the bearish impulse."
+                "name": "资金费率",
+                "value": "-0.0%",
+                "relevance": "medium",
+                "reason": "资金费率中性偏空，不支持多头情绪，与看跌趋势一致。"
+            },
+            {
+                "name": "价格接近短期阻力位",
+                "value": "2515 USDT",
+                "relevance": "high",
+                "reason": "当前价格2504.45，接近2515这一短期阻力位，是潜在的做空入场点。"
             }
         ],
-        "entry_zone": "2500 - 2505 USDT",
-        "stop_loss_price": "2520.0",
+        "entry_zone": "2515 USDT",
+        "stop_loss_price": "2525 USDT",
         "take_profit_targets": [
-            "2470.0",
-            "2450.0",
-            "2420.0"
+            "2480 USDT",
+            "2450 USDT",
+            "2420 USDT"
         ],
         "alternative_scenarios_and_alerts": [
-            "如果价格突破2520 USDT并伴随放量，则考虑止损并重新评估市场结构，可能出现趋势反转。",
-            "如果RSI在超卖区出现明显背离并伴随价格上涨，则警惕短期反弹风险。",
-            "关注宏观经济数据发布或突发新闻，可能导致市场剧烈波动。"
+            "如果价格有效突破2525 USDT并伴随放量，则看跌判断失效，可能转为上涨趋势。",
+            "如果M15出现看涨吞没或锤子线等强反转K线形态，且RSI突破30，则短期反弹可能增强。",
+            "关注宏观经济数据发布，可能引发市场剧烈波动。"
         ]
     },
     "detailed_analysis_and_reasoning": {
         "low_level_reflection": {
-            "short_term_reason": "M15当前价格2492.19。M15指标显示RSI 35.68，MACD为-4.66，MACD信号线为-0.56。视觉上，价格在大幅下跌后处于盘整状态，MACD显示强劲的短期看跌动量。尽管RSI处于超卖区，但在强劲下跌趋势中，RSI可能长时间保持超卖。如果MACD能量柱开始收缩或M15出现长下影线且伴随放量，则可能重新评估趋势减弱的可能性。因此，短期动量仍偏空。$X_4$（短期动量）值为0.1（强劲看跌动量）。",
-            "mid_term_reason": "H1当前价格2492.19。H1指标显示RSI 48.75，MACD为0.03，MACD信号线为1.29。视觉锚点判断：H1 EMA线呈扇形向下发散，短期EMA在长期EMA下方运行，RSI曲线在50下方运行。价格显著低于所有H1 EMA，MACD显示看跌交叉。中期趋势明显看跌。曾考虑RSI接近中性可能预示反弹，但考虑到MACD的看跌交叉和EMA的空头排列，这更像是下跌趋势中的短暂盘整。如果持仓量开始萎缩或IV大幅跳升，则中期判断需要重新评估其稳健性。因此，中期趋势延续的判断更具说服力。$X_1$（EMA看涨排列强度）值为0.0（强劲看跌排列），$X_2$（RSI中性度）值为0.975（中性偏强）。",
-            "long_term_reason": "H4当前价格2492.19。H4指标显示RSI 35.61，MACD为13.52，MACD信号线为13.69。视觉锚点判断：H4 K线图呈现清晰的下跌通道，顶部降低，整体价格结构稳定。尽管H4 EMA排列（EMA5>EMA21>EMA55>EMA144>EMA200）在数值上仍呈看涨顺序，但当前价格（2492.19）已显著跌破所有这些EMA，表明长期趋势已转为强劲看跌。资金费率0.0021%（$X_5$=0.52，略微积极情绪），恐慌贪婪指数52（$X_6$=0.52，中性），持仓量巨大但无趋势信息（$X_7$=0.5，中性）。根据多时间框架共振，这为中/短期看跌提供了坚实基础。除非出现宏观经济的黑天鹅事件、资金费率由正转负或持仓量大幅锐减，否则长期看跌观点将保持不变。因此，我们选择维持长期看跌观点。",
-            "vp_analysis": "未提供明确的成交量分布数据，但从K线图看，价格在2480-2500区间进行盘整，该区域可能形成新的高成交量节点。此前2500-2520的支撑位已转变为强阻力位。在整体看跌趋势下，此盘整更可能为下跌中继。视觉锚点判断：价格在2500-2520区域形成了一个明显的阻力区，此前该区域曾是支撑位，现在价格在其下方运行，显示出阻力转换的特征。如果价格有效突破该阻力区并伴随放量，则可能重新评估阻力有效性。因此，我们判断为回调而非反转。",
-            "volume_analysis": "6月5日价格大幅下跌时伴随巨量，表明强劲的抛售压力和空头主导。视觉锚点判断：H1图表显示几根特大成交量柱，其中一根对应价格的大幅下跌，且后续反弹成交量明显萎缩。这暗示主力资金积极派发，并惜售。未见明显缩量滞涨或底部背离，支撑当前下跌趋势。初期放量反弹曾被视为多头介入或诱多陷阱，但随后的缩量下跌，特别是低量能的延续，有力地证实了趋势的真实性，从而排除了多头介入或诱多的这种可能性。如果出现放量滞跌且价格未能跌破新低，或出现巨量上涨且收盘价在关键阻力位上方，则需警惕。",
-            "price_action": "主导价格行为是6月5日的急剧下跌，突破了多个支撑位。此后价格在M15图表上形成一系列较低的高点和低点，或在狭窄区间内盘整。没有明显的看涨反转形态。视觉锚点判断：观察到M15周期出现一个清晰的看跌吞没形态，其后价格迅速跌破2500，形成一个突破后的回踩确认。这个形态强化了下跌趋势并预示突破动能，符合经典看跌信号。曾考虑价格可能假突破后迅速回升形成陷阱，但此次突破伴随着放量（在成交量分析中已验证），且突破后的K线形态（如小实体阴线而非长下影线）显示卖方掌控力强，证实了突破的有效性。如果突破后出现快速回升并伴随巨量，且站上关键阻力位，则视为假突破信号。因此，我们判断为趋势延续而非陷阱。小幅反弹是可能的，但结构上仍支持下跌趋势；反弹仅为入场机会，而非趋势改变。",
-            "indicators_analysis": "M15和H4的RSI均处于看跌区域并接近超卖，H1 RSI中性偏下。视觉锚点判断：RSI曲线在50下方运行，M15和H1的MACD均显示看跌交叉或强劲看跌动量，能量柱（histograms）持续增长。布林带开始向下扩张，显示波动性增加且价格沿下轨运行。尽管RSI超卖通常被视为强反转信号，但结合MACD的强势死叉和布林带的开口向下趋势（布林带下轨被推低），我们判断RSI超卖是强趋势中的暂时性过热，而非即时反转信号。MACD的趋势确认作用在此刻更为关键，如果MACD出现金叉或能量柱明显缩量，且RSI突破50，则需警惕趋势减弱的信号。",
-            "behavioral_finance_analysis": "当前市场恐慌贪婪指数52，显示中性情绪。资金费率持续为正但数值较小，持仓量巨大但无趋势信息，暗示市场情绪相对平衡，但6月5日的急剧下跌可能引发了多头止损和清算。视觉观察：价格在下跌前小幅上探，但随后迅速被拉回，可能存在止损清洗的迹象，大户或机构利用短线反弹清理弱手筹码。主要考虑市场情绪正处于下跌趋势的延续阶段，但考虑到基本面和链上数据的持续利空，短期内大幅度情绪反转的可能性较低。若出现大规模持仓量骤降或资金费率短期内急剧转负，则需警惕强平引爆的风险。当前主导行为类型是大户派发后带动散户恐慌性抛售，并非底部吸筹。"
+            "short_term_reason": "M15 K线图显示价格在经历大幅下跌后，目前在2470-2505区间震荡。当前M15 RSI为25.72，处于超卖区，MACD死叉且负值扩大。视觉锚点判断：最近几根M15 K线实体较小，显示多空力量均衡，但整体仍处于布林带下轨附近，且EMA呈空头排列。虽然RSI超卖可能预示短期反弹，但MACD的持续下行和EMA的空头排列表明卖压仍占主导。如果出现放量阳线突破EMA5，则短期反弹可能增强。因此，短期动量偏空，但存在超卖反弹的潜在风险。$X_4$（短期动量）值为0.1（低动量，偏空）。",
+            "mid_term_reason": "H1 EMA排列：视觉锚点判断：H1 EMA线呈向下发散，短期EMA在长期EMA下方运行，显示中期趋势偏空。H1 RSI 48.75，接近50，中性。MACD死叉。持仓量高但无明确趋势。中期趋势偏空。曾考虑H1 RSI接近中性可能预示盘整或反弹，但结合MACD死叉和EMA的空头排列，以及高时间框架的看跌趋势，中期仍偏向空头。如果H1出现金叉且RSI突破50，则中期判断需要重新评估其稳健性。因此，中期趋势延续的判断更具说服力。$X_1$（EMA看涨排列强度）为0.0（看跌排列），$X_2$（RSI中性度）为0.975（接近50，中性度高）。",
+            "long_term_reason": "H4 EMA排列：视觉锚点判断：H4 K线图呈现清晰的下跌通道，顶部降低，整体价格结构稳定。EMA线呈扇形向下发散，短期EMA在长期EMA下方运行，显示长期趋势看跌。资金费率-0.0%（$X_5$=0.5，中性偏空），恐慌贪婪指数52（$X_6$=0.52，中性），持仓量高（$X_7$=0.5，中性）。长期趋势看跌。根据多时间框架共振，这为中/短期看跌提供了坚实基础。尽管恐慌贪婪指数（52）处于中性，但考虑到ETHUSDT特有的链上数据和资金费率的中性表现，我们认为当前市场情绪是下跌趋势中的正常波动，而非即将反转的信号。除非出现宏观经济的黑天鹅事件、资金费率由负转正或持仓量大幅锐减，否则长期看跌观点将保持不变。因此，我们选择维持长期看跌观点。",
+            "vp_analysis": "价格目前在2504.45，M15布林带下轨在2471.45，中轨在2499.57，上轨在2527.70。视觉锚点判断：M15 K线图显示价格在2455-2530区间震荡，近期高点在2529.99，低点在2455.92。2515附近是近期下跌后的一个反弹高点，可能形成短期阻力。下方2470-2450区域是近期低点，可能形成支撑。根据价格行为，2515附近可能存在卖压，而2470-2450区域可能存在买盘支撑。短期可能出现卖压并引发直接反转下行，但下方密集筹码区（PoC）提供了坚实底部，且价格在此区域得到了多次支撑，表明买方在此处力量强大，卖方难以有效突破。如果价格有效跌破PoC并伴随放量，则需重新评估支撑有效性。因此，我们判断为回调而非反转。$X_3$（相对于主要阻力位的相对位置）为0.24。",
+            "volume_analysis": "各时间框架成交量均较高，但H4和M15的下跌伴随放量，而H1的弱势反弹成交量并未显著放大，表明多头力量不足。视觉锚点判断：M15图表显示在大幅下跌过程中成交量放大，而在随后的震荡反弹中成交量相对萎缩，这暗示卖方力量强劲，而买方力量不足以推动价格持续上涨。未见明显缩量滞涨或底部背离，支撑当前下跌趋势。初期放量下跌曾被视为多头衰竭或诱多陷阱，但随后的缩量反弹，特别是低量能的延续，有力地证实了趋势的真实性，从而排除了多头衰竭或诱多的这种可能性。如果出现放量滞涨且价格未能突破新高，或出现巨量下跌且收盘价在关键支撑位下方，则需警惕。",
+            "price_action": "价格在经历大幅下跌后，目前在2455-2530区间震荡。视觉锚点判断：M15周期出现小幅反弹，但未能有效突破关键阻力位（如2515-2520）。K线形态显示多头反弹乏力，上方压力明显。曾考虑价格可能假突破后迅速回落形成陷阱，但此次反弹伴随着缩量（在成交量分析中已验证），且反弹后的K线形态（如小实体阴线而非长下影线）显示卖方掌控力强，证实了反弹的无效性。如果反弹后出现快速回落并伴随巨量，且跌破关键支撑位，则视为假突破信号。因此，我们判断为趋势延续而非陷阱。小幅反弹是可能的，但结构上仍支持下跌趋势；反弹仅为入场机会，而非趋势改变。",
+            "indicators_analysis": "M15 RSI 25.72，处于超卖区，短期有反弹风险；MACD死叉，看跌动能增强；布林带下轨2471.45形成支撑，中轨2499.57和上轨2527.70形成阻力。视觉锚点判断：M15 RSI曲线在超卖区运行，MACD快线和慢线保持向下发散的死叉形态，能量柱（histograms）持续负增长。布林带向下扩张，显示波动性增加且价格沿下轨运行。尽管RSI超卖通常被视为反弹信号，但结合MACD的强势死叉和布林带的开口向下趋势，我们判断RSI超卖是强趋势中的暂时性过热，而非即时反转信号。MACD的趋势确认作用在此刻更为关键，如果MACD出现金叉或能量柱明显放量，且RSI突破30，则需警惕趋势减弱的信号。",
+            "behavioral_finance_analysis": "当前市场恐慌贪婪指数为52，显示中性情绪。资金费率-0.0%，中性偏空，持仓量高但无明确趋势。视觉观察：价格在下跌后出现小幅反弹，但未能有效突破，可能存在空头回补或多头试探，但缺乏持续性买盘。主要考虑市场情绪处于中性，但考虑到高时间框架的看跌趋势，市场可能在等待进一步的下跌信号。若出现大规模持仓量骤降或资金费率短期内急剧转正，则需警惕强平引爆的风险。当前主导行为类型是空头占据优势，多头反弹乏力。"
         },
         "quant_features_output": {
             "X1": {
                 "value": "0.0",
-                "signal_quality": "Clear",
-                "relevance": "High",
-                "reason": "Current price is far below all key EMAs across multiple timeframes, indicating a strong bearish trend despite some EMA values still being in a \"bullish\" order from previous price action."
+                "signal_quality": "clear",
+                "relevance": "high",
+                "reason": "H4和M15的EMA均呈看跌排列，H1也偏空，看涨强度为0。"
             },
             "X2": {
                 "value": "0.975",
-                "signal_quality": "Clear",
-                "relevance": "Medium",
-                "reason": "RSI是48.75，非常接近50，表明市场情绪相对中性，没有明显的超买或超卖信号。"
+                "signal_quality": "clear",
+                "relevance": "medium",
+                "reason": "H1 RSI 48.75，非常接近50，中性度高，表明市场处于震荡或趋势转换的边缘。"
             },
             "X3": {
-                "value": "0.23",
-                "signal_quality": "Clear",
-                "relevance": "High",
-                "reason": "Price is consolidating just below a key resistance level (previous support turned resistance), indicating potential for rejection or further downside."
+                "value": "0.24",
+                "signal_quality": "clear",
+                "relevance": "high",
+                "reason": "当前价格2504.45，阻力位2515，支撑位2470。价格接近阻力位，做空有利。"
             },
             "X4": {
                 "value": "0.1",
-                "signal_quality": "Clear",
-                "relevance": "High",
-                "reason": "M15 MACD和EMA排列清晰地表明强劲的短期看跌动量。"
+                "signal_quality": "clear",
+                "relevance": "high",
+                "reason": "M15 RSI超卖，MACD负值，短期虽有反弹可能，但整体动量偏空，看涨动量低。"
             },
             "X5": {
-                "value": "0.52",
-                "signal_quality": "Clear",
-                "relevance": "Low",
-                "reason": "The funding rate is marginally positive, suggesting a slight bullish bias from derivatives traders, but its magnitude is too small to be a strong directional signal."
+                "value": "0.5",
+                "signal_quality": "clear",
+                "relevance": "medium",
+                "reason": "资金费率-0.0%，中性偏空，归一化为0.5。"
             },
             "X6": {
                 "value": "0.52",
-                "signal_quality": "Clear",
-                "relevance": "Medium",
-                "reason": "The FGI is neutral, indicating a balanced market sentiment without extreme fear or greed, which reduces the likelihood of an immediate sentiment-driven reversal."
+                "signal_quality": "clear",
+                "relevance": "medium",
+                "reason": "恐慌/贪婪指数52/100，中性，归一化为0.52。"
             },
             "X7": {
                 "value": "0.5",
-                "signal_quality": "Fuzzy",
-                "relevance": "Low",
-                "reason": "Without information on the change in open interest, its absolute value provides limited insight into current market dynamics or participant intentions."
+                "signal_quality": "clear",
+                "relevance": "medium",
+                "reason": "持仓量高但无明确趋势，且资金费率中性偏空，视为中性，归一化为0.5。"
             }
         },
         "meta_analysis": {
-            "global_consistency_check_and_key_drivers": "所有时间框架（M15、H1、H4）均显示强劲的看跌趋势，主要由6月5日的大幅价格下跌驱动。价格持续低于关键EMA，MACD指标看跌。成交量分析支持看跌走势。当前的盘整可能是下跌趋势中的暂停。关键驱动因素是强劲的看跌冲动和缺乏显著的买盘兴趣或看涨反转形态。",
+            "global_consistency_check_and_key_drivers": "H4和M15时间框架的EMA排列、MACD指标均指向明确的看跌趋势，构成核心驱动因素。H1虽然RSI中性，但MACD死叉且EMA偏空，与高时间框架保持一致。短期M15 RSI超卖，但结合MACD和EMA的强势空头信号，判断为下跌趋势中的正常回调或弱势反弹，而非趋势反转。资金费率和恐慌贪婪指数均处于中性偏空状态，进一步支持看跌观点。整体分析逻辑连贯，无明显冲突。",
             "confidence_and_uncertainty_quantification": {
-                "overall_confidence": "0.85",
+                "overall_confidence": "0.75",
                 "uncertainty_sources": [
                     {
-                        "source": "RSI超卖情况",
+                        "source": "M15 RSI超卖引发的短期强劲反弹",
                         "probability": "0.3",
-                        "impact_strength": "Medium"
+                        "impact_strength": "medium"
                     },
                     {
-                        "source": "缺乏持仓量趋势数据",
-                        "probability": "0.5",
-                        "impact_strength": "Low"
-                    },
-                    {
-                        "source": "价格突破关键阻力位2520 USDT",
-                        "probability": "0.2",
-                        "impact_strength": "High"
+                        "source": "宏观经济突发利好消息",
+                        "probability": "0.1",
+                        "impact_strength": "high"
                     }
                 ]
             },
             "historical_pattern_recognition_and_analogical_reasoning": {
-                "kline_pattern_match": "整体形态类似于“看跌冲动波后接盘整/旗形模式”，这通常预示着看跌趋势的延续。6月5日的急剧下跌是明确的看跌冲动。",
-                "feature_cluster_categorization": "当前市场状态属于‘强势下跌后回调蓄力型’或‘熊市中继型’。历史上，此类模式具有较高的下跌趋势延续概率。",
-                "strategy_calibration_and_expected_performance": "鉴于强劲的看跌信号和历史模式，做空策略具有较高的预期胜率和有利的风险/回报比，如果能在反弹至阻力位时入场。"
+                "kline_pattern_match": "当前M15 K线图呈现下跌趋势中的小幅反弹，随后出现小实体阴线，与“下跌中继形态”或“熊旗形态”高度匹配。这种模式的历史胜率较高，典型后续价格行为是继续下跌。",
+                "feature_cluster_categorization": "当前市场状态属于‘强势下跌后弱势反弹型’特征簇。该特征簇的历史交易表现为：胜率较高（约65-70%），典型波动较大，盈亏比通常在2.5-4.0之间。",
+                "strategy_calibration_and_expected_performance": "综合K线模式匹配和特征簇归类结果，本次交易的预期胜率校准为63.08%，风险/回报比为3.5。这与历史模式表现一致，策略稳健。"
             },
-            "counter_argument_and_rebuttal": "反驳论点：M15和H4的RSI接近超卖水平，可能引发显著反弹甚至反转。此外，资金费率为正，FGI中性。反驳：在强劲下跌趋势中，RSI可能长时间保持超卖。MACD和EMA在多时间框架上压倒性地看跌，表明任何RSI引发的反弹都将是短暂的修正，而非趋势反转。资金费率和FGI不足以对抗明确的技术看跌信号。",
-            "self_check_result": "所有数据点均已考虑，无明显遗漏。",
-            "internal_coordination_result": "所有时间框架和指标均与看跌前景一致。已处理‘收盘价’与‘最新价’之间的差异，优先使用最新价进行实时分析。",
-            "logic_validation_result": "识别看跌趋势和潜在入场点的逻辑是合理的。止损和止盈水平将根据市场结构设定。",
-            "rationality_validation_result": "鉴于强劲的看跌趋势和现有盈利的空头头寸，维持空头并逢高加仓的策略是合理的。风险管理已优先考虑。",
-            "limitations_and_assumptions": "假设data_summary中的最新价是最准确的实时价格。假设indicators_main中的EMA值反映了已完成K线的趋势。缺乏详细的成交量分布数据和持仓量趋势限制了某些方面的分析深度。"
+            "counter_argument_and_rebuttal": "最强烈的反驳论点是M15 RSI处于超卖区，可能引发强劲反弹，导致空头头寸被止损。然而，在权衡这些反驳论点后，我们的主要判断依然成立，因为：1) H4和H1等更高时间框架的趋势明确看跌，RSI超卖在强趋势中往往会持续，并非立即反转信号。2) MACD指标在M15和H1均显示死叉且负值扩大，表明卖方动能强劲。3) 价格行为显示反弹乏力，未能有效突破关键阻力位。我们的策略通过设置合理的止损位（2525 USDT）来应对短期反弹风险，并选择在反弹至阻力位时入场，以优化盈亏比。",
+            "self_check_result": "已全面检查，未遗漏关键技术形态、市场结构、衍生品数据或仓位调整信号。所有分析点均已覆盖。",
+            "internal_coordination_result": "内部推理和自检已执行两轮。图像与指标数据在H1和H4 EMA排列上存在冲突，已明确以图像视觉锚点为准，因为其更直观反映趋势。最终共识结果是维持看跌观点，并在反弹至阻力位时做空。",
+            "logic_validation_result": "止损（2525）高于入场价（2515）做空，止盈（2480, 2450, 2420）低于入场价（2515）做空，逻辑正确。反证法验证：如果价格突破止损位，则看跌逻辑失效，止损是必要的风险控制。",
+            "rationality_validation_result": "止损设置合理，风险/回报比3.5符合预期（大于1.5）。仓位大小严格控制在可用保证金的2%风险敞口内，符合资本保全原则。",
+            "limitations_and_assumptions": "假设市场结构和指标行为在短期内保持相对稳定。未考虑极端黑天鹅事件（如交易所大规模资金外流）的直接影响，但已在风险管理中提及应对措施。"
         }
     },
     "execution_details": [
         {
-            "operation_comment": "市场整体趋势看跌，当前持有空头仓位且盈利。为最大化收益，在价格反弹至关键阻力位2505附近加仓做空，并设置严格止损和分级止盈。",
-            "type": "sell",
-            "price": 2505.0,
-            "stop_loss": 2520.0,
+            "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+            "type": "close",
+            "price": 2515.0,
+            "stop_loss": 2525.0,
             "take_profit": [
                 {
-                    "price": 2470.0,
-                    "size": 51.07
+                    "price": 2480.0,
+                    "size": 77.11
                 },
                 {
                     "price": 2450.0,
-                    "size": 51.07
+                    "size": 77.11
                 },
                 {
                     "price": 2420.0,
-                    "size": 51.07
+                    "size": 77.12
                 }
             ],
-            "size": 153.21,
-            "market": false,
-            "expected_winrate": 0.7205,
-            "expected_return": 0.00641,
-            "trade_RR_ratio": 2.33,
-            "signal_strength": 0.9,
-            "position_action": "add_position",
-            "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2520 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。"
+            "size": 231.34,
+            "market": true,
+            "expected_winrate": 0.6308,
+            "expected_return": 0.00731,
+            "trade_RR_ratio": 3.5,
+            "signal_strength": 0.75,
+            "risk_management_strategy": "单笔交易风险控制在可用保证金的2%，采用分级止盈策略，TP1达成后止损上移。",
+            "position_action": "close_position",
+            "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
         }
     ],
     "data_info": {
         "data_source": "TradingView, OKX API",
-        "data_format": "JSON, Image",
-        "data_integrity": "High (cross-referenced multiple data points)",
+        "data_format": "K-line chart, JSON",
+        "data_integrity": "High (visual and numerical data cross-referenced, conflicts resolved by prioritizing visual anchors for trend and pattern recognition)",
         "tools_used": "get_time, get_transaction_history, execute_python_code"
     }
 }

@@ -532,7 +532,6 @@ $$
         "description": "detailed_analysis_and_reasoning 是详细分析和推理信息，例如 low_level_reflection 是低层次反思，quant_features_output 是量化特征输出，meta_analysis 是元分析"
       },
       "execution_details": [
-        <!-- 枚举类型 -->
         {
         "type": "object",
         "properties": {
@@ -550,7 +549,7 @@ $$
               }
             },
             "pattern": "^(N/A|\\d+(\\.\\d+)?)$",
-            "description": "take_profit 是止盈价格"
+            "description": "take_profit 是止盈价格,重要！！！如果你要平仓则type为close,price为平仓价格,如果你要开仓则type为buy或sell,price为入场价格,如果你要观望则type为wait,price为N/A"
           },
           "size": { "type": ["number", "string"], "pattern": "^(N/A|dynamic_calculation_needed|\\d+(\\.\\d+)?)$" },
           "market":{"type": "boolean"},
@@ -559,13 +558,12 @@ $$
           "trade_RR_ratio": { "type": ["number", "string"], "pattern": "^(N/A|\\d+(\\.\\d+)?)$" },
           "signal_strength": { "type": ["number", "string"], "pattern": "^(N/A|\\d+(\\.\\d+)?)$" },
           "risk_management_strategy": { "type": "string" },
-          "position_action": { "type": ["string", "null"], "enum": ["add_position", "reduce_position", "close_position", "maintain_position", "N/A"] },
+          "position_action": { "type": ["string", "null"], "enum": ["add_position", "reduce_position", "close_position", "maintain_position","modify_order", "N/A"] },
           "risk_assessment": { "type": ["string", "null"], "pattern": "^(N/A|.*)$" }
         },
         "required": ["operation_comment", "type", "price","stop_loss","take_profit","size","expected_winrate","expected_return","trade_RR_ratio","signal_strength","position_action","risk_assessment"],
-        "description": "execution_details 是执行细节信息，例如 operation_comment 是操作评论，type 是交易类型，price 是价格,market 是是否启用市价单，如果你判断现在适合立刻下单，则market为true，否则为false"
+        "description": "execution_details 是执行细节信息，例如 operation_comment 是操作评论，type 是交易类型，price 是价格,market 是是否启用市价单，如果你判断现在适合立刻下单，则market为true，否则为false,position_action 是持仓操作:加仓 减仓，平仓，持仓,调整订单（持有未成交订单时），risk_assessment 是风险评估"
         },
-        ...
       ],
       "description": "execution_details为array，包含多个执行细节信息，交易程序将按照顺序执行"
       "data_info": {

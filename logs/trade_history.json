@@ -1100,5 +1100,596 @@
       "signal_strength": 0.9,
       "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2520 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。"
     }
+  },
+  {
+    "timestamp": "2025-06-07T21:24:00.904702",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 1626.78,
+    "price": 2506.9,
+    "order_type": "market",
+    "order_id": "2576988458741272576",
+    "stop_loss": "N/A",
+    "take_profits": "N/A",
+    "extra_info": {
+      "operation_comment": "当前市场趋势看跌，现有长仓与判断方向冲突且已盈利，为规避风险并为后续空头操作做准备，立即平仓现有长仓。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "市场波动性高，平仓可降低不确定性风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:24:01.175712",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 149.32,
+    "price": 2515.0,
+    "order_type": "limit",
+    "order_id": "2576988468035850240",
+    "stop_loss": 2530.0,
+    "take_profits": [
+      {
+        "price": 2470.0,
+        "size": 49.77
+      },
+      {
+        "price": 2450.0,
+        "size": 49.77
+      },
+      {
+        "price": 2420.0,
+        "size": 49.78
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "在平仓现有长仓后，根据市场看跌趋势，在价格反弹至关键阻力位附近建立空头头寸，以最大化预期收益。",
+      "expected_winrate": 0.60735,
+      "expected_return": 0.004469,
+      "trade_RR_ratio": 2.0557,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2530 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:29:57.009628",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 230.69,
+    "price": 2515.0,
+    "order_type": "limit",
+    "order_id": "2577000402676224000",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 76.9
+      },
+      {
+        "price": 2450.0,
+        "size": 76.9
+      },
+      {
+        "price": 2420.0,
+        "size": 76.89
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "市场整体趋势看跌，当前无持仓但有未成交空头订单。为最大化收益并优化仓位，撤销现有订单并以计算出的最优仓位在关键阻力位2515附近重新下达空头限价单，并设置严格止损和分级止盈。",
+      "expected_winrate": 0.6497,
+      "expected_return": 0.007657,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.85,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:37:19.134603",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 230.69,
+    "price": 2505.05,
+    "order_type": "market",
+    "order_id": "2577015237560373248",
+    "stop_loss": "N/A",
+    "take_profits": "N/A",
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "撤销未成交订单以避免潜在的仓位管理混乱，降低不确定性。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:37:19.577695",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 229.47,
+    "price": 2515.0,
+    "order_type": "limit",
+    "order_id": "2577015252357877760",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 76.49
+      },
+      {
+        "price": 2450.0,
+        "size": 76.49
+      },
+      {
+        "price": 2420.0,
+        "size": 76.49
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "根据市场整体看跌趋势和M15弱势反弹的判断，在价格反弹至关键阻力位2515 USDT时建立空头头寸，以最大化预期收益。仓位大小严格控制在可用保证金的2%风险敞口内。",
+      "expected_winrate": 0.7357,
+      "expected_return": 0.009189,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.7357,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:40:59.938582",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": "limit",
+    "order_id": "2577022651848331264",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:47:37.151591",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577034968539467776",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:50:07.848811",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577039965096382464",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:52:08.968239",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577045100702863360",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T21:53:29.810495",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577047813612244992",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T22:03:42.104766",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577068345300750336",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T23:54:06.408013",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577290632272678912",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-07T23:58:54.039957",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577300284104380416",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T00:16:39.074626",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577336019104698368",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T00:26:51.815186",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577356579784232960",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T00:31:27.460428",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577365830002937856",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T00:35:30.951101",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577373998393200640",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T00:37:07.319655",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577377233745088512",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T00:51:24.650351",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 231.34,
+    "price": 2515.0,
+    "order_type": false,
+    "order_id": "2577406000966275072",
+    "stop_loss": 2525.0,
+    "take_profits": [
+      {
+        "price": 2480.0,
+        "size": 77.11
+      },
+      {
+        "price": 2450.0,
+        "size": 77.11
+      },
+      {
+        "price": 2420.0,
+        "size": 77.12
+      }
+    ],
+    "extra_info": {
+      "operation_comment": "当前存在未成交的空头限价订单，为确保仓位大小与最新风险管理计算一致，并优化止盈目标，撤销现有订单并重新下达。",
+      "expected_winrate": 0.6308,
+      "expected_return": 0.00731,
+      "trade_RR_ratio": 3.5,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，存在短期反弹风险，但整体趋势偏空。需警惕价格突破关键阻力位2525 USDT，这将是趋势反转的信号。严格执行止损，并关注资金费率和持仓量变化。本次交易属于趋势跟踪的风险中性策略，建议占总加密货币投资组合的比例不超过10%。考虑到当前市场中性情绪，建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position"
+    }
   }
 ]
