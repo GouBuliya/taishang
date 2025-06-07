@@ -1,21 +1,21 @@
-2025/06/07-18:17:23.216 b2a9 Reusing MANIFEST /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/MANIFEST-000001
-2025/06/07-18:17:23.216 b2a9 Recovering log #23
-2025/06/07-18:17:23.216 b2a9 Reusing old log /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/000023.log 
-2025/06/07-18:17:48.157 b2aa Level-0 table #27: started
-2025/06/07-18:17:48.158 b2aa Level-0 table #27: 825703 bytes OK
-2025/06/07-18:17:48.159 b2aa Delete type=0 #23
-2025/06/07-18:17:49.557 b2aa Level-0 table #29: started
-2025/06/07-18:17:49.559 b2aa Level-0 table #29: 820217 bytes OK
-2025/06/07-18:17:49.560 b2aa Delete type=0 #26
-2025/06/07-18:17:49.560 b2aa Compacting 4@0 + 1@1 files
-2025/06/07-18:17:49.561 b2aa Generated table #30@0: 37 keys, 825704 bytes
-2025/06/07-18:17:49.561 b2aa Compacted 4@0 + 1@1 files => 825704 bytes
-2025/06/07-18:17:49.562 b2aa compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/06/07-18:17:49.562 b2aa Delete type=2 #27
-2025/06/07-18:17:49.562 b2aa Delete type=2 #22
-2025/06/07-18:17:49.562 b2aa Delete type=2 #29
-2025/06/07-18:17:49.562 b2aa Delete type=2 #24
-2025/06/07-18:17:49.562 b2aa Delete type=2 #19
-2025/06/07-18:17:53.014 b2a9 Level-0 table #32: started
-2025/06/07-18:17:53.018 b2a9 Level-0 table #32: 820540 bytes OK
-2025/06/07-18:17:53.019 b2a9 Delete type=0 #28
+2025/06/07-18:24:23.393 be42 Reusing MANIFEST /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/MANIFEST-000001
+2025/06/07-18:24:23.393 be42 Recovering log #23
+2025/06/07-18:24:23.393 be42 Reusing old log /home/li-xufeng/codespace/taishang/src/chrome_profile/Default/shared_proto_db/000023.log 
+2025/06/07-18:24:47.946 be44 Level-0 table #27: started
+2025/06/07-18:24:47.947 be44 Level-0 table #27: 831029 bytes OK
+2025/06/07-18:24:47.948 be44 Delete type=0 #23
+2025/06/07-18:24:48.425 be43 Level-0 table #29: started
+2025/06/07-18:24:48.427 be43 Level-0 table #29: 825487 bytes OK
+2025/06/07-18:24:48.428 be43 Delete type=0 #26
+2025/06/07-18:24:48.428 be43 Compacting 4@0 + 1@1 files
+2025/06/07-18:24:48.430 be43 Generated table #30@0: 37 keys, 830983 bytes
+2025/06/07-18:24:48.431 be43 Compacted 4@0 + 1@1 files => 830983 bytes
+2025/06/07-18:24:48.431 be43 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/06/07-18:24:48.431 be43 Delete type=2 #27
+2025/06/07-18:24:48.431 be43 Delete type=2 #22
+2025/06/07-18:24:48.431 be43 Delete type=2 #29
+2025/06/07-18:24:48.431 be43 Delete type=2 #24
+2025/06/07-18:24:48.431 be43 Delete type=2 #19
+2025/06/07-18:24:53.242 be42 Level-0 table #32: started
+2025/06/07-18:24:53.245 be42 Level-0 table #32: 825754 bytes OK
+2025/06/07-18:24:53.246 be42 Delete type=0 #28

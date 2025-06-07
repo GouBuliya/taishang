@@ -45,99 +45,158 @@ def set_take_profit_stop_loss(
     instrument_id: str, 
     pos_side: str,
     size: float,
-    stop_loss: Optional[float] = None, 
-    take_profits: Optional[List[Dict[str, Union[float, float]]]] = None
+    stop_loss: Optional[Union[float, str]] = None, 
+    take_profits: Optional[List[Dict[str, Union[float, str, float]]]] = None
 ) -> Dict:
     """
     设置止盈止损单，支持分级止盈
     :param instrument_id: 合约ID
     :param pos_side: 持仓方向 long/short（用于确定止盈止损方向）
     :param size: 持仓数量
-    :param stop_loss: 止损价格（可为None）
+    :param stop_loss: 止损价格（可为None或"N/A"）
     :param take_profits: 止盈列表，每个元素包含 price (价格) 和 size (数量) （可为None）
-                        示例: [{"price": 2450.0, "size": 38.83}, {"price": 2420.0, "size": 38.83}]
+                        示例: [{"price": 2450.0, "size": 38.83}, {"price": "N/A", "size": 38.83}]
     :return: 下单结果dict
     """
     try:
         results = []
         min_lot_size = 0.1  # ETH合约的最小交易单位
         
-        # 设置分级止盈止损
-        if take_profits and stop_loss is not None:
-            # 验证总止盈数量不超过持仓数量
-            total_tp_size = sum(float(tp["size"]) for tp in take_profits)
-            if total_tp_size > size + 0.1:  # 允许0.1的误差
-                logger.error(f"止盈总数量({total_tp_size})超过持仓数量({size})")
-                return {"success": False, "error": "止盈总数量超过持仓数量", "response": None}
-
-            for i, tp in enumerate(take_profits):
+        # 验证和转换止损价格
+        has_valid_stop_loss = False
+        if stop_loss is not None:
+            if str(stop_loss).upper() == "N/A":
+                logger.info("止损价格为N/A，跳过止损设置")
+                stop_loss = None
+            else:
                 try:
-                    price = float(tp["price"])
-                    tp_size = float(tp["size"])
+                    stop_loss = float(stop_loss)
+                    has_valid_stop_loss = stop_loss > 0
+                    if not has_valid_stop_loss:
+                        logger.warning("止损价格必须大于0")
+                        stop_loss = None
+                except (TypeError, ValueError):
+                    logger.warning(f"无效的止损价格: {stop_loss}")
+                    stop_loss = None
+
+        # 验证和处理止盈列表
+        if take_profits:
+            # 验证总止盈数量不超过持仓数量
+            valid_tps = []
+            total_tp_size = 0
+            
+            for tp in take_profits:
+                try:
+                    price = tp.get("price")
+                    if price is None or str(price).upper() == "N/A":
+                        logger.info(f"跳过无效止盈价格: {price}")
+                        continue
+                        
+                    price = float(price)
+                    tp_size = float(tp.get("size", 0))
                     
-                    if price <= 0 or tp_size <= 0:
-                        logger.error(f"无效的止盈配置: 价格={price}, 数量={tp_size}")
+                    if price <= 0:
+                        logger.warning(f"止盈价格必须大于0: {price}")
                         continue
                     
-                    # 将数量转换为最小交易单位的整数倍
-                    lots = round(tp_size / min_lot_size)  # 四舍五入到最接近的完整单位
-                    actual_size = lots * min_lot_size
+                    if tp_size <= 0:
+                        logger.warning(f"止盈数量必须大于0: {tp_size}")
+                        continue
+                        
+                    # 计算lots（向下取整到最小交易单位的倍数）
+                    lots = int(tp_size / min_lot_size) * min_lot_size
+                    if lots < min_lot_size:
+                        logger.warning(f"止盈数量{tp_size}小于最小交易单位{min_lot_size}")
+                        continue
+                        
+                    total_tp_size += lots
+                    if total_tp_size > size:
+                        logger.warning(f"总止盈数量{total_tp_size}超过持仓数量{size}")
+                        # 调整最后一个止盈数量
+                        lots = max(min_lot_size, size - (total_tp_size - lots))
+                        total_tp_size = size
+                        
+                    valid_tps.append({
+                        "price": price,
+                        "size": lots,
+                        "lots": lots
+                    })
                     
-                except (TypeError, ValueError, KeyError) as e:
-                    logger.error(f"处理止盈配置时出错: {str(e)}")
+                except (TypeError, ValueError) as e:
+                    logger.warning(f"处理止盈订单时出错: {e}")
                     continue
-
-                # 跳过数量为0的订单
-                if lots <= 0:
-                    logger.warning(f"跳过数量为0的止盈订单: 价格={price}")
-                    continue
-
-                # 记录详细的数量信息用于调试
-                logger.debug(f"数量计算: 目标数量={tp_size}, lots={lots}, 实际数量={actual_size}")
-
-                # 根据持仓方向设置订单方向
-                side = "sell" if pos_side == "long" else "buy"  # 止盈/止损时平仓
-
+            
+            take_profits = valid_tps
+            
+            # 如果没有有效的止盈订单，返回空结果
+            if not take_profits:
+                logger.info("没有有效的止盈订单")
+                return {"success": True, "results": [], "message": "No valid take profit orders"}
+            
+            # 执行止盈止损订单
+            for i, tp in enumerate(take_profits):
+                # 设置订单参数
                 params = {
                     "instId": instrument_id,
                     "tdMode": "cross",
-                    "side": side,           # 订单方向
-                    "ordType": "conditional",  # 使用条件单，不使用OCO
-                    "sz": str(lots),        # 使用lots作为数量单位
-                    "tpTriggerPx": str(price),  # 止盈触发价
-                    "tpOrdPx": "-1"         # 市价止盈
+                    "sz": str(tp["size"])
                 }
                 
-                # 对于第一个订单添加止损
-                if i == 0:
+                # 第一个止盈可以带止损（OCO订单）
+                if i == 0 and has_valid_stop_loss:
+                    # OCO订单（组合止盈止损）
                     params.update({
-                        "ordType": "oco",   # 第一个订单使用OCO类型
-                        "slTriggerPx": str(stop_loss),  # 止损触发价
-                        "slOrdPx": "-1"     # 市价止损
+                        "ordType": "conditional",
+                        "tpTriggerPx": str(tp["price"]),
+                        "tpOrdPx": str(tp["price"]),
+                        "slTriggerPx": str(stop_loss),
+                        "slOrdPx": str(stop_loss),
+                        "tpTriggerPxType": "last",  # 最新价格触发
+                        "slTriggerPxType": "last"   # 最新价格触发
                     })
+                else:
+                    # 普通条件单（止盈）
+                    params.update({
+                        "ordType": "conditional",
+                        "tpTriggerPx": str(tp["price"]),
+                        "tpOrdPx": str(tp["price"]),
+                        "tpTriggerPxType": "last"  # 最新价格触发
+                    })
+                
+                # 设置触发方向
+                if pos_side == "long":
+                    params["side"] = "sell"
+                else:
+                    params["side"] = "buy"
+                params["posSide"] = "net"  # OKX API需要使用'net'作为持仓方向
                 
                 result = tradeAPI.place_algo_order(**params)
                 if result.get('code') != '0':
                     error_msg = result.get('msg', '未知错误')
-                    logger.error(f"{'OCO' if i == 0 else '条件'}订单下单失败，错误信息：{error_msg}")
+                    logger.error(f"{'OCO' if i == 0 and has_valid_stop_loss else '条件'}订单下单失败，错误信息：{error_msg}")
                     return {"success": False, "error": error_msg, "response": result}
                 
-                logger.info(f"{'OCO' if i == 0 else '条件'}订单设置成功: 止盈价格={price}" + 
-                          (f", 止损价格={stop_loss}" if i == 0 else "") + 
-                          f", 数量={actual_size} ({lots} lots)")
+                logger.info(
+                    f"{'OCO' if i == 0 and has_valid_stop_loss else '条件'}订单设置成功: " +
+                    f"止盈价格={tp['price']}" +
+                    (f", 止损价格={stop_loss}" if i == 0 and has_valid_stop_loss else "") +
+                    f", 数量={tp['size']} ({tp['lots']} lots)"
+                )
+                
                 results.append({
-                    "type": "oco" if i == 0 else "conditional",
-                    "take_profit_price": price,
-                    "stop_loss_price": stop_loss if i == 0 else None,
-                    "size": actual_size,
-                    "lots": lots,
+                    "type": "oco" if i == 0 and has_valid_stop_loss else "conditional",
+                    "take_profit_price": tp["price"],
+                    "stop_loss_price": stop_loss if i == 0 and has_valid_stop_loss else None,
+                    "size": tp["size"],
+                    "lots": tp["lots"],
                     "result": result
                 })
 
         if not results:
-            return {"success": False, "error": "未设置任何止盈止损", "response": None}
-
+            return {"success": True, "results": [], "message": "No orders placed"}
+            
         return {"success": True, "results": results}
+        
     except Exception as e:
-        logger.error(f"设置止盈止损失败，错误信息：{str(e)}")
+        logger.error(f"设置止盈止损失败: {e}")
         return {"success": False, "error": str(e), "response": None}
