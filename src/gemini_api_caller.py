@@ -74,7 +74,7 @@ timing_data = {
 }
 
 # 推荐用 GEMINI_API_KEY 作为环境变量名
-api_key_index = 1
+api_key_index = 2
 api_key_list = config["gemini_api_key_set"]
 api_key_str="gemini_api_key_"+str(api_key_index)
 API_KEY = api_key_list[api_key_str]
@@ -571,7 +571,7 @@ if __name__ == "__main__":
             logger.info(f"{MODULE_TAG}本轮可用工具列表为空。")
         if get_time_call_count >= 2:
             tools_to_remove_names.append("gettime")
-        if get_transaction_history_call_count >= 2:
+        if get_transaction_history_call_count >= 0:
             tools_to_remove_names.append("gettransactionhistory")
         if execute_python_code_call_count >= 3:
             tools_to_remove_names.append("executepythoncode")

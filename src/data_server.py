@@ -198,7 +198,7 @@ def set_timeframe_and_screenshot(timeframe: str) -> str | None:
         # 1. 激活页面
         body = driver.find_element(By.TAG_NAME, 'body')
         body.click()
-        time.sleep(1)  # 等待页面响应
+        time.sleep(5)  # 等待页面响应
 
         # 2. 输入时间周期
         actions = ActionChains(driver)
@@ -206,13 +206,13 @@ def set_timeframe_and_screenshot(timeframe: str) -> str | None:
             actions.send_keys(digit)
         actions.send_keys(Keys.ENTER)
         actions.perform()
-        time.sleep(0.1)  # 等待时间周期切换
+        time.sleep(2)  # 等待时间周期切换
 
         # 3. 触发截图快捷键
         actions = ActionChains(driver)
         actions.key_down(Keys.CONTROL).key_down(Keys.ALT).send_keys('s').key_up(Keys.ALT).key_up(Keys.CONTROL).perform()
         logger.info(f'已为{timeframe}分钟周期触发截图')
-        time.sleep(0.1)  # 等待截图保存
+        time.sleep(0.5)  # 等待截图保存
 
         # 4. 检查并保存截图
         now_ts = time.time()

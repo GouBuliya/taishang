@@ -4,11 +4,13 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 import subprocess
 import time
+import datetime
 import requests
 import logging
 import json
 from src.main_get import main as get_main
 from src.auto_trader import main as auto_trade_main  # 添加自动交易模块导入
+import datetime
 
 # Configure logging (similar to other scripts for consistency)
 config = json.load(open("config/config.json", "r"))
@@ -122,12 +124,9 @@ if __name__ == "__main__":
         exit(1)
 
     # 2. 等待服务器启动完成并自检通过
-    # Give the server a moment to start listening before health checks
     time.sleep(15) # Initial wait
     if not wait_for_server(HEALTH_ENDPOINT, timeout=120, retry_interval=10): # Increased timeout and interval
         logger.critical("数据服务器未能在规定时间内启动并自检通过，主控脚本退出。")
-        # Optionally terminate the server process if it's still running
-        # server_process.terminate()
         exit(1)
 
     # 运行一次数据收集模块作为自检
@@ -137,23 +136,40 @@ if __name__ == "__main__":
 
     # 3. 循环运行数据收集、Gemini API调用和自动交易系统
     logger.info("开始循环运行数据收集、Gemini API调用和自动交易系统...")
+    
+    def should_run():
+        """检查是否应该执行交易流程"""
+        current_minute = datetime.datetime.now().minute
+        return current_minute % 15 == 0
+
+    last_run_minute = -1  # 用于记录上次运行时的分钟数
+    
     while True:
         try:
-            # 运行数据收集
-            logger.info("正在运行数据收集模块 (main_get.py)...")
-            get_main()
-            logger.info("数据收集模块运行完成。")
+            current_minute = datetime.datetime.now().minute
+            
+            # 只有在当前分钟数是15的倍数，且不是上一分钟刚运行过时，才执行
+            if current_minute % 15 == 0 and current_minute != last_run_minute:
+                logger.info(f"当前时间：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}，开始执行交易流程")
+                
+                # 运行数据收集
+                logger.info("正在运行数据收集模块 (main_get.py)...")
+                get_main()
+                logger.info("数据收集模块运行完成。")
 
-            # 运行Gemini API调用
-            if run_gemini_api_caller():
-                # 只有在Gemini API调用成功时才运行自动交易
-                run_auto_trader()
-            else:
-                logger.error("由于Gemini API调用失败，跳过自动交易")
+                # 运行Gemini API调用
+                if run_gemini_api_caller():
+                    # 只有在Gemini API调用成功时才运行自动交易
+                    run_auto_trader()
+                else:
+                    logger.error("由于Gemini API调用失败，跳过自动交易")
+                    
+                last_run_minute = current_minute  # 更新上次运行时间
+                logger.info(f"交易流程执行完成，等待下一个15分钟间隔")
 
         except Exception as e:
             logger.error(f"主循环执行过程中发生错误: {e}")
             logger.exception(e)
 
-        # 添加延迟避免过于频繁的请求
-        time.sleep(60)  # 每分钟运行一次
+        # 添加短暂延迟避免CPU过度使用
+        time.sleep(10)  # 每10秒检查一次时间
