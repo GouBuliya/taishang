@@ -29,17 +29,19 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 
 def main():
     screenshot_server_url = "http://127.0.0.1:5002/screenshot"
-    filepath = None
+    screenshots = {}
 
     try:
         logger.info(f"正在请求截图服务器: {screenshot_server_url}")
-        response = requests.get(screenshot_server_url, timeout=90) # Increased timeout
-        response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
+        response = requests.get(screenshot_server_url, timeout=90)
+        response.raise_for_status()
         
         data = response.json()
-        if data.get("status") == "success" and "filepath" in data:
-            filepath = data["filepath"]
-            logger.info(f"截图服务器返回成功，图片路径: {filepath}")
+        if data.get("status") == "success" and "screenshots" in data:
+            screenshots = data["screenshots"]
+            logger.info(f"截图服务器返回成功，获取到{len(screenshots)}个时间周期的截图")
+            for timeframe, filepath in screenshots.items():
+                logger.info(f"{timeframe}分钟周期的图片路径: {filepath}")
         else:
             logger.error(f"截图服务器返回错误或非预期响应: {data}")
 
@@ -54,12 +56,12 @@ def main():
     except Exception as e:
         logger.error(f"调用截图服务器异常: {e}")
 
-    return filepath
+    return screenshots
 
 if __name__ == '__main__':
     logger.info('__main__ 入口被执行 (客户端模式)')
     result = main()
     if result:
-        print(result) # Main.py expects a path printed to stdout
+        print(json.dumps(result))  # 将字典格式化为JSON字符串输出
     else:
         logger.error('截图失败')

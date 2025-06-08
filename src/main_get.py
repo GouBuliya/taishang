@@ -59,19 +59,34 @@ def extract_first_json(text):
 
 def run_tradingview_screenshot():
     """
-    通过HTTP请求调用截图服务器，返回截图文件路径（如成功），否则返回 None。
+    通过HTTP请求调用截图服务器，返回包含所有时间周期截图路径的字典。
+    
+    返回:
+        dict: 包含所有时间周期截图路径的字典，格式为：
+        {
+            "15m": "/path/to/15min.png",
+            "1h": "/path/to/1hour.png",
+            "4h": "/path/to/4hour.png"
+        }
+        如果失败则返回 None
     """
     screenshot_server_url = "http://127.0.0.1:5002/screenshot"
     try:
         logger.info(f"正在请求截图服务器: {screenshot_server_url}")
-        response = requests.get(screenshot_server_url, timeout=60) # Increased timeout
-        response.raise_for_status() # Raise an HTTPError for bad responses (4xx or 5xx)
+        response = requests.get(screenshot_server_url, timeout=60)
+        response.raise_for_status()
         
         data = response.json()
-        if data.get("status") == "success" and "filepath" in data:
-            filepath = data["filepath"]
-            logger.info(f"截图服务器返回成功，图片路径: {filepath}")
-            return filepath
+        if data.get("status") == "success" and "screenshots" in data:
+            screenshots = data["screenshots"]
+            # 转换时间周期格式：15 -> 15m, 60 -> 1h, 240 -> 4h
+            formatted_screenshots = {
+                "15m": screenshots.get("15"),
+                "1h": screenshots.get("60"),
+                "4h": screenshots.get("240")
+            }
+            logger.info(f"截图服务器返回成功，获取到{len(screenshots)}个时间周期的截图")
+            return formatted_screenshots
         else:
             logger.error(f"截图服务器返回错误或非预期响应: {data}")
             return None
@@ -85,7 +100,7 @@ def run_tradingview_screenshot():
         logger.error(f"请求截图服务器异常: {e}")
         return None
     except json.JSONDecodeError:
-        logger.error(f"截图服务器返回非JSON响应: {response.text}")
+        logger.error(f"截图服务器返回非JSON响应: {response.text if 'response' in locals() else '无响应内容'}")
         return None
     except Exception as e:
         logger.error(f"调用截图服务器异常: {e}")
@@ -151,12 +166,12 @@ def main():
         results["okx_positions"] = {}
 
     merged = {
-        "clipboard_image_path": results["screenshot"] if results["screenshot"] else "",
+        "screenshots": results["screenshot"] if results["screenshot"] else {},  # 现在是字典格式，包含所有时间周期的截图
         "indicators_main": results["indicators"] if isinstance(results["indicators"], dict) else {},
         "factors_main": results["factors"] if isinstance(results["factors"], dict) else {},
         "data_summary": results["market_data"],
         "okx_positions": results["okx_positions"],
-        "timestamp": datetime.now(timezone.utc).replace(microsecond=0).astimezone(timezone(timedelta(hours=8))).isoformat() # 东八区时间
+        "timestamp": datetime.now(timezone.utc).replace(microsecond=0).astimezone(timezone(timedelta(hours=8))).isoformat()
     }
     # 写入 data.json
     data_path = config["data_path"]

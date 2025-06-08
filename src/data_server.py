@@ -183,9 +183,64 @@ def initialize_browser():
             traceback.print_exc()
             return False # 遇到非 WebDriverException 错误，直接返回 False
 
+def set_timeframe_and_screenshot(timeframe: str) -> str | None:
+    """
+    设置时间周期并进行截图
+    
+    参数:
+        timeframe: str - 需要设置的时间周期（如 "15" 表示15分钟周期）
+    
+    返回:
+        str | None - 截图文件路径或None（如果失败）
+    """
+    global driver
+    try:
+        # 1. 激活页面
+        body = driver.find_element(By.TAG_NAME, 'body')
+        body.click()
+        time.sleep(1)  # 等待页面响应
+
+        # 2. 输入时间周期
+        actions = ActionChains(driver)
+        for digit in timeframe:
+            actions.send_keys(digit)
+        actions.send_keys(Keys.ENTER)
+        actions.perform()
+        time.sleep(0.1)  # 等待时间周期切换
+
+        # 3. 触发截图快捷键
+        actions = ActionChains(driver)
+        actions.key_down(Keys.CONTROL).key_down(Keys.ALT).send_keys('s').key_up(Keys.ALT).key_up(Keys.CONTROL).perform()
+        logger.info(f'已为{timeframe}分钟周期触发截图')
+        time.sleep(0.1)  # 等待截图保存
+
+        # 4. 检查并保存截图
+        now_ts = time.time()
+        files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
+        valid_files = []
+        for f in files:
+            fpath = os.path.join(downloads_dir, f)
+            mtime = os.path.getmtime(fpath)
+            if now_ts - mtime < 120 and os.path.getsize(fpath) > 1024:
+                valid_files.append((f, mtime))
+        
+        if valid_files:
+            valid_files.sort(key=lambda x: x[1], reverse=True)
+            latest_file = valid_files[0][0]
+            src_path = os.path.join(downloads_dir, latest_file)
+            now = datetime.now().strftime('%Y%m%d_%H%M%S')
+            dst_path = os.path.join(SAVE_DIR, f'tradingview_{timeframe}m_{now}.png')
+            shutil.copy2(src_path, dst_path)
+            return os.path.abspath(dst_path)
+        
+        return None
+    except Exception as e:
+        logger.error(f'设置{timeframe}分钟周期或截图失败: {e}')
+        return None
+
 def take_screenshot_action():
     """
-    执行截图操作并返回文件路径。
+    执行多个时间周期的截图操作并返回文件路径。
     """
     global driver
     if not driver:
@@ -193,77 +248,61 @@ def take_screenshot_action():
         return None
 
     try:
+        # 清理旧截图
         old_files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
         for f in old_files:
             try:
                 os.remove(os.path.join(downloads_dir, f))
             except Exception as e:
                 logger.error(f'删除旧截图失败: {f}, {e}')
-        logger.info(f'旧截图已清理，开始截图流程...')
+        logger.info('旧截图已清理，开始截图流程...')
 
         # 确保浏览器在正确的页面
         if driver.current_url != TRADINGVIEW_URL and not driver.current_url.startswith("https://cn.tradingview.com/chart/"):
             logger.info(f'当前页面不是目标页面，重新导航到: {TRADINGVIEW_URL}')
             driver.get(TRADINGVIEW_URL)
             try:
-                # 使用显式等待，等待页面主要内容加载完成
                 logger.info('等待页面加载完成...')
                 WebDriverWait(driver, 20).until(
-                    EC.visibility_of_element_located((By.ID, "chart-page-content")) # 等待图表主要内容区域可见
+                    EC.visibility_of_element_located((By.ID, "chart-page-content"))
                 )
                 logger.info('页面加载完成，关键元素可见。')
+                time.sleep(2)  # 额外等待以确保页面完全加载
             except Exception as e:
                 logger.error(f'等待页面加载超时或元素未找到: {e}')
-                # 如果等待超时，可以考虑返回 None 或抛出异常
                 return None
 
-        logger.info(f'发送快捷键 Ctrl+Alt+S 触发下载图片...')
-        try:
-            body = driver.find_element(By.TAG_NAME, 'body')
-            body.click()
-            actions = ActionChains(driver)
-            actions.key_down(Keys.CONTROL).key_down(Keys.ALT).send_keys('s').key_up(Keys.ALT).key_up(Keys.CONTROL).perform()
-            logger.info('快捷键已发送')
-        except Exception as e:
-            logger.error(f'快捷键发送失败: {e}')
+        # 依次设置不同的时间周期并截图
+        timeframes = ["15", "60", "240"]  # 15分钟、1小时、4小时
+        screenshots = {}
+        
+        for tf in timeframes:
+            filepath = set_timeframe_and_screenshot(tf)
+            if filepath:
+                screenshots[tf] = filepath
+                logger.info(f'{tf}分钟周期截图成功: {filepath}')
+            else:
+                logger.error(f'{tf}分钟周期截图失败')
+
+        if screenshots:
+            return {
+                "status": "success",
+                "screenshots": screenshots
+            }
+        else:
+            logger.error('所有时间周期的截图均失败')
             return None
 
-        max_retry = 5 # Increased retry attempts
-        for attempt in range(max_retry):
-            time.sleep(0.5) # Increased sleep - This sleep is for waiting for the file system to update, not page elements
-            now_ts = time.time()
-            files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
-            valid_files = []
-            for f in files:
-                fpath = os.path.join(downloads_dir, f)
-                mtime = os.path.getmtime(fpath)
-                if now_ts - mtime < 120 and os.path.getsize(fpath) > 1024: # Increased time window
-                    valid_files.append((f, mtime))
-            if valid_files:
-                valid_files.sort(key=lambda x: x[1], reverse=True)
-                latest_file = valid_files[0][0]
-                src_path = os.path.join(downloads_dir, latest_file)
-                now = datetime.now().strftime('%Y%m%d_%H%M%S')
-                dst_path = os.path.join(SAVE_DIR, f'tradingview_clipboard_{now}.png')
-                shutil.copy2(src_path, dst_path)
-                abs_dst_path = os.path.abspath(dst_path)
-                logger.info(f'K线图片已保存: {abs_dst_path}')
-                return abs_dst_path
-            else:
-                logger.warning(f'第{attempt+1}次未检测到刚刚下载的K线图片，{0.5 if attempt < max_retry - 1 else 0}秒后重试...') # Adjusted sleep message
-                time.sleep(0.5) # Keep a small sleep between file checks
-        logger.error('连续多次未检测到刚刚下载的K线图片（请检查下载权限或快捷键是否生效）')
-        return None
     except Exception as e:
-        logger.error(f'保存K线图片失败: {e}')
+        logger.error(f'截图过程中发生错误: {e}')
         return None
 
 @app.route('/screenshot', methods=['GET'])
 def get_screenshot():
     logger.info("收到截图请求。")
-    filepath = take_screenshot_action()
-    if filepath:
-        return jsonify({"status": "success", "filepath": filepath})
+    result = take_screenshot_action()
+    if result and isinstance(result, dict):
+        return jsonify(result)  # result已经包含了status和screenshots字段
     else:
         return jsonify({"status": "error", "message": "截图失败"}), 500
 
