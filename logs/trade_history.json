@@ -2210,5 +2210,131 @@
       "tp_sl_status": "未设置",
       "tp_sl_error": "等待持仓确认超时"
     }
+  },
+  {
+    "timestamp": "2025-06-08T20:32:07.068523",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "close",
+    "size": 182.28,
+    "price": -9999.0,
+    "order_type": "market",
+    "order_id": "N/A",
+    "stop_loss": null,
+    "take_profits": [],
+    "extra_info": {
+      "operation_comment": "当前市场信号强烈看跌，为避免进一步亏损并顺应趋势，立即平仓现有全部多头头寸。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "平仓操作风险低，旨在止损并为新策略腾出仓位。",
+      "position_action": "close_position"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T20:32:26.590481",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 62.31,
+    "price": 2512.81,
+    "order_type": "limit",
+    "order_id": "2579783098766856192",
+    "stop_loss": null,
+    "take_profits": [],
+    "extra_info": {
+      "operation_comment": "在平仓多头头寸后，根据强劲的短期和中期看跌信号，以及负资金费率，在当前价格附近建立空头头寸。",
+      "expected_winrate": 0.6586,
+      "expected_return": 0.00813,
+      "trade_RR_ratio": 1.3528,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，但趋势明确。需警惕价格未能有效跌破2488 USDT支撑。严格执行止损，并关注资金费率和持仓量变化。",
+      "position_action": "add_position",
+      "tp_sl_status": "未设置",
+      "tp_sl_error": "等待持仓确认超时"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T20:50:48.326063",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "close",
+    "size": 62.31,
+    "price": 2512.81,
+    "order_type": "limit",
+    "order_id": "N/A",
+    "stop_loss": null,
+    "take_profits": [],
+    "extra_info": {
+      "operation_comment": "当前市场强烈看跌，为避免现有挂单无法成交，且抓住当前下跌动能，撤销原先在2512.81的限价卖出订单。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "撤单操作风险低，旨在优化入场策略。",
+      "position_action": "modify_order"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T20:50:49.554509",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 116.1,
+    "price": 2505.0,
+    "order_type": "limit",
+    "order_id": "2579820713352237056",
+    "stop_loss": null,
+    "take_profits": [],
+    "extra_info": {
+      "operation_comment": "根据强劲的短期看跌信号和负资金费率，在价格小幅反弹至2505.00附近时建立空头头寸，以获得更好的入场价和风险回报比。",
+      "expected_winrate": 0.7421,
+      "expected_return": 0.009788,
+      "trade_RR_ratio": 2.0,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，但趋势明确。需警惕价格未能有效跌破2488 USDT支撑。严格执行止损，并关注资金费率和持仓量变化。考虑到当前市场极度贪婪情绪（FGI=62），建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position",
+      "tp_sl_status": "未设置",
+      "tp_sl_error": "TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T21:02:16.411052",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "close",
+    "size": 62.31,
+    "price": 2512.81,
+    "order_type": "limit",
+    "order_id": "2579843779742535680",
+    "stop_loss": null,
+    "take_profits": [],
+    "extra_info": {
+      "operation_comment": "当前市场强烈看跌，为避免现有挂单无法成交，且抓住当前下跌动能，撤销原先在2512.81的限价卖出订单。",
+      "expected_winrate": "N/A",
+      "expected_return": "N/A",
+      "trade_RR_ratio": "N/A",
+      "signal_strength": "N/A",
+      "risk_assessment": "撤单操作风险低，旨在优化入场策略。",
+      "position_action": "modify_order"
+    }
+  },
+  {
+    "timestamp": "2025-06-08T21:02:27.914483",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "short",
+    "size": 116.1,
+    "price": 2505.0,
+    "order_type": "limit",
+    "order_id": "2579843802593103872",
+    "stop_loss": null,
+    "take_profits": [],
+    "extra_info": {
+      "operation_comment": "根据强劲的短期看跌信号和负资金费率，在价格小幅反弹至2505.00附近时建立空头头寸，以获得更好的入场价和风险回报比。",
+      "expected_winrate": 0.7421,
+      "expected_return": 0.009788,
+      "trade_RR_ratio": 2.0,
+      "signal_strength": 0.75,
+      "risk_assessment": "市场波动性较高，但趋势明确。需警惕价格未能有效跌破2488 USDT支撑。严格执行止损，并关注资金费率和持仓量变化。考虑到当前市场极度贪婪情绪（FGI=62），建议避免过度杠杆，并保持部分现金头寸以应对可能的市场情绪逆转或突发消息面冲击。",
+      "position_action": "add_position",
+      "tp_sl_status": "未设置",
+      "tp_sl_error": "TradeAPI.place_order() got an unexpected keyword argument 'triggerPx'"
+    }
   }
 ]

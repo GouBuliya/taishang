@@ -393,7 +393,7 @@ all_function_declarations = []
 
 # 将其他单独的函数声明使用 append 方法添加，确保它们是 FunctionDeclaration 对象
 all_function_declarations.append(types.FunctionDeclaration(**get_initial_data_declaration)) # 新增
-all_function_declarations.append(types.FunctionDeclaration(**get_transaction_history_declaration))
+# all_function_declarations.append(types.FunctionDeclaration(**get_transaction_history_declaration))
 all_function_declarations.append(types.FunctionDeclaration(**get_time_declaration))
 all_function_declarations.append(types.FunctionDeclaration(**executepythoncode_declaration))
 all_function_declarations.append(types.FunctionDeclaration(**analyze_kline_patterns_declaration))
@@ -650,7 +650,7 @@ def tool_self_check():
         mock_kline_data = [
             {"timestamp": "2025-06-07T11:00:00+00:00", "open": 2493.72, "high": 2495.39, "low": 2491.13, "close": 2492.88, "volume": 145236.19, "RSI": 32.34, "MACD_macd": -5.51, "MACD_signal": -4.49, "ATR": 7.69, "ADX": 30.83, "Stoch_K": 7.65, "Stoch_D": 15.36, "StochRSI_K": 41.73, "StochRSI_D": 45.46, "BB_upper": 2522.57, "BB_middle": 2505.20, "BB_lower": 2487.83, "EMA5": 2495.39, "EMA21": 2503.21, "EMA55": 2509.73, "EMA144": 2513.04, "EMA200": 2513.57, "VWAP": 2513.87},
             {"timestamp": "2025-06-07T11:15:00+00:00", "open": 2492.88, "high": 2499.86, "low": 2492.05, "close": 2495.70, "volume": 336244.84, "RSI": 36.60, "MACD_macd": -5.30, "MACD_signal": -4.23, "ATR": 8.17, "ADX": 30.73, "Stoch_K": 17.12, "Stoch_D": 15.87, "StochRSI_K": 44.42, "StochRSI_D": 40.75, "BB_upper": 2524.04, "BB_middle": 2506.54, "BB_lower": 2489.04, "EMA5": 2496.64, "EMA21": 2504.24, "EMA55": 2510.36, "EMA144": 2513.32, "EMA200": 2513.78, "VWAP": 2514.05},
-            # 确保有足够的K线数据，至少15条，这里只是示例15条
+            # 确保有足够的K线数据，至少15条，这里只是示例10条
             {"timestamp": "2025-06-07T11:30:00+00:00", "open": 2495.70, "high": 2500.00, "low": 2494.00, "close": 2498.50, "volume": 200000.00, "RSI": 40.00, "MACD_macd": -5.00, "MACD_signal": -4.00, "ATR": 8.50, "ADX": 31.00, "Stoch_K": 25.00, "Stoch_D": 20.00, "StochRSI_K": 50.00, "StochRSI_D": 45.00, "BB_upper": 2525.00, "BB_middle": 2507.00, "BB_lower": 2490.00, "EMA5": 2497.50, "EMA21": 2505.00, "EMA55": 2511.00, "EMA144": 2514.00, "EMA200": 2514.00, "VWAP": 2514.50},
             {"timestamp": "2025-06-07T11:45:00+00:00", "open": 2498.50, "high": 2505.00, "low": 2497.00, "close": 2503.00, "volume": 300000.00, "RSI": 45.00, "MACD_macd": -4.50, "MACD_signal": -3.50, "ATR": 9.00, "ADX": 32.00, "Stoch_K": 35.00, "Stoch_D": 30.00, "StochRSI_K": 60.00, "StochRSI_D": 55.00, "BB_upper": 2528.00, "BB_middle": 2509.00, "BB_lower": 2492.00, "EMA5": 2499.00, "EMA21": 2506.00, "EMA55": 2512.00, "EMA144": 2515.00, "EMA200": 2515.00, "VWAP": 2515.50},
             {"timestamp": "2025-06-07T12:00:00+00:00", "open": 2503.00, "high": 2510.00, "low": 2502.00, "close": 2508.00, "volume": 400000.00, "RSI": 50.00, "MACD_macd": -4.00, "MACD_signal": -3.00, "ATR": 9.50, "ADX": 33.00, "Stoch_K": 45.00, "Stoch_D": 40.00, "StochRSI_K": 70.00, "StochRSI_D": 65.00, "BB_upper": 2530.00, "BB_middle": 2511.00, "BB_lower": 2494.00, "EMA5": 2505.00, "EMA21": 2508.00, "EMA55": 2513.00, "EMA144": 2516.00, "EMA200": 2516.00, "VWAP": 2516.50},
