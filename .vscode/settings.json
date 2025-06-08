@@ -2,6 +2,7 @@
     "python.analysis.extraPaths": [
         "./function",
         "./tests/test_",
-        "./tests/test_"
+        "./tests/test_",
+        "./function"
     ]
 }

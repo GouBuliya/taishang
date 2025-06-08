@@ -1,4 +1,4 @@
-#ETH
+# 本文件用于作为主控脚本，依次调用技术指标采集和宏观因子采集脚本，合并输出为标准化JSON，供GUI等模块调用。
 
 import pandas as pd
 import datetime
@@ -89,10 +89,13 @@ def _calculate_adx(df, length=14):
     minus_dm = (df['low'].shift(1) - df['low']).clip(lower=0)
 
     plus_dm[(plus_dm > minus_dm) & (plus_dm > 0)] = plus_dm
-    plus_dm[(minus_dm > plus_dm) & (minus_dm > 0)] = 0
-
     minus_dm[(minus_dm > plus_dm) & (minus_dm > 0)] = minus_dm
-    minus_dm[(plus_dm > minus_dm) & (plus_dm > 0)] = 0
+    # 修正：当其中一个为0时，另一个不应被清零
+    # 原始逻辑可能导致错误，这里简化为直接计算
+    # plus_dm = (df['high'] - df['high'].shift(1)).apply(lambda x: x if x > 0 else 0)
+    # minus_dm = (df['low'].shift(1) - df['low']).apply(lambda x: x if x > 0 else 0)
+    # true_plus_dm = plus_dm.where(plus_dm > minus_dm, 0)
+    # true_minus_dm = minus_dm.where(minus_dm > plus_dm, 0)
 
     tr = df['high'] - df['low']
     tr = pd.concat([tr, abs(df['high'] - df['close'].shift(1)), abs(df['low'] - df['close'].shift(1))], axis=1).max(axis=1)
@@ -110,7 +113,11 @@ def _calculate_stoch(df, k_period=14, d_period=3):
     lowest_low = df['low'].rolling(window=k_period).min()
     highest_high = df['high'].rolling(window=k_period).max()
     
-    k = ((df['close'] - lowest_low) / (highest_high - lowest_low)) * 100
+    # 避免除以零
+    denominator = (highest_high - lowest_low)
+    k = ((df['close'] - lowest_low) / denominator) * 100
+    k = k.replace([np.inf, -np.inf], np.nan).fillna(0) # 处理可能出现的inf或nan
+    
     d = _calculate_sma(k, d_period)
     return k, d
 
@@ -120,7 +127,11 @@ def _calculate_stoch_rsi(df, rsi_period=14, k_period=14, d_period=3):
     lowest_rsi = rsi_val.rolling(window=k_period).min()
     highest_rsi = rsi_val.rolling(window=k_period).max()
     
-    k = ((rsi_val - lowest_rsi) / (highest_rsi - lowest_rsi)) * 100
+    # 避免除以零
+    denominator = (highest_rsi - lowest_rsi)
+    k = ((rsi_val - lowest_rsi) / denominator) * 100
+    k = k.replace([np.inf, -np.inf], np.nan).fillna(0) # 处理可能出现的inf或nan
+    
     d = _calculate_sma(k, d_period)
     return k, d
 
@@ -157,6 +168,7 @@ marketDataAPI = Market(flag=flag)
 def _collect_indicators_for_period(label, okx_bar_string):
     """
     为单个时间周期获取数据并计算技术指标。
+    返回指定数量的最新K线数据，每条K线包含其OHLCV和所有计算出的技术指标。
     """
     logger.info(f"正在获取 {TARGET_SYMBOL_INST} 在 {label} ({okx_bar_string}) 周期的数据...")
     try:
@@ -173,7 +185,7 @@ def _collect_indicators_for_period(label, okx_bar_string):
         # --- 新增：K线数据有效性检查 ---
         if not ohlcv_raw or len(ohlcv_raw) == 0:
             logger.warning(f"{label} 周期未获取到任何K线数据，跳过。返回内容: {ohlcv_raw}")
-            return label, None
+            return label, [] # 返回空列表
 
         # 按官方文档顺序映射字段
         df = pd.DataFrame(ohlcv_raw, columns=[
@@ -203,67 +215,77 @@ def _collect_indicators_for_period(label, okx_bar_string):
 
         # 处理NaN
         # 在计算指标后，DataFrame的开头可能会有NaN值。确保提取最新K线时，这些值是有效的。
-        # fillna(method='ffill') 填充前向NaN
-        # fillna(0) 填充开头的NaN
-        df = df.ffill().fillna(0)  # FutureWarning优化
+        df = df.ffill().fillna(0)  # 填充前向NaN，然后填充开头的NaN
 
-        # --- 新增：异常保护，防止df为空时报错 ---
+        # --- 提取最新的 15 条 K 线数据 ---
+        num_klines_to_return = 10
         if df.shape[0] == 0:
-            logger.error(f"{label} 周期DataFrame为空，无法提取最新K线。原始K线长度: {len(ohlcv_raw)}，内容片段: {ohlcv_raw[:3]}")
-            return label, None
+            logger.error(f"{label} 周期DataFrame为空，无法提取K线。原始K线长度: {len(ohlcv_raw)}，内容片段: {ohlcv_raw[:3]}")
+            return label, []
 
-        latest_kline = df.iloc[-1]  # 获取最新一根K线
+        # 确保至少有 num_klines_to_return 条数据，否则返回所有可用的
+        if df.shape[0] < num_klines_to_return:
+            logger.warning(f"{label} 周期可用K线不足 {num_klines_to_return} 条 ({df.shape[0]} 条)，将返回所有可用K线。")
+            last_n_klines_df = df
+        else:
+            last_n_klines_df = df.iloc[-num_klines_to_return:]
 
         # 组装输出JSON结构
-        period_data = {
-            "indicators": {
-                "ticker": TARGET_SYMBOL_INST,
-                "name": TARGET_SYMBOL_JSON.split(':')[-1],
-                "close": float(latest_kline["close"]),
-                "volume": float(latest_kline["volume"]),
-                "RSI": float(latest_kline.get("RSI", 0)),
-                "MACD_macd": float(latest_kline.get("MACD_macd", 0)),
-                "MACD_signal": float(latest_kline.get("MACD_signal", 0)),
-                "ATR": float(latest_kline.get("ATR", 0)),
-                "ADX": float(latest_kline.get("ADX", 0)),
-                "Stoch_K": float(latest_kline.get("Stoch_K", 0)),
-                "Stoch_D": float(latest_kline.get("Stoch_D", 0)),
-                "StochRSI_K": float(latest_kline.get("StochRSI_K", 0)),
-                "StochRSI_D": float(latest_kline.get("StochRSI_D", 0)),
-                "BB_upper": float(latest_kline.get("BB_upper", 0)),
-                "BB_lower": float(latest_kline.get("BB_lower", 0)),
-                "BB_middle": float(latest_kline.get("BB_middle", 0)),
-                "EMA5": float(latest_kline.get("EMA5", 0)),
-                "EMA21": float(latest_kline.get("EMA21", 0)),
-                "EMA55": float(latest_kline.get("EMA55", 0)),
-                "EMA144": float(latest_kline.get("EMA144", 0)),
-                "EMA200": float(latest_kline.get("EMA200", 0)),
-                "VWAP": float(latest_kline.get("VWAP", 0)),
+        period_data_list = []
+        for index, row in last_n_klines_df.iterrows():
+            kline_data = {
+                "开盘时间": index.isoformat(), # 将时间戳转换为ISO格式字符串
+                "open": float(row["open"]),
+                "high": float(row["high"]),
+                "low": float(row["low"]),
+                "close": float(row["close"]),
+                "volume": float(row["volume"]),
+                "RSI": float(row.get("RSI", 0)),
+                "MACD_macd": float(row.get("MACD_macd", 0)),
+                "MACD_signal": float(row.get("MACD_signal", 0)),
+                "ATR": float(row.get("ATR", 0)),
+                "ADX": float(row.get("ADX", 0)),
+                "Stoch_K": float(row.get("Stoch_K", 0)),
+                "Stoch_D": float(row.get("Stoch_D", 0)),
+                "StochRSI_K": float(row.get("StochRSI_K", 0)),
+                "StochRSI_D": float(row.get("StochRSI_D", 0)),
+                "BB_upper": float(row.get("BB_upper", 0)),
+                "BB_lower": float(row.get("BB_lower", 0)),
+                "BB_middle": float(row.get("BB_middle", 0)),
+                "EMA5": float(row.get("EMA5", 0)),
+                "EMA21": float(row.get("EMA21", 0)),
+                "EMA55": float(row.get("EMA55", 0)),
+                "EMA144": float(row.get("EMA144", 0)),
+                "EMA200": float(row.get("EMA200", 0)),
+                "VWAP": float(row.get("VWAP", 0)),
             }
-        }
-        logger.info(f"成功获取并处理 {label} 周期的数据。")
-        return label, period_data
+            period_data_list.append(kline_data)
+
+        logger.info(f"成功获取并处理 {label} 周期的数据，共 {len(period_data_list)} 条K线。")
+        return label, period_data_list
     except Exception as e:
         logger.error(f"获取或处理 {label} 周期数据失败: {e}")
-        return label, None
+        return label, [] # 失败时返回空列表
 
 def collect_technical_indicators():
     all_periods_data = {}  # 存放所有周期的结果数据
     # 使用 ThreadPoolExecutor 并行处理不同周期
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(period_map)) as executor:
-        future_to_period = {
-            executor.submit(_collect_indicators_for_period, label, okx_bar_string): label
-            for label, okx_bar_string in period_map.items()
-        }
+        # 存储 Future 对象，并保持与 period_map 相同的顺序
+        ordered_futures = []
+        for label, okx_bar_string in period_map.items():
+            future = executor.submit(_collect_indicators_for_period, label, okx_bar_string)
+            ordered_futures.append((label, future)) # 存储 (label, future) 对
 
-        for future in concurrent.futures.as_completed(future_to_period):
-            period_label = future_to_period[future]
+        # 按照提交的顺序获取结果
+        for label, future in ordered_futures:
             try:
-                label, period_data = future.result()
+                # future.result() 会阻塞直到该任务完成
+                _, period_data = future.result() # _ 忽略返回的 label，因为我们已经有了
                 all_periods_data[label] = period_data
             except Exception as exc:
-                logger.error(f'{period_label} 周期数据采集生成异常: {exc}')
-                all_periods_data[period_label] = None
+                logger.error(f'{label} 周期数据采集生成异常: {exc}')
+                all_periods_data[label] = [] # 确保即使异常也返回空列表
 
     return all_periods_data
 
