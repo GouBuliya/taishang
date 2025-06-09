@@ -317,7 +317,7 @@ def main():
         "factors_main": results["factors"] if isinstance(results["factors"], dict) else {},
         "okx_positions": results["okx_positions"],
         "current_time": results["current_time"]["time"] if isinstance(results["current_time"], dict) and "time" in results["current_time"] else "",
-        "kline_patterns": results["kline_patterns"],
+        "kline_patterns(analyze_kline_patterns)": results["kline_patterns"],
         "tools_performance": results["tools_timing"],
         "timestamp": datetime.now(timezone.utc).replace(microsecond=0).astimezone(timezone(timedelta(hours=8))).isoformat()
     }
