@@ -71,7 +71,6 @@
 ### 1. 输入格式
 
 -   [TEXT]
-    重要！！！初始信息由get_initial_data_declaration工具获取
     ```json
     {
       "timestamp": "2025-05-22T04:33:23+00:00Z",
@@ -138,14 +137,6 @@
     }
     ```
 -   [TOOLS]
-    - 必需调用:
-    *   get_initial_data_declaration
-        -   描述：获取初始市场和交易环境信息，以便开始分析和决策。
-    *   get_time
-        -   描述： 获取当前时间。（只能使用一次）
-    *   analyze_kline_patterns
-        -   描述： 对给定时间周期的K线数据进行数值化模式识别和技术指标分析。此工具将替代对K线图的视觉判断，直接从数值数据中提取K线形态、布林带、EMA排列、RSI和MACD的特征。
-        -   参数： `kline_data_list` (list): 包含K线数据的列表，每项是一个字典。列表应包含至少15条K线，以确保指标计算的完整性。
     - 可选：
         execute_python_code
         -   描述： 代码执行工具（备注如果需要执行代码，请调用此工具）
@@ -157,11 +148,14 @@
         ```
 
 ### 2.通过工具获取必要信息
-*   get_time
-    -   描述： 获取当前时间。（只能使用一次）
-*   **analyze_kline_patterns**
-    -   描述： 对K线数据进行数值化模式识别和技术指标分析。（只能使用一次）
 
+execute_python_code
+        -   描述： 代码执行工具（备注如果需要执行代码，请调用此工具）
+        -   实例：
+        ```
+        第一次调用：输入参数：code="print('Hello, world!')"，输出结果：{"stdout": "Hello, world!", "stderr": "", "returncode": 0, "source": "local_execution"}
+        第二次调用：输入参数：code="print('Hello, world!')"，输出结果：{"stdout": "Hello, world!", "stderr": "", "returncode": 0, "source": "local_execution"}
+        第三次调用：输入参数：code="print('Hello, world!')"，输出结果：{"stdout": "", "stderr": "代码执行工具调用次数超限，请尝试口算完成。", "returncode": 1, "source": "local_execution_limit_exceeded"}
 ### 3. 分析市场并定义市场状态标签
 
 根据AI认知引擎的原则，结合低阶反思中的关键证据和逻辑推导，定义当前市场状态,

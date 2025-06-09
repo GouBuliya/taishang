@@ -159,7 +159,7 @@ period_map = {
     '4h': '4H',
 }#！！！这里千万别动，老娘调了1h！！！！！
 
-KLINES_LIMIT = 300  # 拉取K线数量，需根据API实际限制和分页需求调整
+KLINES_LIMIT = 300  # 获取足够多的K线用于计算长期技术指标
 flag="0" # 实盘: "0" , 模拟盘: "1"
 
 
@@ -172,100 +172,132 @@ def _collect_indicators_for_period(label, okx_bar_string):
     """
     logger.info(f"正在获取 {TARGET_SYMBOL_INST} 在 {label} ({okx_bar_string}) 周期的数据...")
     try:
-        # --- 核心修正：使用 get_history_candles 获取交易价格K线 ---
-        # 这个接口通常有更长的历史数据
-        # 注意：如果 limit=300 仍然不够，则需要在这里实现分页逻辑
         result = marketDataAPI.get_history_candles(
             instId=TARGET_SYMBOL_INST,
             bar=okx_bar_string,
-            limit=str(KLINES_LIMIT), # Convert KLINES_LIMIT to string
+            limit=str(KLINES_LIMIT),
         )
         ohlcv_raw = result['data'] if isinstance(result, dict) and 'data' in result else result
 
-        # --- 新增：K线数据有效性检查 ---
         if not ohlcv_raw or len(ohlcv_raw) == 0:
             logger.warning(f"{label} 周期未获取到任何K线数据，跳过。返回内容: {ohlcv_raw}")
-            return label, [] # 返回空列表
+            return label, []
 
-        # 按官方文档顺序映射字段
+        # 按官方文档顺序映射字段，并确保数值类型正确
         df = pd.DataFrame(ohlcv_raw, columns=[
             'timestamp', 'open', 'high', 'low', 'close', 'volume', 'volCcy', 'volCcyQuote', 'confirm'
         ])
-        # --- FutureWarning优化：确保类型安全 ---
-        df['timestamp'] = pd.to_numeric(df['timestamp'], errors='coerce').astype(np.int64)
+        
+        # 预处理：确保数值列为float类型
+        numeric_columns = ['open', 'high', 'low', 'close', 'volume']
+        for col in numeric_columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+        
+        # 处理时间戳
+        df['timestamp'] = pd.to_numeric(df['timestamp'], errors='coerce')
+        df['format_time'] = pd.to_datetime(df['timestamp'], unit='ms').dt.strftime('%Y-%m-%dT%H:%M:%S+0000')
         df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms', utc=True)
-        df = df.set_index('timestamp')
-        df = df[['open', 'high', 'low', 'close', 'volume']].astype(float) # 确保所需列为浮点数
+        df = df.set_index('timestamp').copy()
+        
+        # 只保留需要的列并确保它们是float类型
+        df = df[['open', 'high', 'low', 'close', 'volume', 'format_time']].astype({
+            'open': float,
+            'high': float,
+            'low': float,
+            'close': float,
+            'volume': float
+        }, errors='ignore')  # 忽略format_time列的类型转换
 
-        # --- 手动计算技术指标 ---
+        # 先反转数据顺序，保证从旧到新计算
+        df = df.iloc[::-1]
+        
+        # 计算所有技术指标
+        # EMA指标 - 从短期到长期
         df['EMA5'] = _calculate_ema(df['close'], 5)
         df['EMA21'] = _calculate_ema(df['close'], 21)
         df['EMA55'] = _calculate_ema(df['close'], 55)
         df['EMA144'] = _calculate_ema(df['close'], 144)
         df['EMA200'] = _calculate_ema(df['close'], 200)
-
-        df['RSI'] = _calculate_rsi(df, 14)
-        df['MACD_macd'], df['MACD_signal'] = _calculate_macd(df)
-        df['ATR'] = _calculate_atr(df, 14)
-        df['ADX'] = _calculate_adx(df, 14)
-        df['Stoch_K'], df['Stoch_D'] = _calculate_stoch(df)
-        df['StochRSI_K'], df['StochRSI_D'] = _calculate_stoch_rsi(df)
-        df['BB_upper'], df['BB_middle'], df['BB_lower'] = _calculate_bbands(df)
+        
+        # RSI和ATR
+        df['RSI'] = _calculate_rsi(df, length=14)  # 标准14周期
+        df['ATR'] = _calculate_atr(df, length=14)
+        
+        # ADX - 趋势强度指标
+        df['ADX'] = _calculate_adx(df, length=14)
+        
+        # MACD
+        df['MACD'], df['MACD_Signal'] = _calculate_macd(df, fast_period=12, slow_period=26, signal_period=9)
+        df['MACD_Hist'] = df['MACD'] - df['MACD_Signal']
+        
+        # Stochastic KD
+        df['Stoch_K'], df['Stoch_D'] = _calculate_stoch(df, k_period=14, d_period=3)
+        
+        # StochRSI
+        df['StochRSI_K'], df['StochRSI_D'] = _calculate_stoch_rsi(df, rsi_period=14, k_period=14, d_period=3)
+        
+        # 布林带
+        upper_band, middle_band, lower_band = _calculate_bbands(df, length=20, std_dev=2.0)
+        df['BB_upper'] = upper_band
+        df['BB_middle'] = middle_band
+        df['BB_lower'] = lower_band
+        
+        # VWAP
         df['VWAP'] = _calculate_vwap(df)
+        
+        # 再次反转回来，让最新数据在前
+        df = df.iloc[::-1]
 
-        # 处理NaN
-        # 在计算指标后，DataFrame的开头可能会有NaN值。确保提取最新K线时，这些值是有效的。
-        df = df.ffill().fillna(0)  # 填充前向NaN，然后填充开头的NaN
-
-        # --- 提取最新的 15 条 K 线数据 ---
-        num_klines_to_return = 10
-        if df.shape[0] == 0:
-            logger.error(f"{label} 周期DataFrame为空，无法提取K线。原始K线长度: {len(ohlcv_raw)}，内容片段: {ohlcv_raw[:3]}")
-            return label, []
-
-        # 确保至少有 num_klines_to_return 条数据，否则返回所有可用的
+        # 提取最新的K线数据
+        num_klines_to_return = 200  # 只返回最新的200根K线
         if df.shape[0] < num_klines_to_return:
-            logger.warning(f"{label} 周期可用K线不足 {num_klines_to_return} 条 ({df.shape[0]} 条)，将返回所有可用K线。")
+            logger.warning(f"{label} 周期可用K线不足 {num_klines_to_return} 条 ({df.shape[0]} 条)")
             last_n_klines_df = df
         else:
             last_n_klines_df = df.iloc[-num_klines_to_return:]
 
-        # 组装输出JSON结构
+        # 组装输出数据
         period_data_list = []
-        for index, row in last_n_klines_df.iterrows():
+        for _, row in last_n_klines_df.iterrows():
             kline_data = {
-                "开盘时间": index.isoformat(), # 将时间戳转换为ISO格式字符串
+                "开盘时间": row["format_time"],
                 "open": float(row["open"]),
                 "high": float(row["high"]),
                 "low": float(row["low"]),
                 "close": float(row["close"]),
                 "volume": float(row["volume"]),
-                "RSI": float(row.get("RSI", 0)),
-                "MACD_macd": float(row.get("MACD_macd", 0)),
-                "MACD_signal": float(row.get("MACD_signal", 0)),
-                "ATR": float(row.get("ATR", 0)),
-                "ADX": float(row.get("ADX", 0)),
-                "Stoch_K": float(row.get("Stoch_K", 0)),
-                "Stoch_D": float(row.get("Stoch_D", 0)),
-                "StochRSI_K": float(row.get("StochRSI_K", 0)),
-                "StochRSI_D": float(row.get("StochRSI_D", 0)),
-                "BB_upper": float(row.get("BB_upper", 0)),
-                "BB_lower": float(row.get("BB_lower", 0)),
-                "BB_middle": float(row.get("BB_middle", 0)),
-                "EMA5": float(row.get("EMA5", 0)),
-                "EMA21": float(row.get("EMA21", 0)),
-                "EMA55": float(row.get("EMA55", 0)),
-                "EMA144": float(row.get("EMA144", 0)),
-                "EMA200": float(row.get("EMA200", 0)),
-                "VWAP": float(row.get("VWAP", 0)),
-            }
+                # 技术指标
+                "RSI": float(row["RSI"]),
+                "BB_upper": float(row["BB_upper"]),
+                "BB_middle": float(row["BB_middle"]),
+                "BB_lower": float(row["BB_lower"]),
+                "EMA5": float(row["EMA5"]),
+                "EMA21": float(row["EMA21"]),
+                "EMA55": float(row["EMA55"]),
+                "EMA144": float(row["EMA144"]),
+                "EMA200": float(row["EMA200"]),
+                "ATR": float(row["ATR"]),
+                "ADX": float(row["ADX"]),
+                "MACD_macd": float(row["MACD"]),
+                "MACD_signal": float(row["MACD_Signal"]),
+                "MACD_hist": float(row["MACD_Hist"]),
+                "Stoch_K": float(row["Stoch_K"]),
+                "Stoch_D": float(row["Stoch_D"]),
+                "StochRSI_K": float(row["StochRSI_K"]),
+                "StochRSI_D": float(row["StochRSI_D"]),
+                "VWAP": float(row["VWAP"]) if "VWAP" in row else None
+            }            
             period_data_list.append(kline_data)
+        
+        # 反转 period_data_list，确保最新的数据在最后
+        period_data_list = period_data_list[::-1]
 
         logger.info(f"成功获取并处理 {label} 周期的数据，共 {len(period_data_list)} 条K线。")
         return label, period_data_list
+
     except Exception as e:
         logger.error(f"获取或处理 {label} 周期数据失败: {e}")
-        return label, [] # 失败时返回空列表
+        return label, []
 
 def collect_technical_indicators():
     all_periods_data = {}  # 存放所有周期的结果数据
@@ -275,17 +307,53 @@ def collect_technical_indicators():
         ordered_futures = []
         for label, okx_bar_string in period_map.items():
             future = executor.submit(_collect_indicators_for_period, label, okx_bar_string)
-            ordered_futures.append((label, future)) # 存储 (label, future) 对
+            ordered_futures.append((label, future))
 
         # 按照提交的顺序获取结果
         for label, future in ordered_futures:
             try:
-                # future.result() 会阻塞直到该任务完成
-                _, period_data = future.result() # _ 忽略返回的 label，因为我们已经有了
-                all_periods_data[label] = period_data
+                _, period_data = future.result()
+                
+                # 过滤并保留所有计算出的指标
+                filtered_period_data = []
+                for kline in period_data:
+                    filtered_kline = {
+                        "开盘时间": kline["开盘时间"],
+                        "open": kline["open"],
+                        "high": kline["high"],
+                        "low": kline["low"],
+                        "close": kline["close"],
+                        "volume": kline["volume"],
+                        "RSI": kline["RSI"],
+                        "BB_upper": kline["BB_upper"],
+                        "BB_lower": kline["BB_lower"],
+                        "BB_middle": kline["BB_middle"],
+                        "EMA5": kline["EMA5"],
+                        "EMA21": kline["EMA21"],
+                        "EMA55": kline["EMA55"],
+                        "EMA144": kline["EMA144"],
+                        "EMA200": kline["EMA200"],
+                        "ATR": kline["ATR"],
+                        "ADX": kline["ADX"],
+                        "MACD": kline["MACD_macd"],
+                        "MACD_Signal": kline["MACD_signal"],
+                        "MACD_Hist": kline["MACD_hist"],
+                        "Stoch_K": kline["Stoch_K"],
+                        "Stoch_D": kline["Stoch_D"],
+                        "StochRSI_K": kline["StochRSI_K"],
+                        "StochRSI_D": kline["StochRSI_D"],
+                        "VWAP": kline.get("VWAP", None)
+                    }
+                    # 只保留非 None 和非 NaN 的值
+                    filtered_kline = {k: float(v) if isinstance(v, (int, float)) and not np.isnan(v) else v 
+                                   for k, v in filtered_kline.items() 
+                                   if v is not None and (not isinstance(v, float) or not np.isnan(v))}
+                    filtered_period_data.append(filtered_kline)
+                
+                all_periods_data[label] = filtered_period_data
             except Exception as exc:
                 logger.error(f'{label} 周期数据采集生成异常: {exc}')
-                all_periods_data[label] = [] # 确保即使异常也返回空列表
+                all_periods_data[label] = []
 
     return all_periods_data
 

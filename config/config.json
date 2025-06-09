@@ -8,6 +8,7 @@
         "https_proxy": "http://127.0.0.1:1080"
     },
     "data_path": "data/data.json",
+    "instId": "ETH-USDT-SWAP",
     "okx":{
         "api_key":"e4690480-5f46-4f5c-9046-bced6c333bf9",
         "secret_key":"7C676520EDE0CF56479E0A13CB110BF8",

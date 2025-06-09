@@ -56,12 +56,19 @@ def get_latest_transactions(config):
         logger.error(f"读取交易日志文件异常: {trade_log_path}, 错误: {e}")
         return json.dumps({"error": f"读取交易日志文件异常: {trade_log_path}, 错误: {e}"})
 
-    # 获取最后3条交易纪录
-    trade_log = trade_log[-3:]
-
+    # 按时间周期分组并获取最后3条交易纪录
+    timeframes = ['15m', '1h', '4h']
+    result = {}
+    
+    for timeframe in timeframes:
+        # 过滤出对应时间周期的交易记录
+        filtered_logs = [log for log in trade_log if log.get('timeframe') == timeframe]
+        # 获取最后3条记录
+        result[timeframe] = filtered_logs[-3:] if filtered_logs else []
+    
     # 转化为json
-    trade_log_json = json.dumps(trade_log, indent=4, ensure_ascii=False)
-    logger.info(f"成功获取最后3条交易纪录: {trade_log_json}") # 添加日志
+    trade_log_json = json.dumps(result, indent=4, ensure_ascii=False)
+    logger.info(f"成功获取多个时间周期的交易记录: {trade_log_json}")
     return trade_log_json
 
 
