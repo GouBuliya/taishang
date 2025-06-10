@@ -15,7 +15,7 @@ LOG_FILE = config["main_log_path"]
 # 防止重复添加handler
 if not logging.getLogger("GeminiQuant").handlers:
     logging.basicConfig(
-        level=logging.WARNING,
+        level=logging.INFO,
         format='[%(filename)s][%(asctime)s] [%(levelname)s] %(message)s',
         datefmt='%H:%M:%S',
         handlers=[logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8'), logging.StreamHandler()]
@@ -49,87 +49,91 @@ def get_balance():
 def get_positions(instrument_id:str=""):#持仓
     res = accountAPI.get_positions(instId=instrument_id) # 显式传递 instId 参数给 API 调用
 
-    ans={}
-    ans['instrument_id']=instrument_id  #标的
-
-    if not res or res.get('code') != '0' or not res.get('data'):
-        # 如果返回数据为空，或者code不是0，或者data列表为空
-        ans['Margin_Model']= "N/A" # 保证金模式
-        ans['Position direction']= "N/A" # 持仓方向
-        ans['pos']= "0" # 持仓数量
-        ans['avgPrice']= "N/A" # 平均开仓价格
-        ans['Unrealized Gains']= "N/A" # 未实现盈亏
-        ans['liqPrice']= "N/A" # 强平价格
-        ans['lever']= "N/A" # 杠杆倍数
-        logger.info(f"未获取到 {instrument_id} 的持仓信息或持仓列表为空。")
-    else:
-        # 如果data列表不为空，则正常解析持仓信息
-        # 注意：OKX API的持仓接口可能返回多个持仓（例如多仓和空仓），这里只取第一个作为示例
-        # 实际应用中可能需要遍历data列表处理所有持仓
-        position_data = res['data'][0]
-        ans['Margin_Model']=position_data.get('mgnMode', "N/A") #保证金模式
-        ans['Position direction']=position_data.get('posSide', "N/A") #持仓方向   #多头:long,空头:short
-
-        ans['pos']=str(position_data.get('pos', "0"))+ " piece" #持仓数量（单位：张（英文））
-
-        ans['avgPrice']=str(position_data.get('avgPx', "N/A"))+ " USDT" #平均开仓价格
-        ans['Unrealized Gains']=str(position_data.get('upl', "N/A"))+ " USDT" #未实现盈亏
-        ans['liqPrice']=str(position_data.get('liqPx', "N/A"))+ " USDT" #强平价格
-        ans['lever']=str(position_data.get('lever', "N/A"))+ " x" #杠杆倍数
-        logger.info(f"成功获取到 {instrument_id} 的持仓信息。")
+    ans=[]
+    for position in res['data']:
+        _ans={}
+        if position['availPos']:  # 确保只处理指定的 instrument_id
+            _ans['instrument_id']=instrument_id  #标的
+            position_data = position
+            _ans['Position direction'] = position_data.get('posSide', "N/A")  #持仓方向   #多头:long,空头:short
+            _ans['pos']=str(position_data.get('availPos', "0"))+ " piece" #持仓数量（单位：张（英文））
+            _ans['avgPrice']=str(position_data.get('avgPx', "N/A"))+ " USDT" #平均开仓价格
+            _ans['Unrealized Gains']=str(position_data.get('realizedPnl', "N/A"))+ " USDT" #未实现盈亏
+            _ans['liqPrice']=str(position_data.get('liqPx', "N/A"))+ " USDT" #强平价格
+            _ans['lever']=str(position_data.get('lever', "N/A"))+ " x" #杠杆倍数
+            logger.info(f"成功获取到 {instrument_id} 的持仓信息。")
+            logger.warning(f"未获取到 {instrument_id} 的持仓信息或持仓列表为空。")
+            ans.append(_ans)
     return ans
    
 #获取未成交订单
 def get_orders(instrument_id:str=""):
-
     tradeAPI = Trade.TradeAPI(apikey, secretkey, passphrase, False, flag)
+    orders = []
 
+    # 1. 获取并处理普通订单
     res = tradeAPI.get_order_list(instId=instrument_id)
-    ans={}
-    logger.info(f"res: {json.dumps(res,indent=4,ensure_ascii=False)}")
-
-    # Check if the response is successful and contains data
-    if res and res.get('code') == '0' and res.get('data') and len(res['data']) > 0:
-        # Assuming only the first order is needed as per previous structure
-        
-        order_data = res['data'][0]
-        ans['size'] = order_data.get('sz', "N/A")  # 订单数量
-        ans['price'] = order_data.get('px', "N/A")  # 订单价格
-        ans['lever'] = order_data.get('lever', "N/A")  # 杠杆倍数
-        ans['direction'] = order_data.get('side', "N/A")  # 订单方向
-        ans['status'] = order_data.get('state', "N/A")  # 订单状态
-        # You might want to add order ID or other relevant fields here
-        # ans['ordId'] = order_data.get('ordId', "N/A")
-        logger.info(f"成功获取到 {instrument_id} 的挂单信息。")
-    else:
-        # If no pending orders or error in response
-        ans['size'] = "N/A"
-        ans['price'] = "N/A"
-        ans['lever'] = "N/A"
-        ans['direction'] = "N/A"
-        ans['status'] = "N/A"
-        # ans['ordId'] = "N/A"
-        logger.info(f"未获取到 {instrument_id} 的挂单信息或挂单列表为空。")
+    logger.info(f"order:res: {json.dumps(res,indent=4,ensure_ascii=False)}")
     
-    ans["algo_orders"] = {} # 新增一个键用于存储策略订单信息
-    res_algo=tradeAPI.order_algos_list(instId=instrument_id) 
-    if res_algo and res_algo.get('code') == '0' and res_algo.get('data') and len(res_algo['data']) > 0:
-        algo_data=res_algo['data'][0]
-        ans["algo_orders"]['instId']=algo_data.get('instId', "N/A")#策略id
-        ans["algo_orders"]['algo_state']=algo_data.get('state', "N/A")#策略状态
-        ans["algo_orders"]['algo_type']=algo_data.get('type', "N/A")#策略类型
-        ans["algo_orders"]['algo_trigger_price']=algo_data.get('triggerPx', "N/A")#触发价格
-        logger.info(f"成功获取到 {instrument_id} 的策略挂单信息。")
+    if res and res.get('code') == '0' and res.get('data'):
+        for order_data in res['data']:
+            order_info = {
+                'instrument_id': instrument_id,
+                'order_type': 'normal',  # 标记为普通订单
+                'ordId': order_data.get('ordId', "N/A"),  # 订单ID
+                'size': order_data.get('sz', "N/A"),  # 订单数量
+                'price': order_data.get('px', "N/A"),  # 订单价格
+                'lever': order_data.get('lever', "N/A"),  # 杠杆倍数
+                'direction': order_data.get('side', "N/A"),  # 订单方向
+                'posSide': order_data.get('posSide', "N/A"),  # 持仓方向
+                'status': order_data.get('state', "N/A"),  # 订单状态
+                'fillSz': order_data.get('fillSz', "0"),  # 已成交数量
+                'avgPx': order_data.get('avgPx', "N/A"),  # 平均成交价格
+                'createTime': order_data.get('cTime', "N/A")  # 创建时间
+            }
+            orders.append(order_info)
+        logger.info(f"成功获取到 {instrument_id} 的 {len(orders)} 个普通挂单信息。")
     else:
-        logger.info(f"未获取到 {instrument_id} 的策略挂单信息或策略挂单列表为空。")
-        
-    return ans
+        logger.info(f"未获取到 {instrument_id} 的普通挂单信息或挂单列表为空。")
+
+    # 2. 获取并处理策略订单（条件单）
+    res_algo = tradeAPI.order_algos_list(instId=instrument_id, ordType="conditional")
+    logger.info(f"algo_orders:res_algo: {json.dumps(res_algo,indent=4,ensure_ascii=False)}")
+    
+    if res_algo and res_algo.get('code') == '0' and res_algo.get('data'):
+        for algo_data in res_algo['data']:
+            algo_order_info = {
+                'instrument_id': instrument_id,
+                'order_type': 'algo',  # 标记为策略订单
+                'algoId': algo_data.get('algoId', "N/A"),  # 策略订单ID
+                'ordId': algo_data.get('ordId', "N/A"),  # 订单ID
+                'size': algo_data.get('sz', "N/A"),  # 数量
+                'posSide': algo_data.get('posSide', "N/A"),  # 持仓方向
+                'triggerPrice': algo_data.get('triggerPx', "N/A"),  # 触发价格
+                'orderPrice': algo_data.get('orderPx', "N/A"),  # 委托价格
+                'status': algo_data.get('state', "N/A"),  # 状态
+                # 'type': algo_data.get('type', "N/A"),  # 策略类型
+                'direction': algo_data.get('side', "N/A"),  # 方向
+                'createTime': algo_data.get('cTime', "N/A")  # 创建时间
+            }
+            orders.append(algo_order_info)
+        logger.info(f"成功获取到 {instrument_id} 的 {len(res_algo['data'])} 个策略订单信息。")
+    else:
+        logger.info(f"未获取到 {instrument_id} 的策略订单信息或策略订单列表为空。")
+    
+    return orders
+    
+
 
 # def #获取算法（止盈止损订单）
 def collect_positions_data(instrument_id="ETH-USDT-SWAP"):
     logger.info(f"instrument_id: {instrument_id}")
-    res={}
-    res["instrument_id"]=instrument_id
+    res = {
+        "instrument_id": instrument_id,
+        "balance": None,
+        "positions": [],
+        "orders": []
+    }
 
     # 使用 ThreadPoolExecutor 并行收集数据
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
@@ -137,12 +141,15 @@ def collect_positions_data(instrument_id="ETH-USDT-SWAP"):
         futures = {}
         start_times = {}
 
+        # 获取账户余额
         start_times["balance"] = time.time()
         futures[executor.submit(get_balance)] = "balance"
 
+        # 获取持仓信息
         start_times["positions"] = time.time()
         futures[executor.submit(get_positions, instrument_id)] = "positions"
 
+        # 获取订单信息
         start_times["orders"] = time.time()
         futures[executor.submit(get_orders, instrument_id)] = "orders"
 
@@ -169,6 +176,8 @@ if __name__ == "__main__":
     #传入instrument_id
     import time
     start_time=time.time()
+    res = get_orders
+    res = get_positions("ETH-USDT-SWAP")
     res=collect_positions_data()
     print(json.dumps(res,indent=4,ensure_ascii=False))
     end_time=time.time()

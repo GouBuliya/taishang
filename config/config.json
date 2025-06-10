@@ -35,7 +35,7 @@
         "default_temperature": 0.0,
         "default_top_p": 0.95,
         "default_max_output_tokens": 24576,
-        "default_thinking_budget": 10000,
+        "default_thinking_budget": 24576,
         "default_include_thoughts": "True"
     },
     "gemini_answer_path": "data/gemini_answer.json",

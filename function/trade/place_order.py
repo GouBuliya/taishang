@@ -49,7 +49,15 @@ def _set_leverage(instrument_id: str, leverage: int) -> dict:
     res = accountAPI.set_leverage(
         instId=instrument_id,
         lever=str(leverage),
-        mgnMode="cross"
+        mgnMode="isolated",  # 假设使用隔离保证金模式
+        posSide="long"  # 假设默认是多头持仓
+    )
+    logger.info(f"设置杠杆结果: {res}")
+    res = accountAPI.set_leverage(
+        instId=instrument_id,
+        lever=str(leverage),
+        mgnMode="isolated",  # 假设使用隔离保证金模式
+        posSide="short"  # 假设默认是空头持仓
     )
     return res
 
@@ -58,7 +66,6 @@ def _place_order(params: dict) -> dict:
     """执行下单（带重试）"""
     result = tradeAPI.place_order(**params)
     return result
-
 def place_order(
     instrument_id: str,
     side: str,
@@ -66,116 +73,126 @@ def place_order(
     price: Optional[float] = None,
     leverage: int = 100,
     order_type: str = "limit",
-    tdMode: str = "cross",  # 新增参数: 交易模式
-    **kwargs  # 支持其他可能的参数
-) -> Dict[str, Any]:
-    """
-    下单函数，返回详细下单结果
-    
-    参数:
-        instrument_id: str - 交易对ID
-        side: str - 交易方向 ("long"/"short")
-        size: float - 下单数量
-        price: Optional[float] - 下单价格（市价单可不传）
-        leverage: int - 杠杆倍数，默认100
-        order_type: str - 订单类型 ("limit"/"market")
-        tdMode: str - 交易模式 ("cross"/"isolated")
-        **kwargs - 其他可能的参数
-        
-    返回:
-        Dict[str, Any] - 下单结果
-    """
+    tdMode: str = "isolated",
+    posSide: Optional[str] = None, # 确保这个参数被正确处理
+    stop_loss: Optional[float] = None, # 假设这里直接接收stop_loss和take_profit
+    take_profit: Optional[list[Dict[str, float]]] = None, # 假设这里直接接收take_profit列表
+    **kwargs) -> Dict[str, Any]:
+    result = accountAPI.set_position_mode(
+    posMode="long_short_mode"
+    )
+    # if result.get("code") != "0":
+    #     logger.error(f"设置持仓模式失败: {result}")
+    #     return {
+    #         "success": False,
+    #         "error": "设置持仓模式失败",
+    #         "response": result
+    #     }
+    # logger.info(f"设置持仓模式成功: {result}")
     try:
-    
-        try:
-            size = float(size)
-            if size <= 0:
-                logger.error("订单数量必须大于0")
-                return {"success": False, "error": "订单数量必须大于0", "response": None}
-        except (TypeError, ValueError):
-            logger.error("无效的订单数量")
-            return {"success": False, "error": "无效的订单数量", "response": None}
+        # 1. 设置杠杆倍数 (这部分保持不变)
+        set_leverage_result = _set_leverage(
+            instrument_id=instrument_id,
+            leverage=leverage,
+        )
+        if set_leverage_result.get("code") != "0":
+            logger.error(f"设置杠杆失败: {set_leverage_result}")
+            return {
+                "success": False,
+                "error": "设置杠杆失败",
+                "response": set_leverage_result
+            }
 
-        # 对限价单验证价格
-        str_price = None
-        if order_type == "limit" and price is not None:
-            try:
-                float_price = float(price)
-                if float_price <= 0:
-                    logger.error("限价单价格必须大于0")
-                    return {"success": False, "error": "限价单价格必须大于0", "response": None}
-                # 转换为字符串，因为API要求
-                str_price = str(float_price)
-            except (TypeError, ValueError):
-                logger.error("无效的价格")
-                return {"success": False, "error": "无效的价格", "response": None}
-
-        # 验证交易模式
-        if tdMode not in ["cross", "isolated"]:
-            logger.warning(f"无效的交易模式 {tdMode}，使用默认值 cross")
-            tdMode = "cross"
-
-        # 检查杠杆是否在允许范围内
-        try:
-            leverage = int(float(leverage))
-            if leverage < 1 or leverage > 1000:
-                logger.warning(f"杠杆设置超出范围({leverage})，默认使用100倍杠杆")
-                leverage = 100
-        except (TypeError, ValueError):
-            logger.warning(f"无效的杠杆值({leverage})，使用默认值100")
-            leverage = 100
-            
-        # 设置杠杆
-        res = _set_leverage(instrument_id, leverage)
-        
-        # 检查杠杆设置结果
-        if res.get('code') != '0':  # 注意：API返回的code是字符串类型
-            logger.error(f"设置杠杆失败，错误信息：{res.get('msg', '')}")
-            return {"success": False, "error": res.get('msg', ''), "response": res}
-        logger.info(f"设置杠杆成功：{leverage}倍")
-        
-        # 转换side为buy/sell
-        order_side = "buy" if side == "long" else "sell"
-        
-        # 执行下单
-        params = {
-            "instId": instrument_id,  # 合约ID
-            "tdMode": tdMode,        # 交易模式
-            "side": order_side,      # 订单方向
-            "ordType": "market" if order_type == "market" else "limit",  # 订单类型
-            "sz": str(size),         # 数量（API要求字符串类型）
+      
+        order_params = {
+            "instId": str(instrument_id),
+            "tdMode": str(tdMode),
+            "side": str(side),
+            "posSide": str(posSide), # 使用明确或推断出的posSide
+            "ordType": str(order_type),
+            "sz": str(size),
+            "px": str(price) if order_type == "limit" and price is not None else None
         }
-        
-        # 限价单需要价格参数
-        if order_type == "limit" and str_price is not None:
-            params["px"] = str_price
 
-        # 移除None值的参数
-        params = {k: v for k, v in params.items() if v is not None}
-        
-        # 添加其他有效的参数
-        for key, value in kwargs.items():
-            if value is not None:
-                params[key] = value
+        # --- 构建 attachAlgoOrds 参数 ---
+        attached_algo_orders_list = []
 
-        logger.debug(f"下单参数: {params}")
-        result = _place_order(params)
-        
-        # 检查下单结果
-        if result.get('code') != '0':  # API返回的code是字符串类型
-            logger.error(f"下单失败，错误信息：{result.get('msg', '')}")
-            return {"success": False, "error": result.get('msg', ''), "response": result}
-            
-        logger.info(f"下单成功：方向={order_side}, 价格={str_price if str_price else 'market'}, 数量={size}, 交易模式={tdMode}, 杠杆={leverage}倍")
-        return {
-            "success": True,
-            "order_id": result.get('data', [{}])[0].get('ordId', None),
-            "response": result
-        }
+        # 添加止损订单
+        if stop_loss is not None:
+            attached_algo_orders_list.append({
+                "algoOrdType": "SL",
+                "slTriggerPx": str(stop_loss),
+                "slOrdPx": "-1", # -1 表示市价止损，如果需要限价止损，这里应是具体价格
+                "sz": str(size) # 止损通常覆盖全部仓位
+            })
+
+        # 添加止盈订单
+        if take_profit: # take_profit 应该是一个列表，例如 [{'price': 2750.0, 'size': 22.81}, ...]
+            for tp_target in take_profit:
+                tp_Ordpx = "-1"  # 默认市价止盈
+                tp_price = tp_target.get('price')
+                tp_size = tp_target.get('size')
+                
+                if tp_price is not None and tp_size is not None:
+                    # 处理价格百分比
+                    if isinstance(tp_price, str) and "%" in tp_price:
+                        # 如果价格是百分比形式（例如："+5%"或"-3%"），基于当前价格计算目标价格
+                        percentage = float(tp_price.strip('%+-')) / 100  # 移除%和正负号
+                        if tp_price.startswith('-'):
+                            tp_price = price * (1 - percentage)  # 下跌百分比
+                        else:
+                            tp_price = price * (1 + percentage)  # 上涨百分比
+                    else:
+                        tp_price = float(tp_price)  # 转换为浮点数
+                        
+                    # 处理数量百分比
+                    if isinstance(tp_size, str) and "%" in tp_size:
+                        # 如果数量是百分比形式（例如：'30%'），计算实际数量
+                        percentage = float(tp_size.strip('%')) / 100
+                        tp_size = size * percentage  # 基于总持仓量计算
+
+                    attached_algo_orders_list.append({
+                        "algoOrdType": "TP",
+                        "tpTriggerPx": str(tp_price),
+                        "tpOrdPx": tp_Ordpx, # 限价止盈，触发价和委托价通常相同
+                        "sz": str(tp_size)
+                    })
+
+        # 如果有任何止盈止损订单，则添加到主订单参数中
+        if attached_algo_orders_list:
+            order_params["attachAlgoOrds"] = attached_algo_orders_list
+
+        logger.info(f"准备下单参数: {order_params}")
+
+        # 3. 执行下单
+        response = tradeAPI.place_order(**order_params)
+
+        # 4. 处理下单结果 (这部分保持不变)
+        success = response.get("code") == "0"
+        if success:
+            order_data = response.get("data", [{}])[0]
+            order_id = order_data.get("ordId")
+            logger.info(f"下单成功 - ordId: {order_id}")
+            return {
+                "success": True,
+                "order_id": order_id,
+                "response": response
+            }
+        else:
+            logger.error(f"下单失败: {response}")
+            return {
+                "success": False,
+                "error": response.get("msg", "Unknown error"),
+                "response": response
+            }
+
     except Exception as e:
-        logger.error(f"下单失败，错误信息：{e}")
-        return {"success": False, "error": str(e), "response": None}
-
+        logger.error(f"下单过程发生异常: {str(e)}", exc_info=True) # 保持详细日志
+        return {
+            "success": False,
+            "error": str(e),
+            "response": None
+        }
 @retry_on_error(max_retries=3, delay=1.0)
 def cancel_order(instrument_id: str, order_id: str) -> Dict[str, Any]:
     """
@@ -219,8 +236,9 @@ def cancel_order(instrument_id: str, order_id: str) -> Dict[str, Any]:
 def close_position(
     instrument_id: str,
     size: Optional[float] = None,
+    posSide: Optional[str] = None,  # 确保这个参数被正确处理
     price: Optional[float] = None,
-    auto_cancel: bool = True
+    auto_cancel: bool = True,
 ) -> Dict[str, Any]:
     """
     平仓函数，使用市价单或限价单进行平仓
@@ -234,132 +252,87 @@ def close_position(
     返回:
         Dict[str, Any] - 平仓结果
     """
+    # try:
+    #     # 1. 获取当前持仓信息
+    #     position_info = get_current_position(instrument_id)
+    #     if not position_info['success']:
+    #         logger.error(f"获取持仓信息失败，无法执行平仓操作: {position_info['error']}")
+    #         return {
+    #             "success": False,
+    #             "error": position_info['error'],
+    #             "response": position_info['response']
+    #         }
+        
+    #     current_position = position_info['position']
+    #     if current_position == 0:
+    #         logger.info("当前没有持仓，跳过平仓操作")
+    #         return {
+    #             "success": True,
+    #             "message": "No position to close",
+    #             "response": None
+    #         }
+
+    #     # 根据持仓方向确定交易方向
+    #     side = 'sell' if current_position > 0 else 'buy'
+    #     logger.info(f"当前持仓信息: {current_position} ({side})")
+
+    #     # 2. 确定平仓方向和数量
+    #     if posSide is None:
+    #         posSide = 'long' if current_position > 0 else 'short'
+        
+    #     if size is None:
+    #         size = abs(current_position)  # 平掉所有持仓
+        
+    #     # 3. 执行平仓
+    #     response = place_order(
+    #         instrument_id=instrument_id,
+    #         tdMode='isolated',
+    #         side=side,
+    #         posSide=posSide,
+    #         order_type='market',
+    #         size=size,
+    #         price=None,  # 市价单不需要价格
+    #         take_profit=None,
+    #         stop_loss=None
+    #     )
+        
+    #     # 4. 处理平仓结果
+    #     if response['success']:
+    #         order_id = response.get('order_id')
+    #         logger.info(f"平仓成功 - ordId: {order_id}")
+    #         return response
+    #     else:
+    #         error_msg = response.get('error', "未知错误")
+    #         logger.error(f"平仓失败，错误信息: {error_msg}")
+    #         return response
+
+    # except Exception as e:
+    #     logger.error(f"平仓过程发生异常: {str(e)}", exc_info=True)
+    #     return {
+    #         "success": False,
+    #         "error": str(e),
+    #         "response": None
+    #     }
+
     try:
-        # 获取持仓信息
-
-        try:
-            res = tradeAPI.get_order_list(instId=instrument_id)
-
-            if res.get("code") == "0":
-                ordId = res.get("data", [{}])[0].get("ordId", None)
-                if ordId:
-                    result = tradeAPI.cancel_order(instId=instrument_id, ordId=ordId)
-                    if result.get("code") == "0":
-                        logger.info(f"成功撤销限价订单 {ordId}")
-                    else:
-                        logger.error(f"not able to cancel order {ordId}, error: {result.get('msg', '未知错误')}")
-            else:
-                logger.error(f"获取订单列表失败: {res.get('msg', '未知错误')}")
-                
-
-        except Exception as e:
-            logger.error(f"获取订单列表过程中发生异常: {str(e)}")
-           
-        position_result = accountAPI.get_positions(
-            instType="SWAP",
-            instId=instrument_id
-        )
-        
-        if position_result.get("code") != "0":
-            logger.error(f"获取持仓信息失败: {position_result.get('msg', '未知错误')}")
-            return {
-                "success": False,
-                "error": position_result.get("msg", "获取持仓信息失败"),
-                "response": position_result
-            }
-            
-        # 检查持仓
-        positions = position_result.get("data", [])
-        # 查找有效持仓（检查cross和isolated模式）
-        valid_position = None
-        for pos in positions:
-            if pos.get("mgnMode") in ["cross", "isolated"]:  # 检查保证金模式
-                pos_size = float(pos.get("pos", "0"))
-                if pos_size != 0:  # 有效持仓数量不为0
-                    valid_position = pos
-                    break
-
-        if not valid_position:
-            logger.error("当前没有持仓")
-            return {
-                "success": False,
-                "error": "当前没有持仓",
-                "response": position_result
-            }
-            
-        # 获取当前持仓方向和数量
-        pos_size = float(valid_position.get("pos", "0"))
-        if pos_size == 0:
-            logger.error("持仓数量为0")
-            return {
-                "success": False,
-                "error": "持仓数量为0",
-                "response": position_result
-            }
-            
-        # 确定平仓方向和数量
-        closing_side = "buy" if pos_size < 0 else "sell"
-        size_to_close = abs(pos_size if size is None else size)
-        
-        logger.info(f"当前持仓:{pos_size}, 平仓方向:{closing_side}, 平仓数量:{size_to_close}")
-
-        if auto_cancel:
-            try:
-                # 撤销所有未完成的普通限价单
-                active_orders = tradeAPI.get_order_list(
-                    instId=instrument_id,
-                    state="live"
-                )
-                
-                if active_orders.get("code") == "0" and active_orders.get("data"):
-                    for order in active_orders["data"]:
-                        order_id = order.get("ordId")
-                        if order_id:
-                            cancel_result = tradeAPI.cancel_order(
-                                instId=instrument_id,
-                                ordId=order_id
-                            )
-                            if cancel_result.get("code") == "0":
-                                logger.info(f"成功撤销限价订单 {order_id}")
-                            else:
-                                logger.warning(f"撤销限价订单 {order_id} 失败: {cancel_result.get('msg', '未知错误')}")
-            except Exception as e:
-                logger.error(f"撤销订单过程中发生错误: {str(e)}")
-                # 继续执行，不因撤单失败而中断平仓操作
-
-        # 准备平仓参数
-        order_params = {
-            "instId": instrument_id,
-            "tdMode": valid_position.get("mgnMode", "cross"),  # 使用持仓的保证金模式
-            "side": closing_side,
-            "ordType": "market",  # 使用市价单
-            "sz": str(size_to_close)
+        # logger.info(
+        #     instrument_id,
+        #     posSide,  # 使用明确或推断出的posSide
+        # )
+        posSide = posSide or "long"  # 如果未提供posSide，默认使用"long"
+        result = tradeAPI.close_positions(
+        instId=instrument_id,
+        mgnMode="isolated",  # 假设使用隔离保证金模式
+        posSide=posSide,  # 使用明确或推断出的posSide
+        # autoCxl=True  # 是否自动撤销未完成的平仓单
+    )
+        logger.info(f"input:{instrument_id, posSide, size, price}")
+        return {
+            "success": result.get("code") == "0",
+            "response": result
         }
-            
-        logger.info(f"执行平仓: {order_params}")
-        # 下单平仓
-        result = tradeAPI.place_order(**order_params)
-        
-        if result.get("code") == "0":
-            logger.info(f"平仓成功: {result}")
-            order_data = result.get("data", [{}])[0]
-            return {
-                "success": True,
-                "order_id": order_data.get("ordId"),
-                "message": "平仓订单已提交",
-                "response": result
-            }
-        else:
-            error_msg = result.get("msg", "未知错误")
-            logger.error(f"平仓失败: {error_msg}")
-            return {
-                "success": False,
-                "error": error_msg,
-                "response": result
-            }
-            
     except Exception as e:
-        logger.error(f"平仓过程发生异常: {str(e)}")
+        logger.error(f"平仓过程发生异常: {str(e)}", exc_info=True)
         return {
             "success": False,
             "error": str(e),
@@ -404,292 +377,232 @@ def get_order_info(instrument_id: str, order_id: str) -> Dict[str, Any]:
             "response": None
         }
 
+
 @retry_on_error(max_retries=3, delay=1.0)
-def set_tp_sl(
-    instrument_id: str,
-    order_detail: Dict[str, Any]
-) -> Dict[str, Any]:
-    """
-    根据订单详情设置止盈止损
+def cancel_all_orders(instrument_id: str) -> Dict[str, Any]:
+    """撤销指定交易对的所有挂单（带重试）
     
-    参数:
-        instrument_id: str - 交易对ID
-        order_detail: Dict[str, Any] - 订单详情，包含止盈止损信息
+    Args:
+        instrument_id: 交易对ID，例如：'ETH-USDT-SWAP'
         
-    返回:
-        Dict[str, Any] - 设置结果
+    Returns:
+        Dict[str, Any]: 撤单结果
+        {
+            'success': bool,  # 是否成功
+            'response': dict  # API 响应数据
+        }
     """
     try:
-        # 1. 获取当前持仓信息以确定方向
-        position_result = accountAPI.get_positions(
-            instType="SWAP",
-            instId=instrument_id
-        )
-        
-        if position_result.get("code") != "0":
-            return {
-                "success": False,
-                "error": f"获取持仓信息失败: {position_result.get('msg', '未知错误')}",
-                "response": position_result
+        logger.info(f"正在撤销所有挂单 - {instrument_id}")
+        # 使用 cancel_multiple_orders 方法，instType='SWAP' 表示永续合约
+        response = tradeAPI.cancel_multiple_orders([
+            {
+                'instId': instrument_id,
             }
+        ])
+        success = response.get('code') == '0'
+        
+        if success:
+            logger.info(f"成功撤销所有挂单 - {instrument_id}")
+        else:
+            logger.warning(f"撤销所有挂单失败 - {instrument_id}, 响应: {response}")
             
-        positions = position_result.get("data", [])
-        valid_position = None
-        for pos in positions:
-            if pos.get("mgnMode") in ["cross", "isolated"]:
-                pos_size = float(pos.get("pos", "0"))
-                if pos_size != 0:
-                    valid_position = pos
-                    break
-                    
-        if not valid_position:
-            return {
-                "success": False,
-                "error": "未找到有效持仓",
-                "response": None
-            }
+        return {
+            'success': success,
+            'response': response
+        }
+    except Exception as e:
+        logger.error(f"撤销所有挂单时发生错误 - {instrument_id}: {str(e)}")
+        return {
+            'success': False,
+            'response': {'error': str(e)}
+        }
+
+@retry_on_error(max_retries=3, delay=1.0)
+def cancel_all_pending_orders(instrument_id: str) -> Dict[str, Any]:
+    """撤销指定交易对的所有挂单（带重试）
+    
+    Args:
+        instrument_id: str - 交易对ID，例如：'ETH-USDT-SWAP'
         
-        # 2. 确定持仓方向
-        pos_size = float(valid_position.get("pos", "0"))
-        position_side = "long" if pos_size > 0 else "short"
+    Returns:
+        Dict[str, Any] - 撤单结果
+        {
+            'success': bool,  # 是否成功
+            'response': dict  # API 响应数据
+        }
+    """
+    try:
+        logger.info(f"正在撤销所有挂单 - {instrument_id}")
         
-        # 3. 提取止盈止损信息
-        stop_loss = order_detail.get("stop_loss")
-        take_profits = order_detail.get("take_profit", [])
-        
-        if not stop_loss or not take_profits:
-            return {
-                "success": False,
-                "error": "缺少止盈止损信息",
-                "response": None
-            }
+        # 1. 获取所有未完成的订单
+        pending_orders = tradeAPI.get_order_list(instId=instrument_id)
+        if pending_orders.get('code') != '0':
+            logger.warning(f"获取未完成订单失败 - {instrument_id}, 响应: {pending_orders}")
+            return {'success': False, 'response': pending_orders}
             
-        # 4. 准备触发价格和数量列表
-        trigger_prices = [tp["price"] for tp in take_profits]
-        sizes = [float(tp["size"]) for tp in take_profits]
-        
-        # 验证数量总和
-        total_size = sum(sizes)
-        if abs(total_size - float(order_detail.get("size", 0))) > 0.01:  # 允许0.01的误差
-            logger.warning(f"止盈订单总量 {total_size} 与原始订单量 {order_detail.get('size')} 不匹配")
-        
-        # 5. 设置分批止盈和止损订单
-        results = []
+        # 如果没有未完成的订单，直接返回成功
+        if not pending_orders.get('data'):
+            logger.info(f"没有未完成的订单需要撤销 - {instrument_id}")
+            return {'success': True, 'response': {'code': '0', 'msg': 'no pending orders'}}
+            
+        # 2. 逐个撤销订单
         success_count = 0
+        total_orders = len(pending_orders['data'])
         
-        # 确定订单方向
-        tp_side = "sell" if position_side == "long" else "buy"
-        sl_side = "sell" if position_side == "short" else "buy"
-        
-        # 设置分批止盈
-        for price, size in zip(trigger_prices, sizes):
-            tp_params = {
-                "instId": instrument_id,
-                "tdMode": valid_position.get("mgnMode", "cross"),
-                "ordType": "conditional",
-                "side": tp_side,
-                "posSide": position_side,
-                "triggerPx": str(price),
-                "sz": str(size),
-                "tpTriggerPxType": "last",
-                "tpOrdPx": "-1"  # 市价止盈
-            }
-            
-            result = tradeAPI.place_order(**tp_params)
-            results.append(result)
-            
-            if result.get("code") == "0":
-                success_count += 1
-                logger.info(f"设置止盈成功 - 价格: {price}, 数量: {size}")
-            else:
-                logger.error(f"设置止盈失败 - 价格: {price}, 错误: {result.get('msg', '未知错误')}")
-        
-        # 设置止损
-        sl_params = {
-            "instId": instrument_id,
-            "tdMode": valid_position.get("mgnMode", "cross"),
-            "ordType": "conditional",
-            "side": sl_side,
-            "posSide": position_side,
-            "triggerPx": str(stop_loss),
-            "sz": str(total_size),
-            "tpTriggerPxType": "last",
-            "tpOrdPx": "-1"  # 市价止损
-        }
-        
-        sl_result = tradeAPI.place_order(**sl_params)
-        results.append(sl_result)
-        
-        if sl_result.get("code") == "0":
-            success_count += 1
-            logger.info(f"设置止损成功 - 价格: {stop_loss}, 数量: {total_size}")
+        for order in pending_orders['data']:
+            try:
+                cancel_result = tradeAPI.cancel_order(
+                    instId=instrument_id,
+                    ordId=order['ordId']
+                )
+                if cancel_result.get('code') == '0':
+                    success_count += 1
+                    logger.info(f"成功撤销限价订单 {order['ordId']}")
+                else:
+                    logger.warning(f"撤销订单失败 - ordId: {order['ordId']}, 响应: {cancel_result}")
+            except Exception as e:
+                logger.error(f"撤销订单时发生错误 - ordId: {order['ordId']}: {str(e)}")
+                
+        # 3. 返回总体结果
+        all_cancelled = success_count == total_orders
+        if all_cancelled:
+            logger.info(f"成功撤销所有挂单 - {instrument_id}")
         else:
-            logger.error(f"设置止损失败 - 价格: {stop_loss}, 错误: {sl_result.get('msg', '未知错误')}")
-        
-        # 返回设置结果
-        all_success = success_count == len(trigger_prices) + 1
+            logger.warning(f"部分订单撤销失败 - {instrument_id}, 成功: {success_count}/{total_orders}")
+            
         return {
-            "success": all_success,
-            "message": f"设置{'成功' if all_success else '部分成功'}，成功 {success_count}/{len(trigger_prices) + 1} 个订单",
-            "response": results
+            'success': all_cancelled,
+            'response': {
+                'code': '0' if all_cancelled else '1',
+                'msg': f'cancelled {success_count}/{total_orders} orders',
+                'success_count': success_count,
+                'total_orders': total_orders
+            }
         }
-        
     except Exception as e:
-        logger.error(f"设置止盈止损时发生异常: {str(e)}")
+        logger.error(f"撤销所有挂单时发生错误 - {instrument_id}: {str(e)}")
         return {
-            "success": False,
-            "error": str(e),
-            "response": None
+            'success': False,
+            'response': {'error': str(e)}
         }
 
 @retry_on_error(max_retries=3, delay=1.0)
-def place_order_with_tp_sl(
-    instrument_id: str,
-    side: str,
-    size: float,
-    price: Optional[float] = None,
-    leverage: int = 100,
-    order_type: str = "limit",
-    tdMode: str = "cross",
-    stop_loss: Optional[float] = None,
-    take_profits: Optional[list] = None,
-) -> Dict[str, Any]:
-    """
-    一次性完成开仓和设置止盈止损的函数
+def get_current_position(instrument_id: str) -> Dict[str, Any]:
+    """获取指定交易对的当前持仓数量和详细信息
     
-    参数:
-        instrument_id: str - 交易对ID
-        side: str - 交易方向 ("long"/"short")
-        size: float - 下单数量
-        price: Optional[float] - 下单价格（市价单可不传）
-        leverage: int - 杠杆倍数，默认100
-        order_type: str - 订单类型 ("limit"/"market")
-        tdMode: str - 交易模式 ("cross"/"isolated")
-        stop_loss: Optional[float] - 止损价格
-        take_profits: Optional[list] - 止盈列表，格式如：[{"price": float, "size": float}, ...]
+    Args:
+        instrument_id: str - 交易对ID，例如：'ETH-USDT-SWAP'
         
-    返回:
-        Dict[str, Any] - 下单结果
+    Returns:
+        Dict[str, Any] - 持仓信息
+        {
+            'success': bool,  # 是否成功获取持仓信息
+            'position': float,  # 持仓数量，正数表示多头，负数表示空头，0表示无持仓
+            'response': dict  # API 完整响应数据
+        }
     """
     try:
-        # 1. 执行主要订单
-        main_order_result = place_order(
-            instrument_id=instrument_id,
-            side=side,
-            size=size,
-            price=price,
-            leverage=leverage,
-            order_type=order_type,
-            tdMode=tdMode
-        )
-        
-        if not main_order_result.get("success"):
-            return main_order_result
+        # 获取持仓信息
+        response = accountAPI.get_positions(instType='SWAP', instId=instrument_id)
+        if response.get('code') == '0':
+            if not response.get('data'):
+                logger.info("当前没有持仓")
+                return {
+                    'success': True,
+                    'position': 0.0,
+                    'response': response
+                }
             
-        # 2. 如果没有止盈止损设置，直接返回主订单结果
-        if not stop_loss and not take_profits:
-            return main_order_result
-
-        # 3. 获取订单ID
-        order_id = main_order_result.get("order_id")
-        if not order_id:
+            # 筛选有效持仓
+            valid_positions = [
+                pos for pos in response['data']
+                if (pos.get('instId') == instrument_id and  # 匹配交易对
+                    pos.get('pos') not in [None, '', '0'] and  # 持仓量不为空或0
+                    pos.get('posSide') != 'net')  # 不是净持仓模式
+            ]
+            
+            if not valid_positions:
+                logger.info(f"{instrument_id} 当前没有有效持仓")
+                return {
+                    'success': True,
+                    'position': 0.0,
+                    'response': response
+                }
+            
+            # 取最新的有效持仓（按uTime排序）
+            position_data = max(valid_positions, key=lambda x: int(x.get('uTime', '0')))
+            logger.info(f"获取到持仓信息: {position_data}")
+            
+            pos = float(position_data.get('pos', '0'))
+            if pos == 0:
+                return {
+                    'success': True,
+                    'position': 0.0,
+                    'response': response
+                }
+                
+            pos_side = position_data.get('posSide')
+            # 根据持仓方向调整数值的正负
+            actual_position = pos if pos_side == 'long' else -pos
+            
+            logger.info(f"当前持仓: {actual_position} ({pos_side})")
             return {
-                "success": False,
-                "main_order": main_order_result,
-                "error": "未能获取订单ID",
-                "message": "主订单成功但未返回订单ID"
-            }
-
-        # 4. 等待订单成交（市价单跳过此步）
-        if order_type == "limit":
-            max_retries = 5
-            retry_delay = 2.0
-            for i in range(max_retries):
-                order_info = tradeAPI.get_order(instId=instrument_id, ordId=order_id)
-                if order_info.get("code") == "0" and order_info.get("data"):
-                    order_data = order_info["data"][0]
-                    state = order_data.get("state")
-                    if state == "filled":
-                        logger.info("限价单已完全成交")
-                        break
-                    elif state == "canceled":
-                        return {
-                            "success": False,
-                            "main_order": main_order_result,
-                            "error": "订单已被取消",
-                            "message": "主订单被取消，不设置止盈止损"
-                        }
-                        
-                if i < max_retries - 1:
-                    logger.info(f"等待订单成交，{retry_delay}秒后重试...")
-                    time.sleep(retry_delay)
-            else:
-                logger.warning("订单未完全成交，继续设置止盈止损")
-
-        # 5. 等待持仓确认
-        max_retries = 5
-        retry_delay = 2.0
-        for i in range(max_retries):
-            # 获取持仓信息
-            position_result = accountAPI.get_positions(
-                instType="SWAP",
-                instId=instrument_id
-            )
-            
-            if position_result.get("code") == "0":
-                positions = position_result.get("data", [])
-                valid_position = None
-                for pos in positions:
-                    if pos.get("mgnMode") in ["cross", "isolated"]:
-                        pos_size = float(pos.get("pos", "0"))
-                        if pos_size != 0:
-                            valid_position = pos
-                            break
-                            
-                if valid_position:
-                    logger.info(f"已确认持仓建立，开始设置止盈止损")
-                    break
-            
-            if i < max_retries - 1:
-                logger.info(f"等待持仓确认，{retry_delay}秒后重试...")
-                time.sleep(retry_delay)
-        else:
-            return {
-                "success": False,
-                "main_order": main_order_result,
-                "tp_sl_orders": {
-                    "success": False,
-                    "error": "等待持仓确认超时",
-                    "response": None
-                },
-                "message": "主订单：成功, 止盈止损：失败（等待持仓确认超时）"
+                'success': True,
+                'position': actual_position,
+                'response': response
             }
             
-        # 6. 构造止盈止损订单详情
-        tp_sl_detail = {
-            "type": "close",
-            "price": price,
-            "size": size,
-            "stop_loss": stop_loss,
-            "take_profit": take_profits
-        }
-        
-        # 7. 设置止盈止损
-        tp_sl_result = set_tp_sl(instrument_id, tp_sl_detail)
-        
-        # 8. 合并结果
+        logger.error(f"获取持仓信息API调用失败: {response}")
         return {
-            "success": main_order_result.get("success") and tp_sl_result.get("success"),
-            "main_order": main_order_result,
-            "tp_sl_orders": tp_sl_result,
-            "message": f"主订单：{'成功' if main_order_result.get('success') else '失败'}, " + \
-                      f"止盈止损：{'成功' if tp_sl_result.get('success') else '失败'}"
+            'success': False,
+            'position': 0.0,
+            'response': response
         }
-        
     except Exception as e:
-        logger.error(f"下单及设置止盈止损时发生异常: {str(e)}")
+        logger.error(f"获取持仓信息失败 - {instrument_id}: {str(e)}")
         return {
-            "success": False,
-            "error": str(e),
-            "response": None
+            'success': False,
+            'position': 0.0,
+            'response': {'error': str(e)}
+        }
+@retry_on_error(max_retries=3, delay=1.0)
+def get_order_all(instrument_id: str) -> Dict[str, Any]:
+    """获取指定交易对的所有订单信息
+    
+    Args:
+        instrument_id: str - 交易对ID，例如：'ETH-USDT-SWAP'
+        
+    Returns:
+        Dict[str, Any] - 订单信息
+        {
+            'success': bool,  # 是否成功获取订单信息
+            'orders': list,   # 订单列表
+            'response': dict  # API 完整响应数据
+        }
+    """
+    try:
+        response = tradeAPI.get_order_list(instId=instrument_id)
+        
+        if response.get('code') == '0':
+            orders = response.get('data', [])
+            logger.info(f"成功获取 {len(orders)} 个订单")
+            return {
+                'success': True,
+                'orders': orders,
+                'response': response
+            }
+        else:
+            logger.error(f"获取订单信息API调用失败: {response}")
+            return {
+                'success': False,
+                'orders': [],
+                'response': response
+            }
+    except Exception as e:
+        logger.error(f"获取订单信息失败 - {instrument_id}: {str(e)}")
+        return {
+            'success': False,
+            'orders': [],
+            'response': {'error': str(e)}
         }
