@@ -92,7 +92,7 @@ def run_gemini_api_caller():
     try:
         # Assuming uv is in the PATH and the script is run from the workspace root
         # Run in foreground, wait for completion
-        result = subprocess.run(['uv', 'run', 'src/gemini_api_caller.py'], check=True)
+        result = subprocess.run(['uv', 'run', 'src/MES/gemini_Controller.py'], check=True)
         logger.info(f"Gemini API 调用脚本运行完成，返回码: {result.returncode}")
         return True
     except subprocess.CalledProcessError as e:
