@@ -160,6 +160,7 @@ def load_gemini_answer():
             
         if not isinstance(data, dict) or 'execution_details' not in data:
             logger.error("配置文件格式错误")
+            logger.error(f"配置文件内容: {data['execution_details']}")
             return None
             
         return data

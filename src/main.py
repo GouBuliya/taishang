@@ -158,11 +158,10 @@ if __name__ == "__main__":
                 logger.info("数据收集模块运行完成。")
 
                 # 运行Gemini API调用
-                if run_gemini_api_caller():
+                run_gemini_api_caller()
                     # 只有在Gemini API调用成功时才运行自动交易
-                    run_auto_trader()
-                else:
-                    logger.error("由于Gemini API调用失败，跳过自动交易")
+                    #判断gemini_answer.json是否更新：
+                run_auto_trader()
                     
                 last_run_minute = current_minute  # 更新上次运行时间
                 logger.info(f"交易流程执行完成，等待下一个15分钟间隔")

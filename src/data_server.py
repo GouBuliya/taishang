@@ -16,20 +16,20 @@
 import time
 import os
 from datetime import datetime
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import undetected_chromedriver as uc
+from selenium import webdriver # type: ignore
+from selenium.webdriver.common.by import By # type: ignore
+from selenium.webdriver.common.keys import Keys # type: ignore
+from selenium.webdriver.common.action_chains import ActionChains # type: ignore
+from selenium.webdriver.support.ui import WebDriverWait # type: ignore
+from selenium.webdriver.support import expected_conditions as EC # type: ignore
+import undetected_chromedriver as uc # type: ignore
 import shutil
 import subprocess
 import gc
 import logging
 import json
-from flask import Flask, request, jsonify
-from selenium.common.exceptions import WebDriverException # Import WebDriverException
+from flask import Flask, request, jsonify # type: ignore
+from selenium.common.exceptions import WebDriverException # type: ignore # Import WebDriverException
 from get_data.macro_factor_collector import get_fear_greed_index # Import the FGI function
 import threading # Import the threading module
 
@@ -183,7 +183,7 @@ def set_timeframe_and_screenshot(timeframe: str) -> str | None:
     """
     global driver
     try:
-        body = driver.find_element(By.TAG_NAME, 'body')
+        body = driver.find_element(By.TAG_NAME, 'body') # type: ignore
         body.click()
         time.sleep(2) 
 
@@ -248,7 +248,7 @@ def take_screenshot_action():
                     EC.visibility_of_element_located((By.ID, "chart-page-content"))
                 )
                 logger.info('页面加载完成，关键元素可见。')
-                time.sleep(2) 
+                time.sleep(5) 
             except Exception as e:
                 logger.error(f'等待页面加载超时或元素未找到: {e}')
                 return None
@@ -262,9 +262,15 @@ def take_screenshot_action():
                 screenshots[tf] = filepath
                 logger.info(f'{tf}分钟周期截图成功: {filepath}')
             else:
-                logger.error(f'{tf}分钟周期截图失败')
-            time.sleep(2)
-
+            #尝试重试：
+                logger.error(f'{tf}分钟周期截图失败尝试重试...')
+                filepath = set_timeframe_and_screenshot(tf)
+                if filepath:
+                    screenshots[tf] = filepath
+                    logger.info(f'重试成功: {filepath}')
+                else:
+                    logger.error(f'{tf}分钟周期截图重试失败，跳过此周期')
+        logger.info('所有时间周期的截图操作已完成。')
         if screenshots:
             return {
                 "status": "success",

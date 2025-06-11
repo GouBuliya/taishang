@@ -4350,5 +4350,92 @@
       "operation_comment": "取消现有不合理止盈订单",
       "force_market_close": true
     }
+  },
+  {
+    "timestamp": "2025-06-11T19:32:21.292689",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 150.17,
+    "price": 2760.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2745.0,
+    "take_profits": [
+      {
+        "price": 2785.0,
+        "size": 50.06
+      },
+      {
+        "price": 2800.0,
+        "size": 50.06
+      },
+      {
+        "price": 2820.0,
+        "size": 50.05
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据牛市健康回调和短期反弹信号，在关键支撑位附近挂限价单做多。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T20:47:06.216206",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 59.51,
+    "price": 2707.56,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2670.0,
+    "take_profits": [
+      {
+        "price": 2750.0,
+        "size": 19.83
+      },
+      {
+        "price": 2800.0,
+        "size": 19.83
+      },
+      {
+        "price": 2850.0,
+        "size": 19.85
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "市场处于长期和中期上涨趋势中的健康回调，高时间框架结构性支撑强劲，当前价格在潜在支撑区域，适合逢低做多。资金费率过高需警惕，但高置信度支持此交易。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T21:32:18.294852",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 63.97,
+    "price": 2770.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2740.0,
+    "take_profits": [
+      {
+        "price": 2820.0,
+        "size": 21.32
+      },
+      {
+        "price": 2850.0,
+        "size": 21.32
+      },
+      {
+        "price": 2900.0,
+        "size": 21.33
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间周期看涨趋势和回调入场策略，开多仓。"
+    }
   }
 ]

@@ -155,7 +155,7 @@ def call_gemini_api_stream(
             thinking_config={
                 "include_thoughts": DEFAULT_INCLUDE_THOUGHTS, # 取消注释此行
                 "thinking_budget": DEFAULT_THINKING_BUDGET,
-            },
+            }, # type: ignore
             tools=[types.Tool(code_execution=types.ToolCodeExecution())]
         )
         files_set=[]
@@ -200,8 +200,8 @@ def call_gemini_api_stream(
             else:
                 # 尝试从非文本/非函数调用部分中捕获思考摘要
                 # 优先从 chunk.parts 中获取文本，其次从 chunk.candidates.content.parts 中获取
-                if hasattr(chunk, 'parts') and chunk.parts:
-                    for part in chunk.parts:
+                if hasattr(chunk, 'parts') and chunk.parts: # type: ignore
+                    for part in chunk.parts: # type: ignore
                         if hasattr(part, 'text') and part.text:
                             collected_thought_text_for_current_turn.append(part.text)
                             print(part.text)
@@ -277,10 +277,13 @@ if __name__ == "__main__":
         logger.error(f"{MODULE_TAG}未配置截图文件路径")
         files_path = []
     files_path=[]
-    files_path.append(temp["15"])
-    files_path.append(temp["60"])
-    files_path.append(temp["240"])
-
+    try:
+        files_path.append(temp["15"])
+        files_path.append(temp["60"])
+        files_path.append(temp["240"])
+    except KeyError as e:
+        logger.error(f"{MODULE_TAG}截图文件路径配置错误: {str(e)}")
+        files_path = []
     
     # 清空日志文件
     with open(EFFECTIVE_LOG_FILE, "w", encoding="utf-8") as f:

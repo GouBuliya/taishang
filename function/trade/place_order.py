@@ -127,9 +127,9 @@ def place_order(
                     if isinstance(tp_price, str) and "%" in tp_price:
                         percentage = float(tp_price.strip('%+-')) / 100  # 移除%和正负号
                         if tp_price.startswith('-'):
-                            tp_price = price * (1 - percentage)  # 下跌百分比
+                            tp_price = price * (1 - percentage)  # type: ignore # 下跌百分比
                         else:
-                            tp_price = price * (1 + percentage)  # 上涨百分比
+                            tp_price = price * (1 + percentage)  # type: ignore # 上涨百分比
                     else:
                         tp_price = float(tp_price)  # 转换为浮点数
                         
