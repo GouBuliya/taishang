@@ -615,12 +615,12 @@ Please strictly follow the JSON format for output, ensuring all fields have valu
                 "type": "object",
                 "properties": {
                   "price": { "type": ["number", "string"], "pattern": "^N/A$|^\\d+(\\.\\d+)?$" },
-                  "size": { "type": ["number", "string"], "description": "止盈目标的数量，必须为百分比形式，{0.0~100.0}%" }
+                  "size": { "type": ["number", "string"], "description": "止盈目标的数量，必须为绝对值形式，单位为合约数量" }
                 },
                 "required": ["price", "size"],
-                "description": "止盈目标的描述信息,size为百分比形式"
+                "description": "止盈目标的描述信息,size为绝对值形式"
               },
-              "description": "止盈目标列表，每个目标包含价格和对应的平仓数量（百分比或绝对值）"
+              "description": "止盈目标列表，每个目标包含价格和对应的平仓数量（绝对值）"
             },
             "size": {
               "type": ["number", "string"],

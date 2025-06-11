@@ -117,6 +117,7 @@ class AutoTrader:
                         
                     result = place_order(**order_params)
                     logger.info(f"下单结果: {result}")
+                    
                     if result.get('success'):
                         # 记录开仓交易
                         trade_history.add_trade(
@@ -129,7 +130,7 @@ class AutoTrader:
                             stop_loss=float(detail['stop_loss']) if detail.get('stop_loss') not in ["N/A", None] else None,
                             take_profits=[{
                                 'price': float(tp['price']),
-                                'size': float(str(tp['size']).rstrip('%')) / 100 if '%' in str(tp['size']) else float(tp['size'])
+                                'size': float(str(tp['size']).rstrip('%')) / 100 if '%' in str(tp['size']) else float(tp['size']),  # 向下取整
                             } for tp in detail.get('take_profit', []) if tp.get('price') != "N/A" and tp.get('size') != "N/A"],
                             extra_info={
                                 'position_action': detail.get('position_action'),
@@ -137,7 +138,9 @@ class AutoTrader:
                                 'operation_comment': detail.get('operation_comment', '')
                             }
                         )
-              
+                        # for tp in detail.get('take_profit', []):
+                        #     if tp.get('price') != "N/A" and tp.get('size') != "N/A":
+                        #         logger.info(f"tpsize{round(float(str(tp['size']).rstrip('%')) / 100 if '%' in str(tp['size']) else float(tp['size']), 2)  }")
 
                 logger.info(f"交易执行成功: {result}")
                     
