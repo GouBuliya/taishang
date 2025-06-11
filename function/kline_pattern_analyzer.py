@@ -4,19 +4,11 @@ import numpy as np
 logger = logging.getLogger("GeminiQuant")
 
 def _get_last_n_klines(kline_data_list, n):
-    """获取最新的N条K线数据，如果不足N条则返回所有可用K线。"""
     if not kline_data_list:
         return []
     return kline_data_list[-n:]
 
 def _analyze_kline_shapes(kline_data_list):
-    """
-    分析最近K线形态。
-    Args:
-        kline_data_list (list): 包含K线数据的列表，每项是一个字典。
-    Returns:
-        dict: K线形态分析结果。
-    """
     if not kline_data_list:
         return {"description": "无K线数据。", "strength": "N/A"}
 
@@ -106,13 +98,6 @@ def _analyze_kline_shapes(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def _analyze_bollinger_bands(kline_data_list):
-    """
-    分析布林带状态，提供更详细的分析。
-    Args:
-        kline_data_list (list): 包含K线数据的列表，每项是一个字典。
-    Returns:
-        dict: 布林带分析结果。
-    """
     if not kline_data_list or len(kline_data_list) < 2:
         return {"description": "K线数据不足以分析布林带。", "strength": "N/A"}
 
@@ -446,14 +431,6 @@ def _analyze_rsi(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def _analyze_macd(kline_data_list):
-    """
-    分析MACD指标，提供详细的MACD分析。
-    1. MACD柱状值分析
-    2. 金叉死叉判断
-    3. 趋势强度评估
-    4. 背离分析
-    5. 信号可靠性评估
-    """
     if not kline_data_list or len(kline_data_list) < 5:
         return {"description": "K线数据不足以分析MACD。", "strength": "N/A"}
 
@@ -554,14 +531,6 @@ def _analyze_macd(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def _analyze_adx(kline_data_list):
-    """
-    分析ADX(平均趋向指数)，评估趋势强度。
-    ADX值范围0-100:
-    - 0-25: 无趋势/弱趋势
-    - 25-50: 有趋势/强趋势开始
-    - 50-75: 强趋势
-    - 75-100: 极强趋势
-    """
     if not kline_data_list or len(kline_data_list) < 2:
         return {"description": "数据不足，无法分析ADX", "strength": "弱"}
 
@@ -620,13 +589,6 @@ def _analyze_adx(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def _analyze_stochastic(kline_data_list):
-    """
-    分析随机指标(KD)。
-    K、D值范围0-100:
-    - 80以上: 超买区
-    - 20以下: 超卖区
-    - K线穿越D线: 产生交易信号
-    """
     if not kline_data_list or len(kline_data_list) < 5:
         return {"description": "数据不足，无法分析KD", "strength": "弱"}
 
@@ -690,10 +652,6 @@ def _analyze_stochastic(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def _analyze_long_term_ema(kline_data_list):
-    """
-    分析长期EMA趋势(EMA144和EMA200)。
-    主要用于判断大趋势方向和强度。
-    """
     if not kline_data_list or len(kline_data_list) < 5:
         return {"description": "数据不足，无法分析长期EMA", "strength": "弱"}
 
@@ -768,13 +726,6 @@ def _analyze_long_term_ema(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def _analyze_stoch_rsi(kline_data_list):
-    """
-    分析随机RSI指标。
-    StochRSI结合了随机指标和RSI的特点，提供更敏感的超买超卖信号。
-    值域为0-100:
-    - 80以上: 超买区
-    - 20以下: 超卖区
-    """
     if not kline_data_list or len(kline_data_list) < 5:
         return {"description": "数据不足，无法分析StochRSI", "strength": "弱"}
 
@@ -845,26 +796,7 @@ def _analyze_stoch_rsi(kline_data_list):
     return {"description": "，".join(description), "strength": strength}
 
 def analyze_kline_patterns(kline_data_list: list) -> dict:
-    """
-    对给定时间周期的K线数据进行数值化模式识别和技术指标分析。
-    此工具将替代对K线图的视觉判断，直接从数值数据中提取K线形态、布林带、EMA排列、RSI和MACD的特征。
-
-    Args:
-        kline_data_list (list): 包含K线数据的列表，每项是一个字典。
-                                列表应包含至少15条K线，以确保指标计算的完整性。
-                                每条K线字典应包含 'open', 'high', 'low', 'close', 'volume'
-                                以及 'RSI', 'MACD_macd', 'MACD_signal', 'BB_upper', 'BB_middle', 'BB_lower',
-                                'EMA5', 'EMA21', 'EMA55', 'EMA144', 'EMA200' 等指标。
-
-    Returns:
-        dict: 包含以下键的分析结果：
-        - 'kline_shapes': K线形态分析 (dict)
-        - 'bollinger_bands': 布林带分析 (dict)
-        - 'ema_alignment': EMA排列分析 (dict)
-        - 'rsi_analysis': RSI分析 (dict)
-        - 'macd_analysis': MACD分析 (dict)
-    """
-    if not kline_data_list or len(kline_data_list) < 10:
+    if not kline_data_list or len(kline_data_list) < 5:
         logger.warning("K线数据不足10条，可能无法进行完整的模式识别。")
         return {
             "kline_shapes": {"description": "K线数据不足。", "strength": "N/A"},
@@ -873,10 +805,6 @@ def analyze_kline_patterns(kline_data_list: list) -> dict:
             "rsi_analysis": {"description": "K线数据不足。", "strength": "N/A"},
             "macd_analysis": {"description": "K线数据不足。", "strength": "N/A"}
         }
-
-    # 提取最近的15条K线用于分析，确保所有指标都有足够的数据点
-    # 实际的指标计算已经在 technical_indicator_collector 中完成，这里直接使用
-    # 确保传入的 kline_data_list 已经是处理好的最新15条K线
     
     analysis_results = {
         "kline_shapes": _analyze_kline_shapes(kline_data_list),

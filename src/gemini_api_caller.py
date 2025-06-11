@@ -113,9 +113,6 @@ DEFAULT_INCLUDE_THOUGHTS = config["MODEL_CONFIG"]["default_include_thoughts"]
 from google import genai
 from google.genai import types
 
-# ===================== 函数调用工具定义框架 =====================
-
-# ===================== 函数调用工具定义框架 END =====================
 history=[]
 _api_key = API_KEY
 if not _api_key:
@@ -125,6 +122,7 @@ client = genai.Client(api_key=_api_key)
 def call_gemini_api_stream(
     prompt_text,
     system_prompt_path=None,
+    files_path=None,
 ):
     """调用 Gemini API 的流式接口
 
@@ -160,11 +158,25 @@ def call_gemini_api_stream(
             },
             tools=[types.Tool(code_execution=types.ToolCodeExecution())]
         )
-
+        files_set=[]
+        def update_file(files_path):
+            """更新文件内容"""
+            for file_path in files_path:
+                
+                if file_path:
+                    files_set.append(client.files.upload(file=file_path))
+                   
+                else:
+                    logger.warning(f"{MODULE_TAG}文件未找到: {file_path}.")
+        update_file(files_path)
+        contents=[]
+        contents.append(types.Part(text=prompt_text))
+        for file in files_set:
+            contents.append(file)
         api_call_start_time = time.time()
         response = client.models.generate_content_stream(
             model=DEFAULT_MODEL_NAME,
-            contents=prompt_text,
+            contents=contents,
             config=gemini_config,
         )
         # 处理响应流
@@ -259,7 +271,17 @@ if __name__ == "__main__":
     # 将 data_json 转换为字符串作为提示词
     current_prompt_text = json.dumps(data_json, ensure_ascii=False, indent=4)
     # logger.info(f"初始提示词设置完成: \n{current_prompt_text}")
+    
+    temp= data_json["screenshots"]
+    if not temp:
+        logger.error(f"{MODULE_TAG}未配置截图文件路径")
+        files_path = []
+    files_path=[]
+    files_path.append(temp["15"])
+    files_path.append(temp["60"])
+    files_path.append(temp["240"])
 
+    
     # 清空日志文件
     with open(EFFECTIVE_LOG_FILE, "w", encoding="utf-8") as f:
         f.truncate(0)
@@ -274,6 +296,7 @@ if __name__ == "__main__":
             result = call_gemini_api_stream(
                 prompt_text=current_prompt_text,
                 system_prompt_path=SYSTEM_PROMPT_PATH,
+                files_path=files_path,
             )
             
             if not result:

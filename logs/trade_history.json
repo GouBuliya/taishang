@@ -3702,5 +3702,653 @@
       "operation_comment": "获利了结一部分仓位",
       "force_market_close": true
     }
+  },
+  {
+    "timestamp": "2025-06-10T16:10:25.896364",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 113.31,
+    "price": 2665.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2645.0,
+    "take_profits": [
+      {
+        "price": 2700.0,
+        "size": 56.66
+      },
+      {
+        "price": 2720.0,
+        "size": 33.99
+      },
+      {
+        "price": 2750.0,
+        "size": 22.66
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据市场分析，当前处于牛市健康回调阶段，逢低做多。入场价格选择在建议的入场区间下限，以获得更好的风险回报。"
+    }
+  },
+  {
+    "timestamp": "2025-06-10T18:16:58.657644",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 50.36,
+    "price": 2695.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2650.0,
+    "take_profits": [
+      {
+        "price": 2720.0,
+        "size": 16.79
+      },
+      {
+        "price": 2750.0,
+        "size": 16.79
+      },
+      {
+        "price": 2780.0,
+        "size": 16.78
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开仓做多ETH-USDT-SWAP，基于多时间周期强劲看涨趋势和健康回调后的突破信号。"
+    }
+  },
+  {
+    "timestamp": "2025-06-10T18:30:18.506320",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 50.36,
+    "price": 2695.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2650.0,
+    "take_profits": [
+      {
+        "price": 2720.0,
+        "size": 16.79
+      },
+      {
+        "price": 2750.0,
+        "size": 16.79
+      },
+      {
+        "price": 2780.0,
+        "size": 16.78
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开仓做多ETH-USDT-SWAP，基于多时间周期强劲看涨趋势和健康回调后的突破信号。"
+    }
+  },
+  {
+    "timestamp": "2025-06-10T20:30:41.271101",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.93,
+    "price": 2720.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2680.0,
+    "take_profits": [
+      {
+        "price": 2795.0,
+        "size": 18.98
+      },
+      {
+        "price": 2850.0,
+        "size": 18.98
+      },
+      {
+        "price": 2900.0,
+        "size": 18.97
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间周期强劲看涨趋势，在健康回调区域开立多头仓位。"
+    }
+  },
+  {
+    "timestamp": "2025-06-10T20:45:16.142493",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.93,
+    "price": 2720.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2680.0,
+    "take_profits": [
+      {
+        "price": 2795.0,
+        "size": 18.98
+      },
+      {
+        "price": 2850.0,
+        "size": 18.98
+      },
+      {
+        "price": 2900.0,
+        "size": 18.97
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间周期强劲看涨趋势，在健康回调区域开立多头仓位。"
+    }
+  },
+  {
+    "timestamp": "2025-06-10T23:46:44.559881",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 82.57,
+    "price": 2707.5,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2680.0,
+    "take_profits": [
+      {
+        "price": 2750.0,
+        "size": 27.52
+      },
+      {
+        "price": 2780.0,
+        "size": 27.52
+      },
+      {
+        "price": 2820.0,
+        "size": 27.53
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开仓做多ETH-USDT-SWAP，基于4小时图强劲牛市趋势中的15分钟图回调买入机会。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T03:01:25.848421",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 113.42,
+    "price": 2750.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2730.0,
+    "take_profits": [
+      {
+        "price": 2780.0,
+        "size": 37.81
+      },
+      {
+        "price": 2820.0,
+        "size": 37.81
+      },
+      {
+        "price": 2850.0,
+        "size": 37.8
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间周期强劲看涨信号，开仓做多，以捕捉上涨趋势。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T03:32:13.250013",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 53.28,
+    "price": 2760.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2720.0,
+    "take_profits": [
+      {
+        "price": 2820.0,
+        "size": 17.58
+      },
+      {
+        "price": 2850.0,
+        "size": 17.58
+      },
+      {
+        "price": 2900.0,
+        "size": 18.12
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据最新分析，在回调区域开多仓"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T04:16:32.226578",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 41.29,
+    "price": 2755.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2700.0,
+    "take_profits": [
+      {
+        "price": 2840.0,
+        "size": 13.76
+      },
+      {
+        "price": 2850.0,
+        "size": 13.76
+      },
+      {
+        "price": 2900.0,
+        "size": 13.77
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间框架强劲牛市趋势和M15健康回调信号，在回调位挂限价单开多。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T04:46:56.967778",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 151.23,
+    "price": 2750.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2745.0,
+    "take_profits": [
+      {
+        "price": 2800.0,
+        "size": 50.41
+      },
+      {
+        "price": 2830.0,
+        "size": 50.41
+      },
+      {
+        "price": 2860.0,
+        "size": 50.41
+      }
+    ],
+    "extra_info": {
+      "position_action": "add_position",
+      "trade_type": "open",
+      "operation_comment": "当前持有ETH-USDT-SWAP多头仓位，鉴于市场处于强劲牛市趋势中的健康回调，决定在回调支撑位附近加仓，以期获取趋势延续的利润。现有止盈订单不冲突，无需取消。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T05:31:35.149982",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 51.1,
+    "price": 2750.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2720.0,
+    "take_profits": [
+      {
+        "price": 2800.0,
+        "size": 17.03
+      },
+      {
+        "price": 2850.0,
+        "size": 17.03
+      },
+      {
+        "price": 2900.0,
+        "size": 17.04
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间框架看涨趋势和M15回调反弹信号，开仓做多。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T07:31:46.354412",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.64,
+    "price": 2780.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2740.0,
+    "take_profits": [
+      {
+        "price": 2850.0,
+        "size": 18.88
+      },
+      {
+        "price": 2900.0,
+        "size": 18.88
+      },
+      {
+        "price": 2950.0,
+        "size": 18.88
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据市场分析，当前为强劲牛市中的健康回调，等待价格回踩至支撑区域后限价开多。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T08:01:49.452392",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 50.28,
+    "price": 2820.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2775.0,
+    "take_profits": [
+      {
+        "price": 2850.0,
+        "size": 16.59
+      },
+      {
+        "price": 2880.0,
+        "size": 16.59
+      },
+      {
+        "price": 2920.0,
+        "size": 17.1
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "在突破2820 USDT后开多仓，遵循趋势策略。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T08:46:47.515925",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.57,
+    "price": 2790.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2750.0,
+    "take_profits": [
+      {
+        "price": 2825.0,
+        "size": 18.86
+      },
+      {
+        "price": 2855.0,
+        "size": 18.86
+      },
+      {
+        "price": 2900.0,
+        "size": 18.85
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开仓做多ETH-USDT-SWAP，利用短期回调机会入场，严格控制风险。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T10:02:20.133263",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.57,
+    "price": -1,
+    "order_type": "market",
+    "order_id": "",
+    "stop_loss": null,
+    "take_profits": null,
+    "extra_info": {
+      "position_action": "close_position",
+      "trade_type": "close",
+      "operation_comment": "鉴于当前持仓接近清算价格，且短期市场动能偏空，为严格控制风险并优先保护本金，决定立即平仓现有ETH-USDT-SWAP多头头寸。平仓后将观望市场，等待更明确的入场信号。",
+      "force_market_close": true
+    }
+  },
+  {
+    "timestamp": "2025-06-11T11:31:50.302845",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.49,
+    "price": 2780.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2740.0,
+    "take_profits": [
+      {
+        "price": 2830.0,
+        "size": 18.83
+      },
+      {
+        "price": 2880.0,
+        "size": 18.83
+      },
+      {
+        "price": 2950.0,
+        "size": 18.83
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开仓做多ETH-USDT-SWAP，限价入场，严格止损止盈。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T11:46:35.115840",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 56.49,
+    "price": 2780.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2740.0,
+    "take_profits": [
+      {
+        "price": 2830.0,
+        "size": 18.83
+      },
+      {
+        "price": 2880.0,
+        "size": 18.83
+      },
+      {
+        "price": 2950.0,
+        "size": 18.83
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开仓做多ETH-USDT-SWAP，限价入场，严格止损止盈。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T12:16:59.654896",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 75.1,
+    "price": 2780.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2750.0,
+    "take_profits": [
+      {
+        "price": 2825.0,
+        "size": 25.03
+      },
+      {
+        "price": 2850.0,
+        "size": 25.03
+      },
+      {
+        "price": 2900.0,
+        "size": 25.04
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "在2780 USDT处设置限价买入订单，等待回调入场，严格控制单笔风险在2%以内。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T13:33:22.771585",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "sell",
+    "size": 86.74,
+    "price": 2779.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2805.0,
+    "take_profits": [
+      {
+        "price": 2740.0,
+        "size": 28.91
+      },
+      {
+        "price": 2690.0,
+        "size": 28.91
+      },
+      {
+        "price": 2640.0,
+        "size": 28.92
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "开空ETH-USDT-SWAP"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T14:03:07.054020",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "sell",
+    "size": 86.74,
+    "price": -1,
+    "order_type": "market",
+    "order_id": "",
+    "stop_loss": null,
+    "take_profits": null,
+    "extra_info": {
+      "position_action": "close_position",
+      "trade_type": "close",
+      "operation_comment": "取消现有ETH-USDT-SWAP多头挂单，因为市场信号已转为偏空，该挂单风险较高。",
+      "force_market_close": true
+    }
+  },
+  {
+    "timestamp": "2025-06-11T14:17:05.041334",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 125.5,
+    "price": 2788.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2770.0,
+    "take_profits": [
+      {
+        "price": 2820.0,
+        "size": 41.83
+      },
+      {
+        "price": 2835.0,
+        "size": 41.83
+      },
+      {
+        "price": 2850.0,
+        "size": 41.84
+      }
+    ],
+    "extra_info": {
+      "position_action": "open_position",
+      "trade_type": "open",
+      "operation_comment": "根据多时间周期强劲看涨趋势和健康回调信号，开仓做多。"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T14:32:43.884068",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 112.59,
+    "price": 2785.0,
+    "order_type": "limit",
+    "order_id": "",
+    "stop_loss": 2765.0,
+    "take_profits": [
+      {
+        "price": 2800.0,
+        "size": 37.53
+      },
+      {
+        "price": 2815.0,
+        "size": 37.53
+      },
+      {
+        "price": 2830.0,
+        "size": 37.53
+      }
+    ],
+    "extra_info": {
+      "position_action": "add_position",
+      "trade_type": "open",
+      "operation_comment": "在回调支撑位加仓"
+    }
+  },
+  {
+    "timestamp": "2025-06-11T15:47:19.265895",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 75.06,
+    "price": -1,
+    "order_type": "market",
+    "order_id": "",
+    "stop_loss": null,
+    "take_profits": null,
+    "extra_info": {
+      "position_action": "close_position",
+      "trade_type": "close",
+      "operation_comment": "取消所有现有冲突的止盈订单，以避免与当前持仓量不符的错误操作。",
+      "force_market_close": true
+    }
+  },
+  {
+    "timestamp": "2025-06-11T16:02:09.072231",
+    "instrument_id": "ETH-USDT-SWAP",
+    "side": "buy",
+    "size": 75.06,
+    "price": -1,
+    "order_type": "market",
+    "order_id": "",
+    "stop_loss": null,
+    "take_profits": null,
+    "extra_info": {
+      "position_action": "close_position",
+      "trade_type": "close",
+      "operation_comment": "取消现有不合理止盈订单",
+      "force_market_close": true
+    }
   }
 ]

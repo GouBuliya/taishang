@@ -35,10 +35,8 @@ import threading # Import the threading module
 
 app = Flask(__name__)
 
-# Load configuration
 config = json.load(open("config/config.json", "r"))
 
-# Configuration
 TRADINGVIEW_URL = 'https://cn.tradingview.com/chart/mJjA2OR8/?symbol=OKX%3AETHUSD.P'
 SAVE_DIR = config["cache_screenshot_path"]
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -50,10 +48,8 @@ LOG_FILE = config["main_log_path"]
 FGI_SERVER_CACHE: dict[str, int | float | None] = {"value": None, "timestamp": None}
 FGI_SERVER_CACHE_DURATION = 900 # 缓存有效期 900 秒 (15 分钟)
 
-# Global driver instance
 driver = None
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='[截图服务器][%(asctime)s] [%(levelname)s] %(message)s',
@@ -62,7 +58,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("GeminiQuantScreenshotServer")
 
-# Ensure directories exist
 os.makedirs(SAVE_DIR, exist_ok=True)
 os.makedirs(DEFAULT_USER_DATA_DIR, exist_ok=True)
 downloads_dir = os.path.join(SCRIPT_DIR, 'downloads')
@@ -101,7 +96,7 @@ def clean_memory_on_start():
 def update_user_profile():
     src = os.path.join(SCRIPT_DIR, 'chrome_profile_copy')
     dst = os.path.join(SCRIPT_DIR, 'chrome_profile')
-    if os.path.exists(src): # Only copy if chrome_profile_copy exists
+    if os.path.exists(src): 
         if os.path.exists(dst):
             safe_rmtree(dst)
         shutil.copytree(src, dst)
@@ -115,10 +110,10 @@ def initialize_browser():
     """
     global driver
     clean_memory_on_start()
-    update_user_profile() # Update profile on initial launch
+    update_user_profile() 
 
-    max_retries = 9999999 # 最大重试次数
-    retry_delay = 5 # 重试间隔（秒）
+    max_retries = 9999999 
+    retry_delay = 5 
 
     for attempt in range(max_retries):
         logger.info(f"尝试启动新的Chrome浏览器 (第 {attempt + 1}/{max_retries} 次)...")
@@ -153,35 +148,28 @@ def initialize_browser():
             logger.info(f"跳转到目标页面: {TRADINGVIEW_URL}")
             driver.get(TRADINGVIEW_URL)
             logger.info(f"当前页面: {driver.current_url}")
-            return True # 成功初始化并导航，返回 True
+            return True 
         except WebDriverException as e:
             logger.error(f"启动Chrome或导航失败 (连接错误): {e}")
             import traceback
             traceback.print_exc()
             if attempt < max_retries - 1:
                 logger.info(f"等待 {retry_delay} 秒后重试...")
-                #指数等待一段时间后重试
-                if attempt > 0: # 如果不是第一次尝试，增加重试间隔
+                if attempt > 0: 
                     retry_delay *= 2
-                # 等待一段时间后重试
                 logger.info(f"重试 {attempt + 1}/{max_retries}...")
-                # 清理内存，避免资源泄漏
                 clean_memory_on_start()
-                # 更新用户配置
                 update_user_profile()
-                # 等待一段时间后重试
-                # 这里可以增加指数退避策略，例如每次重试增加等待时间
-                # 例如：time.sleep(retry_delay * (attempt + 1))
 
                 time.sleep(retry_delay)
             else:
                 logger.error("达到最大重试次数，浏览器初始化失败。")
-                return False # 所有重试失败，返回 False
+                return False 
         except Exception as e:
             logger.error(f"启动Chrome失败 (未知错误): {e}")
             import traceback
             traceback.print_exc()
-            return False # 遇到非 WebDriverException 错误，直接返回 False
+            return False 
 
 def set_timeframe_and_screenshot(timeframe: str) -> str | None:
     """
@@ -195,26 +183,21 @@ def set_timeframe_and_screenshot(timeframe: str) -> str | None:
     """
     global driver
     try:
-        # 1. 激活页面
         body = driver.find_element(By.TAG_NAME, 'body')
         body.click()
-        time.sleep(5)  # 等待页面响应
+        time.sleep(2) 
 
-        # 2. 输入时间周期
         actions = ActionChains(driver)
         for digit in timeframe:
             actions.send_keys(digit)
         actions.send_keys(Keys.ENTER)
         actions.perform()
-        time.sleep(2)  # 等待时间周期切换
+        time.sleep(1)  
 
-        # 3. 触发截图快捷键
         actions = ActionChains(driver)
         actions.key_down(Keys.CONTROL).key_down(Keys.ALT).send_keys('s').key_up(Keys.ALT).key_up(Keys.CONTROL).perform()
         logger.info(f'已为{timeframe}分钟周期触发截图')
-        time.sleep(0.5)  # 等待截图保存
-
-        # 4. 检查并保存截图
+        time.sleep(0.5)  
         now_ts = time.time()
         files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
         valid_files = []
@@ -248,7 +231,6 @@ def take_screenshot_action():
         return None
 
     try:
-        # 清理旧截图
         old_files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
         for f in old_files:
             try:
@@ -257,7 +239,6 @@ def take_screenshot_action():
                 logger.error(f'删除旧截图失败: {f}, {e}')
         logger.info('旧截图已清理，开始截图流程...')
 
-        # 确保浏览器在正确的页面
         if driver.current_url != TRADINGVIEW_URL and not driver.current_url.startswith("https://cn.tradingview.com/chart/"):
             logger.info(f'当前页面不是目标页面，重新导航到: {TRADINGVIEW_URL}')
             driver.get(TRADINGVIEW_URL)
@@ -267,12 +248,11 @@ def take_screenshot_action():
                     EC.visibility_of_element_located((By.ID, "chart-page-content"))
                 )
                 logger.info('页面加载完成，关键元素可见。')
-                time.sleep(2)  # 额外等待以确保页面完全加载
+                time.sleep(2) 
             except Exception as e:
                 logger.error(f'等待页面加载超时或元素未找到: {e}')
                 return None
 
-        # 依次设置不同的时间周期并截图
         timeframes = ["15", "60", "240"]  # 15分钟、1小时、4小时
         screenshots = {}
         
@@ -283,6 +263,7 @@ def take_screenshot_action():
                 logger.info(f'{tf}分钟周期截图成功: {filepath}')
             else:
                 logger.error(f'{tf}分钟周期截图失败')
+            time.sleep(2)
 
         if screenshots:
             return {
@@ -302,7 +283,7 @@ def get_screenshot():
     logger.info("收到截图请求。")
     result = take_screenshot_action()
     if result and isinstance(result, dict):
-        return jsonify(result)  # result已经包含了status和screenshots字段
+        return jsonify(result)  
     else:
         return jsonify({"status": "error", "message": "截图失败"}), 500
 
@@ -311,7 +292,7 @@ def health_check():
     global driver
     if driver:
         try:
-            driver.current_url # Attempt to access a driver property to check responsiveness
+            driver.current_url 
             return jsonify({"status": "ok", "message": "Browser is responsive"})
         except Exception as e:
             logger.error(f"健康检查失败: {e}")
@@ -325,10 +306,9 @@ def prefetch_fgi_cache():
     """
     global FGI_SERVER_CACHE
     logger.info("启动 FGI 缓存预加载线程...")
-    fgi_value = get_fear_greed_index() # 直接调用获取数据的函数
+    fgi_value = get_fear_greed_index() 
 
     if fgi_value is not None:
-        # 更新缓存
         FGI_SERVER_CACHE["value"] = fgi_value
         FGI_SERVER_CACHE["timestamp"] = time.time()
         logger.info(f"FGI 缓存预加载成功，值: {fgi_value}")
@@ -345,13 +325,11 @@ def get_fgi():
     global FGI_SERVER_CACHE
     current_time = time.time()
 
-    # 检查缓存是否有效
     if FGI_SERVER_CACHE["value"] is not None and FGI_SERVER_CACHE["timestamp"] is not None and \
        (current_time - FGI_SERVER_CACHE["timestamp"] < FGI_SERVER_CACHE_DURATION):
         logger.info(f"从服务器缓存中获取恐惧贪婪指数: {FGI_SERVER_CACHE['value']}")
         return jsonify({"status": "success", "fgi": FGI_SERVER_CACHE["value"]})
 
-    # 缓存无效或不存在，从源获取新值
     logger.info("缓存无效，从源获取恐惧贪婪指数...")
     fgi_value = get_fear_greed_index()
 
@@ -368,15 +346,11 @@ def get_fgi():
 if __name__ == '__main__':
     logger.info("截图服务器正在启动...")
     # Clean up any residual chrome processes before starting for a clean slate
-    #网络代理代理
     http_proxy = config["proxy"]["http_proxy"]
     https_proxy = config["proxy"]["https_proxy"]
     os.environ["http_proxy"] = http_proxy
     os.environ["https_proxy"] = https_proxy
 
-    #每1h重启一次
-
-    # 清理残留的chrome进程
     try:
         subprocess.run(['pkill', '-9', 'chrome'], check=False)
         logger.info('已执行 pkill chrome')
@@ -388,7 +362,6 @@ if __name__ == '__main__':
     logger.info("已启动 FGI 缓存预加载线程。")
     if initialize_browser():
         logger.info("浏览器初始化成功。")
-        # 在单独线程中预加载 FGI 缓存
        
 
         app.run(host='0.0.0.0', port=5002)

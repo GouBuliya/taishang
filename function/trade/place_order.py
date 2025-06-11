@@ -7,12 +7,10 @@ import logging
 from typing import Optional, Dict, Any
 from ..utils import retry_on_error
 
-# 路径配置
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 LOG_FILE = os.path.join(BASE_DIR, "logs/trade.log")
 CONFIG_FILE = os.path.join(BASE_DIR, "config/config.json")
 
-# 确保日志目录存在
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 logging.basicConfig(
@@ -33,7 +31,6 @@ except json.JSONDecodeError:
     logger.error(f"配置文件格式错误: {CONFIG_FILE}")
     raise
 
-# API 初始化
 apikey = config["okx"]["api_key"]
 secretkey = config["okx"]["secret_key"]
 passphrase = config["okx"]["passphrase"]
@@ -81,16 +78,8 @@ def place_order(
     result = accountAPI.set_position_mode(
     posMode="long_short_mode"
     )
-    # if result.get("code") != "0":
-    #     logger.error(f"设置持仓模式失败: {result}")
-    #     return {
-    #         "success": False,
-    #         "error": "设置持仓模式失败",
-    #         "response": result
-    #     }
-    # logger.info(f"设置持仓模式成功: {result}")
+
     try:
-        # 1. 设置杠杆倍数 (这部分保持不变)
         set_leverage_result = _set_leverage(
             instrument_id=instrument_id,
             leverage=leverage,
@@ -108,26 +97,24 @@ def place_order(
             "instId": str(instrument_id),
             "tdMode": str(tdMode),
             "side": str(side),
-            "posSide": str(posSide), # 使用明确或推断出的posSide
+            "posSide": str(posSide), 
             "ordType": str(order_type),
             "sz": str(size),
             "px": str(price) if order_type == "limit" and price is not None else None
         }
 
-        # --- 构建 attachAlgoOrds 参数 ---
         attached_algo_orders_list = []
 
-        # 添加止损订单
         if stop_loss is not None:
             attached_algo_orders_list.append({
                 "algoOrdType": "SL",
                 "slTriggerPx": str(stop_loss),
-                "slOrdPx": "-1", # -1 表示市价止损，如果需要限价止损，这里应是具体价格
-                "sz": str(size) # 止损通常覆盖全部仓位
+                "slOrdPx": "-1", 
+                "sz": str(size) 
             })
 
         # 添加止盈订单
-        if take_profit: # take_profit 应该是一个列表，例如 [{'price': 2750.0, 'size': 22.81}, ...]
+        if take_profit: 
             for tp_target in take_profit:
                 tp_Ordpx = "-1"  # 默认市价止盈
                 tp_price = tp_target.get('price')
@@ -136,7 +123,6 @@ def place_order(
                 if tp_price is not None and tp_size is not None:
                     # 处理价格百分比
                     if isinstance(tp_price, str) and "%" in tp_price:
-                        # 如果价格是百分比形式（例如："+5%"或"-3%"），基于当前价格计算目标价格
                         percentage = float(tp_price.strip('%+-')) / 100  # 移除%和正负号
                         if tp_price.startswith('-'):
                             tp_price = price * (1 - percentage)  # 下跌百分比
@@ -164,7 +150,6 @@ def place_order(
 
         logger.info(f"准备下单参数: {order_params}")
 
-        # 3. 执行下单
         response = tradeAPI.place_order(**order_params)
 
         # 4. 处理下单结果 (这部分保持不变)
@@ -252,79 +237,16 @@ def close_position(
     返回:
         Dict[str, Any] - 平仓结果
     """
-    # try:
-    #     # 1. 获取当前持仓信息
-    #     position_info = get_current_position(instrument_id)
-    #     if not position_info['success']:
-    #         logger.error(f"获取持仓信息失败，无法执行平仓操作: {position_info['error']}")
-    #         return {
-    #             "success": False,
-    #             "error": position_info['error'],
-    #             "response": position_info['response']
-    #         }
-        
-    #     current_position = position_info['position']
-    #     if current_position == 0:
-    #         logger.info("当前没有持仓，跳过平仓操作")
-    #         return {
-    #             "success": True,
-    #             "message": "No position to close",
-    #             "response": None
-    #         }
-
-    #     # 根据持仓方向确定交易方向
-    #     side = 'sell' if current_position > 0 else 'buy'
-    #     logger.info(f"当前持仓信息: {current_position} ({side})")
-
-    #     # 2. 确定平仓方向和数量
-    #     if posSide is None:
-    #         posSide = 'long' if current_position > 0 else 'short'
-        
-    #     if size is None:
-    #         size = abs(current_position)  # 平掉所有持仓
-        
-    #     # 3. 执行平仓
-    #     response = place_order(
-    #         instrument_id=instrument_id,
-    #         tdMode='isolated',
-    #         side=side,
-    #         posSide=posSide,
-    #         order_type='market',
-    #         size=size,
-    #         price=None,  # 市价单不需要价格
-    #         take_profit=None,
-    #         stop_loss=None
-    #     )
-        
-    #     # 4. 处理平仓结果
-    #     if response['success']:
-    #         order_id = response.get('order_id')
-    #         logger.info(f"平仓成功 - ordId: {order_id}")
-    #         return response
-    #     else:
-    #         error_msg = response.get('error', "未知错误")
-    #         logger.error(f"平仓失败，错误信息: {error_msg}")
-    #         return response
-
-    # except Exception as e:
-    #     logger.error(f"平仓过程发生异常: {str(e)}", exc_info=True)
-    #     return {
-    #         "success": False,
-    #         "error": str(e),
-    #         "response": None
-    #     }
+  
 
     try:
-        # logger.info(
-        #     instrument_id,
-        #     posSide,  # 使用明确或推断出的posSide
-        # )
+      
         posSide = posSide or "long"  # 如果未提供posSide，默认使用"long"
         result = tradeAPI.close_positions(
         instId=instrument_id,
         mgnMode="isolated",  # 假设使用隔离保证金模式
         posSide=posSide,  # 使用明确或推断出的posSide
-        # autoCxl=True  # 是否自动撤销未完成的平仓单
+        autoCxl="true"  # 是否自动撤销未完成的平仓单
     )
         logger.info(f"input:{instrument_id, posSide, size, price}")
         return {
@@ -347,7 +269,6 @@ def get_order_info(instrument_id: str, order_id: str) -> Dict[str, Any]:
     参数:
         instrument_id: str - 交易对ID
         order_id: str - 订单ID
-        
     返回:
         Dict[str, Any] - 订单详情
     """
@@ -464,7 +385,6 @@ def cancel_all_pending_orders(instrument_id: str) -> Dict[str, Any]:
             except Exception as e:
                 logger.error(f"撤销订单时发生错误 - ordId: {order['ordId']}: {str(e)}")
                 
-        # 3. 返回总体结果
         all_cancelled = success_count == total_orders
         if all_cancelled:
             logger.info(f"成功撤销所有挂单 - {instrument_id}")

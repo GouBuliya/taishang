@@ -65,10 +65,6 @@ def analyze_kline_patterns_wrapper(kline_data_list: list) -> dict:
     global analyze_kline_patterns_call_count
     global timing_data
     
-    analyze_kline_patterns_call_count += 1
-    if analyze_kline_patterns_call_count > 5:  # 修改限制次数为5次，因为我们有3个时间周期需要分析
-        logger.warning(f"{MODULE_TAG}K线分析调用次数超限")
-        return {"error": "K线分析工具调用次数超限"}
         
     start_time = time.time()
     try:
@@ -85,9 +81,6 @@ def gettime(target: str = "当前时间") -> dict:
     global get_time_call_count
     global timing_data
     
-    get_time_call_count += 1
-    if get_time_call_count > 2:
-        return {"error": "获取时间工具调用次数超限"}
         
     start_time = time.time()
     try:
@@ -99,50 +92,12 @@ def gettime(target: str = "当前时间") -> dict:
     finally:
         timing_data["gettime_exec_time"] += time.time() - start_time
 
-def executepythoncode(code: str) -> dict:
-    """执行Python代码"""
-    global execute_python_code_call_count
-    global timing_data
-    
-    execute_python_code_call_count += 1
-    if execute_python_code_call_count > 5:
-        return {
-            "stdout": "",
-            "stderr": "代码执行工具调用次数超限",
-            "returncode": 1
-        }
-        
-    start_time = time.time()
-    try:
-        process = subprocess.run(
-            [sys.executable, "-c", code],
-            capture_output=True,
-            text=True,
-            timeout=180,
-            check=False
-        )
-        return {
-            "stdout": process.stdout,
-            "stderr": process.stderr,
-            "returncode": process.returncode
-        }
-    except Exception as e:
-        return {
-            "stdout": "",
-            "stderr": str(e),
-            "returncode": 1
-        }
-    finally:
-        timing_data["executepythoncode_exec_times"].append(time.time() - start_time)
 
 def gettransactionhistory(target: str) -> dict:
     """获取最近的交易历史记录"""
     global get_transaction_history_call_count
     global timing_data
     
-    get_transaction_history_call_count += 1
-    if get_transaction_history_call_count > 2:
-        return {"error": "获取交易历史工具调用次数超限"}
         
     start_time = time.time()
     try:
@@ -157,7 +112,6 @@ def gettransactionhistory(target: str) -> dict:
 # 导出所有工具函数
 __all__ = [
     "gettime",
-    "executepythoncode",
     "gettransactionhistory",
     "analyze_kline_patterns_wrapper",
 ]
@@ -172,6 +126,7 @@ def main():
     module_timings = {} # 用于存储每个模块的运行时间
 
     def _run_task_with_timing(task_name, func, *args, **kwargs):
+        """运行任务并记录开始和结束时间"""
         start_time_key = f"{task_name}_start"
         end_time_key = f"{task_name}_end"
         module_timings[start_time_key] = datetime.now()
@@ -236,7 +191,6 @@ def main():
             factors_future = executor.submit(_run_task_with_timing, "factors", collect_macro_factors)
             positions_future = executor.submit(_run_task_with_timing, "okx_positions", collect_positions_data)
             time_future = executor.submit(_run_task_with_timing, "current_time", gettime)
-
             # 4. 收集所有结果
             results = {
                 "indicators": indicators_result,
@@ -244,9 +198,9 @@ def main():
                 "okx_positions": positions_future.result() or {},
                 "current_time": time_future.result(),
                 "kline_patterns": kline_patterns_all,
-                "tools_timing": timing_data
+                "tools_timing": timing_data,
             }
-            
+
         except Exception as e:
             logger.error(f"{MODULE_TAG}任务执行失败: {e}")
             results = {
@@ -255,7 +209,7 @@ def main():
                 "okx_positions": {},
                 "current_time": None,
                 "kline_patterns": None,
-                "tools_timing": timing_data
+                "tools_timing": timing_data,
             }
             kline_patterns_all = {}
 
@@ -310,10 +264,47 @@ def main():
                                 kline[key] = round(value, 3)
                             # 对于 volume 等其他数值，可以根据需要决定是否四舍五入或保留小数位数
                             # 目前保持原样
+    def screenshots():
+        """获取屏幕截图的函数"""
+        def get_screenshots():
+            """获取屏幕截图的函数,自带check"""
+            try:
+                import get_data.tradingview_auto_screenshot
+                res_path=get_data.tradingview_auto_screenshot.main()
+                def check():
+                    """检查截图路径是否有效"""
+                    if not res_path or not isinstance(res_path, dict):
+                        logger.error("获取屏幕截图失败，返回结果无效")
+                        return False
+                    for key, path in res_path.items():
+                        if not os.path.exists(path):
+                            logger.error(f"截图文件不存在: {path}")
+                            return False
+                    return True
+                if not check():
+                    logger.error("获取屏幕截图失败，返回结果无效尝试重试")
+                    time.sleep(1)
+                    res_path = get_data.tradingview_auto_screenshot.main()  # 再次尝试获取截图
+                if not check():
+                    logger.error("获取屏幕截图失败，重试后仍然无效")
+                    return {}
+                logger.info(f"获取屏幕截图成功，返回结果: {res_path}")
+                return res_path
+            except Exception as e:
+                logger.error(f"获取屏幕截图失败: {e}")
+                return {}
 
-    print(results["indicators"])
+        screenshots=get_screenshots()
+        if screenshots is not None and isinstance(screenshots, dict):
+            logger.info(f"获取屏幕截图成功，包含 {len(screenshots)} 个时间周期的截图")
+        else:
+            logger.error("获取屏幕截图失败，使用空字典代替")
+            screenshots = {}
+        return screenshots
+    
     merged = {
-        "indicators_main(非实时报价)": indicators_data,
+        "screenshots": screenshots(),  # --new
+        "indicators_main(非实时报价)": indicators_data,# --debug
         "factors_main": results["factors"] if isinstance(results["factors"], dict) else {},
         "okx_positions": results["okx_positions"],
         "current_time": results["current_time"]["time"] if isinstance(results["current_time"], dict) and "time" in results["current_time"] else "",
