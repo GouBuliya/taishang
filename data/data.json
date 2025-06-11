@@ -1,8 +1,8 @@
 {
   "screenshots": {
-    "15": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_15m_20250611_181512.png",
-    "240": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_240m_20250611_181523.png",
-    "60": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_60m_20250611_181518.png"
+    "15": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_15m_20250611_182633.png",
+    "240": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_240m_20250611_182644.png",
+    "60": "/home/li-xufeng/codespace/taishang/data/cache_screenshot/tradingview_60m_20250611_182639.png"
   },
   "indicators_main(非实时报价)": {
     "15m": [
@@ -464,9 +464,9 @@
   },
   "factors_main": {
     "factors": {
-      "open_interest": "$3465850183319.0 million",
-      "funding_rate": "0.5064%",
-      "FGI": "72/100"
+      "FGI": "72/100",
+      "funding_rate": "0.5532%",
+      "open_interest": "$3465833727464.9995 million"
     }
   },
   "okx_positions": {
@@ -477,7 +477,7 @@
     "positions": [],
     "orders": []
   },
-  "current_time": "2025-06-11 18:15:06.875060+08:00",
+  "current_time": "2025-06-11 18:26:29.183874+08:00",
   "kline_patterns(analyze_kline_patterns)": {
     "15m": {
       "kline_shapes": {
@@ -595,10 +595,10 @@
     }
   },
   "tools_performance": {
-    "gettime_exec_time": 4.1961669921875e-05,
+    "gettime_exec_time": 1.3113021850585938e-05,
     "gettransactionhistory_exec_time": 0.0,
     "executepythoncode_exec_times": [],
-    "analyzeklinepatterns_exec_time": 0.0007665157318115234
+    "analyzeklinepatterns_exec_time": 0.00028824806213378906
   },
-  "timestamp": "2025-06-11T18:15:25+08:00"
+  "timestamp": "2025-06-11T18:26:46+08:00"
 }

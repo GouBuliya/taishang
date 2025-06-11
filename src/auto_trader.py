@@ -138,12 +138,11 @@ class AutoTrader:
                                 'operation_comment': detail.get('operation_comment', '')
                             }
                         )
-                        # for tp in detail.get('take_profit', []):
-                        #     if tp.get('price') != "N/A" and tp.get('size') != "N/A":
-                        #         logger.info(f"tpsize{round(float(str(tp['size']).rstrip('%')) / 100 if '%' in str(tp['size']) else float(tp['size']), 2)  }")
-
-                logger.info(f"交易执行成功: {result}")
-                    
+                if result.get('success'):
+                    # 交易成功后，记录交易历史
+                    logger.info(f"交易执行成功: {result}")
+                else:
+                    logger.error(f"交易执行失败: {result}")
             except Exception as e:
                 logger.error(f"执行交易失败: {e}")
                 continue

@@ -64,25 +64,6 @@ def _place_order(params: dict) -> dict:
     result = tradeAPI.place_order(**params)
     return result
 
-import math
-def _floor_decimal(value, decimals):
-    """
-    将浮点数向下取整到指定的小数位数。
-
-    Args:
-        value (float): 要处理的浮点数。
-        decimals (int): 要保留的小数位数。
-
-    Returns:
-        float: 向下取整后的浮点数。
-    """
-    if not isinstance(value, (int, float)):
-        raise TypeError("Value must be a number.")
-    if not isinstance(decimals, int) or decimals < 0:
-        raise ValueError("Decimals must be a non-negative integer.")
-
-    factor = 10 ** decimals
-    return math.floor(value * factor) / factor
 
 def place_order(
     instrument_id: str,
@@ -151,13 +132,13 @@ def place_order(
                             tp_price = price * (1 + percentage)  # 上涨百分比
                     else:
                         tp_price = float(tp_price)  # 转换为浮点数
-                    tp_price = _floor_decimal(tp_price, 2)  # 向下取整到小数点后两位
+                        
                     # 处理数量百分比
                     if isinstance(tp_size, str) and "%" in tp_size:
                         # 如果数量是百分比形式（例如：'30%'），计算实际数量
                         percentage = float(tp_size.strip('%')) / 100
                         tp_size = size * percentage  # 基于总持仓量计算
-                    tp_size = _floor_decimal(tp_size, 2)  # 向下取整到小数点后两位
+
                     attached_algo_orders_list.append({
                         "algoOrdType": "TP",
                         "tpTriggerPx": str(tp_price),
