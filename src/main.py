@@ -108,9 +108,9 @@ def run_auto_trader():
     """
     logger.info("正在运行自动交易系统...")
     try:
-        auto_trade_main()  # 直接调用auto_trader.py中的main函数
-        logger.info("自动交易系统运行完成")
-        return True
+        if auto_trade_main():  # 直接调用auto_trader.py中的main函数
+            logger.info("自动交易系统运行完成")
+            return True
     except Exception as e:
         logger.error(f"运行自动交易系统时发生错误: {e}")
         logger.exception(e)  # 打印详细的异常堆栈
@@ -140,16 +140,16 @@ if __name__ == "__main__":
     def should_run():
         """检查是否应该执行交易流程"""
         current_minute = datetime.datetime.now().minute
-        return current_minute % 15 == 0
+        return current_minute % 30 == 0
 
     last_run_minute = -1  # 用于记录上次运行时的分钟数
     
     while True:
         try:
             current_minute = datetime.datetime.now().minute
-            
-            # 只有在当前分钟数是15的倍数，且不是上一分钟刚运行过时，才执行
-            if current_minute % 15 == 0 and current_minute != last_run_minute:
+
+            # 只有在当前分钟数是30的倍数，且不是上一分钟刚运行过时，才执行
+            if current_minute % 30 == 0 and current_minute != last_run_minute:
                 logger.info(f"当前时间：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}，开始执行交易流程")
                 
                 # 运行数据收集
@@ -157,12 +157,15 @@ if __name__ == "__main__":
                 get_main()
                 logger.info("数据收集模块运行完成。")
 
-                # 运行Gemini API调用
-                run_gemini_api_caller()
-                    # 只有在Gemini API调用成功时才运行自动交易
-                    #判断gemini_answer.json是否更新：
-                run_auto_trader()
-                    
+                    # 运行Gemini API调用
+                for _ in range(3):
+                    run_gemini_api_caller()
+                    if run_auto_trader() is False:
+                        continue
+                    else:
+                        break
+                logger.info("Gemini API调用和自动交易系统运行完成。")
+
                 last_run_minute = current_minute  # 更新上次运行时间
                 logger.info(f"交易流程执行完成，等待下一个15分钟间隔")
 

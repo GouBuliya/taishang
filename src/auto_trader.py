@@ -4,7 +4,8 @@ import os
 import sys
 from typing import Dict, Any, List, Optional, Union, cast
 from datetime import datetime
-
+Config = open("config/config.json", "r")
+Config = json.load(Config)
 # 添加项目根目录到 Python 路径
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
@@ -20,7 +21,7 @@ from function.trade.trade_history import TradeHistory
 
 # 日志配置
 def setup_logger():
-    log_path = os.path.join(project_root, "logs/trade_auto.log")
+    log_path = os.path.join(project_root, Config["main_log_path"])
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
     logging.basicConfig(
         level=logging.INFO,
@@ -33,7 +34,7 @@ def setup_logger():
 logger = setup_logger()
 
 # 创建交易记录器
-trade_history = TradeHistory(os.path.join(project_root, "logs/trade_history.json"))
+trade_history = TradeHistory(os.path.join(project_root, Config["logs"]["trade_log_path"]))
 
 class AutoTrader:
     def execute_trades(self, execution_details: List[Dict[str, Any]]) -> None:
@@ -149,7 +150,7 @@ class AutoTrader:
 
 def load_gemini_answer():
     """加载交易指令配置"""
-    path = os.path.join(project_root, "data/gemini_answer.json")
+    path = os.path.join(project_root, Config["Controller_answer_path"])
     if not os.path.exists(path):
         logger.error(f"配置文件不存在: {path}")
         return None
@@ -173,19 +174,19 @@ def main():
     data = load_gemini_answer()
     if data is None:
         logger.error("加载配置文件失败，自动化交易终止。")
-        return
-        
+        exit(1)
+
     execution_details = data.get('execution_details', [])
     if not execution_details:
         logger.warning("未找到交易执行细节，自动化交易终止。")
-        return
-        
+        exit(1)
+
     try:
         trader = AutoTrader()
         trader.execute_trades(execution_details)
     except Exception as e:
         logger.error(f"执行交易失败: {e}")
-        return
+        exit(1)
 
 if __name__ == "__main__":
     main()
