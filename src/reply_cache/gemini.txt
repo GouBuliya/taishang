@@ -1,6 +1,0 @@
-[Gemini API调用异常] Part.from_text() takes 1 positional argument but 2 were given
-Traceback:
-Traceback (most recent call last):
-  File "/root/codespace/Qwen_quant_v1/ETH_code/gemini_api_caller.py", line 293, in call_gemini_api_stream
-    contents.append(types.Part.from_text(prompt_json_string)) # Add the JSON string as a text part
-TypeError: Part.from_text() takes 1 positional argument but 2 were given

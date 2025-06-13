@@ -3,12 +3,13 @@ name = "taishang"
 version = "0.1.0"
 description = "Automated trading system"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 authors = [
     {name = "li-xufeng"}
 ]
 dependencies = [
     "okx",
+    "psutil>=7.0.0",
 ]
 
 [project.optional-dependencies]
@@ -17,3 +18,14 @@ test = ["pytest"]
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["function*", "src*"]
+
+[dependency-groups]
+dev = [
+    "fastapi>=0.115.12",
+    "httpx>=0.28.1",
+    "pytest>=8.3.5",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.1",
+    "requests-mock>=1.12.1",
+    "responses>=0.25.7",
+]

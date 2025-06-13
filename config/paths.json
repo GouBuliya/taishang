@@ -1,0 +1,21 @@
+{
+  "browser_profiles": {
+    "base_dir": "data/browser_profiles",
+    "chrome_profile": "data/browser_profiles/chrome_profile",
+    "chrome_profile_copy": "data/browser_profiles/chrome_profile_copy", 
+    "chrome_profiles": "data/browser_profiles/chrome_profiles"
+  },
+  "data": {
+    "downloads": "data/downloads",
+    "screenshots": "data/screenshots"
+  },
+  "cache": {
+    "reply": "cache/reply"
+  },
+  "logs": {
+    "base_dir": "logs",
+    "main_log": "logs/main.log",
+    "trade_log": "logs/trade.log",
+    "effective_log": "logs/effective_communication.log"
+  }
+} 
