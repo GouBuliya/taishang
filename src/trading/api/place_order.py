@@ -70,7 +70,7 @@ def place_order(
     side: str,
     size: float,
     price: Optional[float] = None,
-    leverage: int = 100,
+    leverage: int = None,
     order_type: str = "limit",
     tdMode: str = "isolated",
     posSide: Optional[str] = None, # 确保这个参数被正确处理
@@ -82,6 +82,10 @@ def place_order(
     )
 
     try:
+        # 如果没有指定杠杆，使用配置文件中的默认值
+        if leverage is None:
+            leverage = config.get("default_leverage", 10)
+        
         set_leverage_result = _set_leverage(
             instrument_id=instrument_id,
             leverage=leverage,

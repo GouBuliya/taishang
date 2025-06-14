@@ -11,7 +11,7 @@
 # ///
 
 #使用方式：
-#uv run --python 3.11 src/screenshot_server.py
+# uv run src/infrastructure/web/data_server.py 2>&1 | pw       
 
 import time
 import os
@@ -254,16 +254,19 @@ def set_timeframe_and_screenshot(timeframe: str) -> Optional[str]:
         logger.error(f'设置 {timeframe}m 周期或截图时发生异常: {e}', exc_info=True)
         return None
 
-def take_screenshot_action():
+def take_screenshot_action() -> dict:
     """
     执行多个时间周期的截图操作并返回文件路径。
+    确保总是返回一个包含状态的字典。
     """
     global driver
     if not driver:
-        logger.error("浏览器实例未初始化或已失效。")
-        return None
+        msg = "浏览器实例未初始化或已失效。"
+        logger.error(msg)
+        return {"status": "error", "message": msg}
 
     try:
+        # 清理旧截图文件
         old_files = [f for f in os.listdir(downloads_dir) if f.startswith('ETHUSD.P_') and f.endswith('.png')]
         for f in old_files:
             try:
@@ -272,6 +275,7 @@ def take_screenshot_action():
                 logger.error(f'删除旧截图失败: {f}, {e}')
         logger.info('旧截图已清理，开始截图流程...')
 
+        # 检查并重新导航
         if driver.current_url != TRADINGVIEW_URL and not driver.current_url.startswith("https://cn.tradingview.com/chart/"):
             logger.info(f'当前页面不是目标页面，重新导航到: {TRADINGVIEW_URL}')
             driver.get(TRADINGVIEW_URL)
@@ -283,48 +287,60 @@ def take_screenshot_action():
                 logger.info('页面加载完成，关键元素可见。')
                 time.sleep(5) 
             except Exception as e:
-                logger.error(f'等待页面加载超时或元素未找到: {e}')
-                return None
+                msg = f'等待页面加载超时或元素未找到: {e}'
+                logger.error(msg)
+                return {"status": "error", "message": msg}
 
-        timeframes = ["15", "60", "240"]  # 15分钟、1小时、4小时
+        timeframes = config.get("screenshots", {}).get("timeframes", [])
+        if not timeframes:
+            msg = "配置文件中未定义截图的时间周期 (timeframes)。"
+            logger.warning(msg)
+            return {"status": "success", "message": msg, "screenshots": {}}
+
         screenshots = {}
         
         for tf in timeframes:
-            filepath = set_timeframe_and_screenshot(tf)
+            tf_str = str(tf)
+            filepath = set_timeframe_and_screenshot(tf_str)
             if filepath:
-                screenshots[tf] = filepath
-                logger.info(f'{tf}分钟周期截图成功: {filepath}')
+                screenshots[tf_str] = filepath
+                logger.info(f'{tf_str}分钟周期截图成功: {filepath}')
             else:
-            #尝试重试：
-                logger.error(f'{tf}分钟周期截图失败尝试重试...')
-                filepath = set_timeframe_and_screenshot(tf)
+                logger.error(f'{tf_str}分钟周期截图失败，尝试重试...')
+                time.sleep(2) # 重试前短暂等待
+                filepath = set_timeframe_and_screenshot(tf_str)
                 if filepath:
-                    screenshots[tf] = filepath
+                    screenshots[tf_str] = filepath
                     logger.info(f'重试成功: {filepath}')
                 else:
-                    logger.error(f'{tf}分钟周期截图重试失败，跳过此周期')
+                    logger.error(f'{tf_str}分钟周期截图重试失败，跳过此周期')
+        
         logger.info('所有时间周期的截图操作已完成。')
-        if screenshots:
-            return {
-                "status": "success",
-                "screenshots": screenshots
-            }
-        else:
-            logger.error('所有时间周期的截图均失败')
-            return None
+        if not screenshots:
+            msg = "所有请求的截图时间周期均失败。"
+            logger.error(msg)
+            return {"status": "error", "message": msg, "screenshots": {}}
+        
+        return {
+            "status": "success",
+            "screenshots": screenshots
+        }
 
     except Exception as e:
-        logger.error(f'截图过程中发生错误: {e}')
-        return None
+        msg = f'截图过程中发生未知错误: {e}'
+        logger.error(msg, exc_info=True)
+        return {"status": "error", "message": msg}
 
 @app.route('/screenshot', methods=['GET'])
 def get_screenshot():
     logger.info("收到截图请求。")
+    # take_screenshot_action 现在总是返回一个字典
     result = take_screenshot_action()
-    if result and isinstance(result, dict):
-        return jsonify(result)  
-    else:
-        return jsonify({"status": "error", "message": "截图失败"}), 500
+    
+    # 根据结果状态码返回HTTP状态码
+    if result.get("status") == "error":
+        return jsonify(result), 500
+    return jsonify(result), 200
 
 @app.route('/health', methods=['GET'])
 def health_check():

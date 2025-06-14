@@ -3,12 +3,16 @@
     "main_log_path": "logs/main.log",
     "screenshot_server_url": "http://127.0.0.1:5002/screenshot",
     "cache_screenshot_path": "data/cache_screenshot",
+    "screenshots": {
+        "timeframes": [15, 60, 240]
+    },
     "proxy": {
         "http_proxy": "http://127.0.0.1:1080",
         "https_proxy": "http://127.0.0.1:1080"
     },
     "data_path": "data/data.json",
     "instId": "ETH-USDT-SWAP",
+    "default_leverage": 10,
     "okx":{
         "api_key":"e4690480-5f46-4f5c-9046-bced6c333bf9",
         "secret_key":"7C676520EDE0CF56479E0A13CB110BF8",

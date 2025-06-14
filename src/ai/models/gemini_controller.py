@@ -228,7 +228,7 @@ def call_gemini_api_stream(
                         if hasattr(part, 'text') and part.text:
                             collected_thought_text_for_current_turn.append(part.text)
                             if think_mode:
-                                print(f"{COLOR_GREEN}THOUGHT: {part.text}{COLOR_RESET}")
+                                print(f"{part.text}")
                             yield {"thought": part.text}  # 立即返回当前思考部分
                             effective_logger.info(f"{part.text}")  # 恢复注释此行
                 elif hasattr(chunk, 'candidates') and chunk.candidates:
@@ -240,11 +240,11 @@ def call_gemini_api_stream(
                                     if hasattr(part, 'text') and part.text:
                                         collected_thought_text_for_current_turn.append(part.text)
                                         if think_mode:
-                                            print(f"{COLOR_GREEN}THOUGHT: {part.text}{COLOR_RESET}")
+                                            print(f"{part.text}")
                                         yield {"thought": part.text}  # 立即返回当前思考部分
                                         effective_logger.info(f"{part.text}")  # 恢复注释此行
                                     if part.executable_code is not None:
-                                        effective_logger.info(f"[Executable Code]: {part.executable_code.code}")
+                                        effective_logger.info(f"{COLOR_GREEN}[Executable Code]: {part.executable_code.code}{COLOR_RESET}")
                                         if think_mode:
                                             print(f"{COLOR_GREEN}CODE:\n{part.executable_code.code}{COLOR_RESET}")
                                         yield {"executable_code": part.executable_code.code}  # 立即返回可执行代码部分

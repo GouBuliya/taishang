@@ -1,5 +1,6 @@
 import sys
 import os
+import psutil # 引入psutil库
 
 # 确保项目根目录在sys.path中（避免重复添加）
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
@@ -113,7 +114,7 @@ def restart_data_server() -> Optional[subprocess.Popen]:
     # Use subprocess.Popen to run in the background
     try:
         # Assuming uv is in the PATH and the script is run from the workspace root
-        server_process = subprocess.Popen(['uv', 'run', '--python', '3.11', 'src/infrastructure/web/data_server.py'])
+        server_process = subprocess.Popen(['uv', 'run', 'src/infrastructure/web/data_server.py'])
         logger.info(f"已启动新的数据服务器进程，PID: {server_process.pid}")
         return server_process
     except Exception as e:
@@ -171,8 +172,7 @@ def run_auto_trader(dry_run: bool = False) -> bool:
             logger.info("自动交易系统运行完成")
             return True
     except Exception as e:
-        logger.error(f"运行自动交易系统时发生错误: {e}")
-        logger.exception(e)  # 打印详细的异常堆栈
+        logger.error(f"执行交易时发生顶层异常: {e}", exc_info=True)
         return False
 
 def parse_arguments() -> argparse.Namespace:
@@ -249,20 +249,16 @@ def show_debug_help():
 """
     print(help_text)
 
-def execute_trading_cycle() -> bool:
+def run_full_trade_flow(args: argparse.Namespace) -> bool:
     """
-    执行一次完整的交易周期。
-    
-    这个周期包括：
-    1. 收集市场数据。
-    2. 调用AI模型进行分析和决策。
-    3. 执行交易。
-    
+    执行一次完整的交易流程，从数据收集到交易执行。
+
+    Args:
+        args (argparse.Namespace): 解析后的命令行参数。
+
     Returns:
-        bool: 交易周期是否成功完成。
+        bool: 交易流程是否成功执行。
     """
-    logger.info(f"开始执行交易流程 - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    
     try:
         # 1. 运行数据收集
         logger.info("正在运行数据收集模块...")
@@ -308,54 +304,49 @@ def execute_trading_cycle() -> bool:
         logger.exception(e)
         return False
 
-def _run_debug_loop():
-    """运行调试循环模式。"""
-    logger.info("🔧 循环调试模式：连续执行交易流程，无时间等待")
-    cycle_count = 0
-    while True:
-        try:
-            cycle_count += 1
-            logger.info(f"--- 调试循环第 {cycle_count} 次 ---")
-            execute_trading_cycle()
-            logger.info(f"等待10秒后开始下一次循环...")
-            time.sleep(10)  # 短暂延迟避免过度频繁
-        except KeyboardInterrupt:
-            logger.info("接收到中断信号，退出调试循环")
-            break
-        except Exception as e:
-            logger.error(f"调试循环第 {cycle_count} 次执行异常: {e}")
-            logger.exception(e)
-            time.sleep(5)  # 错误后稍作延迟
-
-def _run_production_loop():
-    """运行生产模式循环。"""
-    # 运行一次数据收集模块作为自检
-    logger.info("服务器自检：运行数据收集模块...")
-    get_main()
-    logger.info("服务器自检：数据收集模块运行完成。")
-
-    logger.info("开始循环运行数据收集、Gemini API调用和自动交易系统...")
-    logger.info("生产模式：每30分钟执行一次交易流程")
+def run_debug_loop(args: argparse.Namespace):
+    """
+    在调试循环模式下运行，连续执行交易流程。
     
-    last_run_minute = -1  # 用于记录上次运行时的分钟数
-    
+    Args:
+        args (argparse.Namespace): 解析后的命令行参数。
+    """
+    run_count = 0
     while True:
+        run_count += 1
+        logger.info(f"--- 开始第 {run_count} 轮调试循环 ---")
         try:
-            current_minute = datetime.datetime.now().minute
-
-            # 只有在当前分钟数是30的倍数，且不是上一分钟刚运行过时，才执行
-            # TODO: 这个时间触发机制可以改进为使用更精确的调度库（如apscheduler），以避免漂移和保证执行精度。
-            if current_minute % 30 == 0 and current_minute != last_run_minute:
-                execute_trading_cycle()
-                last_run_minute = current_minute  # 更新上次运行时间
-                logger.info(f"交易流程执行完成，等待下一个30分钟间隔")
-
+            run_full_trade_flow(args)
+            logger.info(f"--- 第 {run_count} 轮调试循环完成 ---")
         except Exception as e:
-            logger.error(f"主循环执行过程中发生错误: {e}")
-            logger.exception(e)
+            logger.error(f"在第 {run_count} 轮调试循环中发生严重错误: {e}", exc_info=True)
+            logger.info("系统将在60秒后尝试重启主循环...")
+            time.sleep(60)
 
-        # 添加短暂延迟避免CPU过度使用
-        time.sleep(10)  # 每10秒检查一次时间
+def kill_existing_processes():
+    """查找并终止任何已在运行的 main_controller.py 进程，防止重复运行。"""
+    current_pid = os.getpid()
+    script_name = os.path.basename(__file__)
+    
+    killed_count = 0
+    for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+        try:
+            # 检查进程命令行中是否包含脚本名
+            if script_name in proc.info['cmdline'] and proc.info['pid'] != current_pid:
+                logger.warning(f"发现已在运行的旧进程: PID={proc.info['pid']}, 命令行: {' '.join(proc.info['cmdline'])}")
+                p = psutil.Process(proc.info['pid'])
+                p.terminate()  # 发送终止信号
+                p.wait(timeout=3) # 等待进程终止
+                logger.info(f"已成功终止旧进程 (PID: {proc.info['pid']})")
+                killed_count += 1
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.TimeoutExpired) as e:
+            logger.error(f"终止旧进程 (PID: {proc.info.get('pid')}) 时出错: {e}")
+        except Exception as e:
+            # 捕获其他可能的异常，例如proc.info['cmdline']为空的情况
+            continue
+            
+    if killed_count > 0:
+        logger.info(f"共终止了 {killed_count} 个旧的进程实例。")
 
 def main():
     """
@@ -363,6 +354,9 @@ def main():
     
     负责初始化、参数解析、模式选择和启动相应的执行循环。
     """
+    # 在最开始就执行查杀逻辑
+    kill_existing_processes()
+
     global DEBUG_MODE
     global config
     
@@ -419,19 +413,54 @@ def main():
     else:
         logger.info("跳过数据服务器启动，假设服务器已运行")
 
-    # 2. 调试模式：立即执行交易流程
+    # 4. 根据模式执行
     if args.debug:
-        logger.info("🔧 单次调试模式：执行一次完整交易流程后退出")
-        success = execute_trading_cycle()
+        logger.info("启用调试模式，将执行一次完整的交易流程。")
+        success = run_full_trade_flow(args)
         logger.info(f"调试模式执行完成，结果: {'成功' if success else '失败'}")
-        return
-
     elif args.debug_loop:
-        _run_debug_loop()
-
-    # 3. 生产模式：按时间间隔运行
+        logger.info("启用调试循环模式，将连续执行交易流程。")
+        run_debug_loop(args)
     else:
-        _run_production_loop()
+        logger.info("启用生产模式，将在每30分钟的整点时执行（如9:00、9:30、10:00等）。")
+        while True:
+            try:
+                # 获取当前时间
+                now = datetime.datetime.now()
+                current_minute = now.minute
+                
+                # 检查是否是30分钟的整点（分钟数能被30整除）
+                if current_minute % 30 == 0:
+                    logger.info(f"当前时间 {now.strftime('%H:%M')} 符合执行条件，开始执行交易流程...")
+                    run_full_trade_flow(args)
+                    logger.info("交易流程执行完成。")
+                    
+                    # 等待到下一分钟，避免在同一分钟内重复执行
+                    time.sleep(60)
+                else:
+                    # 计算到下一个30分钟整点的等待时间
+                    if current_minute < 30:
+                        next_target_minute = 30
+                    else:
+                        next_target_minute = 60
+                    
+                    wait_minutes = next_target_minute - current_minute
+                    wait_seconds = wait_minutes * 60 - now.second
+                    
+                    next_time = now.replace(minute=next_target_minute % 60, second=0, microsecond=0)
+                    if next_target_minute == 60:
+                        next_time = next_time.replace(hour=(now.hour + 1) % 24)
+                    
+                    logger.info(f"当前时间 {now.strftime('%H:%M:%S')}，下次执行时间: {next_time.strftime('%H:%M:%S')}，等待 {wait_seconds} 秒...")
+                    time.sleep(wait_seconds)
+                    
+            except KeyboardInterrupt:
+                logger.info("检测到手动中断，正在正常关闭系统...")
+                break
+            except Exception as e:
+                logger.error(f"在主循环中发生未捕获的错误: {e}", exc_info=True)
+                logger.info("系统将在60秒后尝试重启主循环...")
+                time.sleep(60)
 
 if __name__ == "__main__":
     main()

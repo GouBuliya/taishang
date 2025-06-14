@@ -8,14 +8,24 @@
 import sys
 import os
 
-# 确保项目根目录在sys.path中，以便进行绝对导入（避免重复添加）
-# TODO: 考虑使用更现代的打包方式（如pyproject.toml和src布局），
-# 这样可能就不再需要在代码中手动修改sys.path。
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+# 确保项目根目录在sys.path中，以便正确导入模块
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from src.core.main_controller import main
+from src.core.main_controller import main as main_controller_main
+from src.core.exception_handler import setup_global_exception_handler
+
+def main():
+    """
+    系统主入口。
+    为了统一和简化维护，此入口现在直接调用核心控制器。
+    """
+    # 设置全局异常处理
+    setup_global_exception_handler()
+    
+    # 直接调用新的主控制器
+    main_controller_main()
 
 if __name__ == "__main__":
     main() 
