@@ -40,6 +40,7 @@ from src.data.collectors.macro_factor_collector import get_fear_greed_index # Im
 from src.core.path_manager import path_manager
 import threading # Import the threading module
 from typing import Optional
+import argparse
 
 app = Flask(__name__)
 driver: Optional[webdriver.Chrome] = None
@@ -143,9 +144,12 @@ def _build_chrome_options() -> uc.ChromeOptions:
     logger.info(f'已构建Chrome选项，用户数据目录: {DEFAULT_USER_DATA_DIR}')
     return chrome_options
 
-def initialize_browser():
+def initialize_browser(headless_mode: bool = True):
     """
     初始化或重新连接浏览器实例，增加重试机制处理连接错误。
+
+    Args:
+        headless_mode (bool): 是否以无头模式运行浏览器。默认为True。
     """
     global driver
     clean_memory_on_start()
@@ -160,8 +164,8 @@ def initialize_browser():
         chrome_options = _build_chrome_options()
 
         try:
-            driver = uc.Chrome(options=chrome_options, headless=True, version_main=136)
-            logger.info(f"已启动新的Chrome浏览器 (headless=True)，准备导航...")
+            driver = uc.Chrome(options=chrome_options, headless=headless_mode, version_main=136)
+            logger.info(f"已启动新的Chrome浏览器 (headless={headless_mode})，准备导航...")
             driver.get(TRADINGVIEW_URL)
             logger.info(f"成功导航到页面: {driver.current_url}")
             return True 
@@ -322,6 +326,7 @@ def get_screenshot():
     else:
         return jsonify({"status": "error", "message": "截图失败"}), 500
 
+@app.route('/health', methods=['GET'])
 def health_check():
     """
     健康检查端点。
@@ -410,7 +415,13 @@ def main():
     """
     服务器主入口函数。
     """
-    if initialize_browser():
+    # 解析命令行参数
+    parser = argparse.ArgumentParser(description='Data Server for Trading System')
+    parser.add_argument('--head', action='store_false', dest='headless', help='Run browser in headed mode (visible UI).')
+    parser.set_defaults(headless=True)
+    args = parser.parse_args()
+
+    if initialize_browser(headless_mode=args.headless):
         logger.info("浏览器初始化成功。")
         prefetch_fgi_cache()
         app.run(host='0.0.0.0', port=5002)

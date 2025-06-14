@@ -47,11 +47,21 @@ trade_history = TradeHistory(os.path.join(project_root, Config["logs"]["trade_lo
 # TODO: 这个类目前是无状态的，可以考虑将其方法重构为独立的函数。
 # 如果未来需要维护状态（如跟踪已执行的订单），则保留类结构是合适的。
 class AutoTrader:
+    def __init__(self, dry_run: bool = False):
+        """
+        初始化AutoTrader。
+        Args:
+            dry_run (bool): 如果为True，则进入模拟运行模式。
+        """
+        self.dry_run = dry_run
+
     def execute_trades(self, execution_details: List[Dict[str, Any]]) -> bool:
         """执行交易指令"""
+        all_trades_successful = True
         for idx, detail in enumerate(execution_details):
             logger.info(f"执行第{idx+1}条交易指令: {detail}")
             
+            trade_successful = False
             try:
                 # TODO: instId 应该是一个更明确的参数，或者从更高层传入，而不是在这里硬编码默认值。
                 instrument_id = detail.get('instId', 'ETH-USDT-SWAP')
@@ -63,19 +73,30 @@ class AutoTrader:
 
                 # 根据 position_action 路由到不同的处理函数
                 if detail.get('position_action') == 'close_position' or detail.get('side') == 'close':
-                    self._handle_close_position(instrument_id, detail)
+                    trade_successful = self._handle_close_position(instrument_id, detail)
                 else:
-                    self._handle_open_position(instrument_id, detail)
+                    trade_successful = self._handle_open_position(instrument_id, detail)
 
             except Exception as e:
                 logger.error(f"执行交易指令 #{idx+1} 时发生未知错误: {e}", exc_info=True)
-                continue
-        return True
+                trade_successful = False
+            
+            if not trade_successful:
+                all_trades_successful = False
+                # 如果有任何一笔交易失败，可以选择立即中断或继续执行下一条指令
+                # 当前选择继续执行，以处理可能的多条独立指令
+                logger.error(f"指令 #{idx+1} 执行失败。")
 
-    def _handle_close_position(self, instrument_id: str, detail: Dict[str, Any]):
+        return all_trades_successful
+
+    def _handle_close_position(self, instrument_id: str, detail: Dict[str, Any]) -> bool:
         """处理平仓操作"""
         logger.info(f"开始处理平仓操作 for {instrument_id}")
         
+        if self.dry_run:
+            logger.info(f"[Dry Run] 模拟平仓: {instrument_id}, 指令: {detail}")
+            return True
+
         # 1. 首先尝试撤销所有相关挂单
         try:
             cancel_result = cancel_all_pending_orders(instrument_id)
@@ -123,9 +144,13 @@ class AutoTrader:
         return True
 
 
-    def _handle_open_position(self, instrument_id: str, detail: Dict[str, Any]):
+    def _handle_open_position(self, instrument_id: str, detail: Dict[str, Any]) -> bool:
         """处理开仓操作"""
         logger.info(f"开始处理开仓操作 for {instrument_id}")
+
+        if self.dry_run:
+            logger.info(f"[Dry Run] 模拟开仓: {instrument_id}, 指令: {detail}")
+            return True
 
         # 1. 解析和验证参数
         # TODO: 这个参数解析和转换逻辑非常复杂，应该被重构为一个独立的、
@@ -238,7 +263,7 @@ def load_gemini_answer() -> Optional[Dict[str, Any]]:
         logger.error(f"读取或解析交易指令文件时发生未知错误: {e}", exc_info=True)
         return None
 
-def main():
+def main(dry_run: bool = False) -> bool:
     """主函数"""
     data = load_gemini_answer()
     if data is None:
@@ -251,10 +276,8 @@ def main():
         return True
 
     try:
-        trader = AutoTrader()
-        if not trader.execute_trades(execution_details):
-            logger.error("执行交易时发生顶层异常，自动化交易终止。")
-            return False
+        trader = AutoTrader(dry_run=dry_run)
+        return trader.execute_trades(execution_details)
     except Exception as e:
         logger.error(f"执行交易时发生顶层异常: {e}", exc_info=True)
         # 在生产环境中，这里可能需要更复杂的错误处理或通知机制

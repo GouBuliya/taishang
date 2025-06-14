@@ -88,19 +88,49 @@ pip install -r requirements.txt
 
 ## 使用指南
 
-1. 启动系统
+### 命令行选项
+
+您可以通过丰富的命令行参数来控制系统的行为。
+
+| 参数 (长) | 参数 (短) | 描述 | 默认值/可选值 | 示例用法 |
+| :--- | :--- | :--- | :--- | :--- |
+| `--debug` | `-d` | **调试模式**：立即执行一次完整的交易流程（数据采集 -> AI决策 -> 交易执行）后退出。 | - | `uv run src/core/main_controller.py --debug` |
+| `--debug-loop` | | **调试循环模式**：连续执行交易流程，跳过每个循环之间的等待时间，用于快速迭代测试。 | - | `uv run src/core/main_controller.py --debug-loop` |
+| `--dry-run` | | **模拟运行模式**：执行所有步骤，但不会实际下单交易。所有交易指令将被打印到日志，用于安全测试策略。 | - | `uv run src/core/main_controller.py --dry-run` |
+| `--think` | | **思考摘要模式**：在AI决策时，实时打印模型的思考过程（绿色）和最终输出（米色），用于深入调试AI行为。 | - | `uv run src/core/main_controller.py --think` |
+| `--log-level` | | **日志级别**：设置日志记录的详细程度。 | `INFO` (默认), `DEBUG`, `WARNING`, `ERROR` | `uv run src/core/main_controller.py --log-level DEBUG` |
+| `--config` | | **指定配置文件**：使用自定义的 `config.json` 文件路径，而不是默认的 `config.json`。 | `config.json` | `uv run src/core/main_controller.py --config /path/to/my_config.json` |
+| `--skip-server` | | **跳过服务器启动**：假设数据采集服务已在后台运行，主控制器将不再尝试启动它。 | - | `uv run src/core/main_controller.py --skip-server` |
+| `--help-debug` | | **显示调试帮助**：打印关于不同调试模式和参数组合的详细说明。 | - | `uv run src/core/main_controller.py --help-debug` |
+
+
+### 启动系统
+
+基本启动（生产模式）：
+```bash
+uv run src/core/main_controller.py
+```
+
+#### 组合用法示例
+```bash
+# 使用DEBUG日志级别进行一次模拟运行，并查看AI的详细思考过程
+uv run src/core/main_controller.py --debug --dry-run --think --log-level DEBUG
+```
+
+#### 旧版启动方式 (如果适用)
 ```bash
 python src/main.py
 ```
 
-2. 系统模式
-- 生产模式：执行真实交易
-- 调试模式：仅模拟交易
+### 系统模式
+- **生产模式**：执行真实交易（默认模式）。
+- **模拟运行模式**：不执行真实交易，用于测试（使用`--dry-run`）。
+- **调试模式**：用于开发和快速测试（使用`--debug`或`--debug-loop`）。
 
-3. 监控交易
-- 查看`logs/main.log`获取系统运行状态
-- 查看`logs/trade_history.json`获取交易历史
-- 查看`logs/ai_decisions.md`获取AI决策过程
+### 监控交易
+- 查看 `logs/main.log` 获取系统运行状态。
+- 查看 `logs/trade_history.json` 获取交易历史
+- 查看 `logs/ai_decisions.md` 获取AI决策过程
 
 ## 开发指南
 

@@ -123,12 +123,13 @@ def restart_data_server() -> Optional[subprocess.Popen]:
 # TODO: 未来可以考虑将gemini_controller重构为一个类，并直接调用其方法，而不是通过子进程。
 # 这样可以更好地控制执行、传递参数和处理结果，同时降低进程间通信的开销。
 @retry(max_tries=3, delay_seconds=2, backoff=2, exceptions=(subprocess.CalledProcessError, Exception))
-def run_gemini_api_caller(prompt_suffix: Optional[str] = None) -> bool:
+def run_gemini_api_caller(prompt_suffix: Optional[str] = None, think_mode: bool = False) -> bool:
     """
     运行 Gemini API 调用脚本。
 
     Args:
         prompt_suffix (Optional[str]): 要附加到主提示词末尾的额外文本。
+        think_mode (bool): 是否开启思考模式。
     
     Returns:
         bool: 脚本是否成功运行。
@@ -141,6 +142,8 @@ def run_gemini_api_caller(prompt_suffix: Optional[str] = None) -> bool:
         command = ['uv', 'run', 'src/ai/models/gemini_controller.py']
         if prompt_suffix:
             command.extend(['--append-prompt', prompt_suffix])
+        if think_mode:
+            command.append('--think')
         
         result = subprocess.run(command, check=True)
         logger.info(f"Gemini API 调用脚本运行完成，返回码: {result.returncode}")
@@ -152,13 +155,19 @@ def run_gemini_api_caller(prompt_suffix: Optional[str] = None) -> bool:
         logger.error(f"运行 Gemini API 调用脚本时发生未知错误: {e}")
         raise  # 让重试装饰器处理
 
-def run_auto_trader() -> bool:
+def run_auto_trader(dry_run: bool = False) -> bool:
     """
     运行自动交易系统。
+
+    Args:
+        dry_run (bool): 是否为模拟运行模式。
     """
     logger.info("正在运行自动交易系统...")
+    if dry_run:
+        logger.info("模式: Dry Run (模拟运行)")
     try:
-        if auto_trade_main():  # 直接调用auto_trader.py中的main函数
+        # 注意：这里需要修改 auto_trader.py 的 main 函数来接受 dry_run 参数
+        if auto_trade_main(dry_run=dry_run):
             logger.info("自动交易系统运行完成")
             return True
     except Exception as e:
@@ -173,14 +182,35 @@ def parse_arguments() -> argparse.Namespace:
     Returns:
         argparse.Namespace: 解析后的命令行参数对象。
     """
-    parser = argparse.ArgumentParser(description='太熵量化交易系统 - 主控制器')
-    parser.add_argument('--debug', '-d', action='store_true', 
+    parser = argparse.ArgumentParser(description='太熵量化交易系统 - 主控制器', formatter_class=argparse.RawTextHelpFormatter)
+
+    # 调试与模式控制
+    group_mode = parser.add_argument_group('调试与模式控制')
+    group_mode.add_argument('--debug', '-d', action='store_true', 
                        help='启用调试模式：立即执行一次完整交易流程后退出')
-    parser.add_argument('--debug-loop', action='store_true',
+    group_mode.add_argument('--debug-loop', action='store_true',
                        help='启用调试循环模式：连续执行交易流程，无时间等待')
-    parser.add_argument('--skip-server', action='store_true',
+    group_mode.add_argument('--dry-run', action='store_true',
+                       help='模拟运行模式：执行所有步骤，但不会实际下单交易')
+    group_mode.add_argument('--think', action='store_true',
+                       help='思考摘要模式：在AI决策时，实时打印模型的思考过程和代码输出')
+
+    # 配置与路径
+    group_config = parser.add_argument_group('配置与路径')
+    group_config.add_argument('--config', type=str, default=None,
+                        help='指定自定义的config.json配置文件路径')
+    group_config.add_argument('--log-level', type=str, default='INFO',
+                        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+                        help='设置日志记录级别 (默认为: INFO)')
+
+    # 服务器与服务
+    group_server = parser.add_argument_group('服务器与服务')
+    group_server.add_argument('--skip-server', action='store_true',
                        help='跳过数据服务器启动（假设服务器已运行）')
-    parser.add_argument('--help-debug', action='store_true',
+    
+    # 帮助
+    group_help = parser.add_argument_group('帮助')
+    group_help.add_argument('--help-debug', action='store_true',
                        help='显示调试模式详细说明')
     
     # 在测试环境中，sys.argv可能包含pytest的参数，这会导致解析错误。
@@ -242,7 +272,7 @@ def execute_trading_cycle() -> bool:
         # 2. 运行Gemini API调用和自动交易
         success = False
         # 交易失败后重新决策的提示词
-        RETHINK_PROMPT = "检查格式和价格止盈止损的正确性"
+        RETHINK_PROMPT = "你的上一个指令在执行时失败，请检查指令的JSON格式、价格、止盈止损等参数的正确性和逻辑合理性，然后重新生成指令。"
 
         for attempt in range(3):
             logger.info(f"开始第 {attempt + 1} 次交易尝试...")
@@ -254,10 +284,10 @@ def execute_trading_cycle() -> bool:
 
             try:
                 # 调用AI决策
-                run_gemini_api_caller(prompt_suffix=prompt_to_use)
+                run_gemini_api_caller(prompt_suffix=prompt_to_use, think_mode=args.think)
                 
                 # 执行交易
-                if run_auto_trader():
+                if run_auto_trader(dry_run=args.dry_run):
                     logger.info(f"第 {attempt + 1} 次交易尝试成功。")
                     success = True
                     break
@@ -334,10 +364,28 @@ def main():
     负责初始化、参数解析、模式选择和启动相应的执行循环。
     """
     global DEBUG_MODE
+    global config
     
     # 解析命令行参数
     args = parse_arguments()
     
+    # 1. 根据参数重新加载配置和设置日志级别
+    if args.config:
+        logger.info(f"加载指定配置文件: {args.config}")
+        with open(args.config, "r", encoding="utf-8") as f:
+            config = json.load(f)
+    
+    log_level_map = {
+        'DEBUG': logging.DEBUG,
+        'INFO': logging.INFO,
+        'WARNING': logging.WARNING,
+        'ERROR': logging.ERROR,
+        'CRITICAL': logging.CRITICAL
+    }
+    effective_log_level = log_level_map.get(args.log_level.upper(), logging.INFO)
+    logging.getLogger("GeminiQuant").setLevel(effective_log_level)
+    logger.info(f"日志级别已设置为: {args.log_level}")
+
     # 显示调试帮助
     if args.help_debug:
         show_debug_help()

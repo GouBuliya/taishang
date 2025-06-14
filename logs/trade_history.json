@@ -4531,10 +4531,10 @@
     }
   },
   {
-    "timestamp": "2025-06-14T07:02:22.022889",
+    "timestamp": "2025-06-14T08:01:57.587157",
     "instrument_id": "ETH-USDT-SWAP",
     "side": "sell",
-    "size": 110.78,
+    "size": 138.06,
     "price": -1,
     "order_type": "market",
     "order_id": "",
@@ -4543,37 +4543,37 @@
     "extra_info": {
       "position_action": "close_position",
       "trade_type": "close",
-      "operation_comment": "平仓现有ETH-USDT-SWAP多头头寸，以反向开空。",
+      "operation_comment": "平仓现有净多头头寸",
       "force_market_close": true
     }
   },
   {
-    "timestamp": "2025-06-14T07:02:22.842259",
+    "timestamp": "2025-06-14T08:01:58.160443",
     "instrument_id": "ETH-USDT-SWAP",
     "side": "sell",
-    "size": 110.78,
-    "price": 2570.0,
+    "size": 138.06,
+    "price": 2574.0,
     "order_type": "limit",
     "order_id": "",
     "stop_loss": 2590.0,
     "take_profits": [
       {
         "price": 2540.0,
-        "size": 36.93
+        "size": 46.02
       },
       {
         "price": 2520.0,
-        "size": 36.93
+        "size": 46.02
       },
       {
         "price": 2500.0,
-        "size": 36.92
+        "size": 46.02
       }
     ],
     "extra_info": {
       "position_action": "open_position",
       "trade_type": "open",
-      "operation_comment": "在反弹高位开立ETH-USDT-SWAP空头头寸，顺应4小时图下跌趋势。"
+      "operation_comment": "根据看跌信号开立新空头头寸"
     }
   }
 ]

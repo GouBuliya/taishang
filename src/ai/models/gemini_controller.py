@@ -9,6 +9,11 @@ import datetime # 导入datetime模块
 from typing import Generator, Dict, Any, Optional, List
 import argparse
 
+# ANSI aescape codes for colors
+COLOR_GREEN = "\033[32m"
+COLOR_BEIGE = "\033[33m"
+COLOR_RESET = "\033[0m"
+
 # 确保项目根目录在Python路径中
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if PROJECT_ROOT not in sys.path:
@@ -131,6 +136,7 @@ def call_gemini_api_stream(
     prompt_text,
     system_prompt_path: Optional[str] = None,
     files_path: Optional[List[str]] = None,
+    think_mode: bool = False,
 ) -> Generator[Dict[str, Any], None, None]:
     """
     调用 Gemini API 的流式接口，并处理响应。
@@ -139,6 +145,7 @@ def call_gemini_api_stream(
         prompt_text (str): 用户输入的文本。
         system_prompt_path (Optional[str]): 系统提示词文件路径。
         files_path (Optional[List[str]]): 要上传的文件路径列表。
+        think_mode (bool): 是否开启思考模式以打印额外信息。
 
     Yields:
         Generator[Dict[str, Any], None, None]: 一个生成器，逐块返回API的响应。
@@ -208,12 +215,10 @@ def call_gemini_api_stream(
             
             # 如果没有函数调用，检查是否有文本
             if chunk.text:  # 使用 if chunk.text 更加 Pythonic
-                # print(chunk.text, end="", flush=True)
                 output_buffer.append(chunk.text)
                 # 将文本添加到模型响应部分
                 model_response_parts.append(types.Part(text=chunk.text))
                 effective_logger.info(f"[Model Response]: {chunk.text}")
-                # print(f"\033[32m{chunk.text}\033[0m")  # 蓝颜色的字 - 已注释避免测试输出污染
                 yield {"text": chunk.text}  # 立即返回当前文本部分
             else:
                 # 尝试从非文本/非函数调用部分中捕获思考摘要
@@ -222,7 +227,8 @@ def call_gemini_api_stream(
                     for part in chunk.parts: # type: ignore
                         if hasattr(part, 'text') and part.text:
                             collected_thought_text_for_current_turn.append(part.text)
-                            # print(part.text)  # 已注释避免测试输出污染
+                            if think_mode:
+                                print(f"{COLOR_GREEN}THOUGHT: {part.text}{COLOR_RESET}")
                             yield {"thought": part.text}  # 立即返回当前思考部分
                             effective_logger.info(f"{part.text}")  # 恢复注释此行
                 elif hasattr(chunk, 'candidates') and chunk.candidates:
@@ -233,26 +239,32 @@ def call_gemini_api_stream(
                                 for part in candidate.content.parts:
                                     if hasattr(part, 'text') and part.text:
                                         collected_thought_text_for_current_turn.append(part.text)
-                                        # print(part.text)  # 已注释避免测试输出污染
-
+                                        if think_mode:
+                                            print(f"{COLOR_GREEN}THOUGHT: {part.text}{COLOR_RESET}")
                                         yield {"thought": part.text}  # 立即返回当前思考部分
                                         effective_logger.info(f"{part.text}")  # 恢复注释此行
                                     if part.executable_code is not None:
                                         effective_logger.info(f"[Executable Code]: {part.executable_code.code}")
-                                        # print(f"\033[32m{part.executable_code.code}\033[0m")  # 绿颜色的字 - 已注释避免测试输出污染
-
+                                        if think_mode:
+                                            print(f"{COLOR_GREEN}CODE:\n{part.executable_code.code}{COLOR_RESET}")
                                         yield {"executable_code": part.executable_code.code}  # 立即返回可执行代码部分
                                     if part.code_execution_result is not None:
                                         effective_logger.info(f"[Code Execution Result]: {part.code_execution_result.output}")
-                                        # print(f"\033[32m{part.code_execution_result.output}\033[0m")  # 绿颜色的字 - 已注释避免测试输出污染
-
+                                        if think_mode:
+                                            print(f"{COLOR_GREEN}CODE OUTPUT:\n{part.code_execution_result.output}{COLOR_RESET}")
                                         yield {"executable_code": part.code_execution_result.output}  # 立即返回代码执行结果部分
 
         api_call_end_time = time.time()
         timing_data["gemini_api_call_times"].append(api_call_end_time - api_call_start_time)
+        
+        complete_response = "".join(output_buffer)
+        
+        if think_mode:
+            print(f"\n{COLOR_BEIGE}--- FINAL MODEL OUTPUT ---{COLOR_RESET}")
+            print(f"{COLOR_BEIGE}{complete_response}{COLOR_RESET}")
+            print(f"{COLOR_BEIGE}--------------------------{COLOR_RESET}\n")
 
         # 尝试解析完整响应为 JSON
-        complete_response = "".join(output_buffer)
         try:
             # 如果响应包含在 ```json``` 中，提取 JSON 部分
             if "```json" in complete_response:
@@ -274,6 +286,7 @@ def run_main_flow():
     """
     parser = argparse.ArgumentParser(description='Gemini API Caller')
     parser.add_argument('--append-prompt', type=str, help='Append text to the end of the prompt.')
+    parser.add_argument('--think', action='store_true', help='Enable think mode for verbose output.')
     args = parser.parse_args()
 
     start_time = time.time()
@@ -322,7 +335,7 @@ def run_main_flow():
         return
 
     # 4. 调用API并获取响应
-    result = call_and_process_api(current_prompt_text, system_prompt_path, files_path)
+    result = call_and_process_api(current_prompt_text, system_prompt_path, files_path, think_mode=args.think)
     
     # 5. 保存结果
     if result:
@@ -336,7 +349,7 @@ def run_main_flow():
     run_time = end_time - start_time
     print_performance_stats(run_time)
 
-def call_and_process_api(prompt_text, system_prompt_path, files_path):
+def call_and_process_api(prompt_text, system_prompt_path, files_path, think_mode: bool = False):
     """调用 Gemini API 并处理响应流"""
     response_parts = []
     try:
@@ -344,6 +357,7 @@ def call_and_process_api(prompt_text, system_prompt_path, files_path):
             prompt_text=prompt_text,
             system_prompt_path=system_prompt_path,
             files_path=files_path,
+            think_mode=think_mode,
         )
         
         if not api_stream:
