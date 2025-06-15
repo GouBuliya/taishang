@@ -14,9 +14,6 @@
     "instId": "ETH-USDT-SWAP",
     "default_leverage": 10,
     "okx":{
-        "api_key":"e4690480-5f46-4f5c-9046-bced6c333bf9",
-        "secret_key":"7C676520EDE0CF56479E0A13CB110BF8",
-        "passphrase":"1528895030qQ@",
         "flag":"1"
     },
     "chrome_profile":{
@@ -25,10 +22,6 @@
     },
     "gemini_api_key_set":
     {
-        "_gemini_api_key_1":"AIzaSyBMop_s4XzdG-vmIFAS0ezP-IGJPQpGSuc",
-        "_gemini_api_key_2":"AIzaSyBnrXYeaoQr8tnkD2ojwm75_dRhbB5vklI",
-        "gemini_api_key_3":"AIzaSyAX0Ypi7-p8oVCwgVp7Olw2Cfz-wVgU6PA",
-        "gemini_api_key_4":"AIzaSyCkBZzYyaSvLzHRWGEsoabZbyNzlvAxa98"
     },
     "MODEL_CONFIG":{
         "MODEL_NAME": "gemini-2.5-flash-preview-05-20",
