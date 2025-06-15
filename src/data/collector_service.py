@@ -222,7 +222,7 @@ def collect_and_save_data(data_collectors: Dict[str, Callable[[], Any]], save_pa
     """
     collected_data = {}
     timings = {}
-
+    begin_time = datetime.now()
     # 使用线程池并行执行数据收集
     with concurrent.futures.ThreadPoolExecutor() as executor:
         future_to_name = {executor.submit(func): name for name, func in data_collectors.items()}

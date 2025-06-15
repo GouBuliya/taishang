@@ -50,8 +50,8 @@ effective_logger.propagate = False
 # 设置 google.genai.types 模块的日志级别为 ERROR，以屏蔽非文本部分的警告
 logging.getLogger('google.genai.types').setLevel(logging.ERROR)
 
-MODULE_TAG = "[Critic_api_caller] "
-client = genai.Client(api_key=config["gemini_api_key_set"]["gemini_api_key_2"])
+MODULE_TAG = "[Critic_api_caller] " 
+client = genai.Client(api_key=config["gemini_api_key_set"]["gemini_api_key_4"])
 
 def main(
     critic_data: dict

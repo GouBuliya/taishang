@@ -162,18 +162,18 @@ class CriticDataIntegrator:
             }
             
             system_configs = {
-                "lot_size": lot_size_map.get(inst_id, "0.1"),
-                "decimal_precision_rules": "使用Decimal类型进行所有数量计算，量化到lot_size精度",
-                "max_loss_percentage": 0.02,  # 2%最大损失
-                "max_leverage": 100,
+                "lot_size": lot_size_map.get(inst_id, "0.1"),# 交易量
+                "decimal_precision_rules": "使用Decimal类型进行所有数量计算，量化到lot_size精度",# 小数精度规则
+                "max_loss_percentage": 0.1,  # 10%最大损失# 最大损失百分比
+                "max_leverage": 100, # 最大杠杆
                 "heuristic_rules_definitions": {
                     "description": "启发式规则定义，用于信号贡献度计算",
                     "X1_to_X7": "多时间框架技术指标权重分配规则"
                 },
                 "confidence_mapping_function": "置信度映射函数：基于信号强度和市场条件",
                 "expected_return_formula_parameters": {
-                    "risk_free_rate": 0.03,
-                    "market_volatility_factor": 1.2,
+                    "risk_free_rate": 0.03,# 无风险利率
+                    "market_volatility_factor": 1.2,# 市场波动因子
                     "position_sizing_method": "固定风险百分比"
                 }
             }

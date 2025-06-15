@@ -1,17 +1,8 @@
-# TaiShang - AI驱动的加密货币量化交易系统
 
-TaiShang是一个基于Google Gemini AI的自动化加密货币交易系统，专门设计用于OKX交易所的交易。系统结合了技术分析、市场数据和AI决策支持，提供智能化的交易执行服务。
 
-## 主要特性
 
-- 🤖 AI驱动的交易决策（基于Google Gemini）
-- 📊 自动化技术分析和市场数据收集
-- 📈 实时K线模式识别和趋势分析
-- 💹 自动化交易执行（开仓/平仓）
-- ⚡ 实时市场监控和风险控制
-- 📝 详细的交易日志和分析报告
 
-## 系统架构
+## 架构
 
 ```mermaid
 graph TD
@@ -145,11 +136,6 @@ uv run src/core/main_controller.py
 uv run src/core/main_controller.py --debug --dry-run --think --log-level DEBUG
 ```
 
-#### 旧版启动方式 (如果适用)
-```bash
-python src/main.py
-```
-
 ### 系统模式
 - **生产模式**：执行真实交易（默认模式）。
 - **模拟运行模式**：不执行真实交易，用于测试（使用`--dry-run`）。
@@ -190,7 +176,7 @@ taishang/
 - 启用止损保护
 - 定期检查系统日志
 
-
+### 决策流程
 ```mermaid
 graph TD
     A[AI决策] --> B[谏官审查]

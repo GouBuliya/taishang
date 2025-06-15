@@ -101,7 +101,7 @@ timing_data = {
 }
 
 # 推荐用 GEMINI_API_KEY 作为环境变量名
-api_key_index = 1
+api_key_index = 3
 api_key_list = config["gemini_api_key_set"]
 api_key_str="gemini_api_key_"+str(api_key_index)
 API_KEY = api_key_list[api_key_str]
