@@ -53,10 +53,22 @@ logging.getLogger('google.genai.types').setLevel(logging.ERROR)
 MODULE_TAG = "[Critic_api_caller] "
 client = genai.Client(api_key=config["gemini_api_key_set"]["gemini_api_key_2"])
 
-def main (
-    prompt_text: str
+def main(
+    critic_data: dict
 ) -> list:
     """调用 Gemini Critic API 的主函数
+
+    Args:
+        critic_data: 结构化的谏官输入数据，包含：
+                    - decision_maker_output: 决策者输出
+                    - raw_market_data: 原始市场数据
+                    - kline_images_context: K线图像上下文
+                    - system_configs: 系统配置
+                    - system_performance_summary: 系统性能摘要
+                    - current_iteration_info: 当前迭代信息
+                    - retrieved_external_context: 外部上下文（可选）
+                    
+                    为了向后兼容，也可以传入简单的字典数据
 
     Returns:
         list: API 返回的输出数据
@@ -69,13 +81,24 @@ def main (
             system_prompt = f.read() # 直接读取文件内容作为字符串
         Config=types.GenerateContentConfig(
             system_instruction=system_prompt,
-            temperature=config["MODEL_CONFIG"]["default_temperature"],
-            max_output_tokens=config["MODEL_CONFIG"]["default_thinking_budget"],
-            top_p=config["MODEL_CONFIG"]["default_top_p"],
+            temperature=config["MODEL_CONFIG"]["critic_temperature"],
+            max_output_tokens=config["MODEL_CONFIG"]["critic_max_output_tokens"],
+            top_p=config["MODEL_CONFIG"]["critic_top_p"],
             tools=[types.Tool(code_execution=types.ToolCodeExecution)] # type: ignore
         )
 
-        prompt_text = json.dumps(prompt_text, ensure_ascii=False, indent=4)  # 确保 prompt_text 是 JSON 格式的字符串
+        # 检查输入数据格式，确保向后兼容性
+        if isinstance(critic_data, dict):
+            # 检查是否是新的结构化格式
+            if "decision_maker_output" in critic_data:
+                logger.info(f"{MODULE_TAG}使用新的结构化谏官数据格式")
+                prompt_text = json.dumps(critic_data, ensure_ascii=False, indent=4)
+            else:
+                logger.info(f"{MODULE_TAG}使用传统的简单数据格式（向后兼容）")
+                prompt_text = json.dumps(critic_data, ensure_ascii=False, indent=4)
+        else:
+            logger.warning(f"{MODULE_TAG}输入数据格式异常，尝试直接序列化")
+            prompt_text = json.dumps(critic_data, ensure_ascii=False, indent=4)
 
         response = client.models.generate_content_stream(
             model=config["MODEL_CONFIG"]["MODEL_NAME"], 

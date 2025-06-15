@@ -41,7 +41,12 @@
         "default_top_p": 0.95,
         "default_max_output_tokens": 24576,
         "default_thinking_budget": 24576,
-        "default_include_thoughts": "True"
+        "default_include_thoughts": "True",
+        "critic_temperature": 0.0,
+        "critic_top_p": 0.95,
+        "critic_max_output_tokens": 24576,
+        "critic_thinking_budget": 8000,
+        "critic_include_thoughts": "True"
     },
     "Controller_answer_path": "data/Controller_answer.json",
     "logs":{

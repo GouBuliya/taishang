@@ -21,6 +21,8 @@ from src.core.exception_handler import setup_global_exception_handler, safe_exec
 from src.core.path_manager import path_manager
 import datetime
 from typing import Optional
+from src.ai.models.gemini_critic import main as critic_main
+from src.data.critic_data_integrator import integrate_data_for_critic
 
 # Configure logging (similar to other scripts for consistency)
 # 获取项目根目录
@@ -156,6 +158,113 @@ def run_gemini_api_caller(prompt_suffix: Optional[str] = None, think_mode: bool 
         logger.error(f"运行 Gemini API 调用脚本时发生未知错误: {e}")
         raise  # 让重试装饰器处理
 
+@retry(max_tries=2, delay_seconds=2, backoff=2, exceptions=(subprocess.CalledProcessError, Exception))
+def run_critic_review(current_iteration: int = 1, max_iterations: int = 3) -> bool:
+    """
+    运行谏官审查模块，对AI决策进行审查。
+    
+    Args:
+        current_iteration: 当前迭代次数
+        max_iterations: 最大迭代次数
+    
+    Returns:
+        bool: 审查是否通过（True表示通过，False表示需要修正）。
+    """
+    logger.info(f"正在运行谏官审查模块（第{current_iteration}次迭代）...")
+    try:
+        # 读取Controller的决策结果
+        controller_answer_path = os.path.join(project_root, config["logs"]["Controller_answer_path"])
+        if not os.path.exists(controller_answer_path):
+            logger.error(f"Controller决策文件不存在: {controller_answer_path}")
+            return False
+        
+        with open(controller_answer_path, "r", encoding="utf-8") as f:
+            controller_decision = json.load(f)
+        
+        # 使用数据整合器整合完整的谏官输入数据
+        logger.info("正在整合谏官所需的完整数据...")
+        try:
+            integrated_data = integrate_data_for_critic(
+                decision_maker_output=controller_decision,
+                current_iteration=current_iteration,
+                max_iterations=max_iterations
+            )
+            logger.info("数据整合完成")
+        except Exception as e:
+            logger.error(f"数据整合失败: {e}")
+            # 如果数据整合失败，回退到传统模式
+            logger.warning("回退到传统的简单数据格式")
+            integrated_data = controller_decision
+        
+        # 调用谏官模块进行审查
+        critic_result = critic_main(integrated_data)
+        
+        # 保存谏官审查结果
+        critic_answer_path = os.path.join(project_root, config["logs"]["Critic_answer_path"])
+        
+        # 解析谏官的输出
+        if critic_result and len(critic_result) > 0:
+            # 将输出列表合并为字符串，然后尝试解析JSON
+            critic_output = "".join(critic_result)
+            try:
+                # 尝试从输出中提取JSON
+                import re
+                json_match = re.search(r'\{.*\}', critic_output, re.DOTALL)
+                if json_match:
+                    critic_json = json.loads(json_match.group())
+                    
+                    # 添加迭代信息到审查结果
+                    critic_json["iteration_info"] = {
+                        "current_iteration": current_iteration,
+                        "max_iterations": max_iterations,
+                        "timestamp": datetime.datetime.now().isoformat()
+                    }
+                    
+                    # 保存审查结果
+                    with open(critic_answer_path, "w", encoding="utf-8") as f:
+                        json.dump(critic_json, f, ensure_ascii=False, indent=4)
+                    
+                    # 检查审查状态 - 修改逻辑：只要没有致命错误就通过
+                    status = critic_json.get("status", "Needs Revision")
+                    critique_report = critic_json.get("critique_report", [])
+                    
+                    # 检查是否有致命错误
+                    has_critical_error = False
+                    for issue in critique_report:
+                        severity = issue.get('severity', 'Unknown').lower()
+                        description = issue.get('description', 'No description')
+                        logger.info(f"审查问题 [{severity.upper()}]: {description}")
+                        
+                        # 只有Critical级别的错误才被认为是致命错误
+                        if severity == 'critical':
+                            has_critical_error = True
+                            logger.error(f"发现致命错误: {description}")
+                    
+                    if status == "Approved" or not has_critical_error:
+                        if status == "Approved":
+                            logger.info(f"谏官审查通过（第{current_iteration}次迭代），决策获得批准。")
+                        else:
+                            logger.info(f"谏官审查通过（第{current_iteration}次迭代），虽有非致命问题但允许执行。")
+                            logger.info(f"发现 {len(critique_report)} 个非致命问题，但系统将继续执行。")
+                        return True
+                    else:
+                        logger.warning(f"谏官审查未通过（第{current_iteration}次迭代），发现致命错误，需要重新决策。")
+                        return False
+                else:
+                    logger.error("无法从谏官输出中提取有效的JSON格式")
+                    return False
+            except json.JSONDecodeError as e:
+                logger.error(f"解析谏官输出JSON失败: {e}")
+                logger.error(f"原始输出: {critic_output}")
+                return False
+        else:
+            logger.error("谏官模块返回空结果")
+            return False
+            
+    except Exception as e:
+        logger.error(f"运行谏官审查模块时发生异常: {e}")
+        raise  # 让重试装饰器处理
+
 def run_auto_trader(dry_run: bool = False) -> bool:
     """
     运行自动交易系统。
@@ -249,10 +358,117 @@ def show_debug_help():
 """
     print(help_text)
 
+# 全局变量：累积谏官反馈
+cumulative_critic_feedback = []
+
+def add_critic_feedback_to_cumulative(attempt_number: int) -> bool:
+    """
+    将当前谏官反馈添加到累积反馈列表中。
+    
+    Args:
+        attempt_number (int): 当前尝试次数
+    
+    Returns:
+        bool: 是否成功添加反馈
+    """
+    global cumulative_critic_feedback
+    
+    try:
+        critic_answer_path = os.path.join(project_root, config["logs"]["Critic_answer_path"])
+        if not os.path.exists(critic_answer_path):
+            logger.warning(f"第{attempt_number}次：未找到谏官审查结果文件")
+            return False
+        
+        with open(critic_answer_path, "r", encoding="utf-8") as f:
+            critic_result = json.load(f)
+        
+        critique_report = critic_result.get("critique_report", [])
+        if not critique_report:
+            logger.warning(f"第{attempt_number}次：谏官审查结果为空")
+            return False
+        
+        # 添加当前反馈到累积列表
+        feedback_entry = {
+            "attempt": attempt_number,
+            "timestamp": critic_result.get("timestamp", "未知时间"),
+            "status": critic_result.get("status", "Needs Revision"),
+            "critique_report": critique_report
+        }
+        
+        cumulative_critic_feedback.append(feedback_entry)
+        logger.info(f"已将第{attempt_number}次谏官反馈添加到累积反馈中，当前累积{len(cumulative_critic_feedback)}轮反馈")
+        
+        return True
+        
+    except Exception as e:
+        logger.error(f"添加第{attempt_number}次谏官反馈时发生异常: {e}")
+        return False
+
+def get_cumulative_critic_feedback_as_prompt() -> str:
+    """
+    从累积的谏官审查结果中生成包含所有历史反馈的提示词。
+    
+    Returns:
+        str: 基于所有历史谏官反馈的提示词
+    """
+    global cumulative_critic_feedback
+    
+    if not cumulative_critic_feedback:
+        logger.warning("没有累积的谏官反馈，使用通用重试提示")
+        return "你的上一个指令在执行时失败，请检查指令的JSON格式、价格、止盈止损等参数的正确性和逻辑合理性，然后重新生成指令。"
+    
+    try:
+        # 构建包含所有历史反馈的提示词
+        feedback_parts = [f"根据这一轮交易流程中的{len(cumulative_critic_feedback)}次谏官审查结果，你需要修正以下累积发现的问题：\n"]
+        
+        issue_counter = 1
+        for round_idx, feedback_entry in enumerate(cumulative_critic_feedback, 1):
+            attempt = feedback_entry.get("attempt", round_idx)
+            critique_report = feedback_entry.get("critique_report", [])
+            
+            if critique_report:
+                feedback_parts.append(f"=== 第{attempt}次决策 - 谏官审查发现的问题 ===")
+                
+                for issue in critique_report:
+                    severity = issue.get('severity', 'Unknown')
+                    description = issue.get('description', '未提供描述')
+                    suggested_correction = issue.get('suggested_correction', '请重新评估')
+                    
+                    feedback_parts.append(f"{issue_counter}. [{severity}] {description}")
+                    feedback_parts.append(f"   修正建议：{suggested_correction}")
+                    issue_counter += 1
+                
+                feedback_parts.append("")  # 空行分隔
+        
+        feedback_parts.append("=== 重要提醒 ===")
+        feedback_parts.append("以上是这一轮交易流程中所有谏官审查发现的问题。请仔细阅读所有历史反馈，确保：")
+        feedback_parts.append("1. 不要重复之前已经发现和指出的错误")
+        feedback_parts.append("2. 综合考虑所有反馈，进行全面的修正")
+        feedback_parts.append("3. 特别注意Critical级别的问题，必须完全解决")
+        feedback_parts.append("4. 学习之前的错误模式，避免类似问题再次出现")
+        feedback_parts.append("\n请基于以上完整的历史反馈，重新分析市场数据，修正所有发现的问题，并生成新的交易决策。")
+        
+        return "\n".join(feedback_parts)
+        
+    except Exception as e:
+        logger.error(f"生成累积谏官反馈提示词时发生异常: {e}")
+        return "你的上一个决策未通过谏官审查，请重新分析市场数据并生成更加合理的交易决策。"
+
+def reset_cumulative_critic_feedback():
+    """重置累积谏官反馈，用于新的交易流程开始时。"""
+    global cumulative_critic_feedback
+    cumulative_critic_feedback = []
+    logger.info("已重置累积谏官反馈，开始新的交易流程")
+
 def run_full_trade_flow(args: argparse.Namespace) -> bool:
     """
     执行一次完整的交易流程，从数据收集到交易执行。
-
+    
+    优化设计：
+    - 数据收集只执行一次，确保所有决策尝试基于相同的市场数据
+    - 谏官审查失败后直接重新决策，不重新收集数据
+    - 交易执行失败后也直接重新决策，不重新收集数据
+    
     Args:
         args (argparse.Namespace): 解析后的命令行参数。
 
@@ -260,27 +476,58 @@ def run_full_trade_flow(args: argparse.Namespace) -> bool:
         bool: 交易流程是否成功执行。
     """
     try:
-        # 1. 运行数据收集
+        # 0. 重置累积谏官反馈，开始新的交易流程
+        reset_cumulative_critic_feedback()
+        
+        # 1. 运行数据收集（只执行一次，确保所有后续决策基于相同数据）
         logger.info("正在运行数据收集模块...")
         get_main()
-        logger.info("数据收集模块运行完成。")
+        logger.info("数据收集模块运行完成。所有后续决策将基于这份数据进行。")
 
-        # 2. 运行Gemini API调用和自动交易
+        # 2. 基于收集的数据进行决策-审查-执行循环
         success = False
-        # 交易失败后重新决策的提示词
-        RETHINK_PROMPT = "你的上一个指令在执行时失败，请检查指令的JSON格式、价格、止盈止损等参数的正确性和逻辑合理性，然后重新生成指令。"
+        # 交易执行失败后重新决策的通用提示词
+        EXECUTION_FAILURE_PROMPT = "你的上一个指令在交易执行时失败，请检查指令的JSON格式、价格、止盈止损等参数的正确性和逻辑合理性，然后重新生成指令。"
+        
+        # 跟踪上次失败的原因：'critic' 表示谏官审查失败，'execution' 表示交易执行失败
+        last_failure_reason = None
 
-        for attempt in range(3):
-            logger.info(f"开始第 {attempt + 1} 次交易尝试...")
+        for attempt in range(10):
+            if attempt == 0:
+                logger.info(f"开始第 {attempt + 1} 次决策尝试（基于已收集的市场数据）...")
+            else:
+                logger.info(f"开始第 {attempt + 1} 次重新决策（不重新收集数据）...")
             
-            # 首次尝试不附加提示词，重试时附加反思提示词
-            prompt_to_use = RETHINK_PROMPT if attempt > 0 else None
-            if prompt_to_use:
-                logger.info(f"本次为重试，附加提示词: '{prompt_to_use}'")
+            # 根据上次失败原因确定提示词
+            prompt_to_use = None
+            if attempt > 0:
+                if last_failure_reason == 'critic':
+                    # 使用累积的谏官反馈
+                    prompt_to_use = get_cumulative_critic_feedback_as_prompt()
+                    logger.info(f"本次为谏官审查失败后重新决策，使用累积谏官反馈作为提示词")
+                elif last_failure_reason == 'execution':
+                    # 使用执行失败的通用提示词
+                    prompt_to_use = EXECUTION_FAILURE_PROMPT
+                    logger.info(f"本次为交易执行失败后重新决策，使用执行失败提示词")
+                else:
+                    # 兜底情况
+                    prompt_to_use = EXECUTION_FAILURE_PROMPT
+                    logger.info(f"本次为重试，使用通用失败提示词")
+                
+                logger.info(f"附加提示词: '{prompt_to_use[:200]}...'")
 
             try:
-                # 调用AI决策
+                # 调用AI决策（基于已收集的数据）
                 run_gemini_api_caller(prompt_suffix=prompt_to_use, think_mode=args.think)
+                
+                # 谏官审查决策
+                critic_passed = run_critic_review(current_iteration=attempt + 1, max_iterations=10)
+                if not critic_passed:
+                    # 将当前谏官反馈添加到累积反馈中
+                    add_critic_feedback_to_cumulative(attempt + 1)
+                    logger.warning(f"第 {attempt + 1} 次谏官审查未通过，将直接重新决策（不重新收集数据）...")
+                    last_failure_reason = 'critic'
+                    continue
                 
                 # 执行交易
                 if run_auto_trader(dry_run=args.dry_run):
@@ -288,9 +535,11 @@ def run_full_trade_flow(args: argparse.Namespace) -> bool:
                     success = True
                     break
                 else:
-                    logger.warning(f"第 {attempt + 1} 次自动交易执行失败或返回了否定信号。准备重试...")
+                    logger.warning(f"第 {attempt + 1} 次自动交易执行失败或返回了否定信号，将直接重新决策（不重新收集数据）...")
+                    last_failure_reason = 'execution'
             except Exception as e:
                 logger.error(f"第 {attempt + 1} 次尝试过程中发生异常: {e}")
+                last_failure_reason = 'execution'
         
         if success:
             logger.info("交易流程执行成功")

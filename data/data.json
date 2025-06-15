@@ -1,219 +1,163 @@
 {
-  "screenshots": {},
+  "screenshots": {
+    "15": "/home/li-xufeng/codespace/taishang/data/screenshots/tradingview_15m_20250614_202554.png",
+    "240": "/home/li-xufeng/codespace/taishang/data/screenshots/tradingview_240m_20250614_202604.png",
+    "60": "/home/li-xufeng/codespace/taishang/data/screenshots/tradingview_60m_20250614_202559.png"
+  },
   "indicators_main(非实时报价)": {
     "15m": [
       {
-        "开盘时间": "2025-06-14T06:00:00+0000",
-        "open": 2550.78,
-        "high": 2555.26,
-        "low": 2547.11,
-        "close": 2550.2,
-        "volume": 219883.03,
-        "RSI": 45.053,
-        "EMA5": 2550.5,
-        "EMA21": 2552.79,
-        "EMA55": 2550.64,
-        "ATR": 6.787,
-        "MACD": -1.441,
-        "VWAP": 2540.85
+        "开盘时间": "2025-06-14T09:45:00+0000",
+        "open": 2528.47,
+        "high": 2528.93,
+        "low": 2520.8,
+        "close": 2522.24,
+        "volume": 447464.98,
+        "RSI": 24.523163165667427,
+        "EMA5": 2527.836834668625,
+        "EMA21": 2537.3009092797543,
+        "EMA55": 2543.421768914072,
+        "ATR": 7.055537637021139,
+        "MACD": -6.535686930799784,
+        "VWAP": 2543.764666029984
       },
       {
-        "开盘时间": "2025-06-14T06:15:00+0000",
-        "open": 2550.19,
-        "high": 2550.79,
-        "low": 2540.99,
-        "close": 2544.0,
-        "volume": 514418.14,
-        "RSI": 33.152,
-        "EMA5": 2548.33,
-        "EMA21": 2551.99,
-        "EMA55": 2550.4,
-        "ATR": 7.189,
-        "MACD": -1.936,
-        "VWAP": 2540.9
+        "开盘时间": "2025-06-14T10:00:00+0000",
+        "open": 2522.24,
+        "high": 2526.82,
+        "low": 2516.54,
+        "close": 2526.0,
+        "volume": 384517.25,
+        "RSI": 35.23606773426616,
+        "EMA5": 2527.2245564457503,
+        "EMA21": 2536.2735538906854,
+        "EMA55": 2542.7995628814265,
+        "ATR": 7.485465952085014,
+        "MACD": -6.581858119226581,
+        "VWAP": 2543.562447891946
       },
       {
-        "开盘时间": "2025-06-14T06:30:00+0000",
-        "open": 2544.01,
-        "high": 2546.36,
-        "low": 2540.7,
-        "close": 2546.03,
-        "volume": 148221.89,
-        "RSI": 39.218,
-        "EMA5": 2547.57,
-        "EMA21": 2551.45,
-        "EMA55": 2550.25,
-        "ATR": 6.985,
-        "MACD": -2.14,
-        "VWAP": 2540.91
+        "开盘时间": "2025-06-14T10:15:00+0000",
+        "open": 2526.0,
+        "high": 2530.03,
+        "low": 2521.59,
+        "close": 2529.3,
+        "volume": 310928.04,
+        "RSI": 43.375136454766725,
+        "EMA5": 2527.9163709638337,
+        "EMA21": 2535.639594446078,
+        "EMA55": 2542.3174356356612,
+        "ATR": 7.612737158473687,
+        "MACD": -6.279777333871607,
+        "VWAP": 2543.4320852342444
       },
       {
-        "开盘时间": "2025-06-14T06:45:00+0000",
-        "open": 2546.03,
-        "high": 2546.34,
-        "low": 2541.77,
-        "close": 2542.16,
-        "volume": 91110.29,
-        "RSI": 32.693,
-        "EMA5": 2545.76,
-        "EMA21": 2550.61,
-        "EMA55": 2549.96,
-        "ATR": 6.663,
-        "MACD": -2.583,
-        "VWAP": 2540.92
+        "开盘时间": "2025-06-14T10:30:00+0000",
+        "open": 2529.31,
+        "high": 2534.78,
+        "low": 2526.36,
+        "close": 2528.59,
+        "volume": 284339.16,
+        "RSI": 42.0628386592763,
+        "EMA5": 2528.1409139758894,
+        "EMA21": 2534.998722223707,
+        "EMA55": 2541.827170077245,
+        "ATR": 7.7203722040105385,
+        "MACD": -6.028178116469917,
+        "VWAP": 2543.3356044920843
       },
       {
-        "开盘时间": "2025-06-14T07:00:00+0000",
-        "open": 2542.16,
-        "high": 2542.81,
-        "low": 2535.19,
-        "close": 2536.34,
-        "volume": 384347.36,
-        "RSI": 25.368,
-        "EMA5": 2542.62,
-        "EMA21": 2549.31,
-        "EMA55": 2549.47,
-        "ATR": 6.79,
-        "MACD": -3.366,
-        "VWAP": 2540.9
+        "开盘时间": "2025-06-14T10:45:00+0000",
+        "open": 2528.59,
+        "high": 2533.2,
+        "low": 2528.33,
+        "close": 2530.02,
+        "volume": 152886.47,
+        "RSI": 45.86880346260612,
+        "EMA5": 2528.767275983926,
+        "EMA21": 2534.5461111124605,
+        "EMA55": 2541.4054854316287,
+        "ATR": 7.340322576809119,
+        "MACD": -5.648284961907848,
+        "VWAP": 2543.286613252928
       },
       {
-        "开盘时间": "2025-06-14T07:15:00+0000",
-        "open": 2536.35,
-        "high": 2538.65,
-        "low": 2524.62,
-        "close": 2534.42,
-        "volume": 605949.17,
-        "RSI": 23.375,
-        "EMA5": 2539.89,
-        "EMA21": 2547.96,
-        "EMA55": 2548.94,
-        "ATR": 7.756,
-        "MACD": -4.094,
-        "VWAP": 2540.78
+        "开盘时间": "2025-06-14T11:00:00+0000",
+        "open": 2530.02,
+        "high": 2534.3,
+        "low": 2530.01,
+        "close": 2532.49,
+        "volume": 188508.93,
+        "RSI": 52.13538822158676,
+        "EMA5": 2530.008183989284,
+        "EMA21": 2534.3591919204187,
+        "EMA55": 2541.0870752376422,
+        "ATR": 6.933612899901233,
+        "MACD": -5.089242918169475,
+        "VWAP": 2543.234927952392
       },
       {
-        "开盘时间": "2025-06-14T07:30:00+0000",
-        "open": 2534.42,
-        "high": 2541.29,
-        "low": 2533.44,
-        "close": 2540.41,
-        "volume": 280802.35,
-        "RSI": 40.27,
-        "EMA5": 2540.06,
-        "EMA21": 2547.27,
-        "EMA55": 2548.63,
-        "ATR": 7.768,
-        "MACD": -4.14,
-        "VWAP": 2540.77
+        "开盘时间": "2025-06-14T11:15:00+0000",
+        "open": 2532.48,
+        "high": 2538.14,
+        "low": 2531.51,
+        "close": 2534.27,
+        "volume": 220295.64,
+        "RSI": 56.338340733085744,
+        "EMA5": 2531.42878932619,
+        "EMA21": 2534.351083564017,
+        "EMA55": 2540.843608264869,
+        "ATR": 6.893131179914356,
+        "MACD": -4.451255642668912,
+        "VWAP": 2543.18807576273
       },
       {
-        "开盘时间": "2025-06-14T07:45:00+0000",
-        "open": 2540.41,
-        "high": 2541.1,
-        "low": 2535.58,
-        "close": 2536.17,
-        "volume": 150145.64,
-        "RSI": 34.125,
-        "EMA5": 2538.76,
-        "EMA21": 2546.26,
-        "EMA55": 2548.19,
-        "ATR": 7.469,
-        "MACD": -4.467,
-        "VWAP": 2540.76
+        "开盘时间": "2025-06-14T11:30:00+0000",
+        "open": 2534.28,
+        "high": 2537.0,
+        "low": 2529.3,
+        "close": 2530.29,
+        "volume": 140121.19,
+        "RSI": 45.93262056920209,
+        "EMA5": 2531.0491928841266,
+        "EMA21": 2533.981894149106,
+        "EMA55": 2540.466693683981,
+        "ATR": 7.000713689259085,
+        "MACD": -4.218174379610446,
+        "VWAP": 2543.150097443976
       },
       {
-        "开盘时间": "2025-06-14T08:00:00+0000",
-        "open": 2536.17,
-        "high": 2536.76,
-        "low": 2525.12,
-        "close": 2527.88,
-        "volume": 402153.69,
-        "RSI": 25.385,
-        "EMA5": 2535.14,
-        "EMA21": 2544.59,
-        "EMA55": 2547.46,
-        "ATR": 8.025,
-        "MACD": -5.333,
-        "VWAP": 2540.66
+        "开盘时间": "2025-06-14T11:45:00+0000",
+        "open": 2530.29,
+        "high": 2538.55,
+        "low": 2529.01,
+        "close": 2537.04,
+        "volume": 271397.13,
+        "RSI": 60.28663516267193,
+        "EMA5": 2533.046128589418,
+        "EMA21": 2534.2599037719147,
+        "EMA55": 2540.3443117666957,
+        "ATR": 7.339285197357868,
+        "MACD": -3.4490289526602282,
+        "VWAP": 2543.0950297054983
       },
       {
-        "开盘时间": "2025-06-14T08:15:00+0000",
-        "open": 2527.87,
-        "high": 2533.0,
-        "low": 2527.3,
-        "close": 2532.74,
-        "volume": 201410.95,
-        "RSI": 36.403,
-        "EMA5": 2534.34,
-        "EMA21": 2543.51,
-        "EMA55": 2546.94,
-        "ATR": 7.715,
-        "MACD": -5.564,
-        "VWAP": 2540.62
+        "开盘时间": "2025-06-14T12:00:00+0000",
+        "open": 2537.03,
+        "high": 2538.0,
+        "low": 2530.2,
+        "close": 2532.49,
+        "volume": 163537.4,
+        "RSI": 49.968722646357364,
+        "EMA5": 2532.8607523929454,
+        "EMA21": 2534.0990034290135,
+        "EMA55": 2540.063800632171,
+        "ATR": 7.400713837710176,
+        "MACD": -3.1700799263871886,
+        "VWAP": 2543.0569991409975
       }
     ],
     "1h": [
-      {
-        "开盘时间": "2025-06-13T22:00:00+0000",
-        "open": 2552.74,
-        "high": 2573.09,
-        "low": 2552.74,
-        "close": 2570.62,
-        "volume": 1063285.67,
-        "RSI": 63.538,
-        "EMA5": 2552.46,
-        "EMA21": 2558.81,
-        "EMA55": 2622.73,
-        "ATR": 30.174,
-        "MACD": -21.884,
-        "VWAP": 2686.88
-      },
-      {
-        "开盘时间": "2025-06-13T23:00:00+0000",
-        "open": 2570.61,
-        "high": 2582.0,
-        "low": 2565.14,
-        "close": 2577.64,
-        "volume": 1029028.36,
-        "RSI": 66.421,
-        "EMA5": 2560.85,
-        "EMA21": 2560.52,
-        "EMA55": 2621.12,
-        "ATR": 28.399,
-        "MACD": -17.843,
-        "VWAP": 2686.42
-      },
-      {
-        "开盘时间": "2025-06-14T00:00:00+0000",
-        "open": 2577.64,
-        "high": 2578.15,
-        "low": 2556.48,
-        "close": 2560.92,
-        "volume": 1422583.24,
-        "RSI": 54.564,
-        "EMA5": 2560.88,
-        "EMA21": 2560.56,
-        "EMA55": 2618.97,
-        "ATR": 27.501,
-        "MACD": -15.808,
-        "VWAP": 2685.73
-      },
-      {
-        "开盘时间": "2025-06-14T01:00:00+0000",
-        "open": 2560.91,
-        "high": 2564.9,
-        "low": 2548.41,
-        "close": 2556.4,
-        "volume": 1310933.65,
-        "RSI": 51.686,
-        "EMA5": 2559.38,
-        "EMA21": 2560.18,
-        "EMA55": 2616.73,
-        "ATR": 26.033,
-        "MACD": -14.394,
-        "VWAP": 2685.07
-      },
       {
         "开盘时间": "2025-06-14T02:00:00+0000",
         "open": 2556.41,
@@ -221,13 +165,13 @@
         "low": 2551.09,
         "close": 2554.0,
         "volume": 698309.22,
-        "RSI": 50.068,
-        "EMA5": 2557.59,
-        "EMA21": 2559.62,
-        "EMA55": 2614.49,
-        "ATR": 24.55,
-        "MACD": -13.314,
-        "VWAP": 2684.71
+        "RSI": 50.06812090264814,
+        "EMA5": 2557.5894359214944,
+        "EMA21": 2559.6165000407614,
+        "EMA55": 2613.9771246526493,
+        "ATR": 24.550171398360405,
+        "MACD": -13.302462962094523,
+        "VWAP": 2684.977967929784
       },
       {
         "开盘时间": "2025-06-14T03:00:00+0000",
@@ -236,13 +180,13 @@
         "low": 2545.8,
         "close": 2547.89,
         "volume": 687398.33,
-        "RSI": 45.852,
-        "EMA5": 2554.36,
-        "EMA21": 2558.55,
-        "EMA55": 2612.11,
-        "ATR": 23.085,
-        "MACD": -12.803,
-        "VWAP": 2684.35
+        "RSI": 45.85190666161552,
+        "EMA5": 2554.3562906143297,
+        "EMA21": 2558.55045458251,
+        "EMA55": 2611.616870200769,
+        "ATR": 23.084815211912343,
+        "MACD": -12.792527878098554,
+        "VWAP": 2684.6053209382185
       },
       {
         "开盘时间": "2025-06-14T04:00:00+0000",
@@ -251,13 +195,13 @@
         "low": 2547.33,
         "close": 2550.95,
         "volume": 532691.54,
-        "RSI": 48.365,
-        "EMA5": 2553.22,
-        "EMA21": 2557.86,
-        "EMA55": 2609.93,
-        "ATR": 21.096,
-        "MACD": -12.013,
-        "VWAP": 2684.07
+        "RSI": 48.36458653176501,
+        "EMA5": 2553.220860409553,
+        "EMA21": 2557.859504165918,
+        "EMA55": 2609.450196265027,
+        "ATR": 21.096173183657374,
+        "MACD": -12.003119731058632,
+        "VWAP": 2684.31848855942
       },
       {
         "开盘时间": "2025-06-14T05:00:00+0000",
@@ -266,13 +210,13 @@
         "low": 2545.21,
         "close": 2550.78,
         "volume": 516523.92,
-        "RSI": 48.221,
-        "EMA5": 2552.41,
-        "EMA21": 2557.22,
-        "EMA55": 2607.82,
-        "ATR": 19.657,
-        "MACD": -11.27,
-        "VWAP": 2683.8
+        "RSI": 48.221147635283664,
+        "EMA5": 2552.4072402730353,
+        "EMA21": 2557.2159128781077,
+        "EMA55": 2607.3548321127046,
+        "ATR": 19.656683425836416,
+        "MACD": -11.261411128892632,
+        "VWAP": 2684.0399558135127
       },
       {
         "开盘时间": "2025-06-14T06:00:00+0000",
@@ -281,13 +225,13 @@
         "low": 2540.7,
         "close": 2542.16,
         "volume": 973633.35,
-        "RSI": 41.091,
-        "EMA5": 2548.99,
-        "EMA21": 2555.85,
-        "EMA55": 2605.47,
-        "ATR": 18.977,
-        "MACD": -11.248,
-        "VWAP": 2683.28
+        "RSI": 41.09108540423575,
+        "EMA5": 2548.991493515357,
+        "EMA21": 2555.8471935255525,
+        "EMA55": 2605.0264452515366,
+        "ATR": 18.977125635724946,
+        "MACD": -11.239600558774782,
+        "VWAP": 2683.5006395665387
       },
       {
         "开盘时间": "2025-06-14T07:00:00+0000",
@@ -296,31 +240,76 @@
         "low": 2524.62,
         "close": 2536.17,
         "volume": 1421244.52,
-        "RSI": 36.736,
-        "EMA5": 2544.72,
-        "EMA21": 2554.06,
-        "EMA55": 2603.0,
-        "ATR": 18.872,
-        "MACD": -11.58,
-        "VWAP": 2682.46
+        "RSI": 36.735834752719384,
+        "EMA5": 2544.7176623435716,
+        "EMA21": 2554.058357750502,
+        "EMA55": 2602.567286492553,
+        "ATR": 18.87217555096163,
+        "MACD": -11.572260647044459,
+        "VWAP": 2682.6556363271475
+      },
+      {
+        "开盘时间": "2025-06-14T08:00:00+0000",
+        "open": 2536.17,
+        "high": 2536.87,
+        "low": 2525.12,
+        "close": 2534.78,
+        "volume": 1031335.6,
+        "RSI": 35.72206805755427,
+        "EMA5": 2541.405108229048,
+        "EMA21": 2552.305779773184,
+        "EMA55": 2600.146311974962,
+        "ATR": 17.922552144166744,
+        "MACD": -11.81189734700456,
+        "VWAP": 2682.039098831934
+      },
+      {
+        "开盘时间": "2025-06-14T09:00:00+0000",
+        "open": 2534.78,
+        "high": 2535.0,
+        "low": 2520.8,
+        "close": 2522.24,
+        "volume": 949187.19,
+        "RSI": 27.75041724148771,
+        "EMA5": 2535.0167388193654,
+        "EMA21": 2549.572527066531,
+        "EMA55": 2597.3639436901417,
+        "ATR": 17.42621185827782,
+        "MACD": -12.865380261821883,
+        "VWAP": 2681.45265370657
+      },
+      {
+        "开盘时间": "2025-06-14T10:00:00+0000",
+        "open": 2522.24,
+        "high": 2534.78,
+        "low": 2516.54,
+        "close": 2530.02,
+        "volume": 1132670.92,
+        "RSI": 37.70246602602844,
+        "EMA5": 2533.3511592129103,
+        "EMA21": 2547.795024605937,
+        "EMA55": 2594.9588028440653,
+        "ATR": 17.53471694384081,
+        "MACD": -12.923517813182116,
+        "VWAP": 2680.763500189171
+      },
+      {
+        "开盘时间": "2025-06-14T11:00:00+0000",
+        "open": 2530.02,
+        "high": 2538.55,
+        "low": 2529.01,
+        "close": 2537.04,
+        "volume": 820322.89,
+        "RSI": 45.51606379171878,
+        "EMA5": 2534.580772808607,
+        "EMA21": 2546.817295096306,
+        "EMA55": 2592.890274171063,
+        "ATR": 16.46875468466203,
+        "MACD": -12.261790620508236,
+        "VWAP": 2680.293211904522
       }
     ],
     "4h": [
-      {
-        "开盘时间": "2025-06-12T16:00:00+0000",
-        "open": 2718.76,
-        "high": 2769.99,
-        "low": 2690.0,
-        "close": 2693.01,
-        "volume": 10758360.87,
-        "RSI": 38.864,
-        "EMA5": 2726.6,
-        "EMA21": 2712.3,
-        "EMA55": 2644.49,
-        "ATR": 63.66,
-        "MACD": 40.202,
-        "VWAP": 2618.23
-      },
       {
         "开盘时间": "2025-06-12T20:00:00+0000",
         "open": 2693.0,
@@ -328,13 +317,13 @@
         "low": 2615.0,
         "close": 2641.5,
         "volume": 12136362.07,
-        "RSI": 30.238,
-        "EMA5": 2698.23,
-        "EMA21": 2705.86,
-        "EMA55": 2644.38,
-        "ATR": 66.772,
-        "MACD": 29.574,
-        "VWAP": 2618.85
+        "RSI": 30.238263463581845,
+        "EMA5": 2698.2324946981407,
+        "EMA21": 2705.8726172013708,
+        "EMA55": 2646.6976215290224,
+        "ATR": 66.77178245826029,
+        "MACD": 29.516414476917817,
+        "VWAP": 2618.736693484828
       },
       {
         "开盘时间": "2025-06-13T00:00:00+0000",
@@ -343,13 +332,13 @@
         "low": 2433.11,
         "close": 2513.07,
         "volume": 33099617.71,
-        "RSI": 18.455,
-        "EMA5": 2636.51,
-        "EMA21": 2688.34,
-        "EMA55": 2639.69,
-        "ATR": 86.077,
-        "MACD": 10.666,
-        "VWAP": 2614.7
+        "RSI": 18.45489004323298,
+        "EMA5": 2636.5116631320943,
+        "EMA21": 2688.3451065467,
+        "EMA55": 2641.9252064744146,
+        "ATR": 86.07687813049225,
+        "MACD": 10.612145027606857,
+        "VWAP": 2614.55903638419
       },
       {
         "开盘时间": "2025-06-13T04:00:00+0000",
@@ -358,13 +347,13 @@
         "low": 2490.17,
         "close": 2525.63,
         "volume": 8835488.17,
-        "RSI": 21.89,
-        "EMA5": 2599.55,
-        "EMA21": 2673.54,
-        "EMA55": 2635.62,
-        "ATR": 81.516,
-        "MACD": -3.268,
-        "VWAP": 2613.52
+        "RSI": 21.889620079568317,
+        "EMA5": 2599.5511087547297,
+        "EMA21": 2673.552824133364,
+        "EMA55": 2637.771806243186,
+        "ATR": 81.5159610464266,
+        "MACD": -3.317891093963226,
+        "VWAP": 2613.3727698459948
       },
       {
         "开盘时间": "2025-06-13T08:00:00+0000",
@@ -373,13 +362,13 @@
         "low": 2505.0,
         "close": 2543.56,
         "volume": 7732036.92,
-        "RSI": 26.957,
-        "EMA5": 2580.89,
-        "EMA21": 2661.73,
-        "EMA55": 2632.33,
-        "ATR": 75.88,
-        "MACD": -12.718,
-        "VWAP": 2612.64
+        "RSI": 26.95730964555392,
+        "EMA5": 2580.8874058364863,
+        "EMA21": 2661.7352946666942,
+        "EMA55": 2634.407098877358,
+        "ATR": 75.88049957356972,
+        "MACD": -12.763612943125281,
+        "VWAP": 2612.4842656727674
       },
       {
         "开盘时间": "2025-06-13T12:00:00+0000",
@@ -388,13 +377,13 @@
         "low": 2502.0,
         "close": 2550.0,
         "volume": 13623693.86,
-        "RSI": 28.87,
-        "EMA5": 2570.59,
-        "EMA21": 2651.57,
-        "EMA55": 2629.39,
-        "ATR": 73.752,
-        "MACD": -19.463,
-        "VWAP": 2611.26
+        "RSI": 28.869840799722823,
+        "EMA5": 2570.591603890991,
+        "EMA21": 2651.5775406060857,
+        "EMA55": 2631.3925596317376,
+        "ATR": 73.75243296376044,
+        "MACD": -19.50492079710557,
+        "VWAP": 2611.0956159405982
       },
       {
         "开盘时间": "2025-06-13T16:00:00+0000",
@@ -403,13 +392,13 @@
         "low": 2508.65,
         "close": 2526.11,
         "volume": 10686688.83,
-        "RSI": 25.96,
-        "EMA5": 2555.76,
-        "EMA21": 2640.16,
-        "EMA55": 2625.7,
-        "ATR": 73.981,
-        "MACD": -26.431,
-        "VWAP": 2610.23
+        "RSI": 25.96032890575576,
+        "EMA5": 2555.7644025939944,
+        "EMA21": 2640.171400550987,
+        "EMA55": 2627.632468216318,
+        "ATR": 73.98144190192569,
+        "MACD": -26.47004893572739,
+        "VWAP": 2610.065857492853
       },
       {
         "开盘时间": "2025-06-13T20:00:00+0000",
@@ -418,13 +407,13 @@
         "low": 2522.87,
         "close": 2577.64,
         "volume": 3775209.09,
-        "RSI": 40.807,
-        "EMA5": 2563.06,
-        "EMA21": 2634.48,
-        "EMA55": 2623.98,
-        "ATR": 72.001,
-        "MACD": -27.478,
-        "VWAP": 2609.99
+        "RSI": 40.8072435499167,
+        "EMA5": 2563.0562683959965,
+        "EMA21": 2634.486727773625,
+        "EMA55": 2625.847022922878,
+        "ATR": 72.00124964833562,
+        "MACD": -27.514749911163563,
+        "VWAP": 2609.816551012457
       },
       {
         "开盘时间": "2025-06-14T00:00:00+0000",
@@ -433,13 +422,13 @@
         "low": 2545.8,
         "close": 2547.89,
         "volume": 4119224.44,
-        "RSI": 35.999,
-        "EMA5": 2558.0,
-        "EMA21": 2626.61,
-        "EMA55": 2621.27,
-        "ATR": 66.714,
-        "MACD": -30.359,
-        "VWAP": 2609.7
+        "RSI": 35.99850729374117,
+        "EMA5": 2558.000845597331,
+        "EMA21": 2626.6142979760225,
+        "EMA55": 2623.062843532775,
+        "ATR": 66.71441636189086,
+        "MACD": -30.392908796064148,
+        "VWAP": 2609.5278464083867
       },
       {
         "开盘时间": "2025-06-14T04:00:00+0000",
@@ -448,339 +437,172 @@
         "low": 2524.62,
         "close": 2536.17,
         "volume": 3444093.33,
-        "RSI": 34.168,
-        "EMA5": 2550.72,
-        "EMA21": 2618.39,
-        "EMA55": 2618.23,
-        "ATR": 61.938,
-        "MACD": -33.205,
-        "VWAP": 2609.38
+        "RSI": 34.16827865527269,
+        "EMA5": 2550.7238970648878,
+        "EMA21": 2618.3920890691115,
+        "EMA55": 2619.9595276923187,
+        "ATR": 61.93782751363879,
+        "MACD": -33.23644742331089,
+        "VWAP": 2609.2042111606374
+      },
+      {
+        "开盘时间": "2025-06-14T08:00:00+0000",
+        "open": 2536.17,
+        "high": 2538.55,
+        "low": 2516.54,
+        "close": 2537.04,
+        "volume": 3933516.6,
+        "RSI": 34.453714484593846,
+        "EMA5": 2546.1625980432586,
+        "EMA21": 2610.996444608283,
+        "EMA55": 2616.9981159890217,
+        "ATR": 56.61411717848698,
+        "MACD": -35.01612643413591,
+        "VWAP": 2608.796322346692
       }
     ]
   },
   "factors_main": {
     "factors": {
       "FGI": "63/100",
-      "open_interest": "$3467083859866.996 million",
-      "funding_rate": "0.0022%"
+      "open_interest": "$3467415459960.9995 million",
+      "funding_rate": "0.004%"
     }
   },
   "okx_positions": {
     "instrument_id": "ETH-USDT-SWAP",
     "balance": {
-      "Available_Margin": "109015.74 USDT"
+      "total_equity": 110487.43,
+      "available_margin": 108034.81,
+      "used_margin": 2452.61,
+      "frozen_balance": 2408.44,
+      "order_frozen": 0.0,
+      "margin_usage_ratio": 2.22,
+      "available_ratio": 97.78,
+      "risk_level": "低风险",
+      "can_open_position": true,
+      "display": {
+        "total_equity_display": "110487.43 USDT",
+        "available_margin_display": "108034.81 USDT",
+        "used_margin_display": "2452.61 USDT",
+        "margin_usage_display": "2.22%"
+      }
     },
     "positions": [
       {
         "instrument_id": "ETH-USDT-SWAP",
-        "Position direction": "long",
-        "pos": "717.49 piece",
-        "avgPrice": "2534.6802812582753768 USDT",
-        "Unrealized Gains": "-38.625888926324315 USDT",
-        "liqPrice": "2520.718076150568 USDT",
-        "lever": "100 x"
+        "position_side": "short",
+        "position_size": 770.7,
+        "avg_price": 2538.0,
+        "current_price": 2532.13,
+        "unrealized_pnl": 452.4008999999916,
+        "realized_pnl": -39.120732,
+        "liquidation_price": 2551.886465903435,
+        "leverage": 100.0,
+        "margin": 1956.0366,
+        "notional_value": 195229.31960364,
+        "position_value": 1956036.6,
+        "pnl_ratio": 23.13,
+        "liquidation_distance": 0.78,
+        "risk_level": "高风险",
+        "display": {
+          "position_display": "770.7 张",
+          "avg_price_display": "2538.0 USDT",
+          "unrealized_pnl_display": "+452.40 USDT",
+          "liquidation_price_display": "2551.886465903435 USDT",
+          "leverage_display": "100.0x",
+          "pnl_ratio_display": "+23.13%",
+          "liquidation_distance_display": "0.8%"
+        }
       }
     ],
     "orders": [
       {
         "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "normal",
-        "ordId": "2596635703589605376",
-        "size": "236.77",
-        "price": "2565",
-        "lever": "100",
-        "direction": "sell",
-        "posSide": "long",
+        "order_type": "algo",
+        "algoId": "2597120532494712835",
+        "ordId": "",
+        "size": "770.7",
+        "posSide": "short",
+        "triggerPrice": "",
+        "orderPrice": "N/A",
         "status": "live",
-        "fillSz": "0",
-        "avgPx": "",
-        "createTime": "1749888174361"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "normal",
-        "ordId": "2596635685101113344",
-        "size": "236.77",
-        "price": "2550",
-        "lever": "100",
-        "direction": "sell",
-        "posSide": "long",
-        "status": "live",
-        "fillSz": "0",
-        "avgPx": "",
-        "createTime": "1749888173810"
+        "direction": "buy",
+        "createTime": "1749902623389"
       },
       {
         "instrument_id": "ETH-USDT-SWAP",
         "order_type": "algo",
-        "algoId": "2596581562954317836",
+        "algoId": "2597120532494712834",
         "ordId": "",
-        "size": "152.93",
-        "posSide": "long",
+        "size": "257",
+        "posSide": "short",
         "triggerPrice": "",
         "orderPrice": "N/A",
         "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
+        "direction": "buy",
+        "createTime": "1749902623389"
       },
       {
         "instrument_id": "ETH-USDT-SWAP",
         "order_type": "algo",
-        "algoId": "2596581562954317835",
+        "algoId": "2597120532494712833",
         "ordId": "",
-        "size": "50.97",
-        "posSide": "long",
+        "size": "257",
+        "posSide": "short",
         "triggerPrice": "",
         "orderPrice": "N/A",
         "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
+        "direction": "buy",
+        "createTime": "1749902623389"
       },
       {
         "instrument_id": "ETH-USDT-SWAP",
         "order_type": "algo",
-        "algoId": "2596581562954317834",
+        "algoId": "2597120532494712832",
         "ordId": "",
-        "size": "50.98",
-        "posSide": "long",
+        "size": "256.7",
+        "posSide": "short",
         "triggerPrice": "",
         "orderPrice": "N/A",
         "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317833",
-        "ordId": "",
-        "size": "50.98",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317832",
-        "ordId": "",
-        "size": "152.93",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317831",
-        "ordId": "",
-        "size": "50.98",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317830",
-        "ordId": "",
-        "size": "50.98",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317829",
-        "ordId": "",
-        "size": "50.97",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317828",
-        "ordId": "",
-        "size": "152.93",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317827",
-        "ordId": "",
-        "size": "50.98",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317826",
-        "ordId": "",
-        "size": "50.98",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317825",
-        "ordId": "",
-        "size": "50.97",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562954317824",
-        "ordId": "",
-        "size": "110.87",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560845"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763398",
-        "ordId": "",
-        "size": "36.96",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763397",
-        "ordId": "",
-        "size": "36.96",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763396",
-        "ordId": "",
-        "size": "36.95",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763395",
-        "ordId": "",
-        "size": "147.83",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763394",
-        "ordId": "",
-        "size": "50.27",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763393",
-        "ordId": "",
-        "size": "48.78",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
-      },
-      {
-        "instrument_id": "ETH-USDT-SWAP",
-        "order_type": "algo",
-        "algoId": "2596581562920763392",
-        "ordId": "",
-        "size": "48.78",
-        "posSide": "long",
-        "triggerPrice": "",
-        "orderPrice": "N/A",
-        "status": "live",
-        "direction": "sell",
-        "createTime": "1749886560844"
+        "direction": "buy",
+        "createTime": "1749902623389"
       }
-    ]
+    ],
+    "account_analysis": {
+      "total_positions": 1,
+      "total_position_value": 1956036.6,
+      "total_unrealized_pnl": 452.4,
+      "position_concentration": {
+        "position_to_equity_ratio": 1770.37,
+        "concentration_level": "高"
+      },
+      "risk_summary": {
+        "high_risk_positions": 1,
+        "margin_usage_ratio": 2.22,
+        "overall_risk": "低风险",
+        "can_open_new_position": true
+      },
+      "trading_activity": {
+        "pending_orders_count": 4,
+        "has_pending_orders": true
+      },
+      "recommendations": [
+        "有1个高风险持仓，建议关注强平风险",
+        "仓位过于集中，建议分散投资降低风险"
+      ]
+    }
   },
-  "current_time": "2025-06-14 16:30:06.610525+08:00",
+  "current_time": "2025-06-14 20:25:48.391460+08:00",
   "kline_patterns(analyze_kline_patterns)": {
     "15m": {
       "kline_shapes": {
-        "description": "阳线，实体饱满",
-        "strength": "高"
+        "description": "阴线，实体中等，近期多为阴线",
+        "strength": "中"
       },
       "bollinger_bands": {
-        "description": "价格在布林带内，位于10.9%处（0%为下轨，100%为上轨），布林带宽度稳定，日均波动0.1%，中轨走平，横盘整理，布林带宽度占中轨1.2%",
+        "description": "价格在布林带内，位于55.3%处（0%为下轨，100%为上轨），布林带宽度稳定，日均波动0.0%，中轨走平，横盘整理，布林带宽度占中轨0.7%",
         "strength": "中"
       },
       "ema_alignment": {
@@ -792,15 +614,91 @@
         "strength": "弱"
       },
       "rsi_analysis": {
-        "description": "RSI偏弱区域（36.4），RSI强势上涨11.0点，出现底背离，看涨信号，RSI中等波动（振幅16.9点，日均波动10.7点），RSI频繁转向",
+        "description": "RSI在中性区域（50.0），RSI快速下跌10.3点，RSI向下穿越50中轴（位于50.0），转空头，RSI中等波动（振幅14.4点，日均波动9.8点），RSI频繁转向",
         "strength": "中"
       },
       "macd_analysis": {
-        "description": "MACD柱形快速缩短(0.178)，MACD趋势强劲(5.564)，趋势加速",
+        "description": "MACD柱形温和增长(0.053)，MACD趋势强劲(3.170)，趋势减速",
         "strength": "高"
       },
       "adx_analysis": {
-        "description": "当前趋势开始形成，趋势强度略有增强，趋势增强持续性好",
+        "description": "当前趋势开始形成，趋势强度略有减弱，趋势减弱持续性好",
+        "strength": "中"
+      },
+      "stochastic": {
+        "description": "KD指标在中性区域，KD死叉形成，KD指标趋于钝化",
+        "strength": "弱"
+      },
+      "stoch_rsi": {
+        "description": "StochRSI形成死叉，StochRSI温和下降",
+        "strength": "强"
+      }
+    },
+    "1h": {
+      "kline_shapes": {
+        "description": "阳线，实体饱满，近期多为阳线",
+        "strength": "高"
+      },
+      "bollinger_bands": {
+        "description": "价格在布林带内，位于34.3%处（0%为下轨，100%为上轨），布林带宽度稳定，日均波动0.1%，中轨走平，横盘整理，布林带宽度占中轨2.3%",
+        "strength": "中"
+      },
+      "ema_alignment": {
+        "description": "EMA死亡排列，主趋势缓慢向下，中期趋势向下，短期趋势向上，短期反弹，但仍处于下跌趋势，价格在EMA5附近徘徊",
+        "strength": "高"
+      },
+      "long_term_ema": {
+        "description": "当前价格位于长期均线下方，长期趋势偏空",
+        "strength": "强"
+      },
+      "rsi_analysis": {
+        "description": "RSI在中性区域（45.5），RSI温和上涨7.8点，RSI中等波动（振幅17.8点，日均波动6.7点），RSI趋势连续性强",
+        "strength": "中"
+      },
+      "macd_analysis": {
+        "description": "MACD柱形快速增长(0.333)，MACD趋势强劲(12.262)，MACD顶背离，可能见顶，趋势加速",
+        "strength": "高"
+      },
+      "adx_analysis": {
+        "description": "当前趋势开始形成，趋势增强持续性好",
+        "strength": "中"
+      },
+      "stochastic": {
+        "description": "KD指标在中性区域",
+        "strength": "中"
+      },
+      "stoch_rsi": {
+        "description": "StochRSI动能强劲上升",
+        "strength": "中"
+      }
+    },
+    "4h": {
+      "kline_shapes": {
+        "description": "阳线，实体较小，长下影线",
+        "strength": "高"
+      },
+      "bollinger_bands": {
+        "description": "价格在布林带内，位于24.5%处（0%为下轨，100%为上轨），布林带宽度稳定，日均波动0.9%，中轨向下-0.5%，趋势动量0.6，布林带宽度占中轨17.8%，建议注意风险",
+        "strength": "高"
+      },
+      "ema_alignment": {
+        "description": "EMA死亡排列，主趋势强势下跌，中期趋势强势下跌，短期趋势向下",
+        "strength": "高"
+      },
+      "long_term_ema": {
+        "description": "当前价格位于长期均线下方，长期趋势偏空",
+        "strength": "强"
+      },
+      "rsi_analysis": {
+        "description": "RSI偏弱区域（34.5），RSI小幅上涨0.3点，RSI中等波动（振幅14.8点，日均波动5.4点），RSI频繁转向",
+        "strength": "中"
+      },
+      "macd_analysis": {
+        "description": "MACD柱形快速缩短(2.918)，MACD趋势强劲(35.016)，MACD顶背离，可能见顶，趋势加速",
+        "strength": "高"
+      },
+      "adx_analysis": {
+        "description": "当前趋势开始形成，趋势增强持续性好",
         "strength": "中"
       },
       "stochastic": {
@@ -811,89 +709,13 @@
         "description": "StochRSI形成金叉，StochRSI动能强劲上升",
         "strength": "强"
       }
-    },
-    "1h": {
-      "kline_shapes": {
-        "description": "阴线，实体中等，长下影线，三连阴",
-        "strength": "高"
-      },
-      "bollinger_bands": {
-        "description": "价格在布林带内，位于25.8%处（0%为下轨，100%为上轨），布林带宽度稳定，日均波动0.1%，中轨走平，横盘整理，布林带宽度占中轨2.0%",
-        "strength": "中"
-      },
-      "ema_alignment": {
-        "description": "EMA死亡排列，主趋势缓慢向下，中期趋势向下，短期趋势向下",
-        "strength": "高"
-      },
-      "long_term_ema": {
-        "description": "当前价格位于长期均线下方，长期趋势偏空，价格与长期均线偏离较大，注意回归风险",
-        "strength": "强"
-      },
-      "rsi_analysis": {
-        "description": "RSI偏弱区域（36.7），RSI小幅下跌4.4点，RSI中等波动（振幅11.6点，日均波动3.5点），RSI趋势连续性强",
-        "strength": "中"
-      },
-      "macd_analysis": {
-        "description": "MACD柱形快速增长(1.224)，MACD趋势强劲(11.580)，MACD底背离，可能见底",
-        "strength": "高"
-      },
-      "adx_analysis": {
-        "description": "当前无明显趋势，趋势强度略有增强，趋势增强持续性好",
-        "strength": "弱"
-      },
-      "stochastic": {
-        "description": "KD指标在中性区域",
-        "strength": "中"
-      },
-      "stoch_rsi": {
-        "description": "StochRSI显示极度超卖，StochRSI温和下降",
-        "strength": "强"
-      }
-    },
-    "4h": {
-      "kline_shapes": {
-        "description": "阴线，实体中等，近期多为阴线",
-        "strength": "中"
-      },
-      "bollinger_bands": {
-        "description": "价格在布林带内，位于21.7%处（0%为下轨，100%为上轨），布林带宽度稳定，日均波动0.9%，中轨向下-0.5%，趋势动量0.6，布林带宽度占中轨17.7%，建议注意风险",
-        "strength": "高"
-      },
-      "ema_alignment": {
-        "description": "EMA散乱排列，主趋势强势下跌，中期趋势强势下跌，短期趋势向下",
-        "strength": "中"
-      },
-      "long_term_ema": {
-        "description": "当前价格位于长期均线下方",
-        "strength": "中"
-      },
-      "rsi_analysis": {
-        "description": "RSI偏弱区域（34.2），RSI小幅下跌1.8点，RSI中等波动（振幅14.8点，日均波动6.1点），RSI频繁转向",
-        "strength": "中"
-      },
-      "macd_analysis": {
-        "description": "MACD柱形快速缩短(2.584)，MACD趋势强劲(33.205)，趋势减速",
-        "strength": "高"
-      },
-      "adx_analysis": {
-        "description": "当前趋势开始形成，趋势增强持续性好",
-        "strength": "中"
-      },
-      "stochastic": {
-        "description": "KD指标在中性区域，KD死叉形成，KD指标趋于钝化",
-        "strength": "弱"
-      },
-      "stoch_rsi": {
-        "description": "StochRSI形成死叉，StochRSI温和上升",
-        "strength": "强"
-      }
     }
   },
   "tools_performance": {
-    "gettime_exec_time": 0.0004918575286865234,
-    "gettransactionhistory_exec_time": 3.790855407714844e-05,
+    "gettime_exec_time": 1.6689300537109375e-05,
+    "gettransactionhistory_exec_time": 0.0,
     "executepythoncode_exec_times": [],
-    "analyzeklinepatterns_exec_time": 0.011556148529052734
+    "analyzeklinepatterns_exec_time": 0.0001780986785888672
   },
-  "timestamp": "2025-06-14T16:30:07+08:00"
+  "timestamp": "2025-06-14T20:26:04+08:00"
 }
