@@ -1,0 +1,57 @@
+{
+   "checksum": "3a3ed120296b80752f9db4a909e30469",
+   "roots": {
+      "bookmark_bar": {
+         "children": [  ],
+         "date_added": "13394331464988882",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "书签栏",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "children": [  ],
+            "date_added": "13377662527642508",
+            "date_last_used": "0",
+            "date_modified": "13377662527642508",
+            "guid": "9eb3c894-33d1-4d45-bc53-e4684db3e8fe",
+            "id": "5",
+            "name": "New folder",
+            "type": "folder"
+         }, {
+            "date_added": "13377662372844625",
+            "date_last_used": "0",
+            "guid": "de0bfa59-bd28-4140-a03b-ac58711dfa76",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "New Tab",
+            "type": "url",
+            "url": "chrome://newtab/"
+         } ],
+         "date_added": "13394331464988883",
+         "date_last_used": "0",
+         "date_modified": "13377662372844625",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "其他书签",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13394331464988883",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "移动设备书签",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CtEBCrABCIiBAhKpASAAkgGjAQqgAQoOY2hyb21lX3N5bmNfYm0SBTUxIWJtGhIJxcqpi3w3BgARxcqpi3w3BgAiNAlLEY+LfDcGABADGY+hwxmPtNmWIAEqHDUxIWJtL2ZkOjkxNjM3MjM1NTk0Njg4OTMxNjEiNAlLEY+LfDcGABADGY+hwxmPtNmWIAEqHDUxIWJtL2ZkOjkxNjM3MjM1NTk0Njg4OTMxNjEprVmsi3w3BgASACoYZkRmRVNNZzZUTW5HdGp5Nmhaa01vdz09SAMS6wEIBhLmAQocS254bC94d1p0SXprazhHbVZlZ2pmanJ1aDh3PRJmWjpBRHF0QVp4REFPM1FDMWdvSFh2VE1pSUtSaisvaXJ0azg1OFNUdW1vdzhmem1NYmxKODY5TEp4RWRyUjJQWGlZTTB4ZVlHOXJFVGZPamIrNktRMXlQaGFFZ2hZRG9uMkpsQT09GAAgACgAMO6wlam3iooDOOzH59C4MkDsx+fQuDJKHDMzcldlV2JjT0hwWjlHdUNPUzFWL0MwOTcxST1aHiIcOXg5LzdsZU9sQWxIRm1lQVdmamNDdS9sTFZzPWUAAAAAEsMBCAISvgEKHFljU1RvbnZFU1B3cUNzNEwyY3JWaHY2OEw5OD0SZlo6QURxdEFaeFdTOHUzam1MbTN2a01qZHVJU2RRYkczRytOcHhCL3JUTDE1U3Vab0NwYXFXTS9lazJ1MGdZdDhqdnE4WFI4emxxZ2M2YmFreGRyNkhTMjh5OTlJYnlRVE9tVVE9PRgAIAAoADCy1P7DocKNAzgAQABKHG9QVmtod0JSYlY2NUtDV1IyK0lPTkhXb091OD1aAGUAAAAAEqsBCAESpgEKHHl4Si82ZnZrZWNyN2twNUVRekI0dFdMcGRiRT0STlo6QURxdEFaeXhPMnZycUhBSlFweTdQemJFWm9RNkpmNFJQUWJ6clA2OWhoQmVQNHJaQmI4b2dZeWxmSDdhSzZqREJDeUNlZE9VSGJodhgAIAAoADCy1P7DocKNAzgAQABKHGFSQ1dMZ2hGOWI1SW5xS0lEdnVKL2p2UWtGYz1aAGUAAAAAEuwBCAUS5wEKHHRPbGtMLzNOOTh0VDhZYUFiRS9NSTc1VUhtZz0SZlo6QURxdEFaeERBTzNRQzFnb0hYdlRNaUlLUmorL2ZrS0V2anltZGRKWGlZMzllNWE1cTNXV0tLQzA3UGxNNmlJdUU0TXo0dHpqTE5xcnNjNnlOODFmOWtZL0s5Q1JLRGx2VVE9PRgAIAAoADCJvY30t4qKAziagfHQuDJAmoHx0LgyShxjUmh1ZUMwNExHaVJyV3hGSU52ZnA3K2FhNXM9Wh8iHRxFWDFscE0rTFFKSHI2M00vMnZBb1RNMDYxSGM9ZQAAAAASwwEIAxK+AQocbmpnRHU4OGVDcnZYcDg2cEQ3ZkhHY3FGcDg4PRJmWjpBRHF0QVp6bi9WQUhURnc0aEVGaG9JeHJaaXp2aUxrM2VEZWRDb3h3R1kvdjFTYVdlSFJDQzZxWlBnazdmWlhzcmdCbDVrVmh1WG5jWnNWS3M2YWdzeTRVaVBxbFQrN3Rhdz09GAAgACgAMLLU/sOhwo0DOABAAEoceXpOQjAxY241NEE3Y1JVMHVUKy9QZ21UdFVvPVoAZQAAAAAwATgA",
+   "version": 1
+}

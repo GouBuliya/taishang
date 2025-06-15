@@ -11,9 +11,7 @@ wheels/
 venv/
 
 # 运行时数据目录
-data/
 cache/
-logs/
 
 # 开发工具
 .vscode/
@@ -29,3 +27,15 @@ Thumbs.db
 *.tmp
 *.temp
 *.log
+.coverage*
+
+# 测试相关
+htmlcov/
+
+# 数据文件
+screenshots/
+*.png
+
+# 本地配置
+.env
+.env.local
