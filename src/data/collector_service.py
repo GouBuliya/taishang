@@ -386,44 +386,51 @@ def main():
     screenshots_dir = os.path.join(PROJECT_ROOT, "data", "screenshots")
     def screenshots():
         """获取屏幕截图的函数"""
-        def get_screenshots():
-            """获取屏幕截图的函数,自带check"""
-            try:
-                from src.data.collectors.tradingview_auto_screenshot import main as screenshot_main
-                res_path = screenshot_main()
-                def check():
-                    """检查截图路径是否有效"""
-                    if not res_path or not isinstance(res_path, dict):
-                        logger.error("获取屏幕截图失败，返回结果无效")
-                        return False
-                    for key, path in res_path.items():
-                        if not os.path.exists(path):
-                            logger.error(f"截图文件不存在: {path}")
+        while True:
+            def get_screenshots():
+                """获取屏幕截图的函数,自带check"""
+                try:
+                    from src.data.collectors.tradingview_auto_screenshot import main as screenshot_main
+                    res_path = screenshot_main()
+                    def check():
+                        """检查截图路径是否有效"""
+                        if not res_path or not isinstance(res_path, dict):
+                            logger.error("获取屏幕截图失败，返回结果无效")
                             return False
-                    return True
-                if not check():
-                    logger.error("获取屏幕截图失败，返回结果无效尝试重试")
-                    time.sleep(1)
-                    res_path = screenshot_main()  # 再次尝试获取截图
-                if not check():
-                    logger.error("获取屏幕截图失败，重试后仍然无效")
+                        for key, path in res_path.items():
+                            if not os.path.exists(path):
+                                logger.error(f"截图文件不存在: {path}")
+                                return False
+                        return True
+                    if not check():
+                        logger.error("获取屏幕截图失败，返回结果无效尝试重试")
+                        time.sleep(1)
+                        res_path = screenshot_main()  # 再次尝试获取截图
+                    if not check():
+                        logger.error("获取屏幕截图失败，重试后仍然无效")
+                        return {}
+                    logger.info(f"获取屏幕截图成功，返回结果: {res_path}")
+                    return res_path
+                except Exception as e:
+                    logger.error(f"获取屏幕截图失败: {e}")
                     return {}
-                logger.info(f"获取屏幕截图成功，返回结果: {res_path}")
-                return res_path
-            except Exception as e:
-                logger.error(f"获取屏幕截图失败: {e}")
-                return {}
 
-        screenshots=get_screenshots()
-        if screenshots is not None and isinstance(screenshots, dict):
-            logger.info(f"获取屏幕截图成功，包含 {len(screenshots)} 个时间周期的截图")
-        else:
-            logger.error("获取屏幕截图失败，使用空字典代替")
-            screenshots = {}
+            screenshots=get_screenshots()
+            if screenshots is not None and isinstance(screenshots, dict):
+                if len(screenshots) == 0:
+                    logger.error("获取屏幕截图失败，准备重试")
+                    screenshots = {}
+                else:
+                    logger.info(f"获取屏幕截图成功，包含 {len(screenshots)} 个时间周期的截图")
+                    break
+            else:
+                logger.error("获取屏幕截图失败，使用空字典代替")
+                screenshots = {}
+                break
         return screenshots
     
     merged = {
-        "screenshots": screenshots(),  # --new
+        "screenshots": screenshots(),
         "indicators_main(非实时报价)": results["indicators"],# --debug
         "factors_main": results["factors"] if isinstance(results["factors"], dict) else {},
         "okx_positions": results["okx_positions"],
